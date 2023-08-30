@@ -56,6 +56,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 class InstitutionLoginController extends Controller
 {
+
     public function institutionprofile(Request $request)
     {
         // $user = Auth::user();
@@ -83,7 +84,6 @@ class InstitutionLoginController extends Controller
         $themes = Theme::orderBy('theme_name','asc')->get();
         $institution_theme_details = InstitutionTheme::where('institution_id',$institution_id)->first();
         //dd($institution_theme_details);
-
 
 
          return view('theme.institution.profile',['user_details'=>$user_details,'institution_details'=>$institution_details,'themes'=>$themes,'institution_theme_details'=>$institution_theme_details,'user_id'=>$user_id]);
@@ -428,8 +428,9 @@ public function institutionmessage(Request $request)
             $institution_theme_details->save();
 
 
-
+            //Session::set('institute_name', $institution_details->name);
             session()->put('institute_name', $institution_details->name);
+
             return redirect()->back()->with('message', 'Successfully update institution profile!');
         }
 
@@ -514,6 +515,7 @@ public function institutionmessage(Request $request)
 
       return response()->json(['error'=>$validator->errors()->all()]);
     }
+
     public function course(Request $request)
     {
         if($request->institution_id == null) {
@@ -539,14 +541,14 @@ public function institutionmessage(Request $request)
 
 
 
-        // $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+        $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
 
 
         $data7=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('user_id',$user_id)->orderBy('courses.id','desc')
-       ->distinct('courses.id')->select('courses.*','categories.name as category_name')
+      ->select('courses.*','categories.name as category_name')
         ->get();
 
-        // dd($data7);
+         //dd($data7);
 
         //$users = User::where('created_at', '>=', $date)->get();
 
@@ -961,7 +963,7 @@ public function update(Request $request, Course $course,$id)
 
 
 
-                            $created_by = Auth::id();
+                            $created_by = $request->user_id;
 
                 $preview_image=$request->old_preview_image;
 
@@ -2094,7 +2096,6 @@ public function noaccesspage(Request $request)
 
 }
 
-
 // start teacher mangement//
 
 public function institutionteacherview(Request $request)
@@ -2160,8 +2161,8 @@ public function institutionmyteacher(Request $request)
         $current_date = date('Y-m-d H:i:s');
 
         $course_lists = Course::where('user_id',$user_id)->orderBy('title','asc')->get();
-        // $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
-        $my_teachers=InstitutionTeacher::leftjoin('users','institution_teachers.user_id','=','users.id')->where(['users.status'=>'active','users.role'=>'2','institution_teachers.institution_id'=>$user_id,'institution_teachers.status'=>'approve',])->select('users.*')->orderBy('users.name','asc')->get();
+        $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+        $my_teachers=InstitutionTeacher::leftjoin('users','institution_teachers.user_id','=','users.id')->where(['users.status'=>'active','users.role'=>'2','institution_teachers.institution_id'=>$institution_id,'institution_teachers.status'=>'approve',])->select('users.*')->orderBy('users.name','asc')->get();
             // dd($my_teachers);
 
             $thearray = [];
@@ -2359,6 +2360,7 @@ public function assigncourserequest(Request $request)
 }
 
 //end assigned course request //
+//start assign teacher //
 public function assigncoursetoteacher(Request $request)
 {
     if($request->institution_id == null) {
@@ -2385,8 +2387,9 @@ public function assigncoursetoteacher(Request $request)
         }
     }
 
-//dd($data_teacher);
-$data7 = CourseTeacher::leftJoin('users','users.id','=','course_teachers.user_id')->leftJoin('courses','courses.id','=','course_teachers.course_id')->where(['course_teachers.created_by'=>$user_id,'course_teachers.status'=>'approve'])->select('course_teachers.*','courses.id as courses_id','courses.title','users.id as users_id','users.name')->get();
+  //dd($data_teacher);
+
+     $data7 = CourseTeacher::leftJoin('users','users.id','=','course_teachers.user_id')->leftJoin('courses','courses.id','=','course_teachers.course_id')->where(['course_teachers.created_by'=>$user_id,'course_teachers.status'=>'approve'])->select('course_teachers.*','courses.id as courses_id','courses.title','users.id as users_id','users.name')->get();
 
 
 
@@ -2525,6 +2528,7 @@ public function assigncoursetoteacherupdate(Request $request,$id)
 
 
 }
+
 public function courseteacherview($id)
 {
      $courses = CourseTeacher::find($id);
@@ -2537,7 +2541,7 @@ public function courseteacherview($id)
 
 
 }
-
+//end assign teacher //
 // START STATICE//
 public function statistics(Request $request)
 {
@@ -2576,54 +2580,9 @@ public function institutioncompany(Request $request)
         $user_id = $request->institution_id;
     }
 
+  $data7=InstitutionCompanySetting::where('institution_id',$user_id)->select('institution_company_settings.*')->first();
 
-
-    $data7=InstitutionCompanySetting::where('institution_id',$user_id)->select('institution_company_settings.*')->get();
-
-
-      $thearray = [];
-     if(count($data7) > 0)
-     {
-        foreach($data7 as $k2=>$v2)
-        {
-
-                $logo =$v2->logo != ''? asset($v2->logo):'';
-                $fav_icon =$v2->fav_icon != ''? asset($v2->fav_icon):'';
-                 $director_signature =$v2->director_signature != ''? asset($v2->director_signature):'';
-
-
-
-                    $thearray[]=array(
-                        'name'=>$v2->name
-                        ,'logo'=>$logo
-                        ,'director_signature'=>$director_signature
-                        ,'copyright_text'=>$v2->copyright_text
-                        , 'address'=>$v2->address
-                        ,'phone'=>$v2->phone
-                        , 'fax'=>$v2->fax
-                        ,'country'=>$v2->country
-                        , 'website'=>$v2->website
-                        ,'id'=>$v2->id
-                        ,'institution_id'=>$v2->institution_id
-                        , 'fav_icon'=>$fav_icon
-                        , 'home_page_short_description'=>$v2->home_page_short_description
-                        , 'footer_text'=>$v2->footer_text
-                        ,'header_text'=>$v2->header_text
-                        , 'facebook_link'=>$v2->facebook_link
-                        , 'instagram_link'=>$v2->instagram_link
-                        , 'twiter_link'=>$v2->twiter_link
-                        , 'linkedin_link'=>$v2->linkedin_link
-                        , 'youtube_link'=>$v2->youtube_link
-                    );
-
-        }
-     }
-
-
-   //dd($data);
-
-
-   return view('theme.institution.settings.company',['companys'=>$thearray,'user_id'=>$user_id]);
+  return view('theme.institution.settings.company',['companys'=>$data7,'user_id'=>$user_id]);
 
 
 
@@ -2634,6 +2593,7 @@ public function institutioncompany(Request $request)
     public function institutioncompanyupdate(Request $request,$id)
     {
          $name = $request->input('name');
+         $user_id = $request->input('user_id');
          $address = $request->input('address');
          $phone = $request->input('phone');
          $fax = $request->input('fax');
@@ -2761,48 +2721,104 @@ public function institutioncompany(Request $request)
                      }
             }
 
-            $company =  InstitutionCompanySetting::where('id',$id)->first();
-            $company->name = $request->name;
-            $company->address = $request->address;
-            $company->phone = $request->phone;
-            $company->fax = $request->fax;
-            $company->website = $request->website;
-            $company->country = $request->country;
-            $company->home_page_short_description = $home_page_short_description;
-            $company->footer_text = $footer_text;
-            $company->header_text = $header_text;
-            $company->copyright_text = $request->copyright_text;
-            $company->logo = $logo;
-            $company->fav_icon = $fav_icon;
-            $company->director_signature = $director_signature;
+            if($id == 0) {
+
+                $company = new InstitutionCompanySetting();
+
+                $company->name = $request->name;
+                $company->institution_id =$request->user_id;
+                $company->address = $request->address;
+                $company->phone = $request->phone;
+                $company->fax = $request->fax;
+                $company->website = $request->website;
+                $company->country = $request->country;
+                $company->home_page_short_description = $home_page_short_description;
+                $company->footer_text = $footer_text;
+                $company->header_text = $header_text;
+                $company->copyright_text = $request->copyright_text;
+                $company->logo = $logo;
+                $company->fav_icon = $fav_icon;
+                $company->director_signature = $director_signature;
 
 
 
-             $company->facebook_link = $request->facebook_link;
-              $company->instagram_link = $request->instagram_link;
-               $company->twiter_link = $request->twiter_link;
-                $company->linkedin_link = $request->linkedin_link;
-                 $company->youtube_link = $request->youtube_link;
+                 $company->facebook_link = $request->facebook_link;
+                  $company->instagram_link = $request->instagram_link;
+                   $company->twiter_link = $request->twiter_link;
+                    $company->linkedin_link = $request->linkedin_link;
+                     $company->youtube_link = $request->youtube_link;
 
 
 
 
-            if($company->save()){
+                if($company->save()){
 
-                $data7=InstitutionCompanySetting::orderBy('institution_company_settings.id','desc')->select('institution_company_settings.*')->get();
+                    $data7=InstitutionCompanySetting::orderBy('institution_company_settings.id','desc')->select('institution_company_settings.*')->get();
 
-                 Session::flash('success', 'successfully company updated!');
+                     Session::flash('success', 'successfully company updated!');
 
-                 return response()->json([
-                  'message' => 'successfully company updated!',
-                  'data'=> $data7
-                ]);
-            }else{
-                 Session::flash('error', 'Something wrong!');
-                 return response()->json([
-                      'message' => 'Something wrong!'
+                     return response()->json([
+                      'message' => 'successfully company updated!',
+                      'data'=> $data7
                     ]);
+                }else{
+                     Session::flash('error', 'Something wrong!');
+                     return response()->json([
+                          'message' => 'Something wrong!'
+                        ]);
+                }
+
+                    ////////////////////////////////////////////////
             }
+            else
+            {
+                $company =  InstitutionCompanySetting::where('id',$id)->first();
+
+                $company->name = $request->name;
+                $company->institution_id =$request->user_id;
+                $company->address = $request->address;
+                $company->phone = $request->phone;
+                $company->fax = $request->fax;
+                $company->website = $request->website;
+                $company->country = $request->country;
+                $company->home_page_short_description = $home_page_short_description;
+                $company->footer_text = $footer_text;
+                $company->header_text = $header_text;
+                $company->copyright_text = $request->copyright_text;
+                $company->logo = $logo;
+                $company->fav_icon = $fav_icon;
+                $company->director_signature = $director_signature;
+
+
+
+                 $company->facebook_link = $request->facebook_link;
+                  $company->instagram_link = $request->instagram_link;
+                   $company->twiter_link = $request->twiter_link;
+                    $company->linkedin_link = $request->linkedin_link;
+                     $company->youtube_link = $request->youtube_link;
+
+
+
+
+                if($company->save()){
+
+                    $data7=InstitutionCompanySetting::orderBy('institution_company_settings.id','desc')->select('institution_company_settings.*')->get();
+
+                     Session::flash('success', 'successfully company updated!');
+
+                     return response()->json([
+                      'message' => 'successfully company updated!',
+                      'data'=> $data7
+                    ]);
+                }else{
+                     Session::flash('error', 'Something wrong!');
+                     return response()->json([
+                          'message' => 'Something wrong!'
+                        ]);
+                }
+            }
+
+
 
     }
 
@@ -2836,38 +2852,8 @@ public function institutionsystem(Request $request)
     $countries = Country::orderBy('c_name','asc')->get();
     $cities = City::orderBy('city_name','asc')->get();
 
-    $data7 = InstitutionSystemSetting::leftJoin('countries','institution_system_settings.default_country_id','=','countries.id')->leftJoin('cities','institution_system_settings.default_city_id','=','cities.id')->where('institution_id',$user_id)->select('institution_system_settings.*','countries.c_name','cities.city_name')->get();
-      //dd($data7);
-
-      $thearray = [];
-     if(count($data7) > 0)
-     {
-        foreach($data7 as $k2=>$v2)
-        {
-
-
-                    $thearray[]=array(
-                        'student_default_subscription_day'=>$v2->student_default_subscription_day
-                        ,'teacher_default_subscription_day'=>$v2->teacher_default_subscription_day
-                        , 'institution_default_subscription_day'=>$v2->institution_default_subscription_day
-                        ,'default_country_id'=>$v2->default_country_id
-                        , 'default_city_id'=>$v2->default_city_id
-                        , 'city_name'=>$v2->city_name
-                        , 'country_name'=>$v2->c_name
-                        ,'teacher_online_class_before_minute'=>$v2->teacher_online_class_before_minute
-                        , 'student_online_class_before_minute'=>$v2->student_online_class_before_minute
-                        ,'institution_id'=>$v2->institution_id
-                        ,'id'=>$v2->id
-                    );
-
-        }
-     }
-
-
-
-
-
-   return view('theme.institution.settings.system',['systems'=>$thearray,'countries'=>$countries,'cities'=>$cities,'user_id'=>$user_id]);
+    $data7 = InstitutionSystemSetting::leftJoin('countries','institution_system_settings.default_country_id','=','countries.id')->leftJoin('cities','institution_system_settings.default_city_id','=','cities.id')->where('institution_id',$user_id)->select('institution_system_settings.*','countries.c_name','cities.city_name')->first();
+     return view('theme.institution.settings.system',['systems'=>$data7,'countries'=>$countries,'cities'=>$cities,'user_id'=>$user_id]);
 
 
 
@@ -2876,6 +2862,7 @@ public function institutionsystem(Request $request)
 public function institutionsystemupdate(Request $request,$id)
 {
      $student_default_subscription_day = $request->input('student_default_subscription_day');
+     $user_id = $request->input('user_id');
      $teacher_default_subscription_day = $request->input('teacher_default_subscription_day');
      $institution_default_subscription_day = $request->input('institution_default_subscription_day');
      $default_country_id = $request->input('default_country_id');
@@ -2883,9 +2870,11 @@ public function institutionsystemupdate(Request $request,$id)
      $teacher_online_class_before_minute = $request->input('teacher_online_class_before_minute');
      $student_online_class_before_minute = $request->input('student_online_class_before_minute');
 
+     if($id == 0) {
+        $system = new InstitutionSystemSetting();
 
 
-        $system =  InstitutionSystemSetting::where('id',$id)->first();
+        $system->institution_id =$request->user_id;
         $system->student_default_subscription_day = $request->student_default_subscription_day;
         $system->teacher_default_subscription_day = $request->teacher_default_subscription_day;
         $system->institution_default_subscription_day = $request->institution_default_subscription_day;
@@ -2912,6 +2901,40 @@ public function institutionsystemupdate(Request $request,$id)
                   'message' => 'Something wrong!'
                 ]);
         }
+     }
+     else{
+
+        $system =  InstitutionSystemSetting::where('id',$id)->first();
+        $system->institution_id =$request->user_id;
+        $system->student_default_subscription_day = $request->student_default_subscription_day;
+        $system->teacher_default_subscription_day = $request->teacher_default_subscription_day;
+        $system->institution_default_subscription_day = $request->institution_default_subscription_day;
+        $system->default_country_id  =$request->default_country_id;
+        $system->default_city_id = $request->default_city_id;
+        $system->teacher_online_class_before_minute = $request->teacher_online_class_before_minute;
+        $system->student_online_class_before_minute = $request->student_online_class_before_minute;
+        //  $category->slug = $slug;
+
+        if($system->save()){
+
+            $data7 = InstitutionSystemSetting::leftJoin('countries','institution_system_settings.default_country_id','=','countries.id')->leftJoin('cities','institution_system_settings.default_city_id','=','cities.id')->select('institution_system_settings.*','countries.c_name','cities.city_name')->get();
+
+             Session::flash('success', 'successfully system settings updated!');
+
+             return response()->json([
+              'message' => 'successfully  system settings updated!',
+              'data'=> $data7
+
+            ]);
+        }else{
+             Session::flash('error', 'Something wrong!');
+             return response()->json([
+                  'message' => 'Something wrong!'
+                ]);
+        }
+
+     }
+
 
 }
 
@@ -3140,6 +3163,7 @@ public function institutionbannersettingupdate(Request $request,$id)
 }
 
 //end banner setting //
+
 //start category //
 public function institutioncategory(Request $request)
 {
@@ -3519,7 +3543,6 @@ public function institutionfaqupdate(Request $request,$id)
 
 
 //end faq section//
-
 //start view subscription //
 
 public function showinstitutionsubscription(Request $request)
@@ -3562,6 +3585,7 @@ public function showinstitutionsubscription(Request $request)
 
 
 //end view subscription //
+
 
 
 }

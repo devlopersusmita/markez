@@ -2,52 +2,67 @@
 @section('content')
 <div class="app-main">
 @include('theme.institution.sidebar')
-
 <div class="app-main__outer">
    <div class="app-main__inner">
+   <a  class="btn btn-primary float-right add_modal" data-toggle="modal" data-target="#homemodals-add" style="cursor: pointer;"><i class="fa fa-plus"></i> New Home setting</a>
 
-    <div class="category-top-row">
-      <h2>Banner setting</h2>
-      <a  class="btn btn-primary float-right add_modal" data-toggle="modal" data-target="#homemodals-add" style="cursor: pointer;"><i class="fa fa-plus"></i> New Banner setting</a>
+
+   @foreach($homes as $home)
+    <div class="form-group m-3" >
+    <div class="row">
+        <div class="col-md-6">
+        <label>Slider</label>
+            <p > <img src="{{asset($home['slider'])}}" alt="" width="100%"></p>
+        </div>
+        <div class="col-md-6">
+            <label>Slider Header</label>
+            <p >{{$home['slider_header']}}</p>
+        </div>
+
+         <div class="col-md-4">
+            <label>Slider Text</label>
+            <p >{{$home['slider_text']}}</p>
+        </div>
+         <div class="col-md-4">
+            <label>Description</label>
+
+             <p >{{$home['description']}}</p>
+        </div>
+
+          <div class="col-md-4">
+            <label>Link</label>
+
+             <p>{{$home['link']}}</p>
+        </div>
+
+
+
+
+        <div class="col-md-12 mt-3 text-right"  >
+        <span   class="btn btn-warning settingsbanneredit_modal" data-toggle="modal" data-target="#homemodals-edit" style="cursor: pointer;" data-id="<?php echo $home['id']?>" >Edit</span>
+        <span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#modals-delete" style="cursor: pointer;" data-id="<?php echo $home['id']?>" >Delete</span>
+        </div>
     </div>
-
-    <div class="table-responsive">
-      <table class="table category-table">
-        <thead>
-          <th>Slider</th>
-          <th>Slider Header</th>
-          <th>Slider Text</th>
-          <th>Description</th>
-          <th>Link</th>
-       
-          <th>Action</th>
-        </thead>
-        <tbody>
-                    
-          @if(!empty($homes))
-      
-          @foreach($homes as $home)
-          <tr>
-
-            <td><img src="{{asset($home['slider'])}}" alt="" width="100%"> </td>
-            <td>{{$home['slider_header']}}</td>
-            <td>{{$home['slider_text']}}</td>
-            <td>{{$home['description']}}</td>
-            <td>{{$home['link']}}</td>
-       
-            <td>
-            <span class="settingsbanneredit_modal" data-toggle="modal" data-target="#homemodals-edit" style="cursor: pointer;" data-id="<?php echo $home['id']?>" ><i class="fa fa-eye" style="font-size:18px"></i></span>
-           <span class="delete_modal" data-toggle="modal" data-target="#modals-delete" style="cursor: pointer;" data-id="<?php echo $home['id']?>"><i class="fa fa-trash-o" style="font-size:18px"></i></span>
-            </td>
-          </tr>
-          @endforeach
-
-          @endif
-        </tbody>
-      </table>
     </div>
- 
-    @endsection
+    @endforeach
+
+
+      </div>
+      <div class="app-wrapper-footer">
+         <div class="app-footer">
+            <div class="app-footer__inner">
+               <div class="app-footer-left">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+
+<!--  -->
 
  <!-- Modal to view Home setting starts-->
  <div class="modal fade" id="modals-view" tabindex="-1" aria-hidden="true">
@@ -241,7 +256,7 @@
       <!-- Modal to edit Home setting Ends-->
 
 <!--  -->
-
+@endsection
 
 
 
