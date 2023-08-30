@@ -1,0 +1,368 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Middleware\Student;
+use App\Http\Middleware\Teacher;
+use App\Http\Middleware\Institution;
+use App\Http\Middleware\Admin;
+use App\Http\Middleware\CheckStatus;
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\InstitutionLoginController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OnlineClassController;
+use App\Http\Controllers\CompanySettingController;
+use App\Http\Controllers\SystemSettingController;
+use App\Http\Controllers\InstitutionTeacherController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CmsController;
+
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\UserDetailController;
+
+use App\Http\Controllers\Auth\LoginController;
+
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\InstitutionSubcriptionPackageController;
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+/*
+Route::get('/', function () {
+    return view('theme.home');
+});
+*/
+Route::get('/', [HomeController::class, 'index']);
+
+Auth::routes();
+
+
+Route::middleware([CheckStatus::class])->group(function () {
+    Route::post('login',[LoginController::class,'login'])->name('login');
+
+});
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/allpages', [HomeController::class, 'allpages'])->name('allpages');
+Route::get('/page/{slug}', [HomeController::class, 'page'])->name('page');
+Route::get('/faquser', [HomeController::class, 'faq'])->name('faquser');
+
+Route::get('/getcity/{country_code}', [HomeController::class, 'getcity'])->name('getcity');
+Route::get('studentview/{id}',[HomeController::class,'studentview'])->name('studentview');
+Route::get('teacherview/{id}',[HomeController::class,'teacherview'])->name('teacherview');
+Route::get('institutionview/{id}',[HomeController::class,'institutionview'])->name('institutionview');
+Route::get('courseview/{id}',[HomeController::class,'courseview'])->name('courseview');
+Route::get('coursesubscription/{id}',[HomeController::class,'coursesubscription'])->name('coursesubscription');
+Route::post('coursesubscriptionpay',[HomeController::class,'coursesubscriptionpay'])->name('coursesubscriptionpay');
+
+
+Route::post('coursecommentsubmit',[HomeController::class,'coursecommentsubmit'])->name('coursecommentsubmit');
+
+Route::post('coursesubscriptionpay_ajax',[HomeController::class,'coursesubscriptionpay_ajax'])->name('coursesubscriptionpay_ajax');
+
+
+Route::get('/orders/{order}/payment/callback', [HomeController::class, 'callback'])->name('payment.callback');
+
+Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
+
+
+Route::post('teacherstudentstudentapprove/{id}/{type}',  [HomeController::class,'teacherstudentstudentapprove'])->name('teacherstudentstudentapprove');
+Route::post('teacherstudentstudentdelete/{id}/{type}',  [HomeController::class,'teacherstudentstudentdelete'])->name('teacherstudentstudentdelete');
+
+
+Route::post('teacherstudentstudentsend/{id}/{type}',  [HomeController::class,'teacherstudentstudentsend'])->name('teacherstudentstudentsend');
+Route::post('institutionstudentstudentsend/{id}/{type}',  [HomeController::class,'institutionstudentstudentsend'])->name('institutionstudentstudentsend');
+
+Route::post('institutionteacherteachersend/{id}/{type}',  [HomeController::class,'institutionteacherteachersend'])->name('institutionteacherteachersend');
+
+Route::post('teacherinstitutioninstitutionsend/{id}/{type}',  [HomeController::class,'teacherinstitutioninstitutionsend'])->name('teacherinstitutioninstitutionsend');
+
+Route::post('institutionstudentstudentdelete/{id}/{type}',  [HomeController::class,'institutionstudentstudentdelete'])->name('institutionstudentstudentdelete');
+
+Route::post('institutionteacherteacherdelete/{id}/{type}',  [HomeController::class,'institutionteacherteacherdelete'])->name('institutionteacherteacherdelete');
+
+Route::post('teacherinstitutioninstitutiondelete/{id}/{type}',  [HomeController::class,'teacherinstitutioninstitutiondelete'])->name('teacherinstitutioninstitutiondelete');
+
+Route::post('institutionstudentstudentapprove/{id}/{type}',  [HomeController::class,'institutionstudentstudentapprove'])->name('institutionstudentstudentapprove');
+
+Route::post('institutionteacherteacherapprove/{id}/{type}',  [HomeController::class,'institutionteacherteacherapprove'])->name('institutionteacherteacherapprove');
+
+Route::post('teacherinstitutioninstitutionapprove/{id}/{type}',  [HomeController::class,'teacherinstitutioninstitutionapprove'])->name('teacherinstitutioninstitutionapprove');
+
+Route::post('studentteacherstudentapprove/{id}/{type}',  [HomeController::class,'studentteacherstudentapprove'])->name('studentteacherstudentapprove');
+
+Route::post('studentinstitutionstudentapprove/{id}/{type}',  [HomeController::class,'studentinstitutionstudentapprove'])->name('studentinstitutionstudentapprove');
+
+Route::post('studentteacherstudentdelete/{id}/{type}',  [HomeController::class,'studentteacherstudentdelete'])->name('studentteacherstudentdelete');
+
+Route::post('studentinstitutionstudentdelete/{id}/{type}',  [HomeController::class,'studentinstitutionstudentdelete'])->name('studentinstitutionstudentdelete');
+
+Route::post('studentteacherstudentsend/{id}/{type}',  [HomeController::class,'studentteacherstudentsend'])->name('studentteacherstudentsend');
+
+Route::post('studentinstitutionstudentsend/{id}/{type}',  [HomeController::class,'studentinstitutionstudentsend'])->name('studentinstitutionstudentsend');
+
+Route::middleware([Student::class])->group(function () {
+    Route::get('profile', [StudentController::class, 'profile'])->name('profile');
+    Route::post('profileupdate', [StudentController::class, 'profileupdate'])->name('profileupdate');
+
+
+    Route::post('save_quiz_response', [StudentController::class, 'save_quiz_response'])->name('save_quiz_response');
+
+    Route::post('ajaxImageUpload', [StudentController::class, 'ajaxImageUploadPost'])->name('ajaxImageUpload');
+    /*Route::get('course',[StudentController::class,'course'])->name('studentcourse');*/
+     Route::get('studentcourse',[StudentController::class,'course'])->name('studentcourse');
+    Route::get('teacher',[StudentController::class,'teacher'])->name('studentteacher');
+    Route::get('institution',[StudentController::class,'institution'])->name('studentinstitution');
+    Route::get('studentcoursecontent/{id}',[StudentController::class,'coursecontent'])->name('studentcoursecontent');
+    Route::get('studentcoursecontentview/{id}',[StudentController::class,'studentcourseView'])->name('studentcoursecontentview');
+    Route::get('studentcoursecontentquize/{id}/{content_id}',[StudentController::class,'coursequize'])->name('studentcoursecontentquize');
+    Route::get('studentcoursecontentquizeview/{id}',[StudentController::class,'quizView'])->name('studentcoursecontentquizeview');
+    Route::get('studentcoursecontentquizequestion/{id}/{content_id}/{quiz_id}',[StudentController::class,'coursequizequestion'])->name('studentcoursecontentquizequestion'); 
+
+     Route::get('studentcoursecontentquizeresult/{id}/{content_id}/{quiz_id}',[StudentController::class,'coursequizeresult'])->name('studentcoursecontentquizeresult');
+
+
+    Route::get('studentcoursecontentquizequestionview/{id}',[StudentController::class,'questionView'])->name('studentcoursecontentquizequestionview');
+    Route::get('studentcourseview/{id}',[StudentController::class,'courseView'])->name('studentcourseview');
+    Route::get('studentcourseonline_classes/{id}/{content_id}',[StudentController::class,'onlineclassstudent'])->name('studentcourseonline_classes');
+
+    Route::get('studentcoursecertificate/{id}/{download}',[StudentController::class,'coursecertificate'])->name('studentcoursecertificate');
+     Route::get('studentorder',[StudentController::class,'order'])->name('studentorder');
+    Route::get('studentorderpaymentview/{id}',[StudentController::class,'paymentView'])->name('studentorderpaymentview');
+    Route::get('studentmessage',[StudentController::class,'message'])->name('studentmessage');
+    Route::post('getteacherlistforstudentmessage',[StudentController::class,'getteacherlistforstudentmessage'])->name('getteacherlistforstudentmessage');
+
+    Route::post('getmessagechatforstudentteacher',[StudentController::class,'getmessagechatforstudentteacher'])->name('getmessagechatforstudentteacher');
+
+    Route::post('sendmessagechatforstudentteacher',[StudentController::class,'sendmessagechatforstudentteacher'])->name('sendmessagechatforstudentteacher');
+
+    Route::get('studentmessageinstitution',[StudentController::class,'messageinstitution'])->name('studentmessageinstitution');
+
+    Route::post('getinstitutionlistforstudentmessage',[StudentController::class,'getinstitutionlistforstudentmessage'])->name('getinstitutionlistforstudentmessage');
+
+    Route::post('getmessagechatforstudentinstitution',[StudentController::class,'getmessagechatforstudentinstitution'])->name('getmessagechatforstudentinstitution');
+
+    Route::post('sendmessagechatforstudentinstitution',[StudentController::class,'sendmessagechatforstudentinstitution'])->name('sendmessagechatforstudentinstitution');
+
+
+
+
+
+});
+
+Route::middleware([Teacher::class])->group(function () {
+     Route::get('teacherprofile', [TeacherController::class, 'teacherprofile'])->name('teacherprofile');
+     Route::post('teacherprofileupdate', [TeacherController::class, 'profileupdate'])->name('teacherprofileupdate');
+    Route::get('teachercourse',[TeacherController::class,'course'])->name('teachercourse');
+    Route::post('teachercoursestatus/{id}/{status}',[TeacherController::class,'statuscourse'])->name('teachercoursestatus');
+
+    Route::get('teachercoursecontent/{id}',[TeacherController::class,'coursecontent'])->name('teachercoursecontent');
+    Route::post('teachercoursecontentstatus/{id}/{status}',[TeacherController::class,'statusteachercoursecontent'])->name('teachercoursecontentstatus');
+    Route::get('teachercoursecontenteview/{id}',[TeacherController::class,'courseView'])->name('teachercoursecontenteview');
+    Route::post('teachercoursecontentdelete/{id}',[TeacherController::class,'destroy'])->name('teachercoursecontentdelete');
+    Route::post('teachercoursecontentstore',[TeacherController::class,'store'])->name('teachercoursecontentstore');
+    Route::post('teachercoursecontentupdate/{id}',[TeacherController::class,'update'])->name('teachercoursecontentupdate');
+    Route::get('teacherinstitution',[TeacherController::class,'institution'])->name('teacherinstitution');
+     Route::get('teacherstudent',[TeacherController::class,'student'])->name('teacherstudent');
+     Route::post('teacherajaxImageUpload', [TeacherController::class, 'ajaxImageUploadPost'])->name('teacherajaxImageUpload');
+
+     Route::get('teachercoursecontentquize/{id}/{content_id}',[TeacherController::class,'coursequize'])->name('teachercoursecontentquize');
+     Route::post('teachercoursecontentquizestore',[TeacherController::class,'quizestore'])->name('teachercoursecontentquizestore');
+     Route::post('teachercoursecontentquizestatus/{id}/{status}',[TeacherController::class,'statusteacherquiz'])->name('teachercoursecontentquizestatus');
+     Route::get('teachercoursecontentquize/{id}/{content_id}',[TeacherController::class,'coursequize'])->name('teachercoursecontentquize');
+     Route::get('teachercoursecontentquizeview/{id}',[TeacherController::class,'quizView'])->name('teachercoursecontentquizeview');
+    Route::post('teachercoursecontentquizedelete/{id}',[TeacherController::class,'quizdestroy'])->name('teachercoursecontentquizedelete');
+    Route::post('teachercoursecontentquizeupdate/{id}',[TeacherController::class,'quizupdate'])->name('teachercoursecontentquizeupdate');
+
+
+    Route::get('online_classes/{id}/{content_id}',[OnlineClassController::class,'index'])->name('online_classes');
+
+
+
+    Route::get('teacheronlineattendance/{id}/{content_id}/{online_class_id}',[OnlineClassController::class,'onlineattendance'])->name('teacheronlineattendance');
+
+    Route::post('online_classes_store',[OnlineClassController::class,'store'])->name('online_classes.store');
+    Route::post('online_classes_delete/{id}',[OnlineClassController::class,'destroy'])->name('online_classes_delete');
+    Route::get('online_classes_testing',[OnlineClassController::class,'testing'])->name('online_classes_testing');
+
+    Route::post('teacheronlineattendancestore/{id}/{online_class_id}',[OnlineClassController::class,'attendancestore'])->name('teacheronlineattendancestore');
+
+    Route::get('teachercoursecontentquizequestion/{id}/{content_id}/{quiz_id}',[TeacherController::class,'coursequizequestion'])->name('teachercoursecontentquizequestion');
+    Route::post('teachercoursecontentquizequestionstore',[TeacherController::class,'questionstore'])->name('teachercoursecontentquizequestionstore');
+    Route::get('teachercoursecontentquizequestionview/{id}',[TeacherController::class,'questionView'])->name('teachercoursecontentquizequestionview');
+    Route::post('teachercoursecontentquizequestionstatus/{id}/{status}',[TeacherController::class,'statusquestion'])->name('teachercoursecontentquizequestionstatus');
+    Route::post('teachercoursecontentquizequestiondelete/{id}/{quiz_id}',[TeacherController::class,'questiondestroy'])->name('teachercoursecontentquizequestiondelete');
+    Route::post('teachercoursecontentquizequestionupdate/{id}',[TeacherController::class,'questionupdate'])->name('teachercoursecontentquizequestionupdate');
+
+
+     Route::get('teachermessage',[TeacherController::class,'teachermessage'])->name('teachermessage');
+    Route::post('getstudentlistforteachermessage',[TeacherController::class,'getstudentlistforteachermessage'])->name('getstudentlistforteachermessage');
+
+    Route::post('getmessagechatforteacherstudent',[TeacherController::class,'getmessagechatforteacherstudent'])->name('getmessagechatforteacherstudent');
+
+    Route::post('sendmessagechatforteacherstudent',[TeacherController::class,'sendmessagechatforteacherstudent'])->name('sendmessagechatforteacherstudent');
+
+
+
+});
+
+Route::middleware([Institution::class])->group(function () {
+     Route::get('institutionprofile', [InstitutionLoginController::class, 'institutionprofile'])->name('institutionprofile');
+      Route::post('institutionprofileupdate', [InstitutionLoginController::class, 'profileupdate'])->name('institutionprofileupdate');
+    Route::post('institutioninstitutionupdate', [InstitutionLoginController::class, 'institutionupdate'])->name('institutioninstitutionupdate');
+    Route::get('institutioncourse',[InstitutionLoginController::class,'course'])->name('institutioncourse');
+
+    Route::post('institutioncoursestatus/{id}/{status}',[InstitutionLoginController::class,'statuscourse'])->name('institutioncoursestatus');
+
+     Route::post('institutioncourcecommissionpercentage/{id}',[InstitutionLoginController::class,'courcecommissionpercentage'])->name('institutioncourcecommissionpercentage');
+
+     Route::post('institutioncourcecommissionpercentagesave/{course_id}/{str}',[InstitutionLoginController::class,'courcecommissionpercentagesave'])->name('institutioncourcecommissionpercentagesave');
+
+
+
+    Route::get('institutioncourseview/{id}',[InstitutionLoginController::class,'courseView'])->name('institutioncourseview');
+    Route::post('institutioncoursedelete/{id}',  [InstitutionLoginController::class,'destroy'])->name('institutioncoursedelete');
+    Route::post('institutioncoursestore',[InstitutionLoginController::class,'store'])->name('institutioncoursestore');
+    Route::post('institutioncourseupdate/{id}',[InstitutionLoginController::class,'update'])->name('institutioncourseupdate');
+    Route::get('institutionteacher',[InstitutionLoginController::class,'teacher'])->name('institutionteacher');
+    Route::get('institutionstudent',[InstitutionLoginController::class,'student'])->name('institutionstudent');
+     Route::post('institutionajaxImageUpload', [InstitutionLoginController::class, 'ajaxImageUploadPost'])->name('institutionajaxImageUpload');
+
+    Route::get('institutioncoursecontent/{id}',[InstitutionLoginController::class,'coursecontent'])->name('institutioncoursecontent');
+    Route::get('institutioncoursecontentview/{id}',[InstitutionLoginController::class,'institutioncourseView'])->name('institutioncoursecontentview');
+    Route::get('institutioncoursecontentquize/{id}/{content_id}',[InstitutionLoginController::class,'coursequize'])->name('institutioncoursecontentquize');
+    Route::get('institutioncoursecontentquizeview/{id}',[InstitutionLoginController::class,'quizView'])->name('institutioncoursecontentquizeview');
+    Route::get('institutioncoursecontentquizequestion/{id}/{content_id}/{quiz_id}',[InstitutionLoginController::class,'coursequizequestion'])->name('institutioncoursecontentquizequestion');
+    Route::get('institutioncoursecontentquizequestionview/{id}',[InstitutionLoginController::class,'questionView'])->name('institutioncoursecontentquizequestionview');
+
+    Route::get('institutioncourseonline_classes/{id}/{content_id}',[InstitutionLoginController::class,'onlineclassindex'])->name('institutioncourseonline_classes');
+
+    Route::get('institutionmessage',[InstitutionLoginController::class,'institutionmessage'])->name('institutionmessage');
+
+    Route::post('getstudentlistforinstitutionmessage',[InstitutionLoginController::class,'getstudentlistforinstitutionmessage'])->name('getstudentlistforinstitutionmessage');
+
+    Route::post('getmessagechatforinstitutionstudent',[InstitutionLoginController::class,'getmessagechatforinstitutionstudent'])->name('getmessagechatforinstitutionstudent');
+
+    Route::post('sendmessagechatforinstitutionstudent',[InstitutionLoginController::class,'sendmessagechatforinstitutionstudent'])->name('sendmessagechatforinstitutionstudent');
+
+    Route::get('subcription',[InstitutionLoginController::class,'institutionsubcription'])->name('subcription');
+    Route::get('institutionsubscription/{id}',[InstitutionLoginController::class,'institutionsubscriptionpackage'])->name('institutionsubscription');
+    Route::get('institutionorder',[InstitutionLoginController::class,'order'])->name('institutionorder');
+    Route::post('institutionorderdelete/{id}',  [InstitutionLoginController::class,'orderdestroy'])->name('institutionorderdelete');
+
+    Route::get('/subcriptionpackage',[InstitutionLoginController::class,'institutionsubcriptionpackagedetail'])->name('subcriptionpackage');
+
+    Route::get('/noaccess',[InstitutionLoginController::class,'noaccesspage'])->name('noaccess');
+
+});
+
+//admin section
+
+Route::prefix('admin')->middleware([Admin::class])->group(function () {
+    Route::get('/dashboard',[AdminController::class,'index'])->name('admin');
+
+//Category section
+    Route::get('/category',[CategoryController::class,'Category'])->name('category');
+    Route::post('/statuscategory/{id}/{status}',[CategoryController::class,'statuscategory'])->name('category.status');
+    Route::get('viewcategory/{id}',[CategoryController::class,'categoryView'])->name('viewcategory');
+    Route::post('/categorydelete/{id}',  [CategoryController::class,'destroy'])->name('categorydelete');
+    Route::post('/categorystore',[CategoryController::class,'store'])->name('categorystore');
+    Route::post('/categoryupdate/{id}',[CategoryController::class,'update'])->name('categoryupdate');
+
+
+    //Company section
+    Route::get('/company',[CompanySettingController::class,'Company'])->name('company');
+    Route::get('viewcompany/{id}',[CompanySettingController::class,'companyView'])->name('viewcompany');
+    Route::post('/companyupdate/{id}',[CompanySettingController::class,'update'])->name('companyupdate');
+
+    //System section
+    Route::get('/system',[SystemSettingController::class,'System'])->name('system');
+    Route::get('viewsystem/{id}',[SystemSettingController::class,'systemView'])->name('viewsystem');
+    Route::post('/systemupdate/{id}',[SystemSettingController::class,'update'])->name('systemupdate');
+
+
+    Route::get('/institution_teacher_need_approval',[InstitutionTeacherController::class,'institution_teacher_need_approval'])->name('institution_teacher_need_approval');
+
+    Route::get('/institution_teacher_approved',[InstitutionTeacherController::class,'institution_teacher_approved'])->name('institution_teacher_approved');
+
+     Route::post('/approve_request/{id}',[InstitutionTeacherController::class,'approve_request'])->name('approve_request');
+     Route::post('/reject_request/{id}',[InstitutionTeacherController::class,'reject_request'])->name('reject_request');
+
+     Route::get('/order',[OrderController::class,'Order'])->name('order');
+    Route::get('viewpayment/{id}',[OrderController::class,'adminpaymentView'])->name('viewpayment');
+
+      Route::get('/institution_subscription_order',[OrderController::class,'institution_subscription_order'])->name('institution_subscription_order');
+    Route::get('view_institution_subscription_payment/{id}',[OrderController::class,'admin_institution_subscription_paymentView'])->name('view_institution_subscription_payment');
+
+    Route::get('viewpayment_institution_subcription/{id}',[OrderController::class,'adminpaymentView_institution_subcription'])->name('viewpayment_institution_subcription');
+
+     //CMS section
+    Route::get('/cms',[CmsController::class,'Cms'])->name('cms');
+    Route::post('/statuscms/{id}/{status}',[CmsController::class,'statusCms'])->name('statuscms');
+    Route::get('viewcms/{id}',[CmsController::class,'cmsView'])->name('viewcms');
+    Route::post('/cmsdelete/{id}',[CmsController::class,'destroy'])->name('cmsdelete');
+    Route::post('/cmsstore',[CmsController::class,'store'])->name('cmsstore');
+    Route::post('/cmsupdate/{id}',[CmsController::class,'update'])->name('cmsupdate');
+
+     //Faq section
+       Route::get('/faq',[FaqController::class,'Faq'])->name('faq');
+       Route::post('/statusfaq/{id}/{status}',[FaqController::class,'statusFaq'])->name('statusfaq');
+       Route::get('viewfaq/{id}',[FaqController::class,'faqView'])->name('viewfaq');
+       Route::post('/faqdelete/{id}',[FaqController::class,'destroy'])->name('faqdelete');
+       Route::post('/faqstore',[FaqController::class,'store'])->name('faqstore');
+       Route::post('/faqupdate/{id}',[FaqController::class,'update'])->name('faqupdate');
+
+       //user section
+
+       Route::get('/student',[UserDetailController::class,'student'])->name('student');
+        Route::post('/statusstudent/{id}/{status}',[UserDetailController::class,'statusstudent'])->name('statusstudent');
+
+       Route::get('/teacher',[UserDetailController::class,'teacher'])->name('teacher');
+       Route::get('/institution',[UserDetailController::class,'institution'])->name('institution');
+        Route::post('/studetupdate/{id}',[UserDetailController::class,'studetupdate'])->name('studetupdate');
+         Route::post('/teacherupdate/{id}',[UserDetailController::class,'teacherupdate'])->name('teacherupdate');
+         Route::post('/institutionupdate/{id}',[UserDetailController::class,'institutionupdate'])->name('institutionupdate');
+
+           //course section
+
+             Route::get('/course',[CourseController::class,'Course'])->name('course');
+             Route::get('coursesubcriptionlist/{id}',[CourseController::class,'Admincoursesubcriptionlist'])->name('coursesubcriptionlist');
+
+             Route::post('/statuscourse/{id}/{status}',[CourseController::class,'statuscourse'])->name('statuscourse');
+             Route::post('/courseupdate/{id}',[CourseController::class,'update'])->name('courseupdate');
+             Route::get('viewcourse/{id}',[CourseController::class,'courseview'])->name('viewcourse');
+
+             //Institutionsubcriptionpackage section
+    Route::get('/institutionsubcriptionpackage',[InstitutionSubcriptionPackageController::class,'Institutionsubcriptionpackage'])->name('institutionsubcriptionpackage');
+    Route::post('/packagestore',[InstitutionSubcriptionPackageController::class,'store'])->name('packagestore');
+    Route::get('viewpackage/{id}',[InstitutionSubcriptionPackageController::class,'packageView'])->name('viewpackage');
+    Route::post('/packageupdate/{id}',[InstitutionSubcriptionPackageController::class,'update'])->name('packageupdate');
+
+      //student section
+      Route::get('/studentpayment',[UserDetailController::class,'studentpayment'])->name('studentpayment');
+    
+      Route::get('viewstudentpayment/{id}',[UserDetailController::class,'viewstudentpayment'])->name('viewstudentpayment');
+
+      Route::post('/studentpaymentupdate/{id}',[UserDetailController::class,'studentpaymentupdate'])->name('studentpaymentupdate');
+
+
+
+
+
+});
