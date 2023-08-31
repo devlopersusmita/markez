@@ -2882,12 +2882,13 @@ public function registerstore(Request $request)
 
 public function postteacherstudentlogin(Request $request)
 {
-
+    echo "lgjdfjgl";exit;
     // Validate the login request
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
     ]);
+
     $email = $request->input('email');
     $password = $request->input('password');
     $institution_id = $request->institution_id;
