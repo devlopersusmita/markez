@@ -28,7 +28,7 @@
 
                 <div class="right-content">
                    <div class="buttons">
-
+                   @include('frontend.notification')
                             <form method="POST" action="{{ route('submitrequest') }}">
                             @csrf
                             <input type="hidden" value="{{$user_id}}" name="user_id">
