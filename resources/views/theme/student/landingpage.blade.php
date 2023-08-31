@@ -25,12 +25,13 @@
             <!-- About sections -->
             <div class="profile-about side-menu">
                 @include('theme.student.sidebar')
-                @include('frontend.notification')
+
                 <div class="right-content">
                    <div class="buttons">
 
                             <form method="POST" action="{{ route('submitrequest') }}">
                             @csrf
+                            @include('frontend.notification')
                             <input type="hidden" value="{{$user_id}}" name="user_id">
                                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
 
