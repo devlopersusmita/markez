@@ -2909,13 +2909,7 @@ public function postteacherstudentlogin(Request $request)
                 return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'You are not register in this Institution');
 
             }
-            $institution_student_relation = InstitutionStudent::where(['user_id' => $user->id, 'institution_id'=>$institution_id])->get();
-            //dd($institution_teacher_relation);
-            if($institution_student_relation->isEmpty()) {
-                //echo 'nei'; exit;
-                return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'You are not register in this Institution');
 
-            }
 
        if($user->role == 2)
        {
