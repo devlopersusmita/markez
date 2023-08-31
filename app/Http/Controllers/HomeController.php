@@ -2897,10 +2897,11 @@ public function postteacherstudentlogin(Request $request)
     //dd($user->id);
 
     $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
-    dd($institution_teacher[0]->status);
+    //dd($institution_teacher[0]->status);
 
     if (($user && Hash::check($password, $user->password)))
     {
+dd($user);
 
        if($user->role == 2)
        {
