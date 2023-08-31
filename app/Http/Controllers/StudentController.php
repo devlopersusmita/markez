@@ -2157,18 +2157,6 @@ class StudentController extends Controller
    return redirect()->back()->with('message', 'Successfully send a request admin');
 
        }
-            $institution_teacher_request = new InstitutionTeacherRequest();
-            $institution_teacher_request->institution_id = $institution_id;
-            $institution_teacher_request->student_id = $user_id;
-            $institution_teacher_request->status = 'pending';
-
-            $institution_teacher_request->save();
-
-
-
-
-
-       return redirect()->back()->with('message', 'Successfully send a request admin');
 
 
     }
