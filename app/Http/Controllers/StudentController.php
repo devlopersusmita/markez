@@ -2134,9 +2134,11 @@ class StudentController extends Controller
        //dd($send_requests);
        if($send_requests > 0)
        {
-        return view('theme.student.landingpage',['user_id'=>$user_id,'institution_id'=>$institution_id])->with('sucess', 'Already Send');
+           Session::flash('error', 'Already exist!');
 
-
+              return response()->json([
+                'message' => 'Already exist!'
+              ]);
        }
        else
        {
@@ -2152,7 +2154,8 @@ class StudentController extends Controller
 
 
 
-   return view('theme.student.landingpage',['user_id'=>$user_id,'institution_id'=>$institution_id])->with('sucess', 'Successfully send a request Admin');
+   return redirect()->back()->with('message', 'Successfully send a request admin');
+
 
        }
 
