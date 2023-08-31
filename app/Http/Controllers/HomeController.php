@@ -2914,13 +2914,13 @@ public function postteacherstudentlogin(Request $request)
        {
 
 
-            if($user->status == 'inactive' && $institution_teacher->status == 'pending')
+            if($user->status == 'inactive' && $institution_teacher[0]->status == 'pending')
             {
 
                 return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'Your status is Inactive, Please contact with Administrator');
 
             }
-            if($user->status == 'active'  && $institution_teacher->status == 'approve')
+            if($user->status == 'active'  && $institution_teacher[0]->status == 'approve')
             {
 
                 return redirect()->route('teacherprofile',['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
