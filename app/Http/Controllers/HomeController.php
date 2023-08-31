@@ -2898,10 +2898,15 @@ public function postteacherstudentlogin(Request $request)
 
     $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
     //dd($institution_teacher[0]->status);
+    if(!$institution_teacher) {
+        echo 'data nei';
+        exit;
+    }
 
     if (($user && Hash::check($password, $user->password)))
     {
-dd($user);
+        //dd($user);
+
 
        if($user->role == 2)
        {
