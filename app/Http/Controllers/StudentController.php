@@ -2130,6 +2130,33 @@ class StudentController extends Controller
        //$user_id=Auth::id();
        $user_id = $request->user_id;
        $institution_id =$request->institution_id;
+       $send_requests = InstitutionTeacherRequest::where(['institution_id'=>$institution_id,'student_id'=>$user_id])->get()->count();
+       dd($send_requests);
+       if($exist_in_teacher_students_no > 0)
+       {
+           Session::flash('error', 'Already exist!');
+
+              return response()->json([
+                'message' => 'Already exist!'
+              ]);
+       }
+       else
+       {
+
+        $institution_teacher_request = new InstitutionTeacherRequest();
+        $institution_teacher_request->institution_id = $institution_id;
+        $institution_teacher_request->student_id = $user_id;
+        $institution_teacher_request->status = 'pending';
+
+        $institution_teacher_request->save();
+
+
+
+
+
+   return redirect()->back()->with('message', 'Successfully send a request admin');
+
+       }
             $institution_teacher_request = new InstitutionTeacherRequest();
             $institution_teacher_request->institution_id = $institution_id;
             $institution_teacher_request->student_id = $user_id;
