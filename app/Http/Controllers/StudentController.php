@@ -2134,8 +2134,8 @@ class StudentController extends Controller
        //dd($send_requests);
        if($send_requests > 0)
        {
-        return redirect()->back()->with('success', 'IT WORKS!');
-            //return redirect()->back()->with('message', 'Already sent');
+        return redirect()->back()->with('success','Already sent');
+
        }
        else
        {
@@ -2151,7 +2151,7 @@ class StudentController extends Controller
 
 
 
-   return redirect()->back()->with('message', 'Successfully send a request admin');
+   return redirect()->back()->with('success', 'Successfully send a request admin');
 
 
        }
