@@ -2931,7 +2931,13 @@ public function postteacherstudentlogin(Request $request)
 
        if($user->role == 1 )
        {
+        $institution_student_relation = InstitutionStudent::where(['user_id' => $user->id, 'institution_id'=>$institution_id])->get();
+        //dd($institution_teacher_relation);
+        if($institution_student_relation->isEmpty()) {
+            //echo 'nei'; exit;
+            return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'You are not register in this Institution');
 
+        }
 
 
             return redirect()->route('profile', ['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
