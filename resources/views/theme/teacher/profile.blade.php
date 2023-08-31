@@ -97,24 +97,26 @@
 
                                                  <form method="POST" action="{{ route('teacherprofileupdate') }}" enctype="multipart/form-data">
                                                     @csrf
+                                                    <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
                                                      <div class="columns">
-                                                        <div class="column is-6">
-                                                             <div class="field">
-                                                                <label>Name</label>
-                                                                <div class="control has-icon">
-                                                                    <input type="text" class="input" name="name" value="{{$user->name}}" placeholder="Enter Name" required>
-                                                                    <div class="form-icon">
-                                                                        <i data-feather="user"></i>
-                                                                    </div>
-                                                                </div>
-                                                                 @error('name')
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $message }}</strong>
-                                                                    </span>
-                                                                @enderror
+                <div class="column is-6">
+                        <div class="field">
+                        <label>Name</label>
+                        <div class="control has-icon">
+                            <input type="text" class="input" name="name" value="{{$user->name}}" placeholder="Enter Name" required>
+                            <div class="form-icon">
+                                <i data-feather="user"></i>
+                            </div>
+                        </div>
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 
-                                                            </div>
-                                                        </div>
+                    </div>
+                </div>
                                                         <div class="column is-6">
                                                             <div class="field">
                                                                 <label>Email</label>
@@ -303,6 +305,7 @@
 
                 <div class="card">
                     <div class="card-heading">
+
                         <h3>Update Cover Picture</h3>
                         <!-- Close X button -->
                         <div class="close-wrap">

@@ -42,8 +42,7 @@ use App\Mail\NotifyMail;
 
 class TeacherController extends Controller
 {
-    
-    public function teacherprofile(Request $request)
+     public function teacherprofile(Request $request)
     {
          //$user = Auth::user();
            $user_id = $request->user_id;
@@ -65,6 +64,7 @@ class TeacherController extends Controller
     {
 
        $user_id=Auth::id();
+
        $student_id = $request->post("student_id");
        $contents = $request->post("send_message_text");
 
@@ -112,7 +112,8 @@ class TeacherController extends Controller
      public function getmessagechatforteacherstudent(Request $request)
     {
 
-       $user_id=Auth::id();
+        $user_id=Auth::id();
+
        $student_id = $request->post("student_id");
 
        $teacher_details = User::where('id',$user_id)->first();
@@ -178,7 +179,8 @@ class TeacherController extends Controller
     public function getstudentlistforteachermessage(Request $request)
     {
 
-       $user_id=Auth::id();
+        $user_id=Auth::id();
+
        $student_search_text = $request->post("student_search_text");
 
         $data7_public=TeacherStudent::leftJoin('users', 'teacher_students.user_id', '=', 'users.id')
@@ -229,9 +231,12 @@ class TeacherController extends Controller
     public function teachermessage(Request $request)
     {
 
-       $user_id=Auth::id();
+        //    $user_id=Auth::id();
+        $user_id = $request->user_id;
+        //dd($user_id);
+        $institution_id =$request->institution_id;
 
-      return view('theme.teacher.message');
+      return view('theme.teacher.message',['user_id'=>$user_id,'institution_id'=>$institution_id]);
 
     }
     public function profileupdate(Request $request)
@@ -428,6 +433,7 @@ class TeacherController extends Controller
            return view('theme.teacher.course',['courses'=>$data,'categories'=>$categories,'user_id'=>$user_id,'institution_id'=>$institution_id]);
     }
 
+
     public function paginate_course($items, $perPage = 10, $page = null, $options = [])
     {
         $options = ['path' => Route('teachercourse')] ;
@@ -440,13 +446,17 @@ class TeacherController extends Controller
 
     public function coursecontent(Request $request,$id)
     {
-
+        $user_id = $request->user_id;
+        //dd($user_id);
         $course_id = $id;
-        $check_course_accessibility_by_teacher = $this->check_course_accessibility_by_teacher($course_id);
+        $check_course_accessibility_by_teacher = $this->check_course_accessibility_by_teacher($course_id,$user_id);
         if($check_course_accessibility_by_teacher){
         $course_details = Course::where('id',$course_id)->first();
         $type = $course_details["type"];
-        $user_id = Auth::id();
+       // $user_id = Auth::id();
+        $user_id = $request->user_id;
+        //dd($user_id);
+         $institution_id =$request->institution_id;
 
          $existforthisuser=Course::leftJoin('course_contents', 'course_contents.course_id', '=', 'courses.id')->join('course_teachers', 'course_teachers.course_id', '=', 'courses.id')
              ->where('course_teachers.user_id',$user_id)
@@ -503,9 +513,9 @@ class TeacherController extends Controller
            $data = $this->paginate_coursecontent($thearray,$course_id);
 
            if($request->ajax()){
-               return view('theme.teacher.coursecontent-pagination',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details]);
+               return view('theme.teacher.coursecontent-pagination',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
            }
-           return view('theme.teacher.coursecontent',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details]);
+           return view('theme.teacher.coursecontent',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
         }
         else{
             return view('theme.teacher.no_access_course');
@@ -866,8 +876,8 @@ public function store(Request $request)
 
     // $course_id = Course::id();
 
-    $created_by = Auth::id();
-
+    //$created_by = Auth::id();
+    $created_by = $request->user_id;
     $slug = Str::slug($request->input('title'));
 
     // $course_id = $id;
@@ -1011,7 +1021,8 @@ public function update(Request $request,$id)
             }
 
 
-            $created_by = Auth::id();
+            //$created_by = Auth::id();
+            $created_by = $request->user_id;
 
         //  $title = $request->input('title');
         //  $status = $request->input('status');
@@ -1262,63 +1273,67 @@ public function update(Request $request,$id)
     // Course Content  Quiz Start ///
 public function coursequize(Request $request,$id,$content_id)
 {
+
+    $user_id = $request->user_id;
+    //dd($user_id);
+     $institution_id =$request->institution_id;
     $course_id = $id;
-    $check_course_accessibility_by_teacher = $this->check_course_accessibility_by_teacher($course_id);
+    $check_course_accessibility_by_teacher = $this->check_course_accessibility_by_teacher($course_id,$user_id);
     if($check_course_accessibility_by_teacher){
     $course_content_id = $content_id;
     $course_details = Course::where('id',$course_id)->first();
     $course_content_details = CourseContent::where('id',$course_content_id)->first();
 
-    //  echo "<pre>";
-    //  print_r($course_details);
+                //  echo "<pre>";
+                //  print_r($course_details);
 
-   $user_id = Auth::id();
-
-
-
-
-   $data7=Quiz::
-   orderBy('id','desc')
-
-    ->where('course_content_id',$course_content_id)
-     ->when($request->has("title"),function($q)use($request){
+            //    $user_id = Auth::id();
 
 
 
-          $title  = $request->get("title");
-          if($title!='')
-           {
-              return $q->where("title","like","%".$title."%");
-          }
+
+            $data7=Quiz::
+            orderBy('id','desc')
+
+                ->where('course_content_id',$course_content_id)
+                ->when($request->has("title"),function($q)use($request){
 
 
-   })->select('*')->get();
 
-    //  echo "<pre>";
-    //  print_r($data7);
-
-    $thearray = [];
-    if(count($data7) > 0)
-    {
-       foreach($data7 as $k2=>$v2)
-       {
+                    $title  = $request->get("title");
+                    if($title!='')
+                    {
+                        return $q->where("title","like","%".$title."%");
+                    }
 
 
-                   $thearray[]=array(
-                       'title'=>$v2->title
-                       ,'slug'=>$v2->slug
-                       ,'status'=>$v2->status
-                       ,'start_date'=>date('Y-m-d',strtotime($v2->start_date))
-                        ,'end_date'=>date('Y-m-d',strtotime($v2->end_date))
-                        ,'course_id'=>$course_id
-                        ,'course_content_id'=>$course_content_id
-                       ,'id'=>$v2->id
-                   );
+            })->select('*')->get();
 
-       }
-    }
+                //  echo "<pre>";
+                //  print_r($data7);
 
-     $data = $this->paginate_coursequize($thearray,$course_id,$course_content_id);
+                $thearray = [];
+                if(count($data7) > 0)
+                {
+                foreach($data7 as $k2=>$v2)
+                {
+
+
+                            $thearray[]=array(
+                                'title'=>$v2->title
+                                ,'slug'=>$v2->slug
+                                ,'status'=>$v2->status
+                                ,'start_date'=>date('Y-m-d',strtotime($v2->start_date))
+                                    ,'end_date'=>date('Y-m-d',strtotime($v2->end_date))
+                                    ,'course_id'=>$course_id
+                                    ,'course_content_id'=>$course_content_id
+                                ,'id'=>$v2->id
+                            );
+
+                }
+                }
+
+                $data = $this->paginate_coursequize($thearray,$course_id,$course_content_id);
 
 
 
@@ -1327,9 +1342,9 @@ public function coursequize(Request $request,$id,$content_id)
 
 
        if($request->ajax()){
-           return view('theme.teacher.coursequize-pagination',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details]);
+           return view('theme.teacher.coursequize-pagination',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
        }
-       return view('theme.teacher.coursequize',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details]);
+       return view('theme.teacher.coursequize',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
 
     }
     else{
@@ -1377,7 +1392,8 @@ public function quizestore(Request $request)
     {
 
 
-    $created_by = Auth::id();
+    //$created_by = Auth::id();
+    $created_by = $request->user_id;
 
     $slug = Str::slug($request->input('title'));
 
@@ -1481,7 +1497,8 @@ public function quizupdate(Request $request,$id)
             }
 
 
-            $created_by = Auth::id();
+            // $created_by = Auth::id();
+            $created_by = $request->user_id;
 
         //  $title = $request->input('title');
         //  $status = $request->input('status');
@@ -1521,13 +1538,12 @@ public function quizupdate(Request $request,$id)
 
     }
 
-      public function check_course_accessibility_by_teacher($course_id)
+    public function check_course_accessibility_by_teacher($course_id, $user_id = 0)
     {
-        $user_id = Auth::id();
 
-
-        $course_exist = CourseTeacher::
+       $course_exist = CourseTeacher::
         where(['user_id'=>$user_id,'course_id'=>$course_id])->count();
+
         if($course_exist ==0)
         {
             return false;
@@ -1593,9 +1609,12 @@ public function quizupdate(Request $request,$id)
    // Course Content  Quiz Question  Start ///
 public function coursequizequestion(Request $request,$id,$content_id,$quiz_id)
 {
+    $user_id = $request->user_id;
+    //dd($user_id);
+     $institution_id =$request->institution_id;
 
     $course_id = $id;
-    $check_course_accessibility_by_teacher = $this->check_course_accessibility_by_teacher($course_id);
+    $check_course_accessibility_by_teacher = $this->check_course_accessibility_by_teacher($course_id,$user_id);
     if($check_course_accessibility_by_teacher){
     $course_content_id = $content_id;
     $course_content_quiz_id = $quiz_id;
@@ -1606,7 +1625,7 @@ public function coursequizequestion(Request $request,$id,$content_id,$quiz_id)
     //  echo "<pre>";
     $all_q_id_array = explode(',', $course_content_quiz_details->all_questions);
 
-   $user_id = Auth::id();
+   //$user_id = Auth::id();
 
 
 
@@ -1658,9 +1677,9 @@ public function coursequizequestion(Request $request,$id,$content_id,$quiz_id)
 
 
        if($request->ajax()){
-           return view('theme.teacher.coursequestion-pagination',['questions'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details]);
+           return view('theme.teacher.coursequestion-pagination',['questions'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
        }
-       return view('theme.teacher.coursequestion',['questions'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details]);
+       return view('theme.teacher.coursequestion',['questions'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
 
     }
     else{
@@ -1734,8 +1753,8 @@ public function questionstore(Request $request)
         }
 
 
-     $created_by = Auth::id();
-
+     //$created_by = Auth::id();
+     $created_by = $request->user_id;
      $question = new Question();
         $question->question_text = $question_text;
         $question->option_a = $option_a;
@@ -1863,7 +1882,8 @@ public function questionupdate(Request $request,$id)
                 $status=$request->status;
             }
 
-             $created_by = Auth::id();
+            // $created_by = Auth::id();
+                $created_by = $request->user_id;
 
         $question = Question::where('id',$id)->first();
          $question->question_text = $question_text;
@@ -1977,12 +1997,12 @@ public function questionupdate(Request $request,$id)
      public function institutionview(Request $request)
      {
         $user_id = Auth::id();
- 
+
         $institutions=User::
            where(['users.status'=>'active','users.role'=>'3'])
- 
+
            ->orderBy('users.name','asc')
- 
+
            ->select('users.*')->get();
           // dd($institutions);
           $thearray = [];
@@ -1995,46 +2015,46 @@ public function questionupdate(Request $request,$id)
                           ,'name'=>$v2->name
                           ,'email'=>$v2->email
                           ,'avatar'=>$v2->avatar
- 
- 
+
+
                       );
- 
+
                   }
                }
- 
- 
+
+
          $data = $this->paginate_institutionview($thearray);
          //dd($data);
- 
+
         if($request->ajax()){
             return view('theme.teacher.institution-page-pagination',['institutions'=>$data]);
         }
         return view('theme.teacher.institution-page',['institutions'=>$data]);
- 
- 
- 
+
+
+
      }
- 
+
  public function paginate_institutionview($items, $perPage = 10, $page = null, $options = [])
  {
      $options = ['path' => Route('institutionview')] ;
- 
+
      $page = $page ?: (Paginator::resolveCurrentPage() ?: 3);
      $items = $items instanceof Collection ? $items : Collection::make($items);
      return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
  }
- 
- 
+
+
  public function institutioninvitation(Request $request)
      {
          $user_id = Auth::id();
          $data7_private_receiving=RequestDetails::leftJoin('users', 'request_details.sender_id', '=', 'users.id')
          ->where(['request_details.type'=>'Institution_Teacher','request_details.sender_type'=>'Institution','request_details.receiver_type'=>'Teacher','request_details.receiver_id'=>$user_id,'request_details.status'=>'Pending','users.status'=>'active','users.role'=>'3'])
          ->orderBy('request_details.created_at','desc')
- 
+
             ->select('users.*','request_details.created_at as crtime')->get();
             //dd($data7_private_receiving);
- 
+
               $thearray_private_receiving = [];
              if(count($data7_private_receiving) > 0)
              {
@@ -2045,52 +2065,51 @@ public function questionupdate(Request $request,$id)
                         ,'name'=>$v2->name
                         ,'email'=>$v2->email
                         ,'crtime'=>$v2->crtime
- 
+
                     );
- 
+
                 }
              }
- 
+
            $private_receiving = $this->paginate_private_receiving_it($thearray_private_receiving);
- 
+
         if($request->ajax()){
             return view('theme.teacher.institution-invitation-pagination',['private_receiving'=>$private_receiving]);
         }
         return view('theme.teacher.institution-invitation',['private_receiving'=>$private_receiving]);
- 
- 
- 
+
+
+
      }
      public function paginate_private_receiving_it($items, $perPage = 1, $page = null, $options = [])
      {
          $options = ['path' => Route('institutioninvitation')] ;
- 
+
          $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
          $items = $items instanceof Collection ? $items : Collection::make($items);
          return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
      }
- 
-     //end institution //
 
+     //end institution //
 
      //assign course //
 
      public function courseassignlist(Request $request)
      {
 
-        if($request->institution_id == null) {
-            $institution_id = $_GET['institution_id'];
-        } else {
-            $institution_id = $request->institution_id;
-        }
+                if($request->institution_id == null) {
+                    $institution_id = $_GET['institution_id'];
+                } else {
+                    $institution_id = $request->institution_id;
+                }
 
-       // dd($institution_teachers);
+            // dd($institution_teachers);
 
-       if($request->user_id == null) {
-        $teacher_id = $_GET['user_id'];
-    } else {
-        $teacher_id = $request->user_id;
-    }
+            if($request->user_id == null) {
+                $teacher_id = $_GET['user_id'];
+            } else {
+                $teacher_id = $request->user_id;
+            }
 
        $data7 = CourseTeacher::leftJoin('users','users.id','=','course_teachers.user_id')->leftJoin('courses','courses.id','=','course_teachers.course_id')->where(['course_teachers.user_id'=>$teacher_id])->select('course_teachers.*','courses.id as courses_id','courses.title','users.id as users_id','users.name')->get();
         // dd($data7);
@@ -2103,15 +2122,15 @@ public function questionupdate(Request $request,$id)
 
 
 
-   $thearray[]=array(
-                        'title'=>$v2->title
-                        ,'course_id'=>$v2->course_id
-                        ,'created_by'=>$v2->created_by
-                        ,'name'=>$v2->name
-                        ,'status'=>$v2->status
+        $thearray[]=array(
+                                'title'=>$v2->title
+                                ,'course_id'=>$v2->course_id
+                                ,'created_by'=>$v2->created_by
+                                ,'name'=>$v2->name
+                                ,'status'=>$v2->status
 
-                        ,'id'=>$v2->id
-                    );
+                                ,'id'=>$v2->id
+                            );
 
 
             }
@@ -2162,6 +2181,5 @@ public function questionupdate(Request $request,$id)
 
       return redirect()->back(); //Redirect user somewhere
    }
-
 
 }

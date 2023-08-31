@@ -12,8 +12,9 @@
         <thead>
             <tr>
             <th>Teacher Name</th>
-            <th>Course Name</th>
-            <th>Status</th>
+                <th>Course Name</th>
+
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -26,10 +27,15 @@
             <td>{{$course_teacher['title']}}  </td>
 
 
-            <td class="course_status_row"> 
-                <span>{{$course_teacher['status']}}</span>
 
-                @if ($course_teacher['status'] === 'approve')
+
+
+                        <td> {{$course_teacher['status']}}
+
+
+                        </td>
+                        <td>
+@if ($course_teacher['status'] === 'approve')
                                 <button class="btn btn-success" disabled>Approved</button>
 
                         <form action="{{route('courseassigndecline', $course_teacher['id'])}}" method="POST">
@@ -38,7 +44,7 @@
                         </form>
  @elseif ($course_teacher['status'] === 'reject')
                     <form action="{{route('courseassignapprove', $course_teacher['id'])}}" method="POST">
-                            @csrf
+                                        @csrf
                             <!-- Form fields and submit button -->
                             <button class="btn btn-success" >Approve</button>
                 </form>
@@ -55,9 +61,14 @@
                     <button class="btn btn-danger" >Reject</button>
             </form>
 @endif
+                </td>
 
-            </td>
-          
+
+
+
+
+
+
 
             </tr>
 

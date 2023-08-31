@@ -323,6 +323,14 @@ Route::post('/menudelete/{id}',[InstitutionMenuController::class,'menudelete'])-
 
      Route::post('institutioncourcecommissionpercentagesave/{course_id}/{str}',[InstitutionLoginController::class,'courcecommissionpercentagesave'])->name('institutioncourcecommissionpercentagesave');
 
+     Route::get('teacherstudentregister/{id}',[HomeController::class,'teacherstudentregister'])->name('teacherstudentregister');
+     Route::get('teacherstudentlogin/{id}',[HomeController::class,'teacherstudentlogin'])->name('teacherstudentlogin');
+     
+     Route::post('registerstore',[HomeController::class,'registerstore'])->name('registerstore');
+     
+     
+     
+     Route::post('/postteacherstudentlogin', [HomeController::class, 'postteacherstudentlogin'])->name('postteacherstudentlogin');
 
 
     Route::get('institutioncourseview/{id}',[InstitutionLoginController::class,'courseView'])->name('institutioncourseview');

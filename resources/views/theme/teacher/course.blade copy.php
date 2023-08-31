@@ -61,7 +61,7 @@
 
                                 </div>
                             </div>
-                            <div id="overview-content" class="content-section is-active">
+                             <div id="overview-content" class="content-section is-active">
 
                                 <div id="pagination_data">
                                     @include("theme.teacher.course-pagination",['courses'=>$courses])
@@ -86,7 +86,7 @@
 
 
 
-
+      
 
 
 

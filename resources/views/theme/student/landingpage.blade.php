@@ -31,6 +31,8 @@
 
                             <form method="POST" action="{{ route('submitrequest') }}">
                             @csrf
+                            <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
                                     <button type="submit" class="button is-solid primary-button raised">Submit a Request</button>
 
                             </form>

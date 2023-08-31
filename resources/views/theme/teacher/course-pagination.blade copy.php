@@ -24,7 +24,7 @@
         <tbody>
 
             @foreach($courses as $course)
-            <tr>
+            <tr >
                   <td>{{$course['title']}}  </td>
                    <td>{{$course['category_name']}} </td>
                    <td>{{$course['type']}} </td>
@@ -37,7 +37,7 @@
                         <?php if($course['is_fully_complete']==1){?>
                             <span class="button is-solid green-button raised" >Yes</span>
                         <?php } ?>
-
+                    
 
                         <?php if($course['is_fully_complete']==0){?>
                             <span class="button is-solid red-button raised">No</span>
@@ -61,12 +61,9 @@
 
 
 
-                <td><?php $course_id = $course["id"];
-                ?>
+                <td><?php $course_id = $course["id"]; ?>
                 <table ><tr><td>
-                <input type="hidden" value="{{$user_id}}" name="user_id">
-                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
-                    <a href='{{Route("teachercoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
+                    <a href='{{Route("teachercoursecontent",["id"=>$course_id])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
                 </td>
                 {{-- @if($course['type']=='zoom')
                 <td>

@@ -57,15 +57,21 @@ use App\Mail\NotifyMail;
 
 class StudentController extends Controller
 {
-    public function profile()
+    public function profile(Request $request)
     {
-        $user = Auth::user();
+        //$user = Auth::user();
 
-        $user_details = UserDetail::where('user_id',$user->id)->first();
+        $user_id = $request->user_id;
+        //dd($user_id);
+         $institution_id =$request->institution_id;
+         //dd($institution_id);
+        $user = User::where('id', $user_id)->first();
+
+        $user_details = UserDetail::where('user_id',$user_id)->first();
         $countries = Country::orderBy('c_name','asc')->get();
         $cities = City::where('country_id',$user_details->country_id)->orderBy('city_name','asc')->get();
 
-        return view('theme.student.profile',['user'=>$user,'user_details'=>$user_details,'countries'=>$countries,'cities'=>$cities]);
+        return view('theme.student.profile',['user'=>$user,'user_details'=>$user_details,'countries'=>$countries,'cities'=>$cities,'user_id'=>$user_id,'institution_id'=>$institution_id]);
     }
 
      public function messageinstitution(Request $request)
@@ -374,8 +380,10 @@ class StudentController extends Controller
         }
         else
         {
-            $user = Auth::user();
-            $user_id=$user->id;
+            // $user = Auth::user();
+            // $user_id=$user->id;
+            $user_id =$request->user_id;
+            $institution_id =$request->institution_id;
 
             $address = '';
             if($request->input('address')!='')
@@ -395,6 +403,7 @@ class StudentController extends Controller
 
 
             $user_details = UserDetail::where('user_id',$user_id)->first();
+            $user = User::where('id',$user_id)->first();
 
             $user->name = $request->input('name');
             $user->phone = $phone;
@@ -423,7 +432,9 @@ class StudentController extends Controller
 
 
          if($request->hasFile('image')) {
-            $user_id = Auth::id();
+            // $user_id = Auth::id();
+            $user_id =$request->user_id;
+            $institution_id =$request->institution_id;
 
              $user_type  = $request->get("user_type");
              $picture_type  = $request->get("picture_type");
@@ -487,9 +498,13 @@ class StudentController extends Controller
 
       return response()->json(['error'=>$validator->errors()->all()]);
     }
-     public function check_student_subscription()
+     public function check_student_subscription($user_id=0)
     {
-        $user_id = Auth::id();
+        //$user_id = Auth::id();
+      //  $user_id = $request->user_id;
+        //dd($user_id);
+         //$institution_id =$request->institution_id;
+
         $users_subscription_exist = UserDetail::where(['user_id'=>$user_id,'user_type'=>'Student'])->whereDate('subscription_end_date', '>=', Carbon::now())->whereDate('subscription_start_date', '<=', Carbon::now())->count();
         if($users_subscription_exist ==0)
         {
@@ -497,9 +512,10 @@ class StudentController extends Controller
         }
         return true;
     }
-    public function check_course_accessibility($course_id)
+    public function check_course_accessibility($course_id,$user_id =0)
     {
-        $user_id = Auth::id();
+        //$user_id = Auth::id();
+
         $users_subscription_exist = UserDetail::where(['user_id'=>$user_id,'user_type'=>'Student'])
         ->whereDate('subscription_end_date', '>=', Carbon::now())
         ->whereDate('subscription_start_date', '<=', Carbon::now())->count();
@@ -520,10 +536,13 @@ class StudentController extends Controller
     }
     public function course(Request $request)
     {
-
-            $check_student_subscription_exist = $this->check_student_subscription() ;
+            // $user_id=Auth::id();
+            $user_id = $request->user_id;
+            //dd($user_id);
+            $institution_id =$request->institution_id;
+            $check_student_subscription_exist = $this->check_student_subscription($user_id) ;
             $categories = Category::orderBy('name','asc')->get();
-            $user_id=Auth::id();
+
 
 
 
@@ -651,9 +670,9 @@ class StudentController extends Controller
 
            if($request->ajax()){
 
-               return view('theme.student.course-pagination',['courses'=>$data,'categories'=>$categories]);
+               return view('theme.student.course-pagination',['courses'=>$data,'categories'=>$categories,'user_id'=>$user_id,'institution_id'=>$institution_id]);
            }
-           return view('theme.student.course',['courses'=>$data,'categories'=>$categories]);
+           return view('theme.student.course',['courses'=>$data,'categories'=>$categories,'user_id'=>$user_id,'institution_id'=>$institution_id]);
         }
         else
         {
@@ -870,7 +889,7 @@ class StudentController extends Controller
                $tempvar = QuizResponse::orderBy('score_percentage','desc')->where('course_content_quiz_id',$v2->id)->where('user_id',$user_id)->limit(1);
 
                $score_percentage = 0 ;
-              
+
 
                if($tempvar->count() > 0)
                {
@@ -891,7 +910,7 @@ class StudentController extends Controller
                               ,'course_id'=>$course_id
                               ,'course_content_id'=>$course_content_id
                              ,'id'=>$v2->id
-                            
+
                              ,'score_percentage'=>$score_percentage
 
                          );
@@ -1029,10 +1048,10 @@ class StudentController extends Controller
                         $course = Course::where('id',$course_id)->first();
                         $student_details = User::where('id',$user_id)->first();
 
-                        
+
 
                         //return view('theme.student.course_certificate_pdf',['course_id'=>$course_id,'purpose'=>'pdf','course'=>$course,'student_details'=>$student_details]);
-                        
+
                         $pdf = PDF::loadView('theme.student.course_certificate_pdf',['course_id'=>$course_id,'purpose'=>'pdf','course'=>$course,'student_details'=>$student_details]);
 
                        return $pdf->download('certificate.pdf');
@@ -1074,7 +1093,7 @@ class StudentController extends Controller
            $score_percentage = 0 ;
            $total_score = 0 ;
            $full_marks = 0 ;
-           
+
                $responses=[];
 
           $tempvar = QuizResponse::orderBy('score_percentage','desc')->where('course_content_quiz_id',$course_content_quiz_id)->where('user_id',$user_id)->limit(1); $tempvar = QuizResponse::orderBy('score_percentage','desc')->where('course_content_quiz_id',$course_content_quiz_id)->where('user_id',$user_id)->limit(1);
@@ -1106,12 +1125,12 @@ class StudentController extends Controller
                 $slno++;
 
 
-                 
 
-             
-              
 
-               
+
+
+
+
 
 
 
@@ -1126,8 +1145,8 @@ class StudentController extends Controller
                             'option_d'=>$v2->option_d,
                             'answer'=>$v2->answer,
                             'marks'=>$v2->marks,
-                             
-                             
+
+
                         );
 
 
@@ -1604,7 +1623,11 @@ class StudentController extends Controller
         //return view('theme.student.teacher');
 
 
-         $user_id = Auth::id();
+        //  $user_id = Auth::id();
+
+    $user_id = $request->user_id;
+    //dd($user_id);
+     $institution_id =$request->institution_id;
 
 
 
@@ -1786,26 +1809,26 @@ class StudentController extends Controller
            if($request->ajax()){
                 if($request->get("tab_type")=='private_pending')
                 {
-                   return view('theme.student.teacher-private-pending-pagination',['private_pending'=>$private_pending]);
+                   return view('theme.student.teacher-private-pending-pagination',['private_pending'=>$private_pending,'user_id'=>$user_id,'institution_id'=>$institution_id]);
                 }
                 else if($request->get("tab_type")=='private_sending')
                 {
-                   return view('theme.student.teacher-private-sending-pagination',['private_sending'=>$private_sending]);
+                   return view('theme.student.teacher-private-sending-pagination',['private_sending'=>$private_sending,'user_id'=>$user_id,'institution_id'=>$institution_id]);
                 }
                 else if($request->get("tab_type")=='private_receiving')
                 {
-                   return view('theme.student.teacher-private-receiving-pagination',['private_receiving'=>$private_receiving]);
+                   return view('theme.student.teacher-private-receiving-pagination',['private_receiving'=>$private_receiving,'user_id'=>$user_id,'institution_id'=>$institution_id]);
                 }
                 else if($request->get("tab_type")=='public')
                 {
-                   return view('theme.student.teacher-public-pagination',['public'=>$public]);
+                   return view('theme.student.teacher-public-pagination',['public'=>$public,'user_id'=>$user_id,'institution_id'=>$institution_id]);
                 }
 
 
 
 
            }
-           return view('theme.student.teacher',['private_pending'=>$private_pending,'private_sending'=>$private_sending,'private_receiving'=>$private_receiving,'public'=>$public]);
+           return view('theme.student.teacher',['private_pending'=>$private_pending,'private_sending'=>$private_sending,'private_receiving'=>$private_receiving,'public'=>$public,'user_id'=>$user_id,'institution_id'=>$institution_id]);
 
     }
     public function paginate_public($items, $perPage = 10, $page = null, $options = [])
@@ -2091,9 +2114,12 @@ class StudentController extends Controller
     public function becometeacher(Request $request)
     {
 
-       $user_id=Auth::id();
+       //$user_id=Auth::id();
+       $user_id = $request->user_id;
+       //dd($user_id);
+        $institution_id =$request->institution_id;
 
-      return view('theme.student.landingpage');
+      return view('theme.student.landingpage',['user_id'=>$user_id,'institution_id'=>$institution_id]);
 
     }
 
@@ -2101,10 +2127,11 @@ class StudentController extends Controller
   public function submitrequest(Request $request)
     {
 
-       $user_id=Auth::id();
-    
+       //$user_id=Auth::id();
+       $user_id = $request->user_id;
+       $institution_id =$request->institution_id;
             $institution_teacher_request = new InstitutionTeacherRequest();
-            $institution_teacher_request->institution_id = 3;
+            $institution_teacher_request->institution_id = $institution_id;
             $institution_teacher_request->student_id = $user_id;
             $institution_teacher_request->status = 'pending';
 

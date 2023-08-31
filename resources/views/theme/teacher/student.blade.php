@@ -360,7 +360,8 @@
                 <div class="card-heading">
                     <div class="dropdown is-primary share-dropdown">
                         <div>
-                        <input type="hidden" value="{{$user_id}}" name="user_id" id="user_id">
+
+    <input type="hidden" value="{{$user_id}}" name="user_id" id="user_id">
                                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
                         <h3 style="text-align:center;">Approve </h3>
 
@@ -410,7 +411,7 @@
         </div>
  </div>
 
-    <!-- Modal to delete  Ends-->
+    <!-- Modal to approve  Ends-->
     <!-- Modal to send  start-->
 
  <div  id="modals-send" class="modal share-modal is-xsmall has-light-bg">
@@ -431,9 +432,9 @@
 
                     <!-- Close X button -->
                     <div class="close-wrap">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-            </button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+                </button>
         </div>
                 </div>
 

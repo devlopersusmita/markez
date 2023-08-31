@@ -46,14 +46,14 @@
 
                                 <div class="field is-grouped">
                                     <div class="control" >
-                                        <a href="{{route('teachercourse')}}"><h1>{{$course_details->title}}</h1></a>
+                                        <a href="{{route('teachercourse',['user_id'=>$user_id,'institution_id'=>$institution_id])}}"><h1>{{$course_details->title}}</h1></a>
                                     </div>
                                     <div class="control" >
-                                        <a href='{{Route("teachercoursecontent",["id"=>$course_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
+                                        <a href='{{Route("teachercoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
                                     </div>
 
                                     <div class="control" >
-                                        <a href='{{Route("online_classes",["id"=>$course_id,'content_id'=>$course_content_id])}}'><h1>>> {{$online_class_details->topic}}</h1></a>
+                                        <a href='{{Route("online_classes",["id"=>$course_id,"content_id"=>$course_content_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'><h1>>> {{$online_class_details->topic}}</h1></a>
                                     </div>
 
                                 </div>
@@ -104,6 +104,8 @@
                                 <input type="hidden" id="user_id" value="{{$user_deatil->id}}"/>
                                 <input type="hidden" id="oline_id" value="{{$online_class_id}}" />
                                 <label class="f-switch is-primary ">
+                                <input type="text" value="{{$user_id}}" name="user_id">
+                                                    <input type="text" value="{{$institution_id}}" name="institution_id">
                                     <input type="checkbox" class="is-switch attendance_check_box"  data-onlineid="{{$online_class_id}}" <?php if(in_array($user_deatil->id,$all_attendance_user)){echo "checked";} ?>  data-id="{{$user_deatil->id}}" >
                                     <i></i>
                                 </label>

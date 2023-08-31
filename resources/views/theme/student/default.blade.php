@@ -54,9 +54,8 @@
     <div class="pageloader"></div>
     <div class="infraloader is-active"></div>
 
-@include('theme.header')
 @yield('content')
-@include('theme.footer')
+
 
     </div>
 
@@ -624,10 +623,12 @@
 
         var id = $('#approve_id').val();
         var type = $('#approve_type').val();
+        var student_id = $('#user_id').val();
+        alert(student_id);
       var url = baseurl + '/studentteacherstudentapprove/'+id+'/'+type;
 
       $('#loading_teacher_approvet').show();
-     // alert(url);
+      //alert(url);
 
          $.ajax({
               beforeSend: function(){
@@ -636,7 +637,7 @@
               headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
-              data: [],
+              data: { student_id: student_id },
               url: url,
               type: "post",
               dataType: 'json',

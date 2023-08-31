@@ -21,15 +21,19 @@
 					<input type="text" placeholder="Search now" class="form-control">
 				</div>
 				<div class="header-btn">
-				<input type="hidden" value="{{$id}}" name="id">
+                <input type="hidden" value="{{$id}}" name="id">
 
 
 
 
-<a href="{{url('teacherstudentlogin/'.$id)}}"class="login-btn">Login</a>
+                                 <a href="{{url('teacherstudentlogin/'.$id)}}"class="login-btn">Login</a>
 
 
-<a href="{{url('teacherstudentregister/'.$id)}}" class="signup-btn">Sign Up</a>
+					        <a href="{{url('teacherstudentregister/'.$id)}}" class="signup-btn">Sign Up</a>
+
+
+
+
 				</div>
 			</div>
 		</div>

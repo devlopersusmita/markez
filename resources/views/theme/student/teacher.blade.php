@@ -355,7 +355,8 @@
                   <div class="card-heading">
                       <div class="dropdown is-primary share-dropdown">
                           <div>
-
+                          <input type="text" value="{{$user_id}}" name="user_id" id ="user_id">
+                                                    <input type="text" value="{{$institution_id}}" name="institution_id" id="institution_id">
                           <h3 style="text-align:center;">Approve </h3>
 
                           </div>
@@ -393,6 +394,8 @@
 
                           <input type="hidden" id="approve_id" value="" />
                           <input type="hidden" id="approve_type" value="" />
+
+
                           <button data-dismiss="modal" aria-label="Close" class="button is-solid dark-grey-button close-modal">Cancel</button>
                           <button  type="submit"  class="button is-solid primary-button data-approve teacher_approve">Approve</button>
                           <div style="float:right;display:none;" id="loading_teacher_approvet"><img src="{{asset('frontend/images/loadingpleasewait.gif')}}" width="40" /></div>
@@ -415,7 +418,8 @@
                   <div class="card-heading">
                       <div class="dropdown is-primary share-dropdown">
                           <div>
-
+                          <input type="text" value="{{$user_id}}" name="user_id">
+                                                    <input type="text" value="{{$institution_id}}" name="institution_id">
                           <h3 style="text-align:center;">Send Request </h3>
 
                           </div>
@@ -454,6 +458,7 @@
 
                           <input type="hidden" id="send_id" value="" />
                           <input type="hidden" id="send_type" value="" />
+
                           <button data-dismiss="modal" aria-label="Close" class="button is-solid dark-grey-button close-modal">Cancel</button>
                           <button  type="submit"  class="button is-solid primary-button data-delete teacher_send">Confirm Send</button>
                           <div style="float:right;display:none;" id="loading_teacher_send"><img src="{{asset('frontend/images/loadingpleasewait.gif')}}" width="40" /></div>

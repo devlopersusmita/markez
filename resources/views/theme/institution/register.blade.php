@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
             <!--Container-->
-            <div class="login-container is-centered teacherstudentregister">
+            <div class="login-container is-centered">
                 <div class="columns is-vcentered">
                     <div class="column">
 

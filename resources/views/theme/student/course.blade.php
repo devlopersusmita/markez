@@ -57,7 +57,7 @@
                                     <input type="text" name="title" class="input" placeholder="Title" />
                                 </div>
                                 <div class="control" >
-                                    <a class="button is-solid primary-button raised"  href='{{Route("studentcourse")}}' id='search_btn'>Search</a>
+                                    <a class="button is-solid primary-button raised"  href='{{Route("studentcourse",["user_id"=>$user_id,"institution_id"=>$institution_id])}}' id='search_btn'>Search</a>
                                 </div>
                             </div>
                            </form>

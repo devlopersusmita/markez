@@ -37,7 +37,7 @@
                                         <h2>Profile</h2>
                                         <div class="header-actions">
                                         <div class="buttons">
-                                            <a href="{{ route('becometeacher') }}"  class="button is-solid primary-button raised" data-modal="modals-add">Become a Teacher</a>
+                                            <a href="{{ route('becometeacher',['institution_id' => $_GET['institution_id'],'user_id' => $_GET['user_id']]) }}"  class="button is-solid primary-button raised" data-modal="modals-add">Become a Teacher</a>
                                        </div>
                                         </div>
                                     </div>
@@ -99,6 +99,8 @@
 
                                                  <form method="POST" action="{{ route('profileupdate') }}" enctype="multipart/form-data">
                                                     @csrf
+                                                    <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
                                                      <div class="columns">
                                                         <div class="column is-6">
                                                              <div class="field">
@@ -325,7 +327,8 @@
                                         <input type="hidden" name="user_type" value="student">
                                         <input type="hidden" name="picture_type" value="background_photo">
 
-
+                                        <input type="text" value="{{$user_id}}" name="user_id">
+                                                    <input type="text" value="{{$institution_id}}" name="institution_id">
                                      <div class="card">
 
                                         <div class="card-body">
@@ -385,6 +388,8 @@
 
                                         <input type="hidden" name="user_type" value="student">
                                         <input type="hidden" name="picture_type" value="avatar">
+                                        <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
                                      <div class="card">
 
                                         <div class="card-body">

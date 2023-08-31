@@ -350,164 +350,165 @@
 
     });
 
-    $(document).on('click', '.student_send', function () {
+     $(document).on('click', '.student_send', function () {
 
 
-var id = $('#send_id').val();
-// alert(id);
-var type = $('#send_type').val();
-var teacher_id = $('#user_id').val();
-alert(teacher_id);
+        var id = $('#send_id').val();
+       // alert(id);
+        var type = $('#send_type').val();
+        var teacher_id = $('#user_id').val();
+        //alert(teacher_id);
 
-var url = baseurl + '/teacherstudentstudentsend/'+id+'/'+type;
-$('#loading_student_send').show();
+      var url = baseurl + '/teacherstudentstudentsend/'+id+'/'+type;
+      $('#loading_student_send').show();
 
-// alert(url);
+     // alert(url);
 
- $.ajax({
-      beforeSend: function(){
-        $('.ajax-loader').css("visibility", "visible");
-      },
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      data: { teacher_id: teacher_id },
-      url: url,
-      type: "post",
-      dataType: 'json',
-      success: function (data) {
-          console.log('data',data);
+         $.ajax({
+              beforeSend: function(){
+                $('.ajax-loader').css("visibility", "visible");
+              },
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              data: { teacher_id: teacher_id },
+              url: url,
+              type: "post",
+              dataType: 'json',
+              success: function (data) {
+                  console.log('data',data);
 
-        $('#loading_student_send').hide();
+                $('#loading_student_send').hide();
 
-         $('#search_btn_'+type).trigger('click');
-          $('#search_btn_private_pending').trigger('click');
+                 $('#search_btn_'+type).trigger('click');
+                  $('#search_btn_private_pending').trigger('click');
 
-         $('body').removeClass('modal-open');
-        $('body').css('padding-right', '0px');
-        $('.modal-backdrop').remove();
+                 $('body').removeClass('modal-open');
+                $('body').css('padding-right', '0px');
+                $('.modal-backdrop').remove();
 
-        $('#modals-send').hide();
-
-
-      },
-      error: function (data) {
-          alert(JSON.stringify(data));
-          console.log( data);
-          $('#loading_student_send').hide();
-
-      } ,
-      complete: function(){
-        $('.ajax-loader').css("visibility", "hidden");
-        $('#loading_student_send').hide();
-      }
-  });
+                $('#modals-send').hide();
 
 
+              },
+              error: function (data) {
+                  alert(JSON.stringify(data));
+                  console.log( data);
+                  $('#loading_student_send').hide();
 
-});
-
-$(document).on('click', '.student_delete', function () {
-
-
-var id = $('#delete_id').val();
-var type = $('#delete_type').val();
-var teacher_id = $('#user_id').val();
-alert(teacher_id);
-var url = baseurl + '/teacherstudentstudentdelete/'+id+'/'+type;
-$('#loading_student_delete').show();
-
-// alert(url);
-
- $.ajax({
-      beforeSend: function(){
-        $('.ajax-loader').css("visibility", "visible");
-      },
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      data:  { teacher_id: teacher_id },
-      url: url,
-      type: "post",
-      dataType: 'json',
-      success: function (data) {
-
-         $('#search_btn_'+type).trigger('click');
-         $('body').removeClass('modal-open');
-        $('body').css('padding-right', '0px');
-        $('.modal-backdrop').remove();
-
-        $('#modals-delete').hide();
-        $('#loading_student_delete').hide();
-
-
-      },
-      error: function (data) {
-          alert(JSON.stringify(data));
-          console.log( data);
-
-      } ,
-      complete: function(){
-        $('.ajax-loader').css("visibility", "hidden");
-         $('#loading_student_delete').hide();
-      }
-  });
+              } ,
+              complete: function(){
+                $('.ajax-loader').css("visibility", "hidden");
+                $('#loading_student_send').hide();
+              }
+          });
 
 
 
-});
+      });
 
-$(document).on('click', '.student_approve', function () {
-
-
-var id = $('#approve_id').val();
-var type = $('#approve_type').val();
-var teacher_id = $('#user_id').val();
-alert(teacher_id);
-var url = baseurl + '/teacherstudentstudentapprove/'+id+'/'+type;
-
-$('#loading_student_approvet').show();
-
-// alert(url);
-
- $.ajax({
-      beforeSend: function(){
-        $('.ajax-loader').css("visibility", "visible");
-      },
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      data: { teacher_id: teacher_id },
-      url: url,
-      type: "post",
-      dataType: 'json',
-      success: function (data) {
-
-         $('#search_btn_'+type).trigger('click');
-         $('body').removeClass('modal-open');
-        $('body').css('padding-right', '0px');
-        $('.modal-backdrop').remove();
-
-        $('#modals-approve').hide();
-        $('#loading_student_approvet').hide();
+     $(document).on('click', '.student_delete', function () {
 
 
-      },
-      error: function (data) {
-          alert(JSON.stringify(data));
-          console.log( data);
-          $('#loading_student_approvet').hide();
+        var id = $('#delete_id').val();
+        var type = $('#delete_type').val();
+        var teacher_id = $('#user_id').val();
+       // alert(teacher_id);
+      var url = baseurl + '/teacherstudentstudentdelete/'+id+'/'+type;
+       $('#loading_student_delete').show();
 
-      } ,
-      complete: function(){
-        $('.ajax-loader').css("visibility", "hidden");
-        $('#loading_student_approvet').hide();
-      }
-  });
+     // alert(url);
+
+         $.ajax({
+              beforeSend: function(){
+                $('.ajax-loader').css("visibility", "visible");
+              },
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              data:  { teacher_id: teacher_id },
+              url: url,
+              type: "post",
+              dataType: 'json',
+              success: function (data) {
+
+                 $('#search_btn_'+type).trigger('click');
+                 $('body').removeClass('modal-open');
+                $('body').css('padding-right', '0px');
+                $('.modal-backdrop').remove();
+
+                $('#modals-delete').hide();
+                $('#loading_student_delete').hide();
+
+
+              },
+              error: function (data) {
+                  alert(JSON.stringify(data));
+                  console.log( data);
+
+              } ,
+              complete: function(){
+                $('.ajax-loader').css("visibility", "hidden");
+                 $('#loading_student_delete').hide();
+              }
+          });
 
 
 
-});
+      });
+
+     $(document).on('click', '.student_approve', function () {
+
+
+        var id = $('#approve_id').val();
+        var type = $('#approve_type').val();
+        var teacher_id = $('#user_id').val();
+        alert(teacher_id);
+      var url = baseurl + '/teacherstudentstudentapprove/'+id+'/'+type;
+
+      $('#loading_student_approvet').show();
+
+     // alert(url);
+
+         $.ajax({
+              beforeSend: function(){
+                $('.ajax-loader').css("visibility", "visible");
+              },
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              data: { teacher_id: teacher_id },
+              url: url,
+              type: "post",
+              dataType: 'json',
+              success: function (data) {
+
+                 $('#search_btn_'+type).trigger('click');
+                 $('body').removeClass('modal-open');
+                $('body').css('padding-right', '0px');
+                $('.modal-backdrop').remove();
+
+                $('#modals-approve').hide();
+                $('#loading_student_approvet').hide();
+
+
+              },
+              error: function (data) {
+                  alert(JSON.stringify(data));
+                  console.log( data);
+                  $('#loading_student_approvet').hide();
+
+              } ,
+              complete: function(){
+                $('.ajax-loader').css("visibility", "hidden");
+                $('#loading_student_approvet').hide();
+              }
+          });
+
+
+
+      });
+
 
     $(document).on("click", "#pagination a,#search_btn", function(event) {
 
@@ -1176,91 +1177,96 @@ $(document).on('click', '.coursecontentdelete_modal', function () {
 
       e.preventDefault();
 
-// console.log(baseurl)
+        // console.log(baseurl)
 
-$('#course_add').html('Sending..');
+        $('#course_add').html('Sending..');
 
 
-var formData = new FormData(this);
-//   newurl = baseurl.replaceAll(" ",'') + '/institutioncoursestore'
+        var formData = new FormData(this);
+        //   newurl = baseurl.replaceAll(" ",'') + '/institutioncoursestore'
 
-var description = CKEDITOR.instances.description.getData();
+        var description = CKEDITOR.instances.description.getData();
 
-var form_data = new FormData(this);
+        var form_data = new FormData(this);
 
-form_data.append('description_value', description);
-  $('#form-input-error').html('');
-           $('#form-input-success').html('');
+        form_data.append('description_value', description);
+        $('#form-input-error').html('');
+                $('#form-input-success').html('');
 
-$.ajax({
-    beforeSend: function(){
-      $('.ajax-loader').css("visibility", "visible");
-    },
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-    //data: $('#postForm').serialize(),
-    url:baseurl + '/teachercoursecontentstore',
-     method:"POST",
-     //data:new FormData(this),
-     data:form_data,
-               dataType:'JSON',
-               contentType: false,
-               cache: false,
-               processData: false,
-              success: function (data) {
+        $.ajax({
+            beforeSend: function(){
+            $('.ajax-loader').css("visibility", "visible");
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            //data: $('#postForm').serialize(),
+            url:baseurl + '/teachercoursecontentstore',
+            method:"POST",
+            //data:new FormData(this),
+            data:form_data,
+                    dataType:'JSON',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
 
-                if(data.type == 'success'){
-                    $('#form-input-error').html('');
-                 $('#form-input-success').html(data.message);
-               $('#course_add').html('Save');
-                   //alert(JSON.stringify(data));
 
-                    $('#search_btn').trigger('click');
-                //  $('body').removeClass('modal-open');
-                // $('body').css('padding-right', '0px');
-                // $('.modal-backdrop').remove();
-                $('#title').val('');
-                 $('#status').val('');
-                $('#description').val('');
-                $('#course_id').val('');
-                $('#type').val('');
-                $('#start_date').val('');
-                $('#end_date').val('');
-                $('#visibility').val('');
-                // $('#content').val('');
-                // $('#video_url').val('');
-                // $('#zoom_url').val('');
-                //$('#modals-add').hide();
-                $('#modals-add').modal('hide');
-            }
-                else if(data.type == 'error'){
-                    $('#form-input-error').html(data.message);
-                 $('#form-input-success').html('');
+
+
+
+                        if(data.type == 'success'){
+                            $('#form-input-error').html('');
+                        $('#form-input-success').html(data.message);
                     $('#course_add').html('Save');
-                 alert(data.message);
-                }
+                        //alert(JSON.stringify(data));
+
+                            $('#search_btn').trigger('click');
+                        //  $('body').removeClass('modal-open');
+                        // $('body').css('padding-right', '0px');
+                        // $('.modal-backdrop').remove();
+                        $('#title').val('');
+                        $('#status').val('');
+                        $('#description').val('');
+                        $('#course_id').val('');
+                        $('#type').val('');
+                        $('#start_date').val('');
+                        $('#end_date').val('');
+                        $('#visibility').val('');
+                        // $('#content').val('');
+                        // $('#video_url').val('');
+                        // $('#zoom_url').val('');
+                        //$('#modals-add').hide();
+                        $('#modals-add').modal('hide');
+
+                    }
+                        else if(data.type == 'error'){
+                            $('#form-input-error').html(data.message);
+                        $('#form-input-success').html('');
+                            $('#course_add').html('Save');
+                        //alert(data.message);
+                        }
 
 
-              },
-              error: function (data) {
-                  alert(JSON.stringify(data));
-                  $('#course_add').html('Save Changes');
+                    },
+                    error: function (data) {
+                        //alert(JSON.stringify(data));
+                        $('#course_add').html('Save Changes');
 
-                   //newGameSidebar.modal('hide');
-                $('#search_btn').trigger('click');
-                 $('body').removeClass('modal-open');
-                $('body').css('padding-right', '0px');
-                $('.modal-backdrop').remove();
+                        //newGameSidebar.modal('hide');
+                        $('#search_btn').trigger('click');
+                        $('body').removeClass('modal-open');
+                        $('body').css('padding-right', '0px');
+                        $('.modal-backdrop').remove();
 
-              } ,
-              complete: function(){
-                $('.ajax-loader').css("visibility", "hidden");
-              }
-          });
+                    } ,
+                    complete: function(){
+                        $('.ajax-loader').css("visibility", "hidden");
+                    }
+                });
 
 
-    });
+            });
   }
 
   if (newMeetingForm.length) {

@@ -28,7 +28,7 @@
 
             <tr>
                 <td>{{$quize['title']}}  </td>
-            
+
 
                 <td>{{$quize['start_date']}}  </td>
                 <td>{{$quize['end_date']}}  </td>
@@ -49,7 +49,7 @@
 
                                 <td style="padding: 0px 5px;">
 
-                                 <a href="{{Route('teachercoursecontentquizequestion',['id'=>$quize['course_id'],'content_id'=>$quize['course_content_id'],'quiz_id'=>$quize['id']])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Question</a>
+                                 <a href="{{Route('teachercoursecontentquizequestion',['id'=>$quize['course_id'],'content_id'=>$quize['course_content_id'],'quiz_id'=>$quize['id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Question</a>
                                 </td>
 
                                     <td style="padding: 0px 5px;">

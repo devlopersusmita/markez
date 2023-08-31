@@ -25,6 +25,7 @@ use App\Models\Privacypolicy;
 use App\Models\Aboutus;
 use App\Models\SystemSetting;
 
+
 use File;
 
 
@@ -40,6 +41,9 @@ use App\Models\TeacherStudent;
 use App\Models\online_classe;
 use App\Models\Contactus;
 use App\Models\HomeSetting;
+use App\Models\InstitutionCompanySetting;
+use App\Models\InstitutionSystemSetting;
+use App\Models\InstitutionBannerSetting;
 
 
 use App\Models\InstitutionAdmin;
@@ -626,10 +630,9 @@ public function coursesubscriptionpay(Request $request)
 
        $id=$request->id;
        $institution_id=$request->institution_id;
-      // $token = base64_encode(env('MOYASAR_SECRET_KEY').':');
-       $token = base64_encode("sk_test_hniWbWT7zPnoPFEcUxM1UxHgt8ZvAD5DtGTpnxKo".':');
+       $token = base64_encode(env('MOYASAR_SECRET_KEY').':');
        $payment = Http::baseUrl('https://api.moyasar.com/v1')
-       ->withBasicAuth("sk_test_hniWbWT7zPnoPFEcUxM1UxHgt8ZvAD5DtGTpnxKo",'')
+       ->withBasicAuth(env('MOYASAR_SECRET_KEY'),'')
        ->get("payments/{$id}")
        ->json();
 
@@ -810,7 +813,7 @@ public function coursesubscriptionpay(Request $request)
                         if($institution_subscription->save())
                         {
 
-                           
+
 
                             $institution = Institution::where('id',$user_id)->first();
 
@@ -820,6 +823,7 @@ public function coursesubscriptionpay(Request $request)
                                $institution->save();
                            }
                            $user_details = UserDetail::where('user_id',$user_id)->first();
+                           //dd($user_details);
                            $user_details->subscription_end_date=$order_details->end_date;
                            $user_details->save();
 
@@ -977,93 +981,93 @@ public function coursesubscriptionpay(Request $request)
 
 
     public function teacherstudentstudentapprove($id,$type)
-    {
-      //$user_id=Auth::id();
-      $user_id = $request->teacher_id;
-      $result = null;
-      if($type=='private_receiving')
       {
-          $exist_no = RequestDetails::where(['sender_id'=>$id,'sender_type'=>'Student','receiver_type'=>'Teacher','receiver_id'=>$user_id,'type'=>'Teacher_Student'])->get()->count();
-          if($exist_no > 0)
-          {
-               $result = RequestDetails::where(['sender_id'=>$id,'sender_type'=>'Student','receiver_type'=>'Teacher','receiver_id'=>$user_id,'type'=>'Teacher_Student'])->delete();
+        //$user_id=Auth::id();
+        $user_id = $request->teacher_id;
+        $result = null;
+        if($type=='private_receiving')
+        {
+            $exist_no = RequestDetails::where(['sender_id'=>$id,'sender_type'=>'Student','receiver_type'=>'Teacher','receiver_id'=>$user_id,'type'=>'Teacher_Student'])->get()->count();
+            if($exist_no > 0)
+            {
+                 $result = RequestDetails::where(['sender_id'=>$id,'sender_type'=>'Student','receiver_type'=>'Teacher','receiver_id'=>$user_id,'type'=>'Teacher_Student'])->delete();
 
 
-               $exist_in_teacher_students_no = TeacherStudent::where(['teacher_id'=>$user_id,'user_id'=>$id])->get()->count();
-               if($exist_in_teacher_students_no > 0)
-               {
-                   Session::flash('error', 'Already exist!');
+                 $exist_in_teacher_students_no = TeacherStudent::where(['teacher_id'=>$user_id,'user_id'=>$id])->get()->count();
+                 if($exist_in_teacher_students_no > 0)
+                 {
+                     Session::flash('error', 'Already exist!');
 
-                      return response()->json([
-                        'message' => 'Already exist!'
-                      ]);
-               }
-               else
-               {
-                  //insert into TeacherStudent
-                  $teacher_student = new TeacherStudent();
-                  $teacher_student->teacher_id = $user_id;
-                  $teacher_student->user_id = $id;
-                  $teacher_student->created_by = $id;
-                  if($teacher_student->save())
-                  {
+                        return response()->json([
+                          'message' => 'Already exist!'
+                        ]);
+                 }
+                 else
+                 {
+                    //insert into TeacherStudent
+                    $teacher_student = new TeacherStudent();
+                    $teacher_student->teacher_id = $user_id;
+                    $teacher_student->user_id = $id;
+                    $teacher_student->created_by = $id;
+                    if($teacher_student->save())
+                    {
 
-                      // email to send receiver_id , that sender_id approved request
+                        // email to send receiver_id , that sender_id approved request
 
-                      $sender_details = User::where(['id'=>$user_id])->first();
-                      $receiver_details = User::where(['id'=>$id])->first();
+                        $sender_details = User::where(['id'=>$user_id])->first();
+                        $receiver_details = User::where(['id'=>$id])->first();
 
-                      if($sender_details->role=='1')
-                      {
-                          $sender_type = 'A Student';
-                      }
-                      else if($sender_details->role=='2')
-                      {
-                          $sender_type = 'A Teacher';
-                      }
-                      else if($sender_details->role=='3')
-                      {
-                          $sender_type = 'An Institution';
-                      }
+                        if($sender_details->role=='1')
+                        {
+                            $sender_type = 'A Student';
+                        }
+                        else if($sender_details->role=='2')
+                        {
+                            $sender_type = 'A Teacher';
+                        }
+                        else if($sender_details->role=='3')
+                        {
+                            $sender_type = 'An Institution';
+                        }
 
-                      $details = [
-                            'receiver_name'=>$receiver_details->name,
-                            'sender_name'=>$sender_details->name,
-                            'sender_type' => $sender_type,
-                            'body' => $sender_type.' ('.$sender_details->name.') approved your request <br><br><br>',
-                        ];
+                        $details = [
+                              'receiver_name'=>$receiver_details->name,
+                              'sender_name'=>$sender_details->name,
+                              'sender_type' => $sender_type,
+                              'body' => $sender_type.' ('.$sender_details->name.') approved your request <br><br><br>',
+                          ];
 
-                      Mail::to($receiver_details->email)->send(new NotifyMail($details));
+                        Mail::to($receiver_details->email)->send(new NotifyMail($details));
 
 
-                      Session::flash('error', 'Approved request successfully!');
+                        Session::flash('error', 'Approved request successfully!');
 
-                      return response()->json([
-                        'message' => 'Approved request successfully!'
-                      ]);
-                  }
-                  else
-                  {
-                     Session::flash('error', 'Something wrong!');
+                        return response()->json([
+                          'message' => 'Approved request successfully!'
+                        ]);
+                    }
+                    else
+                    {
+                       Session::flash('error', 'Something wrong!');
 
-                      return response()->json([
-                        'message' => 'Something wrong!'
-                      ]);
-                  }
-               }
+                        return response()->json([
+                          'message' => 'Something wrong!'
+                        ]);
+                    }
+                 }
 
-          }
-          else
-          {
-              Session::flash('error', 'Something wrong!');
+            }
+            else
+            {
+                Session::flash('error', 'Something wrong!');
 
-              return response()->json([
-                'message' => 'Something wrong!'
-              ]);
-          }
-      }
+                return response()->json([
+                  'message' => 'Something wrong!'
+                ]);
+            }
+        }
 
-  }
+    }
 
      public function institutionstudentstudentapprove($id,$type)
       {
@@ -1337,10 +1341,10 @@ public function coursesubscriptionpay(Request $request)
 
   }
 
-    public function studentteacherstudentapprove($id,$type)
+    public function studentteacherstudentapprove(Request $request,$id,$type)
       {
-        $user_id=Auth::id();
-        $result = null;
+        $user_id = $request->student_id;
+       $result = null;
         if($type=='private_receiving')
         {
             $exist_no = RequestDetails::where(['sender_id'=>$id,'sender_type'=>'Teacher','receiver_type'=>'Student','receiver_id'=>$user_id,'type'=>'Teacher_Student'])->get()->count();
@@ -2316,84 +2320,84 @@ public function coursesubscriptionpay(Request $request)
 
 
   }
-  public function teacherstudentstudentsend(Request $request, $id,$type)
-  {
+    public function teacherstudentstudentsend(Request $request, $id,$type)
+      {
 
-      $user_id = $request->teacher_id;
-    $result = null;
+          $user_id = $request->teacher_id;
+        $result = null;
 
-    $exist_no = RequestDetails::where(['sender_id'=>$user_id,'sender_type'=>'Teacher','receiver_type'=>'Student','receiver_id'=>$id,'type'=>'Teacher_Student'])->get()->count();
-    if($exist_no > 0)
-    {
-        Session::flash('error', 'Already sent');
-
-        return response()->json([
-          'message' => 'Already sent!'
-        ]);
-    }
-
-    if($type=='private_sending')
-    {
-         $result = new RequestDetails();
-         $result->sender_id=$user_id;
-         $result->sender_type='Teacher';
-         $result->receiver_type='Student';
-         $result->receiver_id=$id;
-         $result->type='Teacher_Student';
-
-
-
-
-        if($result->save())
+        $exist_no = RequestDetails::where(['sender_id'=>$user_id,'sender_type'=>'Teacher','receiver_type'=>'Student','receiver_id'=>$id,'type'=>'Teacher_Student'])->get()->count();
+        if($exist_no > 0)
         {
-            // email to send receiver_id , that sender_id sent a request
-
-            $sender_details = User::where(['id'=>$user_id])->first();
-            $receiver_details = User::where(['id'=>$id])->first();
-
-            if($sender_details->role=='1')
-            {
-                $sender_type = 'A Student';
-            }
-            else if($sender_details->role=='2')
-            {
-                $sender_type = 'A Teacher';
-            }
-            else if($sender_details->role=='3')
-            {
-                $sender_type = 'An Institution';
-            }
-
-            $details = [
-                  'receiver_name'=>$receiver_details->name,
-                  'sender_name'=>$sender_details->name,
-                  'sender_type' => $sender_type,
-                  'body' => $sender_type.' ('.$sender_details->name.') send request you to Add<br><br><br>',
-              ];
-
-            Mail::to($receiver_details->email)->send(new NotifyMail($details));
-
-
-
-            Session::flash('error', 'Send request successfully!');
+            Session::flash('error', 'Already sent');
 
             return response()->json([
-              'message' => 'Send request successfully!'
+              'message' => 'Already sent!'
             ]);
         }
-        else
+
+        if($type=='private_sending')
         {
-            Session::flash('error', 'Something wrong!');
+             $result = new RequestDetails();
+             $result->sender_id=$user_id;
+             $result->sender_type='Teacher';
+             $result->receiver_type='Student';
+             $result->receiver_id=$id;
+             $result->type='Teacher_Student';
 
-            return response()->json([
-              'message' => 'Something wrong!'
-            ]);
+
+
+
+            if($result->save())
+            {
+                // email to send receiver_id , that sender_id sent a request
+
+                $sender_details = User::where(['id'=>$user_id])->first();
+                $receiver_details = User::where(['id'=>$id])->first();
+
+                if($sender_details->role=='1')
+                {
+                    $sender_type = 'A Student';
+                }
+                else if($sender_details->role=='2')
+                {
+                    $sender_type = 'A Teacher';
+                }
+                else if($sender_details->role=='3')
+                {
+                    $sender_type = 'An Institution';
+                }
+
+                $details = [
+                      'receiver_name'=>$receiver_details->name,
+                      'sender_name'=>$sender_details->name,
+                      'sender_type' => $sender_type,
+                      'body' => $sender_type.' ('.$sender_details->name.') send request you to Add<br><br><br>',
+                  ];
+
+                Mail::to($receiver_details->email)->send(new NotifyMail($details));
+
+
+
+                Session::flash('error', 'Send request successfully!');
+
+                return response()->json([
+                  'message' => 'Send request successfully!'
+                ]);
+            }
+            else
+            {
+                Session::flash('error', 'Something wrong!');
+
+                return response()->json([
+                  'message' => 'Something wrong!'
+                ]);
+            }
         }
+
+
+
     }
-
-
-
-}
 
     public function institutionstudentstudentsend($id,$type)
       {
@@ -2472,9 +2476,17 @@ public function coursesubscriptionpay(Request $request)
 
 
     }
-    public function institutionteacherteachersend($id,$type)
+    public function institutionteacherteachersend(Request $request,$id,$type)
       {
-        $user_id=Auth::id();
+        // dd($user_id = $request->user_id);
+        // exit();
+
+            $user_id =  $request->user_id;
+             return response()->json([
+                'user_id' => $user_id
+              ]);
+              exit();
+
         $result = null;
 
         $exist_no = RequestDetails::where(['sender_id'=>$user_id,'sender_type'=>'Institution','receiver_type'=>'Teacher','receiver_id'=>$id,'type'=>'Institution_Teacher'])->get()->count();
@@ -2503,7 +2515,7 @@ public function coursesubscriptionpay(Request $request)
             {
                 // email to send receiver_id , that sender_id sent a request
 
-                $sender_details = User::where(['id'=>$user_id])->first();
+                $sender_details = Institution::where(['id'=>$user_id])->first();
                 $receiver_details = User::where(['id'=>$id])->first();
 
                 if($sender_details->role=='1')
@@ -2626,7 +2638,7 @@ public function coursesubscriptionpay(Request $request)
 
 
     }
-// 25.07.23//
+    // 25.07.23//
 public function contactusstore(Request $request)
 {
 
@@ -2686,13 +2698,31 @@ public function directaboutus()
 
      return view('theme.aboutus',['aboutuss'=>$aboutuss]);
 }
+
 public function institutionwebsite(Request $request,$id)
 {
-  $id = $request->id;
-  //$institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
-    //dd($institution_sliders);
+        $id = $request->id;
+        $institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
+            //dd($institution_sliders);
+            $category_lists =Category::where('institution_id',$id)->orderBy('name','asc')->get();
+        // dd($category_lists);
+            $t2_array =[];
+                if(!empty($category_lists) )
+                {
+                    foreach ($category_lists as $category_list)
+                    {
+                        $t2_array[]= $category_list->id;
+                    }
+                }
+            //     dd($t2_array);
 
-    return view('theme.institution.institutionwebsite',['id'=>$id]);
+            //     $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$t2_array)->orderBy('courses.id','desc')
+            // ->select('courses.*','categories.name as category_name')
+            //     ->get();
+        // dd($categorywise_courselists);
+
+
+    return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists]);
 }
 
 public function teacherstudentregister(Request $request,$id)
@@ -2914,13 +2944,4 @@ public function postteacherstudentlogin(Request $request)
 
 }
 
-public function newinstitutionwebsite($company_name)
-{
-    dd($company_name);
-//   $id = $request->id;
-//   //$institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
-//     //dd($institution_sliders);
-
-//     return view('theme.institution.institutionwebsite',['id'=>$id]);
-}
 }

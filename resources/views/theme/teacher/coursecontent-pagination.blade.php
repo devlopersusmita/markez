@@ -42,18 +42,19 @@
                     <?php } ?>
                 </td>
                 <td>
-
+                <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$institution_id}}" name="institution_id">
                         @if($course['type']=='zoom')
 
-                        <a href="{{Route('online_classes',['id'=>$course['course_id'],'content_id'=>$course['id']])}}" class="button is-solid green-button raised"   style="cursor: pointer;"  >Online Class</a>
-             
+                        <a href="{{Route('online_classes',['id'=>$course['course_id'],'content_id'=>$course['id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid green-button raised"   style="cursor: pointer;"  >Online Class</a>
+
                     @endif
 
                 @if($course['type']=='quiz')
 
 
 
-                                <a href="{{Route('teachercoursecontentquize',['id'=>$course['course_id'],'content_id'=>$course['id']])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Quiz</a>
+                                <a href="{{Route('teachercoursecontentquize',['id'=>$course['course_id'],'content_id'=>$course['id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Quiz</a>
 
 
 

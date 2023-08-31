@@ -52,7 +52,7 @@
                                            <input type="text" name="title" class="input" placeholder="Title" />
                                        </div>
                                        <div class="control" >
-                                           <a class="button is-solid primary-button raised"  href='{{Route("teachercoursecontent",["id"=>$course_id])}}' id='search_btn'>Search</a>
+                                           <a class="button is-solid primary-button raised"  href='{{Route("teachercoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}' id='search_btn'>Search</a>
                                        </div>
                                    </div>
                                   </form>
@@ -68,7 +68,7 @@
 
                                                <div class="field is-grouped">
                                                    <div class="control" >
-                                                       <a href="{{route('teachercourse')}}"><h1>{{$course_details->title}}</h1></a>
+                                                       <a href="{{route('teachercourse',['user_id'=>$user_id,'institution_id'=>$institution_id])}}"><h1>{{$course_details->title}}</h1></a>
                                                    </div>
 
                                                </div>
@@ -117,7 +117,9 @@
             <div class="card-body">
                 <form class="add-new-course"   enctype="multipart/form-data" >
                     <input type="hidden" name="course_id" value="{{$course_id}}" />
-                    {{-- <input type="hidden" name="type" value="{{$type}}" /> --}}
+                    <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$institution_id}}" name="institution_id">
+
 
 
                     <div class="login-form">
@@ -177,13 +179,7 @@
                                  </select>
                                 </div>
                             </div>
-                            {{-- <div class="field">
-                                <label>Content</label>
-                                <div class="control">
 
-                                    <input type="text" class="input title-input" id="content" placeholder="Enter the Content" name="content">
-                                </div>
-                            </div> --}}
                         <div class="field">
                             <label class="required">Start Date</label>
                             <div class="control">
@@ -250,7 +246,8 @@
         <div class="card-body">
             <form class="edit-new-course"   enctype="multipart/form-data" >
                 <input type="hidden" name="course_id" value="{{$course_id}}" />
-                    {{-- <input type="hidden" name="type"   value="{{$type}}" /> --}}
+                <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$institution_id}}" name="institution_id">
 
                 <div class="login-form">
                     <div class="field">

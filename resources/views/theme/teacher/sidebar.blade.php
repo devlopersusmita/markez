@@ -15,21 +15,16 @@
                <span><i class="mdi mdi-school"></i>Courses Request</span></a>
             </div>
         </div>
-         <div class="menu-item {{ (\Request::route()->getName() == 'teachercourse') ? 'is-active' : '' }}" data-content="personal-content">
+        <div class="menu-item {{ (\Request::route()->getName() == 'teachercourse') ? 'is-active' : '' }}" data-content="personal-content">
             <div class="menu-icon">
-                <a href="{{route('teachercourse',['institution_id' => $_GET['institution_id'],'user_id' => $_GET['user_id']]) }}">
+                <a href="{{route('teachercourse',['institution_id' => $_GET['institution_id'],'user_id' => $_GET['user_id']])}}">
                <span><i class="mdi mdi-school"></i>Course</span></a>
             </div>
         </div>
-       
-        <!-- <div class="menu-item {{ (\Request::route()->getName() == 'teacherinstitution') ? 'is-active' : '' }}" data-content="personal-content">
-            <div class="menu-icon">
-                <a href="{{route('teacherinstitution')}}">
-               <span><i class="mdi mdi-school"></i>Institution</span></a>
-            </div>
-        </div> -->
 
-            <!-- START Institution management -->
+
+
+            <!--START Institution management -->
             <!-- <div class="menu-item drop-menu"    data-content="personal-content">
             <div class="menu-icon">
 
@@ -58,11 +53,11 @@
         </div>
         <div class="menu-item {{ (\Request::route()->getName() == 'teachermessage') ? 'is-active' : '' }}" data-content="personal-content">
             <div class="menu-icon">
-                <a href="{{route('teachermessage')}}">
+                <a href="{{route('teachermessage',['institution_id' => $_GET['institution_id'],'user_id' => $_GET['user_id']])}}">
                <span><i class="mdi mdi-school"></i>Message</span></a>
             </div>
         </div>
-       
-       
+
+
     </div>
 </div>
