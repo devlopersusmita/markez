@@ -2903,8 +2903,8 @@ public function postteacherstudentlogin(Request $request)
     if (($user && Hash::check($password, $user->password)))
     {
 
-        InstitutionTeacher::where(['user_id' => $user->id, 'institution_id'=>$institution_id])->get();
-dd($InstitutionTeacher);
+        $institution_teacher_relation = InstitutionTeacher::where(['user_id' => $user->id, 'institution_id'=>$institution_id])->get();
+dd($institution_teacher_relation);
 
        if($user->role == 2)
        {
