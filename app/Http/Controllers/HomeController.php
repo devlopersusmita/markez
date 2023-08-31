@@ -2902,9 +2902,11 @@ public function postteacherstudentlogin(Request $request)
 
     if (($user && Hash::check($password, $user->password)))
     {
-
         $institution_teacher_relation = InstitutionTeacher::where(['user_id' => $user->id, 'institution_id'=>$institution_id])->get();
-dd($institution_teacher_relation);
+            //dd($institution_teacher_relation);
+            if(!$institution_teacher_relation) {
+                echo 'nei'; exit;
+            }
 
        if($user->role == 2)
        {
