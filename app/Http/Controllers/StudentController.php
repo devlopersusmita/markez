@@ -2134,11 +2134,13 @@ class StudentController extends Controller
        //dd($send_requests);
        if($send_requests > 0)
        {
-           Session::flash('error', 'Already exist!');
+           //Session::flash('error', 'Already exist!');
 
-              return response()->json([
-                'message' => 'Already exist!'
-              ]);
+            //   return response()->json([
+            //     'message' => 'Already exist!'
+            //   ]);
+
+            return redirect()->back()->with('message', 'Already sent');
        }
        else
        {
