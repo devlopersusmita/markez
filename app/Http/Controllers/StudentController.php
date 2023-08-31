@@ -2131,8 +2131,8 @@ class StudentController extends Controller
        $user_id = $request->user_id;
        $institution_id =$request->institution_id;
        $send_requests = InstitutionTeacherRequest::where(['institution_id'=>$institution_id,'student_id'=>$user_id])->get()->count();
-       dd($send_requests);
-       if($exist_in_teacher_students_no > 0)
+       //dd($send_requests);
+       if($send_requests > 0)
        {
            Session::flash('error', 'Already exist!');
 
