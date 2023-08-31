@@ -79,7 +79,7 @@
 								</div>
 							</li>
 
-							<li class="mm-active">
+							<li class="{{ Request::routeIs('assigncourserequest') ? 'mm-active' : '' }}">
                             <a href="{{ route('assigncourserequest', ['institution_id' => $_GET['institution_id']]) }}">
 
 									<img class="metismenu-icon" src="images/assign.svg">
