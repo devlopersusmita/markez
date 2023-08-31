@@ -2894,9 +2894,9 @@ public function postteacherstudentlogin(Request $request)
     $institution_id = $request->institution_id;
 
     $user = User::where('email', $email)->first();
-    dd($user->id);
+    //dd($user->id);
 
-    $institution_teacher = InstitutionTeacher::where('institution_id', $institution_id)->first();
+    $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
     dd($institution_teacher->status);
 
     if (($user && Hash::check($password, $user->password)))
