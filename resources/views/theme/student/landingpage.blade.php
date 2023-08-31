@@ -25,7 +25,7 @@
             <!-- About sections -->
             <div class="profile-about side-menu">
                 @include('theme.student.sidebar')
-
+                @include('frontend.notification')
                 <div class="right-content">
                    <div class="buttons">
 
@@ -33,7 +33,7 @@
                             @csrf
                             <input type="hidden" value="{{$user_id}}" name="user_id">
                                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
-                                                    @include('frontend.notification')
+
                                     <button type="submit" class="button is-solid primary-button raised">Submit a Request</button>
 
                             </form>
