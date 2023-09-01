@@ -1156,7 +1156,7 @@
 
 
     // course start //
-    
+
     // $(document).on("click", "#add-new-course-link", function(event) {
     //    $('#modals-add').modal('show');
 
@@ -1425,7 +1425,7 @@
               type: "post",
               dataType: 'json',
               success: function (data) {
-                
+
 
                  $('#search_btn').trigger('click');
                  $('body').removeClass('modal-open');
@@ -3735,7 +3735,7 @@ console.log(form_data,"add field form data")
                             $('#field_placeholder_value').val('');
                             $('#field_id').val('');
                             $('#field_class').val('');
-                            $('#form_id').val('');                           
+                            $('#form_id').val('');
                             $('#pagemodals-add-field').hide();
 
                         }else if(data.type == 'error'){
@@ -3767,13 +3767,13 @@ console.log(form_data,"add field form data")
             });
   }
   $(document).on('click', '.pageaddfield-modals', function () {
-      var id = $(this).data("id");    
+      var id = $(this).data("id");
 
       $('#form_id').val(id);
 
   });
 
-// ================ End ======================= 
+// ================ End =======================
 
 
 
@@ -5883,7 +5883,7 @@ function getfieldtype(value){
 // 03.08.2023
 
 
-$(".mm-active a").click(function(){
+$(".active_nav a").click(function(){
         $('.hide-menu').fadeToggle(1000);
     });
 
