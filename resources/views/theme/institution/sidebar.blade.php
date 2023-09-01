@@ -121,7 +121,7 @@
 							</li>
 
 <!-- / -->
-{{ ((\Request::route()->getName() == 'institutionform') || (\Request::route()->getName() == 'institutionform')) ? 'is-active' : '' }}
+
 
                             <li class="{{ ((Request::routeIs('institutioncompany')) || (Request::routeIs('institutionsystem')) || (Request::routeIs('institutionbannersetting'))) ? 'mm-active' : '' }}">
 								<a href="#" class="main-menu-link">
