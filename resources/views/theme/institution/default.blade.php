@@ -5889,8 +5889,7 @@ $(".active_nav a").click(function(){
     });
 
     $('.hide-menu a').click(function(){
-        $(this).parent().parent().parent('li').addClass('mm-active');
-        alert('Hi');
+        $(this).closest('.hide-menu').parent('li').addClass('mm-active');
 
     });
 
