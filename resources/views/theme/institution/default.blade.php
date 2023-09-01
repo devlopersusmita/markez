@@ -5890,7 +5890,7 @@ $(".active_nav a").click(function(){
 
     $('.hide-menu a').click(function(e){
         e.preventDefault();
-        $(this).addClass('mm-active');
+        $(this).parent('li').addClass('mm-active');
 
     });
 
