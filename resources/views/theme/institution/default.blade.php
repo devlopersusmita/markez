@@ -5883,16 +5883,26 @@ function getfieldtype(value){
 // 03.08.2023
 
 
-$(".active_nav a").click(function(){
-        $(this).parent('li').addClass('mm-active');
-        $('.hide-menu').fadeToggle(1000);
-    });
+// $(".active_nav a").click(function(){
+//         $(this).parent('li').addClass('mm-active');
+//         $('.hide-menu').fadeToggle(1000);
+//     });
 
-    $('.hide-menu a').click(function(e){
-        e.preventDefault();
-        $(this).parent('li').addClass('mm-active');
+//     $('.hide-menu a').click(function(e){
+//         e.preventDefault();
+//         $(this).parent('li').addClass('mm-active');
 
-    });
+//     });
+    $(".active_nav a").click(function() {
+    console.log("Active Nav clicked");
+    // Your code here
+});
+
+$('.hide-menu a').click(function(e) {
+    console.log("Hide Menu clicked");
+    e.preventDefault();
+    // Your code here
+});
 
 //start teacher send //
 
