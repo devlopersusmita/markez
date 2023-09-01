@@ -5883,16 +5883,16 @@ function getfieldtype(value){
 // 03.08.2023
 
 
-$(".active_nav a").click(function(){
-        $(this).parent('li').addClass('mm-active');
-        $('.hide-menu').fadeToggle(1000);
-    });
+// $(".active_nav a").click(function(){
+//         $(this).parent('li').addClass('mm-active');
+//         $('.hide-menu').fadeToggle(1000);
+//     });
 
-    $('.hide-menu a').click(function(e){
-        e.preventDefault();
-        $(this).closest('.active_nav').addClass('mm-active');
+//     $('.hide-menu a').click(function(e){
+//         e.preventDefault();
+//         $(this).closest('.active_nav').addClass('mm-active');
 
-    });
+//     });
 
 //start teacher send //
 
@@ -5996,6 +5996,23 @@ var newTeachersendForm = $('.assign-teacher-send');
 //start teacher send //
 
 </script>
+<script>
+        $(document).ready(function() {
+            // Click event for the main menu link inside .active_nav
+            $(".active_nav .main-menu-link").click(function(e) {
+                e.preventDefault(); // Prevent the default link behavior
+                $(this).closest('li').addClass('mm-active');
+                $(this).siblings('.hide-menu').fadeToggle(1000);
+            });
+
+            // Click event for links inside .hide-menu
+            $('.hide-menu a').click(function(e) {
+                e.preventDefault();
+                $(this).closest('li').addClass('mm-active');
+            });
+        });
+    </script>
+
 
 
 </body>
