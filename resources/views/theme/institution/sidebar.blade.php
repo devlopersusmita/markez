@@ -122,7 +122,7 @@
 
 <!-- / -->
 
-                            <li class="mm-active">
+                            <li class="active_nav">
 								<a href="#" class="main-menu-link">
 									<img class="metismenu-icon" src="images/setting-icon.svg">
 									<span>Settings</span>
