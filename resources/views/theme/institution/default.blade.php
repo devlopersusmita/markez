@@ -5890,6 +5890,7 @@ $(".active_nav a").click(function(){
 
     $('.hide-menu a').click(function(){
         $(this).parent().parent().parent('li').addClass('mm-active');
+        alert('Hi');
 
     });
 
