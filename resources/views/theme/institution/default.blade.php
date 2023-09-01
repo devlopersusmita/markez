@@ -5888,6 +5888,10 @@ $(".active_nav a").click(function(){
         $('.hide-menu').fadeToggle(1000);
     });
 
+    $('.hide-menu a').click(function(){
+        $('.hide-menu').parent('li').addClass('mm-active');
+    });
+
 //start teacher send //
 
 var newTeachersendForm = $('.assign-teacher-send');
