@@ -5888,7 +5888,8 @@ $(".active_nav a").click(function(){
         $('.hide-menu').fadeToggle(1000);
     });
 
-    $('.hide-menu a').click(function(){
+    $('.hide-menu a').click(function(e){
+        e.preventDefault();
         $(this).closest('.active_nav').addClass('mm-active');
 
     });
