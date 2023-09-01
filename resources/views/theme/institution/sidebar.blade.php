@@ -59,7 +59,11 @@
 									<img class="metismenu-state-icon" src="images/setting-icon.svg">
 								</a>
 								<div class="hide-menu">
-
+									<!-- <a href="{{ route('institutionteacherview', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutionteacherview') ? 'submenu-active-link' : '' }}">
+										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
+										Teachers Page
+										<img class="metismenu-state-icon" src="images/setting-icon.svg">
+									</a> -->
 
 									<a href="{{ route('institutionmyteacher', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutionmyteacher') ? 'submenu-active-link' : '' }}">
 										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
@@ -67,7 +71,11 @@
 										<img class="metismenu-state-icon" src="images/setting-icon.svg">
 									</a>
 
-
+									<!-- <a href="{{ route('institutionteacherrequest', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutionteacherrequest') ? 'submenu-active-link' : '' }}">
+										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
+                                        Teachers Request
+										<img class="metismenu-state-icon" src="images/setting-icon.svg">
+									</a> -->
 								</div>
 							</li>
 
