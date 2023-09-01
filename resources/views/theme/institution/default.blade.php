@@ -5895,6 +5895,8 @@ function getfieldtype(value){
 //     });
     $(".active_nav a").click(function() {
     console.log("Active Nav clicked");
+    $(this).parent('li').addClass('mm-active');
+        $('.hide-menu').fadeToggle(1000);
     // Your code here
 });
 
