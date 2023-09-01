@@ -5889,7 +5889,7 @@ $(".active_nav a").click(function(){
     });
 
     $('.hide-menu a').click(function(){
-        $(this).parent('div').closest('li').addClass('mm-active');
+        $('hide-menu').closest('li').addClass('mm-active');
     });
 
 //start teacher send //
