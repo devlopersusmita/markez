@@ -80,12 +80,14 @@
 							</li>
 
 
-							<li>
+							<li class="{{ Request::routeIs('institutioncourse') ? 'mm-active' : '' }}">
 								<a href="{{ route('institutioncourse', ['institution_id' => $_GET['institution_id']]) }}">
 									<img class="metismenu-icon" src="images/course-icon.svg">
 									<span>Courses Crud</span>
 									<img class="metismenu-state-icon" src="images/course-icon.svg">
 								</a>
+                           </li>
+                           <li class="{{ Request::routeIs('assigncoursetoteacher') ? 'mm-active' : '' }}">
                                 <a  href="{{ route('assigncoursetoteacher',['institution_id' => $_GET['institution_id']]) }}">
                                 <img class="metismenu-icon" src="images/assign.svg">
 									<span>View Assigned Courses</span>
