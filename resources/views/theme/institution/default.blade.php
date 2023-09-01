@@ -5894,9 +5894,17 @@ function getfieldtype(value){
 
 //     });
 
-$(".mm-active a").click(function(){
-        $('.hide-menu').fadeToggle(1000);
-    });
+// $(".mm-active a").click(function(){
+//         $('.hide-menu').fadeToggle(1000);
+//     });
+
+    $(document).ready(function() {
+            // Click event for the main menu link
+            $(".main-menu-link").click(function(e) {
+                e.preventDefault(); // Prevent the default link behavior
+                $(this).siblings('.hide-menu').slideToggle(300);
+            });
+        });
 
 //start teacher send //
 
