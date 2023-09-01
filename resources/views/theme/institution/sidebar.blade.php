@@ -58,7 +58,7 @@
 									<span>Teachers Page</span>
 									<img class="metismenu-state-icon" src="images/setting-icon.svg">
 								</a>
-								<div class="hide-menu">
+								<div class="hide-menu {{ Request::routeIs('institutionmyteacher') ? 'custom_show_active_menu' : '' }}" >
 
 									<a href="{{ route('institutionmyteacher', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutionmyteacher') ? 'submenu-active-link' : '' }}">
 										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
