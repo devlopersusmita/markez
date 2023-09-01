@@ -121,14 +121,15 @@
 							</li>
 
 <!-- / -->
+{{ ((\Request::route()->getName() == 'institutionform') || (\Request::route()->getName() == 'institutionform')) ? 'is-active' : '' }}
 
-                            <li class="{{ Request::routeIs('institutioncompany') ? 'mm-active' : '' }}">
+                            <li class="{{ ((Request::routeIs('institutioncompany')) || (Request::routeIs('institutionsystem')) || (Request::routeIs('institutionbannersetting'))) ? 'mm-active' : '' }}">
 								<a href="#" class="main-menu-link">
 									<img class="metismenu-icon" src="images/setting-icon.svg">
 									<span>Settings</span>
 									<img class="metismenu-state-icon" src="images/setting-icon.svg">
 								</a>
-								<div class=" {{ Request::routeIs('institutioncompany') ? 'custom_show_active_menu' : 'hide-menu' }}" >
+								<div class=" {{ ((Request::routeIs('institutioncompany')) || (Request::routeIs('institutionsystem')) || (Request::routeIs('institutionbannersetting'))) ? 'custom_show_active_menu' : 'hide-menu' }}" >
 									<a href="{{ route('institutioncompany', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutioncompany') ? 'submenu-active-link' : '' }}">
 										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
 										Company Settings
