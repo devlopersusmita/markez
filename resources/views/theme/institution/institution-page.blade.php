@@ -28,8 +28,8 @@
           <tr>
 
           <td>{{$page['title']}}  </td>
-                  <td>{{$page['slug']}}  </td>
-                   <td><?php $content=$page['content']; $content=strip_tags($content); $out = strlen($content) > 100 ? substr($content,0,100)."..." : $content; ?> {!! $out !!} </td>
+          <td>{{$page['slug']}}  </td>
+          <td><?php $content=$page['content']; $content=strip_tags($content); $out = strlen($content) > 100 ? substr($content,0,100)."..." : $content; ?> {!! $out !!} </td>
 
             <td>
             <span class="pageview-modals"  data-toggle="modal" data-target="#pagemodals-view" style="cursor: pointer;" data-id="<?php echo $page['id']?>" ><i class="fa fa-eye" style="font-size:18px"></i></span>

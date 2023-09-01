@@ -11,21 +11,21 @@
       <a  class="btn btn-primary float-right add_modal" data-toggle="modal" data-target="#homemodals-add" style="cursor: pointer;"><i class="fa fa-plus"></i> New Banner setting</a>
     </div>
 
-    <div class="table-responsive">
-      <table class="table category-table">
+    <div class="table-responsive category-table">
+      <table class="table">
         <thead>
           <th>Slider</th>
           <th>Slider Header</th>
           <th>Slider Text</th>
           <th>Description</th>
           <th>Link</th>
-       
+
           <th>Action</th>
         </thead>
         <tbody>
-                    
+
           @if(!empty($homes))
-      
+
           @foreach($homes as $home)
           <tr>
 
@@ -34,7 +34,7 @@
             <td>{{$home['slider_text']}}</td>
             <td>{{$home['description']}}</td>
             <td>{{$home['link']}}</td>
-       
+
             <td>
             <span class="settingsbanneredit_modal" data-toggle="modal" data-target="#homemodals-edit" style="cursor: pointer;" data-id="<?php echo $home['id']?>" ><i class="fa fa-eye" style="font-size:18px"></i></span>
            <span class="delete_modal" data-toggle="modal" data-target="#modals-delete" style="cursor: pointer;" data-id="<?php echo $home['id']?>"><i class="fa fa-trash-o" style="font-size:18px"></i></span>
@@ -46,7 +46,7 @@
         </tbody>
       </table>
     </div>
- 
+
     @endsection
 
  <!-- Modal to view Home setting starts-->
