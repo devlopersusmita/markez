@@ -5894,6 +5894,10 @@ function getfieldtype(value){
 
 //     });
 
+$(".mm-active a").click(function(){
+        $('.hide-menu').fadeToggle(1000);
+    });
+
 //start teacher send //
 
 var newTeachersendForm = $('.assign-teacher-send');
@@ -5996,7 +6000,7 @@ var newTeachersendForm = $('.assign-teacher-send');
 //start teacher send //
 
 </script>
-<script>
+<!-- <script>
         $(document).ready(function() {
             // Click event for the main menu link inside .active_nav
             $(".active_nav .main-menu-link").click(function(e) {
@@ -6011,7 +6015,7 @@ var newTeachersendForm = $('.assign-teacher-send');
                 $(this).closest('li').addClass('mm-active');
             });
         });
-    </script>
+    </script> -->
 
 
 

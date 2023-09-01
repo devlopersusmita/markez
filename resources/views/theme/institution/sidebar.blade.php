@@ -52,7 +52,7 @@
 
 
 
-							<li class="active_nav">
+							<li class="mm-active">
 								<a href="#" class="main-menu-link">
 									<img class="metismenu-icon" src="images/setting-icon.svg">
 									<span>Teachers Page</span>
