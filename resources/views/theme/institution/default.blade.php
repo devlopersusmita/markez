@@ -5902,7 +5902,7 @@ function getfieldtype(value){
             // Click event for the main menu link
             $(".main-menu-link").click(function(e) {
                 e.preventDefault(); // Prevent the default link behavior
-                $(this).siblings('.hide-menu').slideToggle(300);
+                $(this).siblings('.hide-menu').fadeToggle(1000);
             });
         });
 
