@@ -57,7 +57,7 @@
             <div class="modal-content">
                 <div class="card">
                     <div class="card-heading">
-                        <h3>New Page</h3>
+                        <h3>New From</h3>
                         <!-- Close X button -->
                         <div class="close-wrap">
                             <span class="close-modal" data-dismiss="modal">
