@@ -5,8 +5,8 @@
 <div class="app-main__outer">
 <div class="app-main__inner">
 <div class="category-top-row">
-   <h2>Menu</h2>
-   <a href="javascript:void(0)"  class="button is-solid accent-button raised modal-trigger" id="add-new-menu-link" data-modal="menumodals-add">Add Menu</a>
+   <h2>From</h2>
+   <a href="javascript:void(0)"  class="button is-solid accent-button raised modal-trigger" data-modal="pagemodals-add">Add Form</a>
 
 </div>
 @include('frontend.notification')
