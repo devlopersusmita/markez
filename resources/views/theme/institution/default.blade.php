@@ -3716,7 +3716,8 @@ console.log(form_data,"add field form data")
                     success: function (data) {
                         console.log(data,"add field success");
 
-                        window.location.href="{{route('institutionform')}}";
+                        window.location.href="{{route('institutionform', ['institution_id' => $_GET['institution_id']])}}";
+
                         if(data.type == 'success'){
                             $('#form-input-error').html('');
                             $('#form-input-success').html('');
