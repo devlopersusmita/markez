@@ -52,7 +52,7 @@
                                             <input type="text" name="question_text" class="input" placeholder="Question Text" />
                                         </div>
                                         <div class="control" >
-                                            <a class="button is-solid primary-button raised"  href='{{Route('institutioncoursecontentquizequestion',["id"=>$course_id,"content_id"=>$course_content_id,"quiz_id"=>$course_content_quiz_id])}}' id='search_btn'>Search</a>
+                                            <a class="button is-solid primary-button raised"  href="{{Route('institutioncoursecontentquizequestion',['id'=>$course_id,'content_id'=>$course_content_id,'quiz_id'=>$course_content_quiz_id])}}" id='search_btn'>Search</a>
                                         </div>
                                     </div>
                                    </form>
