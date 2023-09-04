@@ -13,7 +13,7 @@
 <div class="table-responsive category-table">
    <table class="table">
       <thead>
-      <th>Name</th>
+                <th>Name</th>
                 <th>Page</th>
                 <th>no of field</th>
                 <th>Status</th>
