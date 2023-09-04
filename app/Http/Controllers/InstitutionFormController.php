@@ -286,7 +286,7 @@ public function addnewform(Request $request)
 
      //dd($user_id);
     // $userId = Auth::id();
-if($request->institution_id == null) {
+  if($request->institution_id == null) {
                 $user_id = $_GET['institution_id'];
             } else {
                 $user_id = $request->institution_id;
