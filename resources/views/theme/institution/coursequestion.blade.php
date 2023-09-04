@@ -74,7 +74,7 @@
                                             <a href='{{Route("institutioncoursecontent",["id"=>$course_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
                                         </div>
                                        <div class="control" >
-                                            <a href= '{{Route('institutioncoursecontentquize',["id"=>$course_id,"content_id"=>$course_content_details->id])}}'><h1>>> {{$course_content_quiz_details->title}}</h1></a>
+                                            <a href= "{{Route('institutioncoursecontentquize',['id'=>$course_id,'content_id'=>$course_content_details->id])}}"><h1>>> {{$course_content_quiz_details->title}}</h1></a>
                                         </div>
                                     </div>
 
