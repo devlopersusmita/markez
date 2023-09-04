@@ -3722,7 +3722,7 @@ console.log(form_data,"add field form data")
                             $('#form-input-success').html('');
 
                             $('#field_add').html('Save');
-                            // alert(JSON.stringify(data));
+                             alert(JSON.stringify(data));
 
                             $('#search_btn').trigger('click');
                             $('body').removeClass('modal-open');
