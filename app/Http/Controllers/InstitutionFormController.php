@@ -44,7 +44,7 @@ class InstitutionFormController extends Controller
     {
 
 
-        
+
          //$userId = Auth::id();
          if($request->institution_id == null) {
                 $user_id = $_GET['institution_id'];
@@ -54,20 +54,20 @@ class InstitutionFormController extends Controller
             // dd($user_id);
         if($user_id){
                 $user = Institution::where('id',$user_id)->first();
-                
+
                 $user_id = $user->id;
-    
+
             $data7=Page::orderBy('pages.id','desc')->where('created_by',$user_id)->select('pages.*')->get();
             $form=Form::orderBy('form.id','desc')->where('institution_id',$user_id)->leftJoin('pages', 'pages.id', '=', 'form.page_id')->select('form.*','pages.title as page_name')->get();
-    
+
             $thearray = [];
             if(count($form) > 0)
             {
                 foreach($form as $k2=>$v2)
                 {
-    
+
                 $field_data=FormField::orderBy('form_field.id','desc')->where('form_id',$v2->id)->select('form_field.*')->get();
-    
+
                             $thearray[]=array(
                                 'form_name'=>$v2->form_name
                                 ,'page_name'=>$v2->page_name
@@ -76,34 +76,24 @@ class InstitutionFormController extends Controller
                                 ,'id'=>$v2->id
                                 ,'total_field'=>$field_data->count()
                             );
-    
+
                 }
             }
-          
-            $formdata = $this->paginate_page($thearray);
-    
-            if($request->ajax()){
-                return view('theme.institution.institution-form-pagination',['pages'=>$data7,'formdata'=> $formdata]);
-            }
-            return view('theme.institution.institution-form',['pages'=>$data7,'formdata'=> $formdata]);
-    
+
+
+
+            return view('theme.institution.institution-form',['pages'=>$data7,'formdata'=> $thearray]);
+
         }else{
 
             return redirect('/login');
         }
 
-        
+
 
 
     }
-     public function paginate_page($items, $perPage = 10, $page = null, $options = [])
-        {
-            $options = ['path' => Route('institutionpage')] ;
 
-            $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
-            $items = $items instanceof Collection ? $items : Collection::make($items);
-            return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
-        }
 
 
 public function fieldstore(Request $request)
@@ -140,10 +130,10 @@ public function fieldstore(Request $request)
     }
     else
     {
-        
 
 
-               
+
+
                     if($request->input('field_type') == "input"){
                         $field_value=$request->input('field_input_value');
                         $field_option_value="";
@@ -173,7 +163,7 @@ public function fieldstore(Request $request)
                     $FormField->field_name = $request->input('field_name');;
                     $FormField->field_value =  $field_value;
                     $FormField->field_option_value =  $field_option_value;
-                     
+
                     $FormField->field_order =  $request->input('field_order');;
                     $FormField->field_placeholder_value =  $request->input('field_placeholder_value');;
                     $FormField->field_id =  $request->input('field_id');;
@@ -305,11 +295,11 @@ if($request->institution_id == null) {
 
      $user = Institution::where('created_by',$user_id)->first();
      $user_id = $user->id;
-    
+
     $data7=Page::orderBy('pages.id','desc')->where('created_by',$user_id)->select('pages.*')->get();
 
-    
- 
+
+
    return view('theme.institution.institution-new-form',['pages'=>$data7]);
 
 
