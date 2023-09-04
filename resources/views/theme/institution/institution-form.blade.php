@@ -1,77 +1,58 @@
 @extends('theme.institution.default')
-
-
 @section('content')
+<div class="app-main">
+@include('theme.institution.sidebar')
+<div class="app-main__outer">
+<div class="app-main__inner">
+<div class="category-top-row">
+   <h2>Menu</h2>
+   <a href="javascript:void(0)"  class="button is-solid accent-button raised modal-trigger" id="add-new-menu-link" data-modal="menumodals-add">Add Menu</a>
+
+</div>
+@include('frontend.notification')
+<div class="table-responsive category-table">
+   <table class="table">
+      <thead>
+      <th>Name</th>
+                <th>Page</th>
+                <th>no of field</th>
+                <th>Status</th>
+                <th>Action</th>
+      </thead>
+      <tbody>
+      @foreach($formdata as $form)
+            <tr >
+                  <td>{{$form['form_name']}}  </td>
+                  <td>{{$form['page_name']}}  </td>
+                  <td> {{$form['total_field']}}  </td>
+                  <td>{{$form['form_status']}}  </td>
 
 
- <div class="view-wrapper">
-
-       <!-- Container -->
-<div class="container is-custom">
-
-    <!-- Profile page main wrapper -->
-    <div id="profile-about" class="view-wrap is-headless">
-        <div class="columns is-multiline no-margin">
-            <!-- Left side column -->
-            <div class="column is-paddingless">
-                <!-- Timeline Header -->
-
-            </div>
-
-        </div>
-
-        <div class="column">
-
-            <!-- About sections -->
-            <div class="profile-about side-menu">
-                @include('theme.institution.sidebar')
-
-                <div class="right-content">
-                    <div class="groups-grid padding_0">
-
-                        <div class="grid-header">
-                            <div class="header-inner">
-                                <h2>Form List</h2>
-
-                                <div class="header-actions">
-
-                                    <div class="buttons">
-                                    <a href="javascript:void(0)"  class="button is-solid accent-button raised modal-trigger" id="add-new-page-link" data-modal="pagemodals-add">Add Form</a>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div class="header-inner padding_top_10">
-                                <h2>&nbsp;</h2>
+                <td>
+                    <table><tr>
+                    <td> <span  class="button is-success accent-button raised modal-trigger pageaddfield-modals"  data-toggle="modal" data-target="#pagemodals-add-field" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >Add Field</span></td>
+                    <td> <span  class="button is-success accent-button raised modal-trigger pageview-modals"  data-toggle="modal" data-target="#pagemodals-view" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >View</span></td>
+                    <td> <span   class="button is-warning accent-button raised modal-trigger pageedit_modal" data-toggle="modal" data-target="#pagemodals-edit" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >Edit</span></td>
+                    <td><span    class="button is-danger accent-button raised modal-trigger delete_modal" data-toggle="modal" data-target="#pagemodals-delete" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >Delete</span></td>
+                </tr></table>
 
 
 
-                            </div>
+                </td>
 
 
 
-                        </div>
-                    </div>
 
+            </tr>
 
-                    <div id="overview-content" class="content-section is-active">
-
-                            <div id="pagination_data">
-                            @include("theme.institution.institution-form-pagination",['formdata'=>$formdata])
-                            </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-   </div>
-        </div>
-
- <!-- Modal to add new Page starts-->
- <div id="pagemodals-add" class="modal change-cover-modal is-medium has-light-bg">
+           @endforeach
+      </tbody>
+   </table>
+</div>
+@endsection
+<!--  -->
+<!-- Modal to add new Page starts-->
+<div id="pagemodals-add" class="modal change-cover-modal is-medium has-light-bg">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="card">
@@ -306,7 +287,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="field">
                                     <label class="required">Sort Order </label>
                                     <div class="control">
@@ -429,7 +410,7 @@
                                         </div>
 
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="field">
@@ -446,7 +427,7 @@
 
                                     </div>
                                 </div>
-                                
+
 
 
 
@@ -470,28 +451,5 @@
         </div>
       </div>
   <!-- Modal to Add form field Ends-->
-  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-
-@endsection
-
-
-
+<!--  -->
