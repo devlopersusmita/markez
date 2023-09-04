@@ -3679,7 +3679,7 @@ $(document).ready(function()
 var newfieldForm = $('.add-new-field');
 
   if (newfieldForm.length) {
-    alert("ok");
+   // alert("ok");
 
 
     newfieldForm.on('submit', function (e) {
