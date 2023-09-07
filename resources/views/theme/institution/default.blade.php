@@ -3706,7 +3706,7 @@ console.log(form_data,"add field form data")
                     },
                     //data: $('#postForm').serialize(),
 
-                    url:baseurl + '/add-new-field',
+                    url:baseurl + '/fieldstore',
                     method:"POST",
                     // data:new FormData(this),
                     data:form_data,
