@@ -15,7 +15,7 @@
       <thead>
                 <th>Name</th>
                 <th>Page</th>
-                <th>no of field</th>
+                <th>No of field</th>
                 <th>Status</th>
                 <th>Action</th>
       </thead>
@@ -31,7 +31,7 @@
                 <td>
                     <table><tr>
                     <td> <span  class="button is-success accent-button raised modal-trigger pageaddfield-modals"  data-toggle="modal" data-target="#pagemodals-add-field" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >Add Field</span></td>
-                    <td> <span  class="button is-success accent-button raised modal-trigger pageview-modals"  data-toggle="modal" data-target="#pagemodals-view" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >View</span></td>
+                    <td> <span  class="button is-success accent-button raised modal-trigger pageview-modals"  data-toggle="modal" data-target="#pagemodals-view" style="cursor: pointer;" data-id="<?php echo $form['id']?>" onclick="valuePass(<?php echo $form['id']; ?>)" >View</span></td>
                     <td> <span   class="button is-warning accent-button raised modal-trigger pageedit_modal" data-toggle="modal" data-target="#pagemodals-edit" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >Edit</span></td>
                     <td><span    class="button is-danger accent-button raised modal-trigger delete_modal" data-toggle="modal" data-target="#pagemodals-delete" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >Delete</span></td>
                 </tr></table>
