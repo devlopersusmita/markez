@@ -188,6 +188,7 @@ Route::post('/fieldstore', [InstitutionFormController::class,'fieldstore'])->nam
 Route::get('viewform/{id}',[InstitutionFormController::class,'viewform'])->name('viewform');
 Route::post('/formdelete/{id}',[InstitutionFormController::class,'formdelete'])->name('formdelete');
 Route::post('/formupdate/{id}',[InstitutionFormController::class,'formupdate'])->name('formupdate');
+Route::post('/formfielddelete/{id}',[InstitutionFormController::class,'formfielddelete'])->name('formfielddelete');
 
 // End Form management//
 
