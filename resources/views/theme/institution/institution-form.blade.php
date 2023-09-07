@@ -51,8 +51,8 @@
 </div>
 @endsection
 <!--  -->
-<!-- Modal to add new Page starts-->
-<div id="pagemodals-add" class="modal change-cover-modal is-medium has-light-bg">
+<!-- Modal to add new form starts-->
+<div id="formmodals-add" class="modal change-cover-modal is-medium has-light-bg">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="card">
@@ -66,7 +66,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form class="add-new-page"   enctype="multipart/form-data" >
+                        <form class="add-new-form"   enctype="multipart/form-data" >
+                        <input type="hidden" value="{{$user_id}}" name="user_id">
                             <div class="login-form">
                                 <div class="field">
                                     <label class="required">Form Name</label>
@@ -107,7 +108,7 @@
                                     <span class="text-danger" id="form-input-error"></span>
                                     <span class="text-success" id="form-input-success"></span>
                                     </div>
-                                <button type="submit" id="page_add" class="button is-solid primary-button data-add">Save</button>
+                                <button type="submit" id="formselect_add" class="button is-solid primary-button data-add">Save</button>
 
 
 
@@ -123,17 +124,17 @@
 
         </div>
  </div>
-<!-- Modal to add new page Ends-->
+<!-- Modal to add new form Ends-->
 
 
 
-      <!-- Modal to edit page starts-->
-      <div id="pagemodals-edit" class="modal change-cover-modal is-medium has-light-bg">
+      <!-- Modal to edit form starts-->
+      <div id="formmodals-edit" class="modal change-cover-modal is-medium has-light-bg">
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="card">
                     <div class="card-heading">
-                        <h3>Edit Page</h3>
+                        <h3>Edit Form</h3>
                         <!-- Close X button -->
                         <div class="close-wrap">
                             <span class="close-modal" data-dismiss="modal">
@@ -143,16 +144,23 @@
                     </div>
 
                     <div class="card-body">
-                    <form class="edit-new-page"   enctype="multipart/form-data" >
+                    <form class="edit-new-form"   enctype="multipart/form-data" >
+                    <input type="hidden" value="{{$user_id}}" name="user_id">
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Title</label>
-                            <input type="text" class="form-control" name="title" id="title_edit" placeholder="Title" maxlength="250" />
+                            <label>Form Name</label>
+                            <input type="text" class="form-control" name="form_name" id="form_name_edit" placeholder="Form Name" maxlength="250" />
                         </div>
 
                         <div class="col-md-12">
-                            <label>Content</label>
-                        <input type="text" class="form-control" id="content_edit" placeholder="Enter the content" name="content">
+
+                        <label class="required">Page Name</label>
+                        <select class="input title-input" name="page_id" id="page_id_edit" required>
+                           <option value="">Select a Page</option>
+                           @foreach($pages as $page)
+                           <option value="{{ $page->id }}">{{ $page->title }}</option>
+                           @endforeach
+                        </select>
                         </div>
 
                     </div>
@@ -161,9 +169,9 @@
                         <span class="text-danger" id="form-input-error"></span>
                         <span class="text-success" id="form-input-success"></span>
                         </div>
-                    <input type="hidden" id="pageedit_id" value="" />
+                    <input type="hidden" id="formedit_id" value="" />
 
-                    <button type="submit" id="page_edit" class="btn btn-success data-edit">Save</button>
+                    <button type="submit" id="form_edit" class="btn btn-success data-edit">Save</button>
                     <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
                     </form>
 
@@ -174,17 +182,18 @@
 
         </div>
       </div>
-      <!-- Modal to edit page Ends-->
+      <!-- Modal to edit form Ends-->
 
- <!-- Modal to view page starts-->
- <div id="pagemodals-view" class="modal change-cover-modal is-medium has-light-bg">
+ <!-- Modal to view form starts-->
+ <div id="formmmodals-view" class="modal change-cover-modal is-medium has-light-bg">
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="card">
                     <div class="card-heading">
-                        <h3>Page Details</h3>
+                        <h3>Form Details</h3>
                         <!-- Close X button -->
                         <div class="close-wrap">
+
                             <span class="close-modal" data-dismiss="modal">
                                     <i data-feather="x"></i>
                                 </span>
@@ -193,6 +202,7 @@
 
                     <div class="card-body">
                         <form class="add-new-match modal-content pt-0"   enctype="multipart/form-data" >
+                        <input type="hidden" name="form_ids" id="form_ids" value="" />
 
                               <div class="modal-body" >
                                 <div class="mb-1" id="details_modal_body_content">
@@ -211,17 +221,17 @@
 
         </div>
       </div>
-  <!-- Modal to view page Ends-->
+  <!-- Modal to view form Ends-->
 
-     <!-- Modal to delete page start-->
-     <div  id="pagemodals-delete"  class="modal change-cover-modal is-medium has-light-bg">
+     <!-- Modal to delete form start-->
+     <div  id="formmodals-delete"  class="modal change-cover-modal is-medium has-light-bg">
         <div class="modal-background"></div>
         <div class="modal-content">
 
 
             <div class="card">
             <div class="card-heading">
-                        <h3>Delete Page</h3>
+                        <h3>Delete Form</h3>
                         <!-- Close X button -->
                         <div class="close-wrap">
                             <span class="close-modal" data-dismiss="modal">
@@ -244,7 +254,7 @@
 
                          <div class="col-sm-12 ps-sm-0">
                            <input type="hidden" id="delete_id" value="" />
-                           <button type="submit" id="page_delete" class="btn btn-danger data-delete">Delete</button>
+                           <button type="submit" id="form_delete" class="btn btn-danger data-delete">Delete</button>
                             <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
                          </div>
 
@@ -255,7 +265,7 @@
 
         </div>
       </div>
-      <!-- Modal to delete page Ends-->
+      <!-- Modal to delete form Ends-->
 
 <!-- Modal to Add form field starts-->
 <div id="pagemodals-add-field" class="modal change-cover-modal is-medium has-light-bg">
@@ -276,6 +286,7 @@
                     <form class="add-new-field"   enctype="multipart/form-data" >
                             <div class="login-form">
                             <div class="field">
+                            <input type="hidden" value="{{$user_id}}" name="user_id">
                                     <label class="required">Field type </label>
                                     <div class="control">
                                         <select class="input title-input" name="field_type" id="field_type" onchange="getfieldtype(this.value)" maxlength="250" required>
@@ -451,5 +462,8 @@
         </div>
       </div>
   <!-- Modal to Add form field Ends-->
+
+<!--  -->
+
 
 <!--  -->
