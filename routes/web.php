@@ -158,8 +158,8 @@ Route::get('/signout', [InstitutionLController::class, 'signout'])->name('signou
 
 
 Route::domain('{company_name}.markez.elvirainfotech.org')->group(function () {
-   
-    
+
+
     Route::get('/',[HomeController::class,'newinstitutionwebsite'])->name('newinstitutionwebsite');
 });
 
@@ -178,9 +178,18 @@ Route::post('/pagedelete/{id}',[InstitutionPageController::class,'pagedelete'])-
 //End  Page management//
 // Start Form management //
 
+// Start Form management //
+
 Route::get('/institution-form', [InstitutionFormController::class,'institutionform'])->name('institutionform');
-Route::get('/add-new-form', [InstitutionFormController::class,'addnewform'])->name('addnewform');
-Route::post('/add-new-field', [InstitutionFormController::class,'fieldstore'])->name('fieldstore');
+// Route::get('/addnewform', [InstitutionFormController::class,'addnewform'])->name('addnewform');
+ Route::post('/addnewform', [InstitutionFormController::class,'addnewform'])->name('addnewform');
+Route::post('/fieldstore', [InstitutionFormController::class,'fieldstore'])->name('fieldstore');
+
+Route::get('viewform/{id}',[InstitutionFormController::class,'viewform'])->name('viewform');
+Route::post('/formdelete/{id}',[InstitutionFormController::class,'formdelete'])->name('formdelete');
+Route::post('/formupdate/{id}',[InstitutionFormController::class,'formupdate'])->name('formupdate');
+
+// End Form management//
 
 // End Form management
 
@@ -213,7 +222,7 @@ Route::post('/menudelete/{id}',[InstitutionMenuController::class,'menudelete'])-
     Route::get('studentcoursecontentview/{id}',[StudentController::class,'studentcourseView'])->name('studentcoursecontentview');
     Route::get('studentcoursecontentquize/{id}/{content_id}',[StudentController::class,'coursequize'])->name('studentcoursecontentquize');
     Route::get('studentcoursecontentquizeview/{id}',[StudentController::class,'quizView'])->name('studentcoursecontentquizeview');
-    Route::get('studentcoursecontentquizequestion/{id}/{content_id}/{quiz_id}',[StudentController::class,'coursequizequestion'])->name('studentcoursecontentquizequestion'); 
+    Route::get('studentcoursecontentquizequestion/{id}/{content_id}/{quiz_id}',[StudentController::class,'coursequizequestion'])->name('studentcoursecontentquizequestion');
 
      Route::get('studentcoursecontentquizeresult/{id}/{content_id}/{quiz_id}',[StudentController::class,'coursequizeresult'])->name('studentcoursecontentquizeresult');
 
@@ -239,7 +248,7 @@ Route::post('/menudelete/{id}',[InstitutionMenuController::class,'menudelete'])-
     Route::post('getmessagechatforstudentinstitution',[StudentController::class,'getmessagechatforstudentinstitution'])->name('getmessagechatforstudentinstitution');
 
     Route::post('sendmessagechatforstudentinstitution',[StudentController::class,'sendmessagechatforstudentinstitution'])->name('sendmessagechatforstudentinstitution');
-    
+
     Route::get('becometeacher', [StudentController::class, 'becometeacher'])->name('becometeacher');
     Route::post('submitrequest', [StudentController::class, 'submitrequest'])->name('submitrequest');
 
@@ -307,7 +316,7 @@ Route::post('/menudelete/{id}',[InstitutionMenuController::class,'menudelete'])-
         Route::post('courseassignapprove/{id}',[TeacherController::class,'courseassignapprove'])->name('courseassignapprove');
         Route::post('courseassigndecline/{id}',[TeacherController::class,'courseassigndecline'])->name('courseassigndecline');
         //assign course  approve and reject //
-    
+
 
 // });
 
@@ -325,11 +334,11 @@ Route::post('/menudelete/{id}',[InstitutionMenuController::class,'menudelete'])-
 
      Route::get('teacherstudentregister/{id}',[HomeController::class,'teacherstudentregister'])->name('teacherstudentregister');
      Route::get('teacherstudentlogin/{id}',[HomeController::class,'teacherstudentlogin'])->name('teacherstudentlogin');
-     
+
      Route::post('registerstore',[HomeController::class,'registerstore'])->name('registerstore');
-     
-     
-     
+
+
+
      Route::post('/postteacherstudentlogin', [HomeController::class, 'postteacherstudentlogin'])->name('postteacherstudentlogin');
 
 
@@ -407,7 +416,7 @@ Route::post('/institutionbannersettingupdate/{id}',[InstitutionLoginController::
           Route::post('/institutioncategorydelete/{id}',  [InstitutionLoginController::class,'institutioncategorydelete'])->name('institutioncategorydelete');
           Route::post('/institutioncategorystore',[InstitutionLoginController::class,'institutioncategorystore'])->name('institutioncategorystore');
           Route::post('/institutioncategoryupdate/{id}',[InstitutionLoginController::class,'institutioncategoryupdate'])->name('institutioncategoryupdate');
-     
+
           //end category section //
                ////start institution Faq section
      Route::get('/institutionfaq',[InstitutionLoginController::class,'institutionfaq'])->name('institutionfaq');
@@ -514,7 +523,7 @@ Route::prefix('admin')->middleware([Admin::class])->group(function () {
 
       //student section
       Route::get('/studentpayment',[UserDetailController::class,'studentpayment'])->name('studentpayment');
-    
+
       Route::get('viewstudentpayment/{id}',[UserDetailController::class,'viewstudentpayment'])->name('viewstudentpayment');
 
       Route::post('/studentpaymentupdate/{id}',[UserDetailController::class,'studentpaymentupdate'])->name('studentpaymentupdate');
