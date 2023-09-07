@@ -6201,11 +6201,62 @@ var formData = new FormData(this);
 
         $('#form_ids').val(form_ids);
       }
-      function fielddelete()
+   //start form field delete //
+   function fielddelete(id)
       {
-      alert("ok");
-      }
+      //alert(id);
 
+
+
+
+
+//var id = $('#delete_id').val();
+var url = baseurl + '/formfielddelete/'+id;
+
+ //alert(url);
+
+ $.ajax({
+      beforeSend: function(){
+        $('.ajax-loader').css("visibility", "visible");
+      },
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: [],
+      url: url,
+      type: "post",
+      dataType: 'json',
+      success: function (data) {
+        window.location.href="{{ route('institutionform', ['institution_id' => $_GET['institution_id']]) }}";
+         $('#search_btn').trigger('click');
+         $('body').removeClass('modal-open');
+        $('body').css('padding-right', '0px');
+        $('.modal-backdrop').remove();
+
+        $('#formmodals-delete').modal('hide');
+
+
+
+
+
+
+      },
+      error: function (data) {
+          alert(JSON.stringify(data));
+          console.log( data);
+
+      } ,
+      complete: function(){
+        $('.ajax-loader').css("visibility", "hidden");
+      }
+  });
+
+
+
+
+
+//end form field delete  //
+      }
 //view form end//
 
 //start delete form //
