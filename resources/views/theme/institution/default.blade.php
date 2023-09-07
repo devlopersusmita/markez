@@ -5801,6 +5801,466 @@ $(document).on('click', '.categoryedit_modal', function () {
     // faq end //
 
 
+//START FORM ADD //
+var newFormForm = $('.add-new-form');
+
+
+  if (newFormForm.length) {
+   //alert("from add");
+
+    newFormForm.on('submit', function (e) {
+
+      e.preventDefault();
+
+
+
+
+          $('#formselect_add').html('Sending..');
+
+
+          var formData = new FormData(this);
+
+          //var content = CKEDITOR.instances.content.getData();
+
+        var form_data = new FormData(this);
+
+        //form_data.append('content_value', content);
+
+                $.ajax({
+                    beforeSend: function(){
+                        $('.ajax-loader').css("visibility", "visible");
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    //data: $('#postForm').serialize(),
+
+                    url:baseurl + '/addnewform',
+                    method:"POST",
+                    // data:new FormData(this),
+                    data:form_data,
+                    dataType:'JSON',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+
+                        window.location.href="{{ route('institutionform', ['institution_id' => $_GET['institution_id']]) }}";
+                        if(data.type == 'success'){
+                            $('#form-input-error').html('');
+                        $('#form-input-success').html('');
+
+                    $('#formselect_add').html('Save');
+                        // alert(JSON.stringify(data));
+
+                            $('#search_btn').trigger('click');
+                        $('body').removeClass('modal-open');
+                        $('body').css('padding-right', '0px');
+                        $('.modal-backdrop').remove();
+                        $('#form_name').val('');
+
+                        $('#page_id').val('');
+
+                        $('#formmodals-add').hide();
+
+
+
+                    }
+                        else if(data.type == 'error'){
+                            $('#form-input-error').html('');
+                        $('#form-input-success').html('');
+                            $('#formselect_add').html('Save');
+                        alert(data.message);
+                        }
+                    },
+                    error: function (data) {
+                        alert(JSON.stringify(data));
+                        $('#formselect_add').html('Save Changes');
+
+                        //newGameSidebar.modal('hide');
+                        $('#search_btn').trigger('click');
+                        $('body').removeClass('modal-open');
+                        $('body').css('padding-right', '0px');
+                        $('.modal-backdrop').remove();
+
+                    } ,
+                    complete: function(){
+                        $('.ajax-loader').css("visibility", "hidden");
+                    }
+                });
+
+
+
+
+            });
+  }
+ //end form add //
+ //start edit form //
+  $(document).on('click', '.formedit_modal', function () {
+      var id = $(this).data("id");
+
+      var url = baseurl + '/viewform/'+id;
+
+      //alert(id) ;
+
+      //alert(baseurl);
+      //alert(id);
+
+
+      $('#formedit_id').val(id);
+
+
+
+
+       $.ajax({
+              beforeSend: function(){
+                $('.ajax-loader').css("visibility", "visible");
+              },
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              data: [],
+              url: url,
+              type: "get",
+              dataType: 'json',
+              success: function (datav) {
+
+
+
+                var data = datav.data;
+                 //alert(JSON.stringify(data));
+
+                 // alert(data.from_date);
+
+
+
+
+                  $('#form_name_edit').val(data.form.form_name);
+                  $('#page_id_edit').val(data.form.page_id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+              },
+              error: function (data) {
+                  alert(JSON.stringify(data));
+                  console.log( data);
+
+              } ,
+              complete: function(){
+                $('.ajax-loader').css("visibility", "hidden");
+              }
+          });
+
+
+
+    });
+
+
+var editFormForm = $('.edit-new-form');
+if (editFormForm.length) {
+
+
+    editFormForm.on('submit', function (e) {
+
+  e.preventDefault();
+
+    var id = $('#formedit_id').val();
+
+
+      $('#form_edit').html('Sending..');
+
+
+var formData = new FormData(this);
+
+
+
+     // var formData = new FormData(this);
+
+      $.ajax({
+          beforeSend: function(){
+            $('.ajax-loader').css("visibility", "visible");
+          },
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          //data: $('#postForm').serialize(),
+          url: baseurl + '/formupdate/'+id,
+          method:"POST",
+          data:formData,
+        //    data:new FormData(this),
+           dataType:'JSON',
+           contentType: false,
+           cache: false,
+           processData: false,
+          success: function (data) {
+            window.location.href="{{ route('institutionform', ['institution_id' => $_GET['institution_id']]) }}";
+            if(data.type == 'success'){
+                $('#form-input-error').html('');
+             $('#form-input-success').html('');
+
+           $('#form_edit').html('Save');
+               //alert(JSON.stringify(data));
+
+                $('#search_btn').trigger('click');
+             $('body').removeClass('modal-open');
+            $('body').css('padding-right', '0px');
+            $('.modal-backdrop').remove();
+            $('#form_name_edit').val('');
+            $('#page_id_edit').val('');
+
+            $('#formmodals-edit').hide();
+        }
+            else if(data.type == 'error'){
+                $('#form-input-error').html('');
+             $('#form-input-success').html('');
+                $('#form_edit').html('Save');
+             alert(data.message);
+            }
+
+          },
+          error: function (data) {
+              alert(JSON.stringify(data));
+              $('#form_edit').html('Save Changes');
+               //newGameSidebar.modal('hide');
+            $('#search_btn').trigger('click');
+             $('body').removeClass('modal-open');
+            $('body').css('padding-right', '0px');
+            $('.modal-backdrop').remove();
+
+          } ,
+          complete: function(){
+            $('.ajax-loader').css("visibility", "hidden");
+          }
+      });
+
+
+
+
+});
+}
+
+ //end edit form //
+//view form start //
+    $(document).on('click', '.formview-modals', function () {
+      var id = $(this).data("id");
+      var url = baseurl + '/viewform/'+id;
+      var form_idwisefield = $('#form_ids').val();
+
+       $.ajax({
+              beforeSend: function(){
+                $('.ajax-loader').css("visibility", "visible");
+              },
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              data: [],
+              url: url,
+              type: "get",
+              dataType: 'json',
+              success: function (datav) {
+               var data = datav.data;
+                 // alert(JSON.stringify(data));
+               // console.log(data.field_data.length,"dsfgsdoifgusoiduf");
+               var field_datalist = data.field_data;
+
+
+                 var htmlcont = '';
+                 htmlcont=htmlcont+'<div class="table-responsive">';
+                 htmlcont=htmlcont+'<table class="table form_fields"  width="100%" cell-padding="10" cell-spacing="10">';
+                htmlcont=htmlcont+'<thead>';
+                 htmlcont=htmlcont+'<tr>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Form Name';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Page Name';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Field Type';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Field Name';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Field Value';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Field Option Value';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Field Order';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Field Placeholder Value';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Field Id';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Field Class';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'<th>';
+                 htmlcont=htmlcont+'Action';
+                 htmlcont=htmlcont+'</th>';
+                 htmlcont=htmlcont+'</tr>';
+
+                 htmlcont=htmlcont+'</thead>';
+                 htmlcont=htmlcont+'<tbody>';
+                 let text = "";
+               for (let i = 0; i < field_datalist.length; i++) {
+                 htmlcont=htmlcont+'<tr>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+data.form.form_name;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+data.form.page_name;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+field_datalist[i].field_type;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+field_datalist[i].field_name;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+field_datalist[i].field_value;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+field_datalist[i].field_option_value;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+field_datalist[i].field_order;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+field_datalist[i].field_placeholder_value;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+field_datalist[i].field_id;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+field_datalist[i].field_class;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+'<span onclick="fielddelete('+field_datalist[i].id+')" class="button is-danger">';
+                 htmlcont=htmlcont+'Delete';
+
+                //  htmlcont=htmlcont+field_datalist[i].id;
+                 htmlcont=htmlcont+'</span>';
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'</tr>';
+
+}
+
+                 htmlcont=htmlcont+'</tbody>';
+
+
+
+
+
+
+
+
+
+
+
+                 htmlcont=htmlcont+'</table>';
+                 htmlcont=htmlcont+'</div>';
+
+                  $('#details_modal_body_content').html(htmlcont);
+
+
+
+
+
+              },
+              error: function (data) {
+                  alert(JSON.stringify(data));
+                  console.log( data);
+
+              } ,
+              complete: function(){
+                $('.ajax-loader').css("visibility", "hidden");
+              }
+          });
+
+
+
+    });
+
+    function valuePass(form_ids)
+      {
+
+        $('#form_ids').val(form_ids);
+      }
+      function fielddelete()
+      {
+      alert("ok");
+      }
+
+//view form end//
+
+//start delete form //
+
+$(document).on('click', '#form_delete', function () {
+
+
+var id = $('#delete_id').val();
+var url = baseurl + '/formdelete/'+id;
+
+// alert(url);
+
+ $.ajax({
+      beforeSend: function(){
+        $('.ajax-loader').css("visibility", "visible");
+      },
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: [],
+      url: url,
+      type: "post",
+      dataType: 'json',
+      success: function (data) {
+        window.location.href="{{ route('institutionform', ['institution_id' => $_GET['institution_id']]) }}";
+         $('#search_btn').trigger('click');
+         $('body').removeClass('modal-open');
+        $('body').css('padding-right', '0px');
+        $('.modal-backdrop').remove();
+
+        $('#formmodals-delete').modal('hide');
+
+
+
+
+
+
+      },
+      error: function (data) {
+          alert(JSON.stringify(data));
+          console.log( data);
+
+      } ,
+      complete: function(){
+        $('.ajax-loader').css("visibility", "hidden");
+      }
+  });
+
+
+
+});
+
+//end delete form //
+  //END FORM  //
+
 
 
 </script>
@@ -5885,20 +6345,6 @@ function getfieldtype(value){
 // 03.08.2023
 
 
-// $(".active_nav a").click(function(){
-//         $(this).parent('li').addClass('mm-active');
-//         $('.hide-menu').fadeToggle(1000);
-//     });
-
-//     $('.hide-menu a').click(function(e){
-//         e.preventDefault();
-//         $(this).closest('.active_nav').addClass('mm-active');
-
-//     });
-
-// $(".mm-active a").click(function(){
-//         $('.hide-menu').fadeToggle(1000);
-//     });
 
     $(document).ready(function() {
             // Click event for the main menu link
@@ -6010,22 +6456,7 @@ var newTeachersendForm = $('.assign-teacher-send');
 //start teacher send //
 
 </script>
-<!-- <script>
-        $(document).ready(function() {
-            // Click event for the main menu link inside .active_nav
-            $(".active_nav .main-menu-link").click(function(e) {
-                e.preventDefault(); // Prevent the default link behavior
-                $(this).closest('li').addClass('mm-active');
-                $(this).siblings('.hide-menu').fadeToggle(1000);
-            });
 
-            // Click event for links inside .hide-menu
-            $('.hide-menu a').click(function(e) {
-                e.preventDefault();
-                $(this).closest('li').addClass('mm-active');
-            });
-        });
-    </script> -->
 
 
 
