@@ -345,6 +345,31 @@ public function addnewform(Request $request)
              }
 
 }
+public function formfielddelete($id)
+{
 
+  $formfield = FormField::find($id);
+  $result =$formfield->delete();
+
+  if($result)
+  {
+      Session::flash('error', 'Data deleted successfully!');
+
+      return response()->json([
+        'message' => 'Data deleted successfully!'
+      ]);
+  }
+  else
+  {
+      Session::flash('error', 'Something wrong!');
+
+      return response()->json([
+        'message' => 'Something wrong!'
+      ]);
+  }
+
+
+
+}
 
 }
