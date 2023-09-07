@@ -19,6 +19,8 @@ use Session;
 use Auth;
 
 use Mail;
+use Carbon\Carbon;
+
 
 use App\Mail\NotifyMail;
 
@@ -40,79 +42,77 @@ class InstitutionFormController extends Controller
 
 
 
-    public function institutionform(Request $request)
-    {
+     public function institutionform(Request $request)
+     {
 
 
 
-         //$userId = Auth::id();
-         if($request->institution_id == null) {
-                $user_id = $_GET['institution_id'];
-            } else {
-                $user_id = $request->institution_id;
-            }
-            // dd($user_id);
-        if($user_id){
-                $user = Institution::where('id',$user_id)->first();
+          //$userId = Auth::id();
+          if($request->institution_id == null) {
+                 $user_id = $_GET['institution_id'];
+             } else {
+                 $user_id = $request->institution_id;
+             }
+             // dd($user_id);
+         if($user_id){
+                 $user = Institution::where('id',$user_id)->first();
 
-                $user_id = $user->id;
+                 $user_id = $user->id;
 
-            $data7=Page::orderBy('pages.id','desc')->where('created_by',$user_id)->select('pages.*')->get();
-            $form=Form::orderBy('form.id','desc')->where('institution_id',$user_id)->leftJoin('pages', 'pages.id', '=', 'form.page_id')->select('form.*','pages.title as page_name')->get();
+             $data7=Page::orderBy('pages.id','desc')->where('created_by',$user_id)->select('pages.*')->get();
+             $form=Form::orderBy('form.id','desc')->where('institution_id',$user_id)->leftJoin('pages', 'pages.id', '=', 'form.page_id')->select('form.*','pages.title as page_name')->get();
 
-            $thearray = [];
-            if(count($form) > 0)
-            {
-                foreach($form as $k2=>$v2)
-                {
+             $thearray = [];
+             if(count($form) > 0)
+             {
+                 foreach($form as $k2=>$v2)
+                 {
 
-                $field_data=FormField::orderBy('form_field.id','desc')->where('form_id',$v2->id)->select('form_field.*')->get();
+                 $field_data=FormField::orderBy('form_field.id','desc')->where('form_id',$v2->id)->select('form_field.*')->get();
 
-                            $thearray[]=array(
-                                'form_name'=>$v2->form_name
-                                ,'page_name'=>$v2->page_name
-                                ,'form_status'=>$v2->form_status
-                                ,'created_at'=>$v2->created_at
-                                ,'id'=>$v2->id
-                                ,'total_field'=>$field_data->count()
-                            );
+                             $thearray[]=array(
+                                 'form_name'=>$v2->form_name
+                                 ,'page_id'=>$v2->page_id
+                                 ,'page_name'=>$v2->page_name
+                                 ,'form_status'=>$v2->form_status
+                                 ,'created_at'=>$v2->created_at
+                                 ,'id'=>$v2->id
+                                 ,'total_field'=>$field_data->count()
+                             );
 
-                }
-            }
-
-
-
-            return view('theme.institution.institution-form',['pages'=>$data7,'formdata'=> $thearray]);
-
-        }else{
-
-            return redirect('/login');
-        }
+                 }
+             }
+            // dd($thearray);
 
 
 
+             return view('theme.institution.institution-form',['pages'=>$data7,'formdata'=> $thearray,'user_id'=>$user_id,'form'=>$form]);
 
-    }
+         }else{
+
+             return redirect('/login');
+         }
+
+
+
+
+     }
+
 
 
 
 public function fieldstore(Request $request)
  {
-    //  return response()->json([
-    //         'type'=>'error',
-    //         'message' =>$request->all()
-    //     ]);
 
-   // $userId = Auth::id();
 
- if($request->institution_id == null) {
-                $user_id = $_GET['institution_id'];
-            } else {
-                $user_id = $request->institution_id;
-            }
+
+    $user_id = $request->user_id;
+
+
+
 
          $user = Institution::where('created_by',$user_id)->first();
-         $user_id = $user->id;
+         //$user_id = $user->id;
 
 
     $v = Validator::make($request->all(),[
@@ -158,7 +158,7 @@ public function fieldstore(Request $request)
                     }
 
                     $FormField = new FormField();
-                    $FormField->form_id = $request->input('form_id');;
+                    $FormField->form_id = $request->input('form_id');
                     $FormField->field_type = $request->input('field_type');;
                     $FormField->field_name = $request->input('field_name');;
                     $FormField->field_value =  $field_value;
@@ -175,7 +175,7 @@ public function fieldstore(Request $request)
                     Session::flash('success', 'Successfully Field added!');
 
                     return response()->json([
-                    'message' => 'successfully Field added!'
+                    'message' => 'Successfully Field added!'
                     ]);
                 }
 
@@ -191,12 +191,13 @@ public function fieldstore(Request $request)
 }
 
 
-public function pageupdate(Request $request, Page $page,$id)
+public function formupdate(Request $request, Form $form,$id)
 {
 
 
+
     $v = Validator::make($request->all(),[
-        'title' => 'required|unique:pages,title,'.$id,
+        'form_name' => 'required|unique:form,form_name,'.$id,
          //'title' => 'required'.$id,
 
     ]);
@@ -211,26 +212,29 @@ public function pageupdate(Request $request, Page $page,$id)
     }
     else
     {
-        $content='';
-        if($request->content_value!='')
+        $page_id='';
+        if($request->page_id!='')
         {
-            $content=$request->content_value;
+            $page_id=$request->page_id;
         }
-     $title = $request->input('title');
+
+     $form_name = $request->input('form_name');
 
 
-     $page =  Page::where('id',$id)->first();
-        $page->title = $request->title;
+
+     $form =  Form::where('id',$id)->first();
+
+        $form->form_name = $request->form_name;
+        $form->page_id = $page_id;
 
 
-         $page->content = $content;
 
 
-        if($page->save()){
-             Session::flash('success', 'successfully page updated!');
+        if($form->save()){
+             Session::flash('success', 'successfully form updated!');
 
              return response()->json([
-              'message' => 'successfully page updated!'
+              'message' => 'successfully form updated!'
             ]);
         }else{
              Session::flash('error', 'Something wrong!');
@@ -242,23 +246,31 @@ public function pageupdate(Request $request, Page $page,$id)
 }
 
 
-public function viewpage($id)
+public function viewform($id)
 {
 
+    //$form = Form::find($id);
+    $form = Form::leftJoin('pages', 'pages.id', '=', 'form.page_id')->select('form.*','pages.title as page_name')->find($id);
 
-    $page = Page::find($id);
 
-    return json_encode(array('status'=>'ok','data'=>$page));
+    $field_data=FormField::where('form_id',$id)->select('form_field.*')->get();
+ // return json_encode(array('status'=>'ok','field_data'=>$field_data));
+    // exit()  ;
+
+    $data = array('form'=>$form,'field_data'=>$field_data);
+
+
+    return json_encode(array('status'=>'ok','data'=>$data));
 
 
 }
 
 
-public function pagedelete($id)
+public function formdelete($id)
 {
 
-  $page = Page::find($id);
-  $result =$page->delete();
+  $form = Form::find($id);
+  $result =$form->delete();
 
   if($result)
   {
@@ -283,27 +295,56 @@ public function pagedelete($id)
 public function addnewform(Request $request)
 {
 
+   $user_id = $request->user_id;
 
-     //dd($user_id);
-    // $userId = Auth::id();
-  if($request->institution_id == null) {
-                $user_id = $_GET['institution_id'];
-            } else {
-                $user_id = $request->institution_id;
-            }
-
-
-     $user = Institution::where('created_by',$user_id)->first();
-     $user_id = $user->id;
-
-    $data7=Page::orderBy('pages.id','desc')->where('created_by',$user_id)->select('pages.*')->get();
+      $pages = Page::orderBy('pages.id','desc')->where('created_by',$user_id)->select('pages.*')->get();
 
 
 
-   return view('theme.institution.institution-new-form',['pages'=>$data7]);
+
+         $v = Validator::make($request->all(),[
+             'form_name' => 'required',
+             'page_id' => 'required',
+
+         ]);
+
+         if ($v->fails())
+         {
+
+             return response()->json([
+                 'type'=>'error',
+                 'message' => $v->errors()->all()
+             ]);
+         }
+         else
+         {
+                        $form = new Form();
+                         $form->form_name = $request->form_name;
+                         $form->page_id = $request->page_id;
+                         $form->institution_id = $user_id;
 
 
+
+
+                     if($form->save())
+                     {
+                         Session::flash('success', 'Successfully form added!');
+
+                         return response()->json([
+                         'message' => 'successfully form added!'
+                         ]);
+                     }
+
+                     else
+                     {
+                         Session::flash('error', 'Something wrong!');
+                         return response()->json([
+                             'message' => 'Something wrong!'
+                             ]);
+                     }
+             }
 
 }
+
 
 }
