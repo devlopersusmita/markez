@@ -908,7 +908,7 @@ if (editCompanyForm.length) {
              var footer_text_edit = CKEDITOR.instances.footer_text_edit.getData();
              var header_text_edit = CKEDITOR.instances.header_text_edit.getData();
 
-            
+
 
 
           var formData = new FormData(this);
@@ -1039,7 +1039,7 @@ if (editCompanyForm.length) {
                     {
                        $('#logo_edit_div').html('<img src="'+asset+data.logo+'" width="100" />');
                     }
-                    $('#old_logo').val(data.logo); 
+                    $('#old_logo').val(data.logo);
 
 
                      if((data.fav_icon=='') || (data.fav_icon==null))
@@ -3374,7 +3374,7 @@ htmlcont=htmlcont+'<img id="avatar_image_id" class="avatar-image"  src="'+avatar
       var id = $(this).data("id");
 
       var url = baseurl + '/admin/coursesubcriptionlist/'+id;
-      
+
        $('#details_modal_body_content').html('');
 
 
@@ -5024,6 +5024,634 @@ var editHomesettingForm = $('.edit-new-homestting');
     });
 
   //ABOUTUS End //
+  // ============= Add Field ====================
+var newfieldForm = $('.add-new-field');
+
+if (newfieldForm.length) {
+
+
+  newfieldForm.on('submit', function (e) {
+
+    e.preventDefault();
+
+
+
+
+        $('#field_add').html('Sending..');
+
+
+
+      var form_data = new FormData(this);
+
+      console.log(form_data,"add field form data")
+
+              $.ajax({
+                  beforeSend: function(){
+                      $('.ajax-loader').css("visibility", "visible");
+                  },
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  },
+                  //data: $('#postForm').serialize(),
+
+                  url:baseurl + '/admin/adminfieldstore',
+                  method:"POST",
+                  // data:new FormData(this),
+                  data:form_data,
+                  dataType:'JSON',
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: function (data) {
+                      console.log(data,"add field success");
+                      window.location.href="{{ route('adminform') }}";
+                      if(data.type == 'success'){
+                          $('#form-input-error').html('');
+                          $('#form-input-success').html('');
+
+                          $('#field_add').html('Save');
+                          // alert(JSON.stringify(data));
+
+                          $('#search_btn').trigger('click');
+                          $('body').removeClass('modal-open');
+                          $('body').css('padding-right', '0px');
+                          $('.modal-backdrop').remove();
+                          $('#field_type').val('');
+                          $('#field_name').val('');
+                          $('#field_value').val('');
+                          $('#field_order').val('');
+                          $('#field_placeholder_value').val('');
+                          $('#field_id').val('');
+                          $('#field_class').val('');
+                          $('#form_id').val('');
+                          $('#pagemodals-add-field').hide();
+
+                      }else if(data.type == 'error'){
+                          $('#form-input-error').html('');
+                          $('#form-input-success').html('');
+                          $('#field_add').html('Save');
+                          alert(data.message);
+                      }
+                  },
+                  error: function (data) {
+                      alert(JSON.stringify(data));
+                      $('#field_add').html('Save Changes');
+
+                      //newGameSidebar.modal('hide');
+                      $('#search_btn').trigger('click');
+                      $('body').removeClass('modal-open');
+                      $('body').css('padding-right', '0px');
+                      $('.modal-backdrop').remove();
+
+                  } ,
+                  complete: function(){
+                      $('.ajax-loader').css("visibility", "hidden");
+                  }
+              });
+
+
+
+
+          });
+}
+$(document).on('click', '.pageaddfield-modals', function () {
+    var id = $(this).data("id");
+
+    $('#form_id').val(id);
+
+});
+
+// ================ End =======================
+//START FORM ADD //
+var newFormForm = $('.add-new-form');
+
+
+if (newFormForm.length) {
+ //alert("from add");
+
+  newFormForm.on('submit', function (e) {
+
+    e.preventDefault();
+
+
+
+
+        $('#formselect_add').html('Sending..');
+
+
+        var formData = new FormData(this);
+
+        //var content = CKEDITOR.instances.content.getData();
+
+      var form_data = new FormData(this);
+
+      //form_data.append('content_value', content);
+
+              $.ajax({
+                  beforeSend: function(){
+                      $('.ajax-loader').css("visibility", "visible");
+                  },
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  },
+                  //data: $('#postForm').serialize(),
+
+                  url:baseurl + '/admin/adminaddnewform',
+
+
+                  method:"POST",
+                  // data:new FormData(this),
+                  data:form_data,
+                  dataType:'JSON',
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: function (data) {
+
+                      window.location.href="{{ route('adminform') }}";
+
+                      if(data.type == 'success'){
+                          $('#form-input-error').html('');
+                      $('#form-input-success').html('');
+
+                  $('#formselect_add').html('Save');
+                      // alert(JSON.stringify(data));
+
+                          $('#search_btn').trigger('click');
+                      $('body').removeClass('modal-open');
+                      $('body').css('padding-right', '0px');
+                      $('.modal-backdrop').remove();
+                      $('#form_name').val('');
+
+                      $('#page_id').val('');
+
+                      $('#formmodals-add').hide();
+
+
+
+                  }
+                      else if(data.type == 'error'){
+                          $('#form-input-error').html('');
+                      $('#form-input-success').html('');
+                          $('#formselect_add').html('Save');
+                      alert(data.message);
+                      }
+                  },
+                  error: function (data) {
+                      alert(JSON.stringify(data));
+                      $('#formselect_add').html('Save Changes');
+
+                      //newGameSidebar.modal('hide');
+                      $('#search_btn').trigger('click');
+                      $('body').removeClass('modal-open');
+                      $('body').css('padding-right', '0px');
+                      $('.modal-backdrop').remove();
+
+                  } ,
+                  complete: function(){
+                      $('.ajax-loader').css("visibility", "hidden");
+                  }
+              });
+
+
+
+
+          });
+}
+//end form add //
+//view form start //
+$(document).on('click', '.formview-modals', function () {
+    var id = $(this).data("id");
+    var url = baseurl + '/admin/adminviewform/'+id;
+    var form_idwisefield = $('#form_ids').val();
+
+     $.ajax({
+            beforeSend: function(){
+              $('.ajax-loader').css("visibility", "visible");
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: [],
+            url: url,
+            type: "get",
+            dataType: 'json',
+            success: function (datav) {
+             var data = datav.data;
+               // alert(JSON.stringify(data));
+             // console.log(data.field_data.length,"dsfgsdoifgusoiduf");
+             var field_datalist = data.field_data;
+
+
+               var htmlcont = '';
+               htmlcont=htmlcont+'<div class="table-responsive">';
+               htmlcont=htmlcont+'<table class="table form_fields"  width="100%" cell-padding="10" cell-spacing="10">';
+              htmlcont=htmlcont+'<thead>';
+               htmlcont=htmlcont+'<tr>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Form Name';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Page Name';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Field Type';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Field Name';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Field Value';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Field Option Value';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Field Order';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Field Placeholder Value';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Field Id';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Field Class';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'<th>';
+               htmlcont=htmlcont+'Action';
+               htmlcont=htmlcont+'</th>';
+               htmlcont=htmlcont+'</tr>';
+
+               htmlcont=htmlcont+'</thead>';
+               htmlcont=htmlcont+'<tbody>';
+               let text = "";
+             for (let i = 0; i < field_datalist.length; i++) {
+               htmlcont=htmlcont+'<tr>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+data.form.form_name;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+data.form.page_name;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+field_datalist[i].field_type;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+field_datalist[i].field_name;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+field_datalist[i].field_value;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+field_datalist[i].field_option_value;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+field_datalist[i].field_order;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+field_datalist[i].field_placeholder_value;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+field_datalist[i].field_id;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+field_datalist[i].field_class;
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'<td>';
+               htmlcont=htmlcont+'<span onclick="fielddelete('+field_datalist[i].id+')" class="btn btn-danger">';
+               htmlcont=htmlcont+'Delete';
+
+              //  htmlcont=htmlcont+field_datalist[i].id;
+
+
+               htmlcont=htmlcont+'</span>';
+               htmlcont=htmlcont+'</td>';
+               htmlcont=htmlcont+'</tr>';
+
+}
+
+               htmlcont=htmlcont+'</tbody>';
+
+
+
+
+
+
+
+
+
+
+
+               htmlcont=htmlcont+'</table>';
+               htmlcont=htmlcont+'</div>';
+
+                $('#details_modal_body_content').html(htmlcont);
+
+
+
+
+
+            },
+            error: function (data) {
+                alert(JSON.stringify(data));
+                console.log( data);
+
+            } ,
+            complete: function(){
+              $('.ajax-loader').css("visibility", "hidden");
+            }
+        });
+
+
+
+  });
+
+  function valuePass(form_ids)
+    {
+
+      $('#form_ids').val(form_ids);
+    }
+     //start form field delete //
+    function fielddelete(id)
+    {
+    //alert(id);
+
+
+
+
+
+//var id = $('#delete_id').val();
+var url = baseurl + '/admin/adminformfielddelete/'+id;
+
+//alert(url);
+
+$.ajax({
+    beforeSend: function(){
+      $('.ajax-loader').css("visibility", "visible");
+    },
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: [],
+    url: url,
+    type: "post",
+    dataType: 'json',
+    success: function (data) {
+      window.location.href="{{ route('adminform') }}";
+       $('#search_btn').trigger('click');
+       $('body').removeClass('modal-open');
+      $('body').css('padding-right', '0px');
+      $('.modal-backdrop').remove();
+
+      $('#formmodals-delete').modal('hide');
+
+
+
+
+
+
+    },
+    error: function (data) {
+        alert(JSON.stringify(data));
+        console.log( data);
+
+    } ,
+    complete: function(){
+      $('.ajax-loader').css("visibility", "hidden");
+    }
+});
+
+
+
+
+
+//end form field delete  //
+    }
+
+//view form end//
+
+//start edit form //
+$(document).on('click', '.formedit_modal', function () {
+    var id = $(this).data("id");
+
+    var url = baseurl + '/admin/adminviewform/'+id;
+
+    //alert(id) ;
+
+    //alert(baseurl);
+    //alert(id);
+
+
+    $('#formedit_id').val(id);
+
+
+
+
+     $.ajax({
+            beforeSend: function(){
+              $('.ajax-loader').css("visibility", "visible");
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: [],
+            url: url,
+            type: "get",
+            dataType: 'json',
+            success: function (datav) {
+
+
+
+              var data = datav.data;
+               //alert(JSON.stringify(data));
+
+               // alert(data.from_date);
+              $('#form_name_edit').val(data.form.form_name);
+                },
+            error: function (data) {
+                alert(JSON.stringify(data));
+                console.log( data);
+
+            } ,
+            complete: function(){
+              $('.ajax-loader').css("visibility", "hidden");
+            }
+        });
+
+
+
+  });
+
+
+var editFormForm = $('.edit-new-form');
+if (editFormForm.length) {
+
+
+  editFormForm.on('submit', function (e) {
+
+e.preventDefault();
+
+  var id = $('#formedit_id').val();
+
+
+    $('#form_edit').html('Sending..');
+
+
+var formData = new FormData(this);
+
+
+
+   // var formData = new FormData(this);
+
+    $.ajax({
+        beforeSend: function(){
+          $('.ajax-loader').css("visibility", "visible");
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        //data: $('#postForm').serialize(),
+        url: baseurl + '/admin/adminformupdate/'+id,
+        method:"POST",
+        data:formData,
+      //    data:new FormData(this),
+         dataType:'JSON',
+         contentType: false,
+         cache: false,
+         processData: false,
+        success: function (data) {
+          window.location.href="{{ route('adminform') }}";
+          if(data.type == 'success'){
+              $('#form-input-error').html('');
+           $('#form-input-success').html('');
+
+         $('#form_edit').html('Save');
+             //alert(JSON.stringify(data));
+
+              $('#search_btn').trigger('click');
+           $('body').removeClass('modal-open');
+          $('body').css('padding-right', '0px');
+          $('.modal-backdrop').remove();
+          $('#form_name_edit').val('');
+          $('#page_id_edit').val('');
+
+          $('#formmodals-edit').hide();
+      }
+          else if(data.type == 'error'){
+              $('#form-input-error').html('');
+           $('#form-input-success').html('');
+              $('#form_edit').html('Save');
+           alert(data.message);
+          }
+
+        },
+        error: function (data) {
+            alert(JSON.stringify(data));
+            $('#form_edit').html('Save Changes');
+             //newGameSidebar.modal('hide');
+          $('#search_btn').trigger('click');
+           $('body').removeClass('modal-open');
+          $('body').css('padding-right', '0px');
+          $('.modal-backdrop').remove();
+
+        } ,
+        complete: function(){
+          $('.ajax-loader').css("visibility", "hidden");
+        }
+    });
+
+
+
+
+});
+}
+
+//end edit form //
+//start delete form //
+
+$(document).on('click', '#form_delete', function () {
+
+
+var id = $('#delete_id').val();
+var url = baseurl + '/admin/adminformdelete/'+id;
+
+// alert(url);
+
+$.ajax({
+    beforeSend: function(){
+      $('.ajax-loader').css("visibility", "visible");
+    },
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: [],
+    url: url,
+    type: "post",
+    dataType: 'json',
+    success: function (data) {
+      window.location.href="{{ route('adminform') }}";
+       $('#search_btn').trigger('click');
+       $('body').removeClass('modal-open');
+      $('body').css('padding-right', '0px');
+      $('.modal-backdrop').remove();
+
+      $('#formmodals-delete').modal('hide');
+
+
+
+
+
+
+    },
+    error: function (data) {
+        alert(JSON.stringify(data));
+        console.log( data);
+
+    } ,
+    complete: function(){
+      $('.ajax-loader').css("visibility", "hidden");
+    }
+});
+
+
+
+});
+
+//end delete form //
+
+
+//END FORM  //
+
+function getfieldtype(value){
+if(value == "input"){
+   $(".fieldinput").show();
+   $(".fieldselect").hide();
+   $(".fieldradio").hide();
+   $(".fieldcheckbox").hide();
+
+}
+if(value == "dropdown"){
+   $(".fieldselect").show();
+   $(".fieldinput").hide();
+   $(".fieldradio").hide();
+   $(".fieldcheckbox").hide();
+
+}
+if(value == "radio"){
+   $(".fieldradio").show();
+   $(".fieldselect").hide();
+   $(".fieldinput").hide();
+   $(".fieldcheckbox").hide();
+
+}
+if(value == "checkbox"){
+   $(".fieldcheckbox").show();
+   $(".fieldselect").hide();
+   $(".fieldinput").hide();
+   $(".fieldradio").hide();
+}
+}
 
 
     </script>
