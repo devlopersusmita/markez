@@ -202,7 +202,7 @@
                         <p>Teacher</p>
                     </a>
                 </li>
-               
+
 
             </ul>
 
@@ -357,6 +357,26 @@
                     <a href="{{route('faq')}}" class="nav-link <?php if(\Request::route()->getName() == 'faq'){echo 'active';}?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>FAQ</p>
+                    </a>
+                </li>
+
+            </ul>
+
+         </li>
+         <li class="nav-item <?php if(\Request::route()->getName() == 'adminform'){echo 'menu-is-opening menu-open';}?>">
+            <a href="#" class="nav-link <?php if(\Request::route()->getName() == 'adminform'){echo 'active';}?>">
+
+                <i class="fa fa-address-book" aria-hidden="true"></i>
+                <p>
+                     Form Management
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('adminform')}}" class="nav-link <?php if(\Request::route()->getName() == 'adminform'){echo 'active';}?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Form</p>
                     </a>
                 </li>
 
