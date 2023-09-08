@@ -577,4 +577,15 @@ Route::post('/teacherapprove/{id}',[AdminController::class,'teacherapprove'])->n
 Route::post('/teacherdecline/{id}',[AdminController::class,'teacherdecline'])->name('admin.teacherdecline');
 //admin teacher approve and reject //
 
+//form section //
+Route::get('/adminform', [AdminController::class,'adminform'])->name('adminform');
+Route::post('/adminaddnewform', [AdminController::class,'adminaddnewform'])->name('adminaddnewform');
+Route::post('/adminfieldstore', [AdminController::class,'adminfieldstore'])->name('adminfieldstore');
+
+Route::get('adminviewform/{id}',[AdminController::class,'adminviewform'])->name('adminviewform');
+Route::post('/adminformdelete/{id}',[AdminController::class,'adminformdelete'])->name('adminformdelete');
+Route::post('/adminformupdate/{id}',[AdminController::class,'adminformupdate'])->name('adminformupdate');
+Route::post('/adminformfielddelete/{id}',[AdminController::class,'adminformfielddelete'])->name('adminformfielddelete');
+//form section //
+
 });
