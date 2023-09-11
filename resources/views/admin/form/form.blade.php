@@ -234,9 +234,7 @@
                                             <option value="checkbox">Checkbox</option>
                                         </select>
                         </div>
-                 </div>
 
-                </div>
 
                 <div class="col-md-6">
                     <div class="field">
@@ -412,6 +410,7 @@
                 <input type="hidden" name="form_id" id="form_id" value="" />
                 <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
             </div>
+        </div>
 
             </form>
 
