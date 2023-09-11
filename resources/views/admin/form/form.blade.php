@@ -368,6 +368,29 @@
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="field">
+                        <label class="required">Field ID </label>
+                        <div class="control">
+                        <input class="form-control" type="text" name="field_id" id="field_id"  placeholder="Field id" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="field">
+                        <label class="required">Field Class </label>
+                        <div class="control">
+                            <input class="form-control" type="text" name="field_class" id="field_class"  placeholder="Field Class" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <button type="submit" id="field_add" class="btn btn-success data-add">Save</button>
+                    <input type="hidden" name="form_id" id="form_id" value="" />
+                    <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
+                </div>
 
             </div>
           </form>
