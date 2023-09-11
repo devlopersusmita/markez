@@ -272,12 +272,12 @@
 
                 <div class="col-md-6">
                     <div class="field">
-                                        <label class="required">Value/options </label>
+                        <label class="required">Value/options </label>
 
-                                        <div class="control fieldinput" style="display:none">
-                                            <input class="form-control" type="text" name="field_input_value" id="field_input_value"  placeholder="Input default Value" >
+                        <div class="control fieldinput" style="display:none">
+                            <input class="form-control" type="text" name="field_input_value" id="field_input_value"  placeholder="Input default Value" >
 
-                                        </div>
+                    </div>
                                         <div class="fieldselect" style="display:none">
                                             <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
                                                 <div style="width:300px" >
@@ -377,35 +377,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="field">
-                        <label class="required">Field ID </label>
-                        <div class="control">
-                        <input class="form-control" type="text" name="field_id" id="field_id"  placeholder="Field id" required>
+                <div class="col-md-6"></div>
 
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6">
-                    <div class="field">
-                    <label class="required">Field Class </label>
-                        <div class="control">
-                            <input class="form-control" type="text" name="field_class" id="field_class"  placeholder="Field Class" required>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="field">
-                        <span class="text-danger" id="form-input-error"></span>
-                        <span class="text-success" id="form-input-success"></span>
-                    </div>
-                </div>
-
-            <div class="mb-2"></div>
 
             <div class="col-md-6">
                 <button type="submit" id="field_add" class="btn btn-success data-add">Save</button>
@@ -415,6 +388,7 @@
                 <input type="hidden" name="form_id" id="form_id" value="" />
                 <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
             </div>
+
         </div>
 
             </form>
