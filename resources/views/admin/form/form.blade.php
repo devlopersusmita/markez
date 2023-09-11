@@ -243,6 +243,25 @@
                             </div>
                         </div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="field">
+                        <label class="required">Name </label>
+                        <div class="control">
+                        <input class="form-control" type="text" name="field_name" id="field_name"  placeholder="Field name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="field">
+                        <label class="required">Placeholder </label>
+                        <div class="control">
+                            <input class="form-control"  type="text" name="field_placeholder_value" id="field_placeholder_value"  placeholder="Input Placeholder" required>
+                        </div>
+                    </div>
+                </div>
+
             </div>
           </form>
 
