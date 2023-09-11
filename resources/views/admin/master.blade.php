@@ -5252,9 +5252,6 @@ $(document).on('click', '.formview-modals', function () {
                htmlcont=htmlcont+'Form Name';
                htmlcont=htmlcont+'</th>';
                htmlcont=htmlcont+'<th>';
-               htmlcont=htmlcont+'Page Name';
-               htmlcont=htmlcont+'</th>';
-               htmlcont=htmlcont+'<th>';
                htmlcont=htmlcont+'Field Type';
                htmlcont=htmlcont+'</th>';
                htmlcont=htmlcont+'<th>';
@@ -5290,9 +5287,6 @@ $(document).on('click', '.formview-modals', function () {
                htmlcont=htmlcont+'<tr>';
                htmlcont=htmlcont+'<td>';
                htmlcont=htmlcont+data.form.form_name;
-               htmlcont=htmlcont+'</td>';
-               htmlcont=htmlcont+'<td>';
-               htmlcont=htmlcont+data.form.page_name;
                htmlcont=htmlcont+'</td>';
                htmlcont=htmlcont+'<td>';
                htmlcont=htmlcont+field_datalist[i].field_type;
