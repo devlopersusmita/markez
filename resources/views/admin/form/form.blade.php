@@ -272,12 +272,12 @@
 
                 <div class="col-md-6">
                     <div class="field">
-                        <label class="required">Value/options </label>
+                                        <label class="required">Value/options </label>
 
-                        <div class="control fieldinput" style="display:none">
-                            <input class="form-control" type="text" name="field_input_value" id="field_input_value"  placeholder="Input default Value" >
+                                        <div class="control fieldinput" style="display:none">
+                                            <input class="form-control" type="text" name="field_input_value" id="field_input_value"  placeholder="Input default Value" >
 
-                    </div>
+                                        </div>
                                         <div class="fieldselect" style="display:none">
                                             <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
                                                 <div style="width:300px" >
@@ -377,8 +377,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-6"></div>
 
+            <div class="mb-2"></div>
 
             <div class="col-md-6">
                 <button type="submit" id="field_add" class="btn btn-success data-add">Save</button>
