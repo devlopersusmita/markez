@@ -250,11 +250,14 @@
                 </div>
 
 
+
+
+
                 <div class="col-md-6">
                     <div class="field">
-                        <label class="required">Name </label>
+                    <label class="required">Field Class </label>
                         <div class="control">
-                            <input class="form-control" type="text" name="field_name" id="field_name"  placeholder="Field name" required>
+                            <input class="form-control" type="text" name="field_class" id="field_class"  placeholder="Field Class" required>
 
                         </div>
                     </div>
@@ -262,121 +265,10 @@
 
                 <div class="col-md-6">
                     <div class="field">
-                        <label class="required">Placeholder </label>
-                        <div class="control">
-                            <input class="form-control"  type="text" name="field_placeholder_value" id="field_placeholder_value"  placeholder="Input Placeholder" required>
-
-                        </div>
+                        <span class="text-danger" id="form-input-error"></span>
+                        <span class="text-success" id="form-input-success"></span>
                     </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div class="field">
-                                        <label class="required">Value/options </label>
-
-                                        <div class="control fieldinput" style="display:none">
-                                            <input class="form-control" type="text" name="field_input_value" id="field_input_value"  placeholder="Input default Value" >
-
-                                        </div>
-                                        <div class="fieldselect" style="display:none">
-                                            <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
-                                                <div style="width:300px" >
-                                                <label class="required">Option Value</label>
-                                                <input class="form-control"  type="text" name="dropdown_value[]" class="dropdown_val"  placeholder="Option Value" >
-
-                                                </div>
-                                                <div style="width:300px;margin-left:10px;">
-                                                <label class="required">Option Text</label>
-                                                <input class="form-control"  type="text" name="dropdown_option[]" class="dropdown_opt"  placeholder="Option Text" >
-
-                                                </div>
-                                            </div>
-                                            <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
-                                                <div style="width:300px" >
-                                                <label class="required">Option Value</label>
-                                                <input class="form-control"  type="text" name="dropdown_value[]" class="dropdown_val"  placeholder="Option Value" >
-
-                                                </div>
-                                                <div style="width:300px;margin-left:10px;">
-                                                <label class="required">Option Text</label>
-                                                <input class="form-control"  type="text" name="dropdown_option[]" class="dropdown_opt"  placeholder="Option Text" >
-
-                                                </div>
-                                            </div>
-                                            <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
-                                                <div style="width:300px" >
-                                                <label class="required">Option Value</label>
-                                                <input class="form-control"  type="text" name="dropdown_value[]" class="dropdown_val"  placeholder="Option Value" >
-
-                                                </div>
-                                                <div style="width:300px;margin-left:10px;">
-                                                <label class="required">Option Text</label>
-                                                <input class="form-control"  type="text" name="dropdown_option[]" class="dropdown_opt"  placeholder="Option Text" >
-
-                                                </div>
-                                            </div>
-                                            <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
-                                                <div style="width:300px" >
-                                                <label class="required">Option Value</label>
-                                                <input class="form-control" type="text" name="dropdown_value[]" class="dropdown_val"  placeholder="Option Value" >
-
-                                                </div>
-                                                <div style="width:300px;margin-left:10px;">
-                                                <label class="required">Option Text</label>
-                                                <input class="form-control"  type="text" name="dropdown_option[]" class="dropdown_opt"  placeholder="Option Text" >
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="fieldradio" style="display:none">
-                                        <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
-                                                <div style="width:300px" >
-                                                <label class="required"> Value</label>
-                                                <input class="form-control"  type="text" name="radio_value[]" class="radio_val"  placeholder=" Value" >
-
-                                                </div>
-                                                <div style="width:300px;margin-left:10px;">
-                                                <label class="required"> Text</label>
-                                                <input class="form-control"  type="text" name="radio_option[]" class="radio_opt"  placeholder=" Text" >
-
-                                                </div>
-                                            </div>
-                                            <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
-                                                <div style="width:300px" >
-                                                <label class="required"> Value</label>
-                                                <input class="form-control"  type="text" name="radio_value[]" class="radio_val"  placeholder=" Value" >
-
-                                                </div>
-                                                <div style="width:300px;margin-left:10px;">
-                                                <label class="required"> Text</label>
-                                                <input class="form-control"  type="text" name="radio_option[]" class="radio_opt"  placeholder=" Text" >
-
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="fieldcheckbox" style="display:none">
-                                            <div class="control " style="display: flex;flex-direction: row;margin-top:10px">
-                                                <div style="width:300px" >
-                                                <label class="required"> Value</label>
-                                                <input class="form-control"  type="text" name="checkbox_value" class="checkbox_val"  placeholder=" Value" >
-
-                                                </div>
-                                                <div style="width:300px;margin-left:10px;">
-                                                <label class="required"> Text</label>
-                                                <input class="form-control"  type="text" name="checkbox_text" class="checkbox_opt"  placeholder=" Text" >
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                    </div>
-                </div>
-
 
             <div class="mb-2"></div>
 
@@ -388,7 +280,6 @@
                 <input type="hidden" name="form_id" id="form_id" value="" />
                 <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
             </div>
-
         </div>
 
             </form>
