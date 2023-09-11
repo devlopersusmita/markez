@@ -341,8 +341,8 @@
                         </div>
                      </div>
                   </div>
-               </div>
-               <div class="col-md-6">
+
+                  <div class="col-md-6">
                   <div class="field">
                      <label class="required">Field ID </label>
                      <div class="control">
@@ -372,6 +372,9 @@
                   <input type="hidden" name="form_id" id="form_id" value="" />
                   <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
                </div>
+
+               </div>
+
             </form>
          </div>
       </div>
