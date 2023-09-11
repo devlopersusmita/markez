@@ -386,6 +386,8 @@
                     </div>
                 </div>
 
+                <div class="col-md-6"></div>
+
                 <div class="col-md-6">
                     <button type="submit" id="field_add" class="btn btn-success data-add">Save</button>
                     <input type="hidden" name="form_id" id="form_id" value="" />
