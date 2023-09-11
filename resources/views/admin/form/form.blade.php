@@ -236,6 +236,9 @@
                         </div>
 
 
+
+                </div>
+
                 <div class="col-md-6">
                     <div class="field">
                         <label class="required">Sort Order </label>
@@ -245,6 +248,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <div class="col-md-6">
                     <div class="field">
@@ -382,6 +386,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <div class="col-md-6">
                     <div class="field">
