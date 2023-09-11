@@ -360,6 +360,7 @@
                     <span class="text-danger" id="form-input-error"></span>
                     <span class="text-success" id="form-input-success"></span>
                 </div>
+            </div>
 
             </div>
 
