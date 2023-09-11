@@ -388,9 +388,8 @@
 
                 <div class="col-md-6"></div>
 
-                <div class="col-mb-2"></div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mt-2">
                     <button type="submit" id="field_add" class="btn btn-success data-add">Save</button>
                     <input type="hidden" name="form_id" id="form_id" value="" />
                     <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
