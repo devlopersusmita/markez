@@ -2760,6 +2760,10 @@ div#formmmodals-view .modal-content {
     max-width: 1000px;
 }
 
+.form-table th {
+    min-width: 120px !important;
+}
+
 
 /* Responsive CSS  */
 
