@@ -129,18 +129,22 @@
 
 
       <!-- Modal to edit form starts-->
-      <div id="formmodals-edit" class="modal change-cover-modal is-medium has-light-bg">
+      <div id="formmodals-edit" class="modal change-cover-modal common-modal is-medium has-light-bg">
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="card">
                     <div class="card-heading">
-                        <h3>Edit Form</h3>
+                        <h5 class="modal-title">Edit Form</h5>
                         <!-- Close X button -->
+
+
                         <div class="close-wrap">
                             <span class="close-modal" data-dismiss="modal">
-                                    <i data-feather="x"></i>
-                                </span>
+                                <!-- <i data-feather="x"></i> -->
+                                <img src="images/icon-modal-close.svg" alt="">
+                            </span>
                         </div>
+
                     </div>
 
                     <div class="card-body">
@@ -171,8 +175,8 @@
                         </div>
                     <input type="hidden" id="formedit_id" value="" />
 
-                    <button type="submit" id="form_edit" class="btn btn-success data-edit">Save</button>
-                    <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
+                    <button type="submit" id="form_edit" class="btn btn-success data-edit data-add">Save</button>
+                    <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary data-cancel" >Cancel</button>
                     </form>
 
                     </div>
