@@ -2764,6 +2764,10 @@ div#formmmodals-view .modal-content {
     min-width: 120px !important;
 }
 
+td.form_edit_btn {
+    padding-right: 0 !important;
+}
+
 
 /* Responsive CSS  */
 
