@@ -2761,6 +2761,10 @@ div#formmmodals-view .modal-content {
     max-width: 1000px;
 }
 
+#formmmodals-view .data-cancel {
+    margin-left: 0;
+}
+
 .form-table th {
     min-width: 120px !important;
 }
