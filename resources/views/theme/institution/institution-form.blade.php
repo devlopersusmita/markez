@@ -194,13 +194,15 @@
         <div class="modal-content">
             <div class="card">
                     <div class="card-heading">
-                        <h3>Form Details</h3>
+                        <h5 class="modal-title">Form Details</h5>
                         <!-- Close X button -->
                         <div class="close-wrap">
 
-                            <span class="close-modal" data-dismiss="modal">
-                                    <i data-feather="x"></i>
+                                <span class="close-modal" data-dismiss="modal">
+                                    <!-- <i data-feather="x"></i> -->
+                                    <img src="images/icon-modal-close.svg" alt="">
                                 </span>
+
                         </div>
                     </div>
 
@@ -214,7 +216,8 @@
                                 </div>
 
 
-                                <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
+                                <button data-dismiss="modal" aria-label="Close" class="button is-solid data-cancel close-modal">Cancel</button>
+
                               </div>
                             </form>
 
