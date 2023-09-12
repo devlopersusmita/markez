@@ -52,18 +52,21 @@
 @endsection
 <!--  -->
 <!-- Modal to add new form starts-->
-<div id="formmodals-add" class="modal change-cover-modal is-medium has-light-bg">
+<div id="formmodals-add" class="modal change-cover-modal common-modal is-medium has-light-bg">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="card">
                     <div class="card-heading">
-                        <h3>New From</h3>
+                        <h5 class="modal-title">New From</h5>
                         <!-- Close X button -->
+
                         <div class="close-wrap">
                             <span class="close-modal" data-dismiss="modal">
-                                    <i data-feather="x"></i>
-                                </span>
+                                <!-- <i data-feather="x"></i> -->
+                                <img src="images/icon-modal-close.svg" alt="">
+                            </span>
                         </div>
+
                     </div>
                     <div class="card-body">
                         <form class="add-new-form"   enctype="multipart/form-data" >
@@ -110,9 +113,7 @@
                                     </div>
                                 <button type="submit" id="formselect_add" class="button is-solid primary-button data-add">Save</button>
 
-
-
-                                <button data-dismiss="modal" aria-label="Close" class="button is-solid dark-grey-button close-modal">Cancel</button>
+                                <button data-dismiss="modal" aria-label="Close" class="button is-solid data-cancel close-modal">Cancel</button>
                             </div>
                           </form>
                     </div>
