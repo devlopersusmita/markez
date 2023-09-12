@@ -275,18 +275,21 @@
       <!-- Modal to delete form Ends-->
 
 <!-- Modal to Add form field starts-->
-<div id="pagemodals-add-field" class="modal change-cover-modal is-medium has-light-bg">
+<div id="pagemodals-add-field" class="modal change-cover-modal common-modal is-medium has-light-bg">
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="card">
                     <div class="card-heading">
-                        <h3>Add new Field</h3>
+                        <h5 class="modal-title">Add new Field</h5>
                         <!-- Close X button -->
+
                         <div class="close-wrap">
                             <span class="close-modal" data-dismiss="modal">
-                                    <i data-feather="x"></i>
-                                </span>
+                                <!-- <i data-feather="x"></i> -->
+                                <img src="images/icon-modal-close.svg" alt="">
+                            </span>
                         </div>
+
                     </div>
 
                     <div class="card-body">
@@ -457,7 +460,8 @@
 
 
                                 <input type="hidden" name="form_id" id="form_id" value="" />
-                                <button data-dismiss="modal" aria-label="Close" class="button is-solid dark-grey-button close-modal">Cancel</button>
+
+                                <button data-dismiss="modal" aria-label="Close" class="button is-solid data-cancel close-modal">Cancel</button>
                             </div>
                           </form>
 
