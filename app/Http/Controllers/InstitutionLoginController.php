@@ -3586,6 +3586,17 @@ public function showinstitutionsubscription(Request $request)
 
 //end view subscription //
 
+public function institutiondashboard(Request $request)
+    {
 
+            if($request->institution_id == null) {
+                $user_id = $_GET['institution_id'];
+            } else {
+                $user_id = $request->institution_id;
+            }
+
+       return view('theme.institution.dashboard',['user_id'=>$user_id]);
+
+    }
 
 }

@@ -323,6 +323,8 @@ Route::post('/menudelete/{id}',[InstitutionMenuController::class,'menudelete'])-
 
 //instution start//
      Route::get('institutionprofile', [InstitutionLoginController::class, 'institutionprofile'])->name('institutionprofile');
+
+     Route::get('institutiondashboard', [InstitutionLoginController::class, 'institutiondashboard'])->name('institutiondashboard');
       Route::post('institutionprofileupdate', [InstitutionLoginController::class, 'profileupdate'])->name('institutionprofileupdate');
     Route::post('institutioninstitutionupdate', [InstitutionLoginController::class, 'institutionupdate'])->name('institutioninstitutionupdate');
     Route::get('institutioncourse',[InstitutionLoginController::class,'course'])->name('institutioncourse');
