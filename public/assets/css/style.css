@@ -2673,7 +2673,8 @@ a#add-new-menu-link {
     margin-left: 0;
 }
 
-#pagemodals-edit .col-md-12 {
+#pagemodals-edit .col-md-12,
+#formmodals-edit .col-md-12 {
     margin-bottom: 15px;
 }
 
