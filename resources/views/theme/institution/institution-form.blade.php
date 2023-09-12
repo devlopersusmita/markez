@@ -31,9 +31,11 @@
                 <td>
                     <table><tr>
                     <td> <span  class="button is-success accent-button raised modal-trigger pageaddfield-modals"  data-toggle="modal" data-target="#pagemodals-add-field" style="cursor: pointer;" data-id="<?php echo $form['id']?>" >Add Field</span></td>
-                    <td class="form_edit_btn"> <span  class="formview-modals"  data-toggle="modal" data-target="#formmmodals-view" style="cursor: pointer;" data-id="<?php echo $form['id']?>" onclick="valuePass(<?php echo $form['id']; ?>)" ><i class="fa fa-eye" style="font-size:18px"></i></span></td>
-                    <td class="form_edit_btn"> <span   class="formedit_modal" data-toggle="modal" data-target="#formmodals-edit" style="cursor: pointer;" data-id="<?php echo $form['id']?>" ><i class="fa fa-pencil" style="font-size:18px"></i></span></td>
-                    <td class="form_edit_btn"><span    class="delete_modal" data-toggle="modal" data-target="#formmodals-delete" style="cursor: pointer;" data-id="<?php echo $form['id']?>" ><i class="fa fa-trash-o" style="font-size:18px"></i></span></td>
+                    <td class="form_edit_btn">
+                        <span  class="formview-modals"  data-toggle="modal" data-target="#formmmodals-view" style="cursor: pointer;" data-id="<?php echo $form['id']?>" onclick="valuePass(<?php echo $form['id']; ?>)" ><i class="fa fa-eye" style="font-size:18px"></i></span>
+                        <span   class="formedit_modal" data-toggle="modal" data-target="#formmodals-edit" style="cursor: pointer;" data-id="<?php echo $form['id']?>" ><i class="fa fa-pencil" style="font-size:18px"></i></span>
+                        <span class="delete_modal" data-toggle="modal" data-target="#formmodals-delete" style="cursor: pointer;" data-id="<?php echo $form['id']?>" ><i class="fa fa-trash-o" style="font-size:18px"></i></span>
+                    </td>
                 </tr></table>
 
 
