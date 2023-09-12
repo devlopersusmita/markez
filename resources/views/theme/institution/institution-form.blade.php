@@ -10,7 +10,7 @@
 
 </div>
 @include('frontend.notification')
-<div class="table-responsive category-table">
+<div class="table-responsive category-table form-table">
    <table class="table">
       <thead>
                 <th>Name</th>
