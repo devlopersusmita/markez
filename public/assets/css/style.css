@@ -785,7 +785,7 @@ p.course-price span {
     height: 100vh;
 }
 
-.f-switch i::before{
+.f-switch i::before {
     background-color: #ccc !important;
 }
 
@@ -1033,10 +1033,9 @@ p.bottom-text {
     flex-wrap: wrap;
 }
 
-.subscription-container label{
+.subscription-container label {
     width: 33.3%;
 }
-
 
 .subscription-container .package-box {
     margin-bottom: 0;
@@ -1113,8 +1112,6 @@ input[id="card_four"]:checked~label[for="card_four"] .card .check_btn {
 .select-theme-wrap input {
     display: none;
 }
-
-
 
 .select-subscription .package-title h3 {
     font-size: 12px;
@@ -1339,14 +1336,12 @@ input[id="card_four"]:checked~label[for="card_four"] .card .check_btn {
     justify-content: space-between;
 }
 
-
 .app-header .app-header__content .app-header-right .profile {
     justify-content: flex-end;
     display: flex;
     width: 100%;
     margin-right: 25px;
 }
-
 
 .app-header .app-header__content .app-header-right .header-btn-lg img {
     width: 50px;
@@ -1450,7 +1445,7 @@ input[id="card_four"]:checked~label[for="card_four"] .card .check_btn {
 
 .vertical-nav-menu li a {
     display: block;
-/*    height: 2.4rem;*/
+    /*    height: 2.4rem;*/
     padding: 15px 10px;
     position: relative;
     border-radius: 0.25rem;
@@ -1513,7 +1508,7 @@ input[id="card_four"]:checked~label[for="card_four"] .card .check_btn {
     line-height: 34px;
     position: absolute;
     left: 0px;
-/*  top: 45%;*/
+    /*  top: 45%;*/
     margin-top: 0px;
     font-size: 1.5rem;
     transition: color 300ms;
@@ -2059,7 +2054,7 @@ img.teacher-profile-img {
     padding-bottom: 0;
 }
 
-.hover-box span:hover{
+.hover-box span:hover {
     color: #11477A;
 }
 
@@ -2266,12 +2261,14 @@ ul.nav-div {
     font-size: 14px;
 }
 
+
 /* 28-7-23 */
 
 
 /* company settings css  */
 
-.company_inner h3, .category-top-row h2{
+.company_inner h3,
+.category-top-row h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 26px;
@@ -2293,21 +2290,22 @@ ul.nav-div {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
-.logo-row label,.settings-form-row label{
+.logo-row label,
+.settings-form-row label {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: #3B3B3B;
 }
 
-.settings-form-row p{
+.settings-form-row p {
     font-size: 16px;
 }
 
-.custom-border{
+.custom-border {
     border: 1px solid #ced4da;
     padding: 6px 12px;
     border-radius: 0.375rem;
@@ -2318,11 +2316,11 @@ ul.nav-div {
     margin-bottom: 15px;
 }
 
-.custom-border p{
+.custom-border p {
     margin-bottom: 0;
 }
 
-.logo-row label{
+.logo-row label {
     display: block;
     text-align: center;
 }
@@ -2335,11 +2333,12 @@ ul.nav-div {
     margin-top: 25px;
 }
 
-.form-bottom-gap{
+.form-bottom-gap {
     margin-bottom: 20px;
 }
 
-span.companyedit_modal , span.systemedit_modal{
+span.companyedit_modal,
+span.systemedit_modal {
     width: 142px;
     padding: 8px 10px;
     background: #326696;
@@ -2351,21 +2350,25 @@ span.companyedit_modal , span.systemedit_modal{
     font-weight: 500;
 }
 
-span.companyedit_modal:hover, span.systemedit_modal:hover,span.companyedit_modal:active,span.systemedit_modal:active{
-     background: #326696;
-    border-color: #326696;
-}
-
-span.companyedit_modal:hover, span.systemedit_modal:hover{
-    color: #fff;
-}
-
-span.companyedit_modal:hover{
+span.companyedit_modal:hover,
+span.systemedit_modal:hover,
+span.companyedit_modal:active,
+span.systemedit_modal:active {
     background: #326696;
     border-color: #326696;
 }
 
-.hide-menu .submenu-active-link{
+span.companyedit_modal:hover,
+span.systemedit_modal:hover {
+    color: #fff;
+}
+
+span.companyedit_modal:hover {
+    background: #326696;
+    border-color: #326696;
+}
+
+.hide-menu .submenu-active-link {
     color: #6BA4E9;
 }
 
@@ -2373,6 +2376,7 @@ span.companyedit_modal:hover{
     padding-top: 0 !important;
     padding-bottom: 7px !important;
 }
+
 
 /* Category Page CSS  */
 
@@ -2382,7 +2386,8 @@ span.companyedit_modal:hover{
     align-items: center;
 }
 
-a.add_modal, a.add_modal:hover {
+a.add_modal,
+a.add_modal:hover {
     background: #3d70b2;
     border-color: #3d70b2;
 }
@@ -2452,21 +2457,21 @@ a.statuschange_modal {
     display: block;
 }
 
-.hide-menu{
+.hide-menu {
     display: none;
 }
 
 .hide-menu img.metismenu-icon {
     width: 16px;
-/*  margin-top: -4px;*/
+    /*  margin-top: -4px;*/
     margin-top: 4px;
 }
 
-td.order-no{
+td.order-no {
     text-align: center !important;
 }
 
-h5.modal-title{
+h5.modal-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 22px;
@@ -2482,8 +2487,7 @@ button.close {
 .add-new-category label,
 .edit-new-faq label,
 .edit-new-category label,
-.common-modal label
- {
+.common-modal label {
     font-family: 'Poppins', sans-serif;
     color: #3B3B3B;
     font-size: 18px;
@@ -2498,11 +2502,11 @@ button.close {
     left: 50%;
 }
 
-.modal-bottom-gap{
+.modal-bottom-gap {
     margin-bottom: 16px;
 }
 
-.common-modal .form-control:focus{
+.common-modal .form-control:focus {
     box-shadow: none;
     border-color: #ced4da;
 }
@@ -2517,7 +2521,7 @@ button.close {
     position: relative;
 }
 
-.data-add:after{
+.data-add:after {
     content: '';
     background-image: url('../../images/white-arrow.svg');
     background-repeat: no-repeat;
@@ -2528,10 +2532,10 @@ button.close {
     background-size: 100% 100%;
     top: 50%;
     transform: translateY(-50%);
-
 }
 
-.data-add:hover,.data-add:active {
+.data-add:hover,
+.data-add:active {
     background-color: #326696;
     border-color: #326696;
 }
@@ -2555,7 +2559,7 @@ button.close {
     vertical-align: middle;
 }
 
-.data-cancel:hover{
+.data-cancel:hover {
     background-color: #326696;
     border-color: #326696;
     color: #fff !important;
@@ -2566,7 +2570,7 @@ button.close {
     background-image: url(../../images/white-arrow.svg);
 }
 
-.data-cancel:after{
+.data-cancel:after {
     content: '';
     background-image: url('../../images/blue-arrow.svg');
     background-repeat: no-repeat;
@@ -2590,7 +2594,7 @@ button.close {
     width: 100%;
 }
 
-#modals-view_it .cover-bg-2{
+#modals-view_it .cover-bg-2 {
     margin-bottom: 70px;
 }
 
@@ -2603,17 +2607,18 @@ button.close {
     font-size: 15px !important;
 }
 
-#modals-send_it .data-add:after{
+#modals-send_it .data-add:after {
     right: 6px;
 }
 
-#modals-send_it .close-wrap ,.change-cover-modal .close-wrap{
+#modals-send_it .close-wrap,
+.change-cover-modal .close-wrap {
     position: absolute;
     right: 0;
     width: auto !important;
 }
 
-.change-cover-modal .close-wrap{
+.change-cover-modal .close-wrap {
     right: 15px;
 }
 
@@ -2624,7 +2629,7 @@ button.close {
     width: 100%;
 }
 
-.change-cover-modal .login-form img{
+.change-cover-modal .login-form img {
     margin-top: 0;
 }
 
@@ -2653,11 +2658,13 @@ div#modals-view_it .data-cancel {
     width: 100%;
 }
 
-#pagemodals-add .data-add:after,#pagemodals-add .data-cancel:after {
+#pagemodals-add .data-add:after,
+#pagemodals-add .data-cancel:after {
     top: 21px;
 }
 
-a#add-new-page-link,a#add-new-menu-link{
+a#add-new-page-link,
+a#add-new-menu-link {
     background: #3d70b2 !important;
     border-color: #3d70b2 !important;
 }
@@ -2670,7 +2677,7 @@ a#add-new-page-link,a#add-new-menu-link{
     margin-bottom: 15px;
 }
 
-th.teacher-img-row{
+th.teacher-img-row {
     min-width: 70px !important;
 }
 
@@ -2682,11 +2689,12 @@ th.teacher-img-row{
     padding-bottom: 0;
 }
 
-.course-table th.teacher-comision{
+.course-table th.teacher-comision {
     min-width: 250px !important;
 }
 
-.course-table td, .course-table th {
+.course-table td,
+.course-table th {
     text-align: center !important;
 }
 
@@ -2703,6 +2711,7 @@ td.course-action span.view_modal_course {
     margin-right: 10px;
 }
 
+
 /* 10/08/2023  */
 
 .admin_login .login-form {
@@ -2711,7 +2720,8 @@ td.course-action span.view_modal_course {
     padding: 25px 48px 40px;
 }
 
-.admin_login .inner,.teacherstudentlogin .inner{
+.admin_login .inner,
+.teacherstudentlogin .inner {
     display: block;
 }
 
@@ -2724,12 +2734,12 @@ td.course-action span.view_modal_course {
     max-width: 500px;
 }
 
-.admin_login .button.is-solid.primary-button{
+.admin_login .button.is-solid.primary-button {
     max-width: 100%;
     margin: auto;
 }
 
-.modal-content{
+.modal-content {
     overflow-x: auto !important;
 }
 
@@ -2741,40 +2751,50 @@ td.subscription_action a.button.is-solid.green-button {
     margin-right: 10px;
 }
 
-th.subscription_enddate{
+th.subscription_enddate {
     min-width: 212px !important;
 }
 
+div#formmmodals-view .modal-content {
+    width: 100%;
+    max-width: 1000px;
+}
 
 
 /* Responsive CSS  */
 
 @media only screen and (max-width: 1440px) {
-    .contact {height: 580px;}
-    .service-content ul li:before {top: 2px;}
-    .banner-setting{max-width: 990px;}
-    .category-table thead th {min-width: 200px;}
-    .category-table {max-width: 990px;}
-    th.faq_content {min-width: 400px !important;}
-
-  ::-webkit-scrollbar {
-    height: 8px;
-    width: 2px;
-    border: 8px solid #C4CDDC;
+    .contact {
+        height: 580px;
+    }
+    .service-content ul li:before {
+        top: 2px;
+    }
+    .banner-setting {
+        max-width: 990px;
+    }
+    .category-table thead th {
+        min-width: 200px;
+    }
+    .category-table {
+        max-width: 990px;
+    }
+    th.faq_content {
+        min-width: 400px !important;
+    }
+     ::-webkit-scrollbar {
+        height: 8px;
+        width: 2px;
+        border: 8px solid #C4CDDC;
+    }
+    #modals-add .modal-dialog.modal-lg {
+        left: 60%;
+        transform: translate(-50%);
+    }
+    th.bannersetting_content {
+        min-width: 400px !important;
+    }
 }
-
-#modals-add .modal-dialog.modal-lg{
-    left: 60%;
-    transform: translate(-50%);
-}
-
-th.bannersetting_content{
-    min-width: 400px !important;
-}
-
-}
-
-
 
 @media only screen and (max-width: 1300px) {
     .contact {
@@ -2791,12 +2811,12 @@ th.bannersetting_content{
     .app-main .app-main__inner {
         padding: 30px 25px;
     }
-    .banner-setting{max-width: 950px;}
-
+    .banner-setting {
+        max-width: 950px;
+    }
     .category-table {
         max-width: 940px;
     }
-
 }
 
 @media only screen and (max-width: 1200px) {
@@ -2838,25 +2858,42 @@ th.bannersetting_content{
         margin-bottom: 0;
     }
     .banner-setting {
-    max-width: 860px;
+        max-width: 860px;
+    }
+    .category-table {
+        max-width: 850px;
+    }
 }
 
-.category-table {
-    max-width: 850px;
-}
-
-}
-
-@media only screen and (max-width: 1100px){
-    .banner-setting {max-width: 680px;}
-    .category-table {max-width: 690px;}
-    #modals-add .modal-dialog.modal-lg{transform: translate(-50%);}
-    .contact{height: 445px;}
-    .contact .btn-banner{margin-top: 0;}
-    .logo-row label, .settings-form-row label{font-size: 16px;}
-    .login-form{padding: 25px 30px 40px;}
-    .category-table thead th{padding: 10px 20px;}
-    th.pagecrud_table_content {min-width: 320px !important;}
+@media only screen and (max-width: 1100px) {
+    .banner-setting {
+        max-width: 680px;
+    }
+    .category-table {
+        max-width: 690px;
+    }
+    #modals-add .modal-dialog.modal-lg {
+        transform: translate(-50%);
+    }
+    .contact {
+        height: 445px;
+    }
+    .contact .btn-banner {
+        margin-top: 0;
+    }
+    .logo-row label,
+    .settings-form-row label {
+        font-size: 16px;
+    }
+    .login-form {
+        padding: 25px 30px 40px;
+    }
+    .category-table thead th {
+        padding: 10px 20px;
+    }
+    th.pagecrud_table_content {
+        min-width: 320px !important;
+    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -2984,53 +3021,48 @@ th.bannersetting_content{
     .select-theme-wrap .check_btn {
         top: -20px;
     }
-
-    .fixed-sidebar .app-main .app-main__outer{
+    .fixed-sidebar .app-main .app-main__outer {
         padding-left: 230px;
     }
-
-    .app-sidebar{
+    .app-sidebar {
         width: 230px;
         min-width: 230px;
         flex: 0 0 230px;
     }
-
-    .app-header__logo{width: 230px;}
-
-    .avatar-upload .avatar-preview>div{
+    .app-header__logo {
+        width: 230px;
+    }
+    .avatar-upload .avatar-preview>div {
         width: 80px;
         height: 80px;
     }
-
     .avatar-upload .avatar-edit input+label:after {
         top: 12px;
         left: 6px;
     }
-
-    .select-theme h3, .profile-title label{
+    .select-theme h3,
+    .profile-title label {
         font-size: 22px;
         line-height: 26px;
     }
-
-    .vertical-nav-menu li{padding-left: 15px;}
-
-    .vertical-nav-menu li a{font-size: 14px;}
-
-    .app-theme-white.fixed-header .app-header__logo{
+    .vertical-nav-menu li {
+        padding-left: 15px;
+    }
+    .vertical-nav-menu li a {
+        font-size: 14px;
+    }
+    .app-theme-white.fixed-header .app-header__logo {
         font-size: 18px;
         padding: 0 16px;
     }
-
-    .profile-btn a, .save-btn button{
+    .profile-btn a,
+    .save-btn button {
         padding: 7px 20px;
         font-size: 16px;
     }
-
-    .app-header .app-header__content .app-header-right .button{
+    .app-header .app-header__content .app-header-right .button {
         padding: 15px 20px;
     }
-
-
     /* About Page CSS */
     .about-img {
         padding-bottom: 25px;
@@ -3038,58 +3070,55 @@ th.bannersetting_content{
     .about-content {
         padding-left: 0;
     }
-
-    .category-top-row h2{
+    .category-top-row h2 {
         font-size: 22px;
         margin-bottom: 0;
     }
-
     .banner-setting {
         max-width: 500px;
     }
-
-    .category-table {max-width: 500px;}
-
-    .service-content h3, .institution-top-row h3, .subscription h3, .course h2{
+    .category-table {
+        max-width: 500px;
+    }
+    .service-content h3,
+    .institution-top-row h3,
+    .subscription h3,
+    .course h2 {
         font-size: 24px;
     }
-
     span.statuschange_modal {
         line-height: 18px;
     }
-
-    .button{padding: 15px 20px;}
-
-  .data-add{
+    .button {
+        padding: 15px 20px;
+    }
+    .data-add {
         width: 120px;
         height: 40px;
         font-size: 16px;
         padding-left: 15px;
     }
-
-    .data-cancel{
+    .data-cancel {
         height: 40px;
         font-size: 16px;
         margin-left: 15px;
     }
-
-    #pagemodals-add .data-add:after, #pagemodals-add .data-cancel:after {
+    #pagemodals-add .data-add:after,
+    #pagemodals-add .data-cancel:after {
         top: 18px;
     }
-
     .logo-row .col-lg-3 {
         margin-bottom: 15px;
     }
-
 }
 
-
 @media only screen and (max-width: 819px) and (min-width: 768px) {
-     .banner-setting {
+    .banner-setting {
         max-width: 450px;
     }
-
-    .category-table {max-width: 495px;}
+    .category-table {
+        max-width: 495px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -3209,14 +3238,13 @@ th.bannersetting_content{
     .about {
         padding: 40px 0;
     }
-
     #modals-add .modal-dialog.modal-lg {
         transform: translate(0%);
         left: 0;
     }
-
-    .package-info h2{text-align: center;}
-
+    .package-info h2 {
+        text-align: center;
+    }
 }
 
 @media only screen and (max-width: 479px) {
@@ -3247,11 +3275,9 @@ th.bannersetting_content{
         left: 12px;
         top: 10px;
     }
-
-    .sign-up-img img{
+    .sign-up-img img {
         height: 300px;
     }
-
     .login-btn,
     .signup-btn {
         padding: 5px 12px;
@@ -3314,11 +3340,9 @@ th.bannersetting_content{
     .login-form .sign-up-title h2 {
         margin: 0 0 0 10px;
     }
-
-    .modal .modal-content{
+    .modal .modal-content {
         max-width: 320px;
     }
-
     .subscription-container .package-box {
         width: 100%;
     }
@@ -3329,7 +3353,8 @@ th.bannersetting_content{
     .subscription-container label:nth-child(2n+1) {
         margin-right: 0;
     }
-    a.add_modal, a.add_modal:hover{
+    a.add_modal,
+    a.add_modal:hover {
         padding: 4px 12px;
         font-size: 15px;
     }
@@ -3358,19 +3383,15 @@ th.bannersetting_content{
     .fixed-sidebar .app-main .app-main__outer {
         padding-left: 60px;
     }
-
     .vertical-nav-menu li {
         padding-left: 20px;
     }
-
-    .app-theme-white.fixed-header .app-header__logo{
+    .app-theme-white.fixed-header .app-header__logo {
         padding: 0 8px;
     }
-
-    .closed-sidebar .app-sidebar:hover .app-sidebar__inner ul li a{
+    .closed-sidebar .app-sidebar:hover .app-sidebar__inner ul li a {
         padding: 10px 15px 10px 35px;
     }
-
     .profile-edit-wrap {
         flex-wrap: wrap;
     }
@@ -3400,34 +3421,28 @@ th.bannersetting_content{
     .app-header .app-header__content {
         padding: 0 10px 0 0;
     }
-    .app-header .app-header__content .app-header-right .profile ul li.profile-bg-dark{
+    .app-header .app-header__content .app-header-right .profile ul li.profile-bg-dark {
         width: 30px;
         height: 30px;
     }
-    .app-header .app-header__content .app-header-right{
+    .app-header .app-header__content .app-header-right {
         margin-left: 5px;
     }
-
     .button.is-solid.primary-button.raised {
         padding: 7px 8px;
     }
-
-    .app-header .app-header__content .app-header-right .profile ul li span{
+    .app-header .app-header__content .app-header-right .profile ul li span {
         font-size: 14px;
     }
-
-    .app-header .app-header__content .app-header-right .profile{
+    .app-header .app-header__content .app-header-right .profile {
         margin-right: 5px;
     }
-
     .app-main .app-main__inner {
         padding: 30px 15px;
     }
-
-    .company-settings-inner{
+    .company-settings-inner {
         padding: 30px 0 !important;
     }
-
     .vertical-nav-menu li.mm-active:after {
         background-image: none;
     }
@@ -3441,125 +3456,103 @@ th.bannersetting_content{
     .about-banner {
         height: 300px;
     }
-
-    .company_inner h3{
+    .company_inner h3 {
         font-size: 22px;
         text-align: center;
     }
-
-    .logo-row label, .settings-form-row label{
+    .logo-row label,
+    .settings-form-row label {
         font-size: 14px;
     }
-
-    #pagemodals-view .modal-content{
+    #pagemodals-view .modal-content {
         width: 100%;
     }
-
     .category-table {
         max-width: 285px;
     }
-
-    .category-table thead th{
+    .category-table thead th {
         min-width: 150px;
         padding: 8px 15px;
         font-size: 14px;
     }
-
     .common-modal .modal-dialog {
         transform: translateX(0%) !important;
         left: 0px;
     }
-
-    h5.modal-title{font-size: 18px;}
-
+    h5.modal-title {
+        font-size: 18px;
+    }
     .add-new-faq label,
     .add-new-homestting label,
-    .add-new-category label, 
-    .edit-new-faq label, 
-    .edit-new-category label, 
-    .common-modal label{
+    .add-new-category label,
+    .edit-new-faq label,
+    .edit-new-category label,
+    .common-modal label {
         font-size: 14px;
     }
-
-    span.companyedit_modal, span.systemedit_modal{
+    span.companyedit_modal,
+    span.systemedit_modal {
         width: 110px;
         padding: 5px 10px;
         font-size: 16px;
     }
-
-    .common-modal .modal-content{
+    .common-modal .modal-content {
         max-width: 320px;
     }
-
-    .select-theme-wrap .card{
+    .select-theme-wrap .card {
         margin-right: 0;
     }
-
-    .select-theme-wrap label img,.subscription-container label{
+    .select-theme-wrap label img,
+    .subscription-container label {
         width: 100%;
     }
-
-    .profile-edit-wrap{
+    .profile-edit-wrap {
         justify-content: center;
     }
-
-    .right-btn.profile-btn{
+    .right-btn.profile-btn {
         position: static;
         text-align: center;
     }
-
     .save-btn {
         margin-top: 20px;
     }
-
-    .select-theme-wrap .check_btn{
+    .select-theme-wrap .check_btn {
         top: -15px;
     }
-
     .select-theme-wrap input[id="card_one"]:checked~label[for="card_one"] .card .check_btn,
     .select-theme-wrap input[id="card_two"]:checked~label[for="card_two"] .card .check_btn,
     .select-theme-wrap input[id="card_three"]:checked~label[for="card_three"] .card .check_btn,
-    .select-theme-wrap input[id="card_four"]:checked~label[for="card_four"] .card .check_btn{
+    .select-theme-wrap input[id="card_four"]:checked~label[for="card_four"] .card .check_btn {
         width: 25px;
         background-size: 100%;
         height: 25px;
     }
-
     .assign_course_top_row {
         flex-wrap: wrap;
     }
-
     .assign_course_top_row h2 {
         font-size: 20px;
         margin-bottom: 12px;
     }
-
-    .data-add{
+    .data-add {
         padding-left: 15px;
     }
-
-    .data-cancel{
+    .data-cancel {
         margin-left: 12px;
         text-align: left;
         padding-left: 25px;
     }
-
-    .category-top-row{
+    .category-top-row {
         flex-wrap: wrap;
     }
-
-    .category-top-row h2{
+    .category-top-row h2 {
         font-size: 20px;
         margin-bottom: 10px;
     }
-
     form.add-new-match.modal-content {
         margin-left: 0;
     }
-
-    .category-table tbody td{
+    .category-table tbody td {
         font-size: 14px;
     }
-
-
 }
