@@ -25,6 +25,14 @@
 				<div class="scrollbar-sidebar">
 					<div class="app-sidebar__inner">
 						<ul class="vertical-nav-menu">
+
+                        <li class="{{ Request::routeIs('institutiondashboard') ? 'mm-active' : '' }}">
+							<a href="{{ route('institutiondashboard', ['institution_id' => $_GET['institution_id']]) }}">
+									<img class="metismenu-icon" src="images/home-icon.svg">
+									<span>Dashboard</span>
+									<img class="metismenu-state-icon" src="images/home-icon.svg">
+								</a>
+							</li>
 							<li class="{{ Request::routeIs('institutionprofile') ? 'mm-active' : '' }}">
 							<a href="{{ route('institutionprofile', ['institution_id' => $_GET['institution_id']]) }}">
 									<img class="metismenu-icon" src="images/home-icon.svg">
