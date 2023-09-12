@@ -1602,7 +1602,7 @@ public function student(Request $request)
            return view('theme.institution.coursecontent',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details]);
         }
         else{
-            return view('theme.institution.no_access_course');
+            return view('theme.institution.noaccess');
         }
     }
 
