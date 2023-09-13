@@ -189,115 +189,18 @@
 						<div class="col-lg-3">
 							<div class="sidebar-section">
                                 <h2>Students</h2>
+                                @foreach($students_lists as $students_list)
                                 <div class="sidebar-profile">
                                     <div class="sidebar-profile-img">
                                         <img src="images/sidebar-profile.png" alt="">
                                     </div>
                                     <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
+                                        <h2>{{$students_list->student_name}}</h2>
+                                        <h5>{{$students_list->student_name}}</h5>
                                     </div>
                                 </div>
 
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
 
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-profile">
-                                    <div class="sidebar-profile-img">
-                                        <img src="images/sidebar-profile.png" alt="">
-                                    </div>
-                                    <div class="sidebar-profile-info">
-                                        <h2>Debdas Mondal</h2>
-                                        <h5>Debdas Mondal</h5>
-                                    </div>
-                                </div>
 
                             </div>
 						</div>

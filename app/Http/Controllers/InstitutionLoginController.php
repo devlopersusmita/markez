@@ -3603,9 +3603,13 @@ public function institutiondashboard(Request $request)
                 $total_student = InstitutionStudent::where(['institution_id'=>$user_id])->orderBy('id','asc')->get()->count();
                 //dd($total_student);
 
+            $students_lists= InstitutionStudent::leftjoin('users', 'users.id', '=', 'institution_students.user_id')->where(['institution_id'=>$user_id])->orderBy('id','asc') ->select('institution_students.*','users.name as student_name')->get();
 
 
-       return view('theme.institution.dashboard',['user_id'=>$user_id,'course_count'=>$course_count,'total_payment'=>$total_payment,'total_student'=>$total_student]);
+
+
+
+       return view('theme.institution.dashboard',['user_id'=>$user_id,'course_count'=>$course_count,'total_payment'=>$total_payment,'total_student'=>$total_student,'students_lists'=>$students_lists]);
 
     }
 
