@@ -9,7 +9,18 @@
 				<div class="app-main__inner">
 					<div class="row">
 						<div class="col-lg-9">
-							Hello
+							<div class="teacher-grid">
+								<h2>Statistics</h2>
+								<div class="row">
+									<div class="col-lg-3 col-md-6">
+										<div class="statistics-row">
+											<div class="stat-image">
+                                                <img src="images/payment-icon.svg" alt="">
+                                            </div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="col-lg-3">
 							Hello
