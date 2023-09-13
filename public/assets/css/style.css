@@ -2825,7 +2825,7 @@ td.form_edit_btn {
 .teacher-grid-top-info {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 15px;
+    padding-bottom: 8px;
     border-bottom: 1px solid #BECDDF;
     align-items: flex-end;
 }
