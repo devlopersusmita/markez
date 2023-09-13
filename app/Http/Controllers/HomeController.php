@@ -24,6 +24,7 @@ use App\Models\TermsandCondition;
 use App\Models\Privacypolicy;
 use App\Models\Aboutus;
 use App\Models\SystemSetting;
+use App\Models\UserVisitor;
 
 
 use File;
@@ -2701,7 +2702,17 @@ public function directaboutus()
 
 public function institutionwebsite(Request $request,$id)
 {
-        $id = $request->id;
+    $ip = $request->ip();
+    $user_visitors_check = UserVisitor::where(['ip_address' => $ip])->count();
+    //dd($user_visitors_check);
+
+    if ($user_visitors_check == 0)
+    {
+        $visitor = new UserVisitor(['ip_address' => $ip]);
+        $visitor->save();
+     }
+
+    $id = $request->id;
         $institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
             //dd($institution_sliders);
             $category_lists =Category::where('institution_id',$id)->orderBy('name','asc')->get();
