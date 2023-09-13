@@ -631,11 +631,9 @@ public function coursesubscriptionpay(Request $request)
 
        $id=$request->id;
        $institution_id=$request->institution_id;
-       //dd("pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP");
-       $token = base64_encode(("pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP").':');
-
+       $token = base64_encode(env('MOYASAR_SECRET_KEY').':');
        $payment = Http::baseUrl('https://api.moyasar.com/v1')
-       ->withBasicAuth("pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP",'')
+       ->withBasicAuth(env('MOYASAR_SECRET_KEY'),'')
        ->get("payments/{$id}")
        ->json();
 
@@ -2706,7 +2704,7 @@ public function institutionwebsite(Request $request,$id)
 {
     $ip = $request->ip();
     $user_visitors_check = UserVisitor::where(['ip_address' => $ip])->count();
-    //dd($user_visitors_check);
+
 
     if ($user_visitors_check == 0)
     {
