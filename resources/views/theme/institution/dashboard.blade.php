@@ -55,7 +55,7 @@
                                             </div>
                                             <div class="stat-info">
                                                 <h5>Visitor</h5>
-                                                <h2>800</h2>
+                                                <h2>{{$total_visitor}} </h2>
                                             </div>
 										</div>
 									</div>
