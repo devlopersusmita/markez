@@ -2840,6 +2840,7 @@ td.form_edit_btn {
     padding-bottom: 8px;
     border-bottom: 1px solid #BECDDF;
     align-items: flex-end;
+    margin-bottom: 18px;
 }
 
 .teacher-grid-top-info h2 {
