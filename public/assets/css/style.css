@@ -2871,6 +2871,7 @@ td.form_edit_btn {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 600;
+    margin-bottom: 4px;
 }
 
 .sidebar-profile h5 {
@@ -2878,6 +2879,11 @@ td.form_edit_btn {
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 500;
+    margin-bottom: 0;
+}
+
+.sidebar-profile-info {
+    padding-left: 10px;
 }
 
 
