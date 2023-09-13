@@ -2790,10 +2790,16 @@ td.form_edit_btn {
     background: #BECDDF;
     border-radius: 5px 0px 0px 5px;
     padding: 23px 12px;
+    width: 40%;
+    text-align: center;
 }
 
 .stat-info {
     padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 60%;
 }
 
 .stat-info h5 {
@@ -2843,6 +2849,12 @@ td.form_edit_btn {
     }
     th.bannersetting_content {
         min-width: 400px !important;
+    }
+    .stat-image {
+        width: 50%;
+    }
+    .stat-info {
+        padding-left: 10px;
     }
 }
 
