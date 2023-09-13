@@ -9,7 +9,7 @@
 				<div class="app-main__inner">
 					<div class="row">
 						<div class="col-lg-9">
-							<div class="teacher-grid">
+							<div class="statistics-grid">
 								<h2>Statistics</h2>
 								<div class="row">
 									<div class="col-lg-3 col-md-6">
@@ -62,6 +62,7 @@
 
 								</div>
 							</div>
+
 						</div>
 						<div class="col-lg-3">
 							Hello
