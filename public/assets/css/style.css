@@ -2818,6 +2818,17 @@ td.form_edit_btn {
     font-weight: 700;
 }
 
+.teacher-grid-top-info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border: 1px solid #BECDDF;
+}
+
+.teacher-grid-top-info a {
+    color: #6BA4E9;
+}
+
 
 /* Responsive CSS  */
 
