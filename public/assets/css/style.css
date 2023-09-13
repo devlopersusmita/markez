@@ -2797,6 +2797,8 @@ td.form_edit_btn {
     border-radius: 6px;
     padding: 5px;
     display: flex;
+    min-height: 85px;
+    height: 100%;
     align-items: center;
 }
 
@@ -2821,6 +2823,7 @@ td.form_edit_btn {
     font-size: 14px;
     color: #326696;
     font-weight: 500;
+    margin-bottom: 1px;
 }
 
 .stat-info h2 {
@@ -2935,6 +2938,7 @@ td.form_edit_btn {
     }
     .stat-image {
         width: 50%;
+        height: 100%;
         padding: 8px 12px;
     }
     .stat-info {
