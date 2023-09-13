@@ -17,6 +17,10 @@
 											<div class="stat-image">
                                                 <img src="images/payment-icon.svg" alt="">
                                             </div>
+                                            <div class="stat-info">
+                                                <h5>Payment</h5>
+                                                <h2>$1500</h2>
+                                            </div>
 										</div>
 									</div>
 								</div>
