@@ -13,18 +13,18 @@ class InstitutionAdmin extends Model
         'user_id',
         'created_by',
         'access',
-        
+
     ];
-    public function createdby()
-    {
-        return $this->belongsTo('App\Models\User'::class,'created_by');
-    }
-    public function institution()
-    {
-        return $this->belongsTo('App\Models\Institution'::class,'institution_id');
-    }
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User'::class,'user_id');
-    }
+    // public function createdby()
+    // {
+    //     return $this->belongsTo('App\Models\User'::class,'created_by');
+    // }
+    // public function institution()
+    // {
+    //     return $this->belongsTo('App\Models\Institution'::class,'institution_id');
+    // }
+    // public function user()
+    // {
+    //     return $this->belongsTo('App\Models\User'::class,'user_id');
+    // }
 }
