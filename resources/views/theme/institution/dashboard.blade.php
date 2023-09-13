@@ -69,118 +69,22 @@
                                 </div>
 
                                 <div class="row">
+                                @foreach($teachers_lists as $teachers_list)
                                     <div class="col-lg-3 col-md-6">
                                         <div class="teacher-profile text-center">
                                             <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
-                                            <h4>Arijit Tarafdar</h4>
+                                            <h4>{{$teachers_list->teacher_name}}</h4>
                                             <p>Subject: <span>Math</span></p>
                                             <div class="three-dots">
                                                 <img src="images/ellipsis.png" alt="">
                                                 <div class="hover-box">
                                                     <a href="#" class="active">View Profile</a>
-                                                    <a href="#">Send Request</a>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="teacher-profile text-center">
-                                            <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
-                                            <h4>Arijit Tarafdar</h4>
-                                            <p>Subject: <span>Math</span></p>
-                                            <div class="three-dots">
-                                                <img src="images/ellipsis.png" alt="">
-                                                <div class="hover-box">
-                                                    <a href="#" class="active">View Profile</a>
-                                                    <a href="#">Send Request</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="teacher-profile text-center">
-                                            <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
-                                            <h4>Arijit Tarafdar</h4>
-                                            <p>Subject: <span>Math</span></p>
-                                            <div class="three-dots">
-                                                <img src="images/ellipsis.png" alt="">
-                                                <div class="hover-box">
-                                                    <a href="#" class="active">View Profile</a>
-                                                    <a href="#">Send Request</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="teacher-profile text-center">
-                                            <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
-                                            <h4>Arijit Tarafdar</h4>
-                                            <p>Subject: <span>Math</span></p>
-                                            <div class="three-dots">
-                                                <img src="images/ellipsis.png" alt="">
-                                                <div class="hover-box">
-                                                    <a href="#" class="active">View Profile</a>
-                                                    <a href="#">Send Request</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="teacher-profile text-center">
-                                            <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
-                                            <h4>Arijit Tarafdar</h4>
-                                            <p>Subject: <span>Math</span></p>
-                                            <div class="three-dots">
-                                                <img src="images/ellipsis.png" alt="">
-                                                <div class="hover-box">
-                                                    <a href="#" class="active">View Profile</a>
-                                                    <a href="#">Send Request</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="teacher-profile text-center">
-                                            <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
-                                            <h4>Arijit Tarafdar</h4>
-                                            <p>Subject: <span>Math</span></p>
-                                            <div class="three-dots">
-                                                <img src="images/ellipsis.png" alt="">
-                                                <div class="hover-box">
-                                                    <a href="#" class="active">View Profile</a>
-                                                    <a href="#">Send Request</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="teacher-profile text-center">
-                                            <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
-                                            <h4>Arijit Tarafdar</h4>
-                                            <p>Subject: <span>Math</span></p>
-                                            <div class="three-dots">
-                                                <img src="images/ellipsis.png" alt="">
-                                                <div class="hover-box">
-                                                    <a href="#" class="active">View Profile</a>
-                                                    <a href="#">Send Request</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="teacher-profile text-center">
-                                            <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
-                                            <h4>Arijit Tarafdar</h4>
-                                            <p>Subject: <span>Math</span></p>
-                                            <div class="three-dots">
-                                                <img src="images/ellipsis.png" alt="">
-                                                <div class="hover-box">
-                                                    <a href="#" class="active">View Profile</a>
-                                                    <a href="#">Send Request</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
 
                             </div>
