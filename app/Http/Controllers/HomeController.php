@@ -632,7 +632,7 @@ public function coursesubscriptionpay(Request $request)
        $id=$request->id;
        $institution_id=$request->institution_id;
        //dd("pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP");
-       $token = base64_encode(env("pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP").':');
+       $token = base64_encode(("pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP").':');
 
        $payment = Http::baseUrl('https://api.moyasar.com/v1')
        ->withBasicAuth("pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP",'')
