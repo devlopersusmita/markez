@@ -2890,10 +2890,13 @@ td.form_edit_btn {
     margin-bottom: 0;
     border-bottom: 1px solid #BECDDF;
     padding-bottom: 10px;
+    font-size: 22px;
 }
 
 .sidebar-profile-info h2 {
     border-bottom: 0;
+    padding-bottom: 3px;
+    font-size: 16px;
 }
 
 
