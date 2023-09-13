@@ -2825,7 +2825,7 @@ td.form_edit_btn {
     font-size: 14px;
     color: #326696;
     font-weight: 500;
-    margin-bottom: 1px;
+    margin-bottom: 4px;
 }
 
 .stat-info h2 {
@@ -2860,7 +2860,7 @@ td.form_edit_btn {
 }
 
 .sidebar-section {
-    padding: 18px;
+    padding: 14px 18px;
     border: 1px solid #BECDDF;
     border-radius: 6px;
     margin-top: 48px;
@@ -2869,6 +2869,7 @@ td.form_edit_btn {
 .sidebar-profile {
     display: flex;
     align-items: center;
+    padding-top: 10px;
 }
 
 .sidebar-profile h2 {
