@@ -631,7 +631,9 @@ public function coursesubscriptionpay(Request $request)
 
        $id=$request->id;
        $institution_id=$request->institution_id;
+       dd(env('MOYASAR_SECRET_KEY'));
        $token = base64_encode(env('MOYASAR_SECRET_KEY').':');
+
        $payment = Http::baseUrl('https://api.moyasar.com/v1')
        ->withBasicAuth(env('MOYASAR_SECRET_KEY'),'')
        ->get("payments/{$id}")
