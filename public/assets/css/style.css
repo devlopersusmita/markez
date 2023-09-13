@@ -2807,6 +2807,8 @@ td.form_edit_btn {
     border-radius: 5px 0px 0px 5px;
     padding: 23px 12px;
     width: 40%;
+    height: 100%;
+    display: flex;
     text-align: center;
 }
 
@@ -2938,7 +2940,6 @@ td.form_edit_btn {
     }
     .stat-image {
         width: 50%;
-        height: 100%;
         padding: 8px 12px;
     }
     .stat-info {
