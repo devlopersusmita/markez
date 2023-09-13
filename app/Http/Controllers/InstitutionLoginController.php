@@ -35,6 +35,7 @@ use App\Models\InstitutionSubcription;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Faq;
+use App\Models\UserVisitor;
 
 use File;
 use Session;
@@ -3606,11 +3607,12 @@ public function institutiondashboard(Request $request)
             $students_lists= InstitutionStudent::leftjoin('users', 'users.id', '=', 'institution_students.user_id')->where(['institution_id'=>$user_id])->orderBy('id','asc') ->select('institution_students.*','users.name as student_name')->get();
 
             $teachers_lists= InstitutionTeacher::leftjoin('users', 'users.id', '=', 'institution_teachers.user_id')->where(['institution_id'=>$user_id])->orderBy('id','asc') ->select('institution_teachers.*','users.name as teacher_name')->get();
+            $total_visitor = UserVisitor::get()->count();
 
 
 
 
-       return view('theme.institution.dashboard',['user_id'=>$user_id,'course_count'=>$course_count,'total_payment'=>$total_payment,'total_student'=>$total_student,'students_lists'=>$students_lists,'teachers_lists'=>$teachers_lists]);
+       return view('theme.institution.dashboard',['user_id'=>$user_id,'course_count'=>$course_count,'total_payment'=>$total_payment,'total_student'=>$total_student,'students_lists'=>$students_lists,'teachers_lists'=>$teachers_lists,'total_visitor'=>$total_visitor]);
 
     }
 
