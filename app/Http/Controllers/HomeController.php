@@ -2704,7 +2704,7 @@ public function institutionwebsite(Request $request,$id)
 {
     $ip = $request->ip();
     $user_visitors_check = UserVisitor::where(['ip_address' => $ip])->count();
-    dd($user_visitors_check);
+    //dd($user_visitors_check);
 
     if ($user_visitors_check == 0)
     {
