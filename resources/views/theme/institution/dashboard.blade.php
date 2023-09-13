@@ -7,7 +7,14 @@
         @include('theme.institution.sidebar')
 			<div class="app-main__outer">
 				<div class="app-main__inner">
-
+					<div class="row">
+						<div class="col-lg-9">
+							Hello
+						</div>
+						<div class="col-lg-3">
+							Hello
+						</div>
+					</div>
 
 				</div>
 
