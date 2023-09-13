@@ -3052,8 +3052,34 @@ td.form_edit_btn {
     .statistics-row {
         min-height: 65px;
     }
+    .stat-info {
+        padding-left: 6px;
+    }
     .stat-info h2 {
-        font-size: 17px;
+        font-size: 16px;
+    }
+    .teacher-profile {
+        padding: 15px 9px;
+    }
+    .teacher-profile h4 {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .teacher-grid h2 {
+        font-size: 21px;
+    }
+    .sidebar-section h2 {
+        font-size: 19px;
+    }
+    .sidebar-section {
+        padding: 14px 10px 20px;
+        margin-top: 43px;
+    }
+    .sidebar-profile-info h2 {
+        font-size: 14px;
+    }
+    .sidebar-profile h5 {
+        font-size: 12px;
     }
 }
 
