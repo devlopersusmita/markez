@@ -2886,6 +2886,16 @@ td.form_edit_btn {
     padding-left: 10px;
 }
 
+.sidebar-section h2 {
+    margin-bottom: 0;
+    border-bottom: 1px solid #BECDDF;
+    padding-bottom: 10px;
+}
+
+.sidebar-profile-info h2 {
+    border-bottom: 0;
+}
+
 
 /* Responsive CSS  */
 
