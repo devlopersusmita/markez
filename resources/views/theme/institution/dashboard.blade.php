@@ -187,7 +187,18 @@
 
 						    </div>
 						<div class="col-lg-3">
-							Hello
+							<div class="sidebar-section">
+                                <h2>Students</h2>
+                                <div class="sidebar-profile">
+                                    <div class="sidebar-profile-img">
+                                        <img src="images/sidebar-profile.png" alt="">
+                                    </div>
+                                    <div class="sidebar-profile-info">
+                                        <h2>Debdas Mondal</h2>
+                                        <h5>Debdas Mondal</h5>
+                                    </div>
+                                </div>
+                            </div>
 						</div>
 					</div>
 
