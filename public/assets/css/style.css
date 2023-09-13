@@ -2789,11 +2789,14 @@ td.form_edit_btn {
 .stat-image {
     background: #BECDDF;
     border-radius: 5px 0px 0px 5px;
-    padding: 23px;
+    padding: 23px 12px;
 }
 
 .stat-info {
-    padding: 20px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .stat-info h5 {
