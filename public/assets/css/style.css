@@ -3437,6 +3437,15 @@ td.form_edit_btn {
     .package-info h2 {
         text-align: center;
     }
+    .stat-image {
+        width: auto;
+    }
+    .stat-info {
+        padding-left: 20px;
+    }
+    .sidebar-section {
+        margin-top: 15px;
+    }
 }
 
 @media only screen and (max-width: 479px) {
