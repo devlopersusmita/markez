@@ -23,6 +23,43 @@
                                             </div>
 										</div>
 									</div>
+
+                                    <div class="col-lg-3 col-md-6">
+										<div class="statistics-row">
+											<div class="stat-image">
+                                                <img src="images/student-icon.svg" alt="">
+                                            </div>
+                                            <div class="stat-info">
+                                                <h5>Students</h5>
+                                                <h2>400</h2>
+                                            </div>
+										</div>
+									</div>
+
+                                    <div class="col-lg-3 col-md-6">
+										<div class="statistics-row">
+											<div class="stat-image">
+                                                <img src="images/course.svg" alt="">
+                                            </div>
+                                            <div class="stat-info">
+                                                <h5>Cources</h5>
+                                                <h2>100</h2>
+                                            </div>
+										</div>
+									</div>
+
+                                    <div class="col-lg-3 col-md-6">
+										<div class="statistics-row">
+											<div class="stat-image">
+                                                <img src="images/visitor-icon.svg" alt="">
+                                            </div>
+                                            <div class="stat-info">
+                                                <h5>Visitor</h5>
+                                                <h2>800</h2>
+                                            </div>
+										</div>
+									</div>
+
 								</div>
 							</div>
 						</div>
