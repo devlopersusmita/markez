@@ -2818,11 +2818,15 @@ td.form_edit_btn {
     font-weight: 700;
 }
 
+.statistics-grid {
+    padding-bottom: 55px;
+}
+
 .teacher-grid-top-info {
     display: flex;
     justify-content: space-between;
     padding-bottom: 15px;
-    border: 1px solid #BECDDF;
+    border-bottom: 1px solid #BECDDF;
 }
 
 .teacher-grid-top-info a {
