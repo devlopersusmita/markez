@@ -2793,10 +2793,7 @@ td.form_edit_btn {
 }
 
 .stat-info {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    padding-left: 20px;
 }
 
 .stat-info h5 {
