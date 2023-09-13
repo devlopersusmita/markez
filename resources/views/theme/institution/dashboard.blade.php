@@ -19,7 +19,7 @@
                                             </div>
                                             <div class="stat-info">
                                                 <h5>Payment</h5>
-                                                <h2>$1500</h2>
+                                                <h2>${{$total_payment}} </h2>
                                             </div>
 										</div>
 									</div>
@@ -31,7 +31,7 @@
                                             </div>
                                             <div class="stat-info">
                                                 <h5>Students</h5>
-                                                <h2>400</h2>
+                                                <h2>{{$total_student}}</h2>
                                             </div>
 										</div>
 									</div>
@@ -43,7 +43,7 @@
                                             </div>
                                             <div class="stat-info">
                                                 <h5>Cources</h5>
-                                                <h2>100</h2>
+                                                <h2>{{$course_count}}</h2>
                                             </div>
 										</div>
 									</div>
