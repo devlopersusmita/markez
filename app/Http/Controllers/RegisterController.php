@@ -41,7 +41,7 @@ class RegisterController extends Controller
 
         $v = Validator::make($request->all(),[
             'name' => 'required|string|max:255',
-            'phone' => 'required|regex:/(01)[0-9]{9}/',
+            'phone' => 'required|regex:/[0-9]{9}/',
 
             'email' => 'required|regex:/(.+)@(.+)\.(.+)/i',
 
