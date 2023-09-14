@@ -48,7 +48,7 @@
 
                                     <div class="select-subscription">
                                         <h4>Select Subscription</h4>
-                                        <div class="subscription-container" required>
+                                        <div class="subscription-container" >
                                         <?php  $count=1;?>
                                         @foreach($subscriptions as $subscription)
                                             <?php if($count == 1){
