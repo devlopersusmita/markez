@@ -30,7 +30,7 @@
                                         @csrf
                                         @include('frontend.notification')
                                         <div class="form-group">
-                                            <input id="name" type="text" class="form-control name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Institution Name">
+                                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Institution Name">
 
 
                                             @error('name')
