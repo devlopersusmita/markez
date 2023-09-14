@@ -2427,6 +2427,11 @@ a.statuschange_modal {
     background-color: #e2eaf3;
 }
 
+.banner-setting-table td.banner_slider_text,
+.banner-setting-table td.banner_description {
+    min-width: 250px;
+}
+
 .category-table .table {
     margin-bottom: 0;
 }
