@@ -28,6 +28,7 @@
 
                                     <form method="POST" class="msform" action="{{ route('register.step2') }}">
                                         @csrf
+                                        @include('frontend.notification')
                                         <div class="form-group">
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Institution Name">
                                              @error('name')
@@ -73,7 +74,7 @@
                             </div>
                         </div>
 
-                     
+
                 </div>
             </div>
         </div>
