@@ -49,7 +49,7 @@ class RegisterController extends Controller
 
         if ($v->fails())
         {
-            echo("fail");
+
 
             return response()->json([
                 'type'=>'error',
