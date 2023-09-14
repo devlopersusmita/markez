@@ -2419,6 +2419,8 @@ a.statuschange_modal {
 
 .category-table {
     margin-top: 22px;
+    overflow-y: auto;
+    max-height: 500px;
 }
 
 .category-table .table {
