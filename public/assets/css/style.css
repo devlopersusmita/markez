@@ -2486,6 +2486,10 @@ a.statuschange_modal {
     display: none;
 }
 
+.hide-menu a {
+    padding-left: 35px !important;
+}
+
 .hide-menu img.metismenu-icon {
     width: 16px;
     /*  margin-top: -4px;*/
