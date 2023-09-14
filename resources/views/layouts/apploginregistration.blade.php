@@ -148,7 +148,7 @@
                 alert("Selected radio button values is: " + getSelectedValue.value);
             return true;
         }else{
-            alert("ffffffff");
+            alert("please select price");
             return false;
         }
 
