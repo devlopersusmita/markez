@@ -101,6 +101,11 @@
                                                     </div>
                                                 </div>
                                             </label>
+                                            @error('subscription')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
                                             <?php $count=$count + 1;?>
                                           @endforeach
                                         </div>
