@@ -149,7 +149,7 @@ class RegisterController extends Controller
         $v = Validator::make($request->all(),[
             'logo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'gov_registration_doc' => 'required|mimes:doc,pdf|max:2048',
-            'subscription'=>'required',
+
 
         ]);
         if ($v->fails())
