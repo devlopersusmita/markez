@@ -628,13 +628,14 @@ public function coursesubscriptionpay(Request $request)
 
   public function callback(Request $request, Order $order)
     {
-        dd(env('CURRENCY'));
+       // dd(env('CURRENCY'));
 
        $id=$request->id;
        $institution_id=$request->institution_id;
-       $token = base64_encode(env('MOYASAR_SECRET_KEY').':');
+
+       $token = base64_encode("sk_test_hniWbWT7zPnoPFEcUxM1UxHgt8ZvAD5DtGTpnxKo".':');
        $payment = Http::baseUrl('https://api.moyasar.com/v1')
-       ->withBasicAuth(env('MOYASAR_SECRET_KEY'),'')
+       ->withBasicAuth("sk_test_hniWbWT7zPnoPFEcUxM1UxHgt8ZvAD5DtGTpnxKo",'')
        ->get("payments/{$id}")
        ->json();
 
