@@ -11,7 +11,7 @@
       <a  class="btn btn-primary float-right add_modal" data-toggle="modal" data-target="#homemodals-add" style="cursor: pointer;"><i class="fa fa-plus"></i> New Banner setting</a>
     </div>
 
-    <div class="table-responsive category-table">
+    <div class="table-responsive category-table banner-setting-table">
       <table class="table">
         <thead>
           <th>Slider</th>
@@ -31,8 +31,8 @@
 
             <td><img src="{{asset($home['slider'])}}" alt="" width="100%"> </td>
             <td>{{$home['slider_header']}}</td>
-            <td>{{$home['slider_text']}}</td>
-            <td>{{$home['description']}}</td>
+            <td class="banner_slider_text">{{$home['slider_text']}}</td>
+            <td class="banner_description">{{$home['description']}}</td>
             <td>{{$home['link']}}</td>
 
             <td>
