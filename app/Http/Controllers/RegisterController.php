@@ -42,17 +42,15 @@ class RegisterController extends Controller
         $v = Validator::make($request->all(),[
             'name' => 'required|string|max:255',
             'phone' => 'required|regex:/(01)[0-9]{9}/',
-            'email' => 'required',
+
+            'email' => 'required|regex:/(.+)@(.+)\.(.+)/i',
 
 
         ]);
 
         if ($v->fails())
         {
-
-
-
-            return redirect()->back()
+           return redirect()->back()
                 ->withErrors($v)
                 ->withInput();
 
