@@ -31,12 +31,14 @@
 
                                         @include('frontend.notification')
                                         <div class="form-group">
-                                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Institution Name">
-
+                                            <input id="name" type="text" class="form-control @error('name') is-invalid  @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Institution Name">
 
                                             @error('name')
-                                  <span class="text-danger">{{$message}}</span>
-                                    @enderror
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+
                                         </div>
                                         <div class="form-group">
                                             <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" required autocomplete="phone" placeholder="Phone Number">
