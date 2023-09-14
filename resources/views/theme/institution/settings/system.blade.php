@@ -7,7 +7,7 @@
 <div class="app-main__outer">
    <div class="app-main__inner">
 
-
+   <h2>System setting</h2>
     <div class="form-group m-3" >
     <div class="row">
         <div class="col-md-6">
