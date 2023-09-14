@@ -80,7 +80,7 @@
                                                             }?>
 
 
-                                            <input type="radio" name="subscription"  id="<?php echo $cls_name?>" value="{{($subscription->id )}}" />
+                                            <input type="radio" name="subscription"  id="<?php echo $cls_name?>" value="{{($subscription->id )}}"  />
 
                                             <!-- they should all have the same name attr but different ids -->
                                             <label for="<?php echo $cls_name?>" class="<?php echo $cls_name?>">
@@ -108,7 +108,7 @@
                                     </div>
 
                                     <div class="step-btn-sec">
-                                        <button class="btn-banner next step-link" type="submit">Next <img src="{{asset('images/next.png')}}"></button>
+                                        <button class="btn-banner next step-link" onclick="subscriptionChecked()" type="submit">Next <img src="{{asset('images/next.png')}}"></button>
                                     </div>
 
                                 </form>

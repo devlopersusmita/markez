@@ -140,6 +140,20 @@
         <script src="{{asset('assets/js/custom.js')}}"></script>
 
     <!-- end 24.07.23 -->
+    <script>
+       function subscriptionChecked(){
+
+        var getSelectedValue = document.querySelector( 'input[name="subscription"]:checked');
+        if(getSelectedValue != null) {
+                alert("Selected radio button values is: " + getSelectedValue.value);
+            return true;
+        }else{
+            alert("ffffffff");
+            return false;
+        }
+
+       }
+        </script>
 
 </body>
 
