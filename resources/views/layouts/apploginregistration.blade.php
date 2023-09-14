@@ -68,7 +68,7 @@
 
         <!--Fake navigation-->
         <div class="fake-nav">
-          
+
         </div>
 
         @yield('content')
@@ -139,7 +139,16 @@
         <script src="{{asset('assets/js/owl.carousel.js')}}"></script>
         <script src="{{asset('assets/js/custom.js')}}"></script>
 
-    <!-- end 24.07.23 --> 
+    <!-- end 24.07.23 -->
+<script>
+    $(document).ready(function(){
+        $('#myForm').validate({
+          messages: {
+            username: "Please enter a valid username."
+          }
+        });
+      });
+</script>
 </body>
 
 </html>
