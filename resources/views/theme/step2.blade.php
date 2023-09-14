@@ -46,7 +46,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="select-subscription">
+                                    <div class="select-subscription" required>
                                         <h4>Select Subscription</h4>
                                         <div class="subscription-container" >
                                         <?php  $count=1;?>
