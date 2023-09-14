@@ -154,10 +154,9 @@ class RegisterController extends Controller
         if ($v->fails())
         {
 
-            return response()->json([
-                'type'=>'error',
-                'message' => $v->errors()->all()
-            ]);
+            return redirect()->back()
+                ->withErrors($v)
+                ->withInput();
         }
 
         else
