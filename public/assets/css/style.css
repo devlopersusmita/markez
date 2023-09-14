@@ -2800,6 +2800,12 @@ td.form_edit_btn {
 
 .custom_show_active_menu a {
     padding-left: 35px !important;
+    padding-top: 6px !important;
+    padding-bottom: 0px !important;
+}
+
+.custom_show_active_menu {
+    padding-bottom: 15px;
 }
 
 
