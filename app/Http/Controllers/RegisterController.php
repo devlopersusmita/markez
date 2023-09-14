@@ -49,6 +49,7 @@ class RegisterController extends Controller
 
         if ($v->fails())
         {
+            echo("fail");
 
             return response()->json([
                 'type'=>'error',
@@ -57,6 +58,7 @@ class RegisterController extends Controller
         }
 
         else {
+
 
             $request->session()->put('step1', $request->all());
             $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
