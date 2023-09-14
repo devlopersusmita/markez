@@ -30,7 +30,7 @@
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
                                     <div class="form-group custom-file-button logo" data-text="Select your file!">
-                                        <input  name="logo" id="logo" type="file" class="form-control title-input" accept=".jpg,.png,.jpeg">
+                                        <input  name="logo" id="logo" type="file" class="form-control title-input" accept=".jpg,.png,.jpeg" required>
                                     </div>
                                     <div class="form-group">
                                         <input id="domain_subdomain" type="text" class="form-control" name="domain_subdomain"  placeholder="Domain/Subdomain Name" required>
@@ -45,10 +45,10 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    
+
                                     <div class="select-subscription">
                                         <h4>Select Subscription</h4>
-                                        <div class="subscription-container">
+                                        <div class="subscription-container" required>
                                         <?php  $count=1;?>
                                         @foreach($subscriptions as $subscription)
                                             <?php if($count == 1){
@@ -68,20 +68,20 @@
                                                 }
                                                 else if($count==5){
                                                     $cls_name="card_five";
-    
+
                                                     }
                                                     else if($count==6){
                                                         $cls_name="card_six";
-        
+
                                                         }
                                                         else if($count==7){
                                                             $cls_name="card_seven";
-            
+
                                                             }?>
-                                         
+
 
                                             <input type="radio" name="subscription"  id="<?php echo $cls_name?>" value="{{($subscription->id )}}"/>
-                                       
+
                                             <!-- they should all have the same name attr but different ids -->
                                             <label for="<?php echo $cls_name?>" class="<?php echo $cls_name?>">
                                                 <div class="card">
@@ -95,7 +95,7 @@
                                                             <div class="package-info">
                                                                 <h2>{{$subscription->price}}/Price</h2>
                                                                 <span>{{$subscription->days}}/Days</span>
-                                                 
+
                                                             </div>
                                                         </div>
                                                     </div>
