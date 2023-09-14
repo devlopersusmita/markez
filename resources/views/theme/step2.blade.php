@@ -46,7 +46,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="select-subscription" required>
+                                    <div class="select-subscription" >
                                         <h4>Select Subscription</h4>
                                         <div class="subscription-container" >
                                         <?php  $count=1;?>
@@ -80,7 +80,7 @@
                                                             }?>
 
 
-                                            <input type="radio" name="subscription"  id="<?php echo $cls_name?>" value="{{($subscription->id )}}"/>
+                                            <input type="radio" name="subscription"  id="<?php echo $cls_name?>" value="{{($subscription->id )}}" required/>
 
                                             <!-- they should all have the same name attr but different ids -->
                                             <label for="<?php echo $cls_name?>" class="<?php echo $cls_name?>">
