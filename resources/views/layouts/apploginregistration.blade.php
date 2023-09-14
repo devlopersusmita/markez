@@ -145,8 +145,7 @@
 
         var getSelectedValue = document.querySelector( 'input[name="subscription"]:checked');
         if(getSelectedValue != null) {
-                alert("Selected radio button values is: " + getSelectedValue.value);
-            return true;
+            $("#myForm").submit();
         }else{
             alert("please select price");
             return false;
