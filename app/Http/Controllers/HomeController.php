@@ -628,7 +628,7 @@ public function coursesubscriptionpay(Request $request)
 
   public function callback(Request $request, Order $order)
     {
-        dd(env('MOYASAR_SECRET_KEY'));
+        dd(env('CURRENCY'));
 
        $id=$request->id;
        $institution_id=$request->institution_id;
