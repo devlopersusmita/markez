@@ -51,10 +51,12 @@ class RegisterController extends Controller
         {
 
 
-            return response()->json([
-                'type'=>'error',
-                'message' => $v->errors()->all()
-            ]);
+            // return response()->json([
+            //     'type'=>'error',
+            //     'message' => $v->errors()->all()
+            // ]);
+
+            return redirect()->with('error', 'error');
         }
 
         else {
