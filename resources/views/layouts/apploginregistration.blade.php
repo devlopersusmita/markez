@@ -140,15 +140,7 @@
         <script src="{{asset('assets/js/custom.js')}}"></script>
 
     <!-- end 24.07.23 -->
-<script>
-    $(document).ready(function(){
-        $('#myForm').validate({
-          messages: {
-            name: "Please enter a valid name."
-          }
-        });
-      });
-</script>
+
 </body>
 
 </html>
