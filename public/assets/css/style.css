@@ -2423,6 +2423,10 @@ a.statuschange_modal {
     max-height: 500px;
 }
 
+.category-table tbody tr:nth-child(even) td {
+    background-color: #e2eaf3;
+}
+
 .category-table .table {
     margin-bottom: 0;
 }
