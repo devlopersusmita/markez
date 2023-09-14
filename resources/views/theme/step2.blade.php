@@ -80,7 +80,7 @@
                                                             }?>
 
 
-                                            <input type="radio" name="subscription"  id="<?php echo $cls_name?>" value="{{($subscription->id )}}" required/>
+                                            <input type="radio" name="subscription"  id="<?php echo $cls_name?>" value="{{($subscription->id )}}" />
 
                                             <!-- they should all have the same name attr but different ids -->
                                             <label for="<?php echo $cls_name?>" class="<?php echo $cls_name?>">
