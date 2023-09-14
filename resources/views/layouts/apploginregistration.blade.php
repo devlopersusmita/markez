@@ -144,7 +144,7 @@
     $(document).ready(function(){
         $('#myForm').validate({
           messages: {
-            username: "Please enter a valid username."
+            name: "Please enter a valid name."
           }
         });
       });
