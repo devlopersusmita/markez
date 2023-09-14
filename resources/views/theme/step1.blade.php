@@ -70,8 +70,9 @@
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                                         </div>
                                         <button class="btn-banner next step-link" type="submit" data-bs-target="#step2">Next</button>
-                                        <p class="bottom-text"> Already Have An Account <a href="{{ Route('instlogin') }}">Sign In</a></p>
                                     </form>
+                                        <p class="bottom-text"> Already Have An Account <a href="{{ Route('instlogin') }}">Sign In</a></p>
+
                             </div>
                         </div>
 
