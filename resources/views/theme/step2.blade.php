@@ -41,7 +41,7 @@
                                     <div id="wrapper" class="form-group">
 
                                         <input id="gov_registration_doc" type="file" name="gov_registration_doc" value=""  autocomplete="gov_registration_doc" required accept=".pdf,.doc"><br />
-                                        <div id="gov_registration_doc_image-holder"> </div>
+
                                         @error('gov_registration_doc')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
