@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="form-group">
 
-                                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
 
                                             <small id="emailvalid"
                                                 class="form-text text-muted invalid-feedback">
