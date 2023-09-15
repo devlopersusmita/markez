@@ -32,7 +32,7 @@
                                     <div id="wrapper" class="form-group">
 
 
-                                    <input  name="logo" id="logo" type="file" accept=".jpg,.png,.jpeg"  required><br />
+                                    <input  name="logo" id="logo" class="form-control" type="file" accept=".jpg,.png,.jpeg"  required><br />
                                     <div id="image-holder"> </div>
                                     </div>
                                     <div class="form-group">
