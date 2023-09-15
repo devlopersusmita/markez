@@ -148,7 +148,7 @@ Route::get('/register/step1', [RegisterController::class, 'showStep1'])->name('r
 Route::post('/Step1submit', [RegisterController::class, 'Step1submit'])->name('Step1submit');
 Route::get('/register/step2', [RegisterController::class,'showStep2'])->name('register.step2');
 Route::post('/Step2submit', [RegisterController::class, 'Step2submit'])->name('Step2submit');
-Route::post('/register/step3',  [RegisterController::class,'showStep3'])->name('register.step3');
+Route::get('/register/step3',  [RegisterController::class,'showStep3'])->name('register.step3');
 Route::post('/register/submit',  [RegisterController::class,'submit'])->name('register.submit');
 //End INstitution register//
 //start INstitution login//
