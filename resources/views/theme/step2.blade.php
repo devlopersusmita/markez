@@ -25,7 +25,7 @@
                                     </div>
                                 </div>
                                 <!--Form-->
-                                <form id="myForm" method="POST" action="{{ route('register.step3') }}" enctype="multipart/form-data">
+                                <form id="myForm" class="multistep_form" method="POST" action="{{ route('register.step3') }}" enctype="multipart/form-data">
                                     @csrf
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">

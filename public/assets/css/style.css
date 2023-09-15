@@ -1018,7 +1018,8 @@ p.bottom-text {
     content: 'Logo';
 }
 
-.select-subscription h4 {
+.select-subscription,
+.multistep_form h4 {
     color: #326696;
     font-size: 18px;
     font-weight: 600;
