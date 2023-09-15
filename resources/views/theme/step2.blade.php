@@ -29,12 +29,10 @@
                                     @csrf
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
-                                    <div class="form-group">
-
-
-                                    <input  name="logo" id="logo" type="file" class="form-control" accept=".jpg,.png,.jpeg"  required><br />
-                                    <div id="image-holder"> </div>
-                                    </div>
+                                        <div id="wrapper">
+                                <input id="fileUpload" type="file" /><br />
+                                <div id="image-holder"> </div>
+                                </div>
                                     <div class="form-group">
                                         <input id="domain_subdomain" type="text" class="form-control" name="domain_subdomain"  placeholder="Domain/Subdomain Name" required>
                                     </div>
