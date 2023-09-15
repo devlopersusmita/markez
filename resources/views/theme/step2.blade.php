@@ -30,6 +30,13 @@
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
                                     <div class="form-group custom-file-button logo" data-text="Select your file!">
+                                    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+        <img src="images/{{ Session::get('image') }}">
+        @endif
                                         <input  name="logo" id="logo" type="file" class="form-control title-input" accept=".jpg,.png,.jpeg"  required>
                                     </div>
                                     <div class="form-group">
