@@ -34,7 +34,7 @@
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   required autocomplete="name" autofocus placeholder="Institution Name">
 
                                             <h6 id="usercheck"
-                        style="color: red;">**Username is missing
+                        style="color: red;">
 
                     </h6>
                                             @error('name')
@@ -72,7 +72,7 @@
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
                                                             <h6 id="passcheck"
                                         style="color: red;">
-                                        **Please Fill the password
+
                                     </h6>
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
