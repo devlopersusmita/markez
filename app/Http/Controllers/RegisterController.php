@@ -35,7 +35,7 @@ class RegisterController extends Controller
 
         return view('theme.step1');
     }
-    public function Step1submit()
+    public function Step1submit(Request $request)
     {
         $v = Validator::make($request->all(),[
             'name' => 'required|string|max:255',
@@ -142,7 +142,7 @@ class RegisterController extends Controller
 
     }
 
-    public function showStep2(Request $request)
+    public function showStep2()
     {
 
 
@@ -152,8 +152,7 @@ class RegisterController extends Controller
 
 
     }
-
-    public function showStep3(Request $request)
+    public function Step2submit(Request $request)
     {
         $v = Validator::make($request->all(),[
             'logo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -310,6 +309,16 @@ class RegisterController extends Controller
 
 
         }
+
+    }
+    public function showStep3(Request $request)
+    {
+
+        return view('theme.step3');
+
+
+
+
 
     }
 
