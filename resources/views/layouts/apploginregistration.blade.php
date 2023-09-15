@@ -205,6 +205,46 @@ if (typeof (FileReader) != "undefined") {
 
         </script>
 
+        <script>
+            $(document).ready(function () {
+
+ // Validate Username
+ $("#usercheck").hide();
+ let usernameError = true;
+ $("#name").keyup(function () {
+     validateUsername();
+ });
+
+ function validateUsername() {
+     let usernameValue = $("#name").val();
+     if (usernameValue.length == "") {
+         $("#usercheck").show();
+         usernameError = false;
+         return false;
+     } else if (usernameValue.length < 3 || usernameValue.length > 10) {
+         $("#usercheck").show();
+         $("#usercheck").html("**length of name must be between 3 and 10");
+         usernameError = false;
+         return false;
+     } else {
+         $("#usercheck").hide();
+     }
+ }
+// Submit button
+ $("#submitbtn").click(function () {
+     validateUsername();
+
+     if (
+         usernameError == true
+     ) {
+         return true;
+     } else {
+         return false;
+     }
+ });
+});
+            </script>
+
 </body>
 
 </html>

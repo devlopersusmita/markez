@@ -31,8 +31,12 @@
 
                                         @include('frontend.notification')
                                         <div class="form-group">
-                                            <input id="name" type="text" class="form-control @error('name') is-invalid  @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Institution Name">
+                                            <input id="name" type="text" class="form-control" name="name"  required autocomplete="name" autofocus placeholder="Institution Name">
 
+                                            <h5 id="usercheck"
+                        style="color: red;">
+
+                    </h5>
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -71,7 +75,7 @@
                                         <div class="form-group">
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                                         </div>
-                                        <button class="btn-banner next step-link" type="submit">Next</button>
+                                        <button class="btn-banner next step-link" id="submitbtn" type="submit">Next</button>
                                     </form>
                                         <p class="bottom-text"> Already Have An Account <a href="{{ Route('instlogin') }}">Sign In</a></p>
 
