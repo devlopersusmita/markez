@@ -29,7 +29,7 @@
                                     @csrf
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
-                                    <div class="form-group custom-file-button logo">
+                                    <div class="form-group">
                                     <label for="image"
                                         >Choose data</label
                                     >
