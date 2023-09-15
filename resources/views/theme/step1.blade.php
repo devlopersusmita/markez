@@ -34,7 +34,7 @@
                                             <input id="name" type="text" class="form-control" name="name"  required autocomplete="name" autofocus placeholder="Institution Name">
 
                                             <h5 id="usercheck"
-                        style="color: red;">
+                        style="color: red;">**Username is missing
 
                     </h5>
                                             @error('name')
@@ -58,7 +58,7 @@
 
                                             <small id="emailvalid"
                                                 class="form-text text-muted invalid-feedback">
-
+                                                Your email must be a valid email
                                             </small>
                                              @error('email')
                                              <span class="invalid-feedback" role="alert">
