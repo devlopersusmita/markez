@@ -29,10 +29,10 @@
                                     @csrf
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
-                                    <div id="wrapper" class="form-group">
+                                    <div id="wrapper" class="form-group custom-file-button" data-text="Select your file!">
 
 
-                                    <input  name="logo" id="logo" class="form-control" type="file" accept=".jpg,.png,.jpeg"  required><br />
+                                    <input  name="logo" id="logo"  type="file" accept=".jpg,.png,.jpeg"  required><br />
                                     <div id="image-holder"> </div>
                                     </div>
                                     <div class="form-group">
