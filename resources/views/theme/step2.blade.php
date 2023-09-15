@@ -29,7 +29,7 @@
                                     @csrf
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
-                                    <h4>Please Choose a Logo</h4>
+                                    <h4>Choose a Logo</h4>
                                     <div id="wrapper" class="form-group file_upload">
 
 
@@ -39,7 +39,7 @@
                                     <div class="form-group">
                                         <input id="domain_subdomain" type="text" class="form-control" name="domain_subdomain"  placeholder="Domain/Subdomain Name" required>
                                     </div>
-                                                                  <h4>Please Choose a Gov_Registration_Doc</h4>
+                                                                  <h4> Choose a Gov_Registration_Doc</h4>
 
                                     <div id="wrapper" class="form-group file_upload">
 
