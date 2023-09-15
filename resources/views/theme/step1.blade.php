@@ -46,6 +46,7 @@
                                         </div>
                                         <div class="form-group">
                                             <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}" name="phone" required autocomplete="phone" placeholder="Phone Number" minlength="10" maxlength="10">
+                                            <span id="spnPhoneStatus"></span>
                                                 @error('phone')
 
                                                 <span class="invalid-feedback" role="alert">

@@ -311,6 +311,33 @@ if (typeof (FileReader) != "undefined") {
         }
 
 });
+
+
+$(window).load(function(){
+$(document).ready(function() {
+    $('#phone').blur(function(e) {
+        if (validatePhone('phone')) {
+            $('#spnPhoneStatus').html('Valid Mobil Number');
+            $('#spnPhoneStatus').css('color', 'green');
+        }
+        else {
+            $('#spnPhoneStatus').html('Invalid Mobile Number');
+            $('#spnPhoneStatus').css('color', 'red');
+        }
+    });
+});
+
+function validatePhone(txtPhone) {
+    var a = document.getElementById(txtPhone).value;
+    var filter = /[1-9]{1}[0-9]{9}/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+});
       </script>
 
 </body>
