@@ -35,10 +35,8 @@ class RegisterController extends Controller
 
         return view('theme.step1');
     }
-
-    public function showStep2(Request $request)
+    public function Step1submit()
     {
-
         $v = Validator::make($request->all(),[
             'name' => 'required|string|max:255',
             'phone' => 'required|regex:/[0-9]{9}/',
@@ -137,9 +135,20 @@ class RegisterController extends Controller
            $institution_theme_details->save();
 
 
-           return view('theme.step2',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id]);
+
 
         }
+
+
+    }
+
+    public function showStep2(Request $request)
+    {
+
+
+           return view('theme.step2',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id]);
+
+
 
 
     }

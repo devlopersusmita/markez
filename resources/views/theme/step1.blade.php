@@ -26,7 +26,7 @@
 
                                     <!--Form-->
 
-                                    <form  method="POST" class="msform" action="{{ route('register.step2') }}">
+                                    <form  method="POST" class="msform" action="{{ route('Step1submit') }}">
                                         @csrf
 
                                         @include('frontend.notification')
