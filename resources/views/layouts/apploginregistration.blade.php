@@ -186,7 +186,7 @@ if (typeof (FileReader) != "undefined") {
 
     var reader = new FileReader();
     reader.onload = function (e) {
-        $("<img />", {
+        $("<input />", {
             "src": e.target.result,
             "class": "thumb-image"
         }).appendTo(gov_registration_doc_image_holder);
