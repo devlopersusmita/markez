@@ -142,7 +142,7 @@ class RegisterController extends Controller
 
     }
 
-    public function showStep2()
+    public function showStep2(Request $request)
     {
         $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
 
