@@ -31,7 +31,7 @@
 
                                         @include('frontend.notification')
                                         <div class="form-group">
-                                            <input id="name" type="text" class="form-control" name="name"  required autocomplete="name" autofocus placeholder="Institution Name">
+                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   required autocomplete="name" autofocus placeholder="Institution Name">
 
                                             <h5 id="usercheck"
                         style="color: red;">**Username is missing
