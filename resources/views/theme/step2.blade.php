@@ -29,17 +29,8 @@
                                     @csrf
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
-                                    <div class="form-group">
-                                    <label for="image"
-                                        >Choose data</label
-                                    >
-                                    <input
-                                        type="file"
-                                        name="image"
-                                        id="image"
-                                        class="form-control title-input"
-                                    />
-
+                                    <div class="form-group custom-file-button logo" data-text="Select your file!">
+                                        <input  name="logo" id="logo" type="file" class="form-control title-input" accept=".jpg,.png,.jpeg"  required>
                                     </div>
                                     <div class="form-group">
                                         <input id="domain_subdomain" type="text" class="form-control" name="domain_subdomain"  placeholder="Domain/Subdomain Name" required>
