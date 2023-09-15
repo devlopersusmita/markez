@@ -293,7 +293,7 @@ if (typeof (FileReader) != "undefined") {
         }
     }
 // Submit button
-$("#submitbtn").click(function () {
+
         validateUsername();
         validatePassword();
         validateConfirmPassword();
@@ -304,13 +304,14 @@ $("#submitbtn").click(function () {
             confirmPasswordError == true &&
             emailError == true
         ) {
+            $("#step1myForm").submit();
             return true;
         } else {
             return false;
         }
-    });
+
 });
-            </script>
+      </script>
 
 </body>
 
