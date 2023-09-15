@@ -230,6 +230,28 @@ if (typeof (FileReader) != "undefined") {
          $("#usercheck").hide();
      }
  }
+// Validate phonenumber
+$("#phonecheck").hide();
+ let phoneError = true;
+ $("#phone").keyup(function () {
+     validateUsername();
+ });
+
+ function validateUsername() {
+     let phoneValue = $("#name").val();
+     if (phoneValue.length == "") {
+         $("#phonecheck").show();
+         phoneError = false;
+         return false;
+     } else if (phoneValue.length = 10) {
+         $("#phonecheck").show();
+         $("#phonecheck").html("**length of phone number must be 10");
+         phoneError = false;
+         return false;
+     } else {
+         $("#phonecheck").hide();
+     }
+ }
 
  // Validate Email
  const email = document.getElementById("email");

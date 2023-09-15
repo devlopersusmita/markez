@@ -45,8 +45,12 @@
 
                                         </div>
                                         <div class="form-group">
-                                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" required autocomplete="phone" placeholder="Phone Number" minlength="10" maxlength="10">
+                                            <input id="phone" type="text" class="form-control" name="phone" required autocomplete="phone" placeholder="Phone Number" minlength="10" maxlength="10">
                                                 @error('phone')
+                                                <h6 id="phonecheck"
+                        style="color: red;">**Phone Number is missing
+
+                    </h6>
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
