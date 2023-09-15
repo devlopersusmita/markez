@@ -134,7 +134,7 @@ class RegisterController extends Controller
 
            $institution_theme_details->save();
 
-
+           return redirect()->route('register.step2');
 
 
         }
