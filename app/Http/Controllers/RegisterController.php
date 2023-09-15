@@ -325,6 +325,7 @@ class RegisterController extends Controller
         $institution = Institution::where('id',$request->institution_id)->first();
 
         //dd($users_id);
+        $order_details = Order::where('user_id',$request->institution_id)->first();
 
 
              $institution_id = $institution->id;
