@@ -328,7 +328,7 @@ $(document).ready(function() {
 });
 
 function validatePhone(txtPhone) {
-    var a = document.getElementById(txtPhone).value;
+    var a = document.getElementById(phone).value;
     var filter = /[1-9]{1}[0-9]{9}/;
     if (filter.test(a)) {
         return true;
