@@ -291,19 +291,23 @@ if (typeof (FileReader) != "undefined") {
             $("#conpasscheck").hide();
         }
     }
-
 // Submit button
- $("#submitbtn").click(function () {
-     validateUsername();
-
-     if (
-         usernameError == true
-     ) {
-         return true;
-     } else {
-         return false;
-     }
- });
+$("#submitbtn").click(function () {
+        validateUsername();
+        validatePassword();
+        validateConfirmPassword();
+        validateEmail();
+        if (
+            usernameError == true &&
+            passwordError == true &&
+            confirmPasswordError == true &&
+            emailError == true
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    });
 });
             </script>
 
