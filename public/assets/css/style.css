@@ -2612,6 +2612,17 @@ button.close {
     transform: translateY(-50%);
 }
 
+.file_upload input {
+    border: 1px solid #BECDDF;
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 6px;
+}
+
+img.thumb-image {
+    width: 50px;
+}
+
 #modals-add .modal-dialog.modal-lg {
     position: absolute;
     width: 100%;

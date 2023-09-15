@@ -30,7 +30,7 @@
                                     <!-- START -->
                                     <input type="hidden" value="{{$institution_id}}" name="institution_id">
                                     <h4>Please Choose a Logo</h4>
-                                    <div id="wrapper" class="form-group">
+                                    <div id="wrapper" class="form-group file_upload">
 
 
                                     <input  name="logo" id="logo"  type="file" accept=".jpg,.png,.jpeg"  required><br />
@@ -41,7 +41,7 @@
                                     </div>
                                                                   <h4>Please Choose a Gov_Registration_Doc</h4>
 
-                                    <div id="wrapper" class="form-group">
+                                    <div id="wrapper" class="form-group file_upload">
 
                                         <input id="gov_registration_doc" type="file" name="gov_registration_doc" value=""  autocomplete="gov_registration_doc" required accept=".pdf,.doc"><br />
 
