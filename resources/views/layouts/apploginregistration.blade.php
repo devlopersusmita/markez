@@ -198,6 +198,11 @@ if (typeof (FileReader) != "undefined") {
     alert("This browser does not support FileReader.");
 }
 });
+$(document).ready(function(){
+
+    console.log("window load");
+})
+
         </script>
 
 </body>
