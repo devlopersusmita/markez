@@ -33,10 +33,10 @@
                                         <div class="form-group">
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   required autocomplete="name" autofocus placeholder="Institution Name">
 
-                                            <h5 id="usercheck"
+                                            <h6 id="usercheck"
                         style="color: red;">**Username is missing
 
-                    </h5>
+                    </h6>
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -70,10 +70,10 @@
                                         </div>
                                         <div class="form-group">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
-                                                            <h5 id="passcheck"
+                                                            <h6 id="passcheck"
                                         style="color: red;">
                                         **Please Fill the password
-                                    </h5>
+                                    </h6>
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -83,10 +83,10 @@
                                         </div>
                                         <div class="form-group">
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
-                                            <h5 id="conpasscheck"
+                                            <h6 id="conpasscheck"
                         style="color: red;">
                         **Password didn't match
-                    </h5>
+</6>
                                         </div>
                                         <button class="btn-banner next step-link" id="submitbtn" type="submit">Next</button>
                                     </form>
