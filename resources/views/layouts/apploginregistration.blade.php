@@ -154,7 +154,7 @@
        }
        </script>
         <script>
-       $("#logo").on('change', function () {
+       $("#fileUpload").on('change', function () {
 
 if (typeof (FileReader) != "undefined") {
 
