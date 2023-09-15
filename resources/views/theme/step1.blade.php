@@ -45,7 +45,7 @@
 
                                         </div>
                                         <div class="form-group">
-                                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" required autocomplete="phone" placeholder="Phone Number" minlength="10" maxlength="10">
+                                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}" name="phone" required autocomplete="phone" placeholder="Phone Number" minlength="10" maxlength="10">
                                                 @error('phone')
 
                                                 <span class="invalid-feedback" role="alert">
