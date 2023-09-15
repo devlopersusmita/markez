@@ -38,10 +38,10 @@
                                     <div class="form-group">
                                         <input id="domain_subdomain" type="text" class="form-control" name="domain_subdomain"  placeholder="Domain/Subdomain Name" required>
                                     </div>
-                                    <div class="form-group custom-file-button" data-text="Select your file!">
+                                    <div id="wrapper" class="form-group">
 
-                                        <input id="gov_registration_doc" type="file" class="form-control @error('gov_registration_doc') is-invalid @enderror" name="gov_registration_doc" value=""  autocomplete="gov_registration_doc" placeholder="Enter your gov_registration_doc " required accept=".pdf,.doc">
-
+                                        <input id="gov_registration_doc" type="file" name="gov_registration_doc" value=""  autocomplete="gov_registration_doc" required accept=".pdf,.doc"><br />
+                                        <div id="gov_registration_doc_image-holder"> </div>
                                         @error('gov_registration_doc')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
