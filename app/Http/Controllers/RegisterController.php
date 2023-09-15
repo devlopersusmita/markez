@@ -144,6 +144,14 @@ class RegisterController extends Controller
 
     public function showStep2()
     {
+        $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
+
+        $institution = Institution::where('id',$request->institution_id)->first();
+
+        //dd($users_id);
+
+
+             $institution_id = $institution->id;
 
 
            return view('theme.step2',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id]);
@@ -302,9 +310,8 @@ class RegisterController extends Controller
 
 
 
+                return redirect()->route('register.step3',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'order_details'=>$order_details]);
 
-
-                return view('theme.step3',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'order_details'=>$order_details]);
 
 
 
@@ -313,8 +320,16 @@ class RegisterController extends Controller
     }
     public function showStep3(Request $request)
     {
+        $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
 
-        return view('theme.step3');
+        $institution = Institution::where('id',$request->institution_id)->first();
+
+        //dd($users_id);
+
+
+             $institution_id = $institution->id;
+
+        return view('theme.step3',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'order_details'=>$order_details]);
 
 
 
