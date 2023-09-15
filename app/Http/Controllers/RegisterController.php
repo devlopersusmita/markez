@@ -41,7 +41,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'required|regex:/[0-9]{9}/',
 
-            'email' => 'required|regex:/(.+)@(.+)\.(.+)/i',
+            'email' => 'required|email|unique:institutions',
 
 
         ]);
