@@ -41,8 +41,8 @@
                              <tr>
                                 @if($course['type']=='zoom')
                                 <td style="padding: 0px 5px;">
-                                <input type="hidden" value="{{$user_id}}" name="user_id">
-                                     <a href="{{Route('institutioncourseonline_classes',['id'=>$course['course_id'],'content_id'=>$course['id'],,'user_id'=>$user_id])}}"  class="button is-solid green-button raised"   style="cursor: pointer;"  >Online Class</a>
+                                <input type="text" value="{{$user_id}}" name="user_id">
+                                     <a href="{{Route('institutioncourseonline_classes',['id'=>$course['course_id'],'content_id'=>$course['id'],'user_id'=>$user_id])}}"  class="button is-solid green-button raised"   style="cursor: pointer;"  >Online Class</a>
                                  </td>
                                  @endif
                                  @if($course['type']=='quiz')
@@ -50,7 +50,7 @@
                                 <td style="padding: 0px 5px;">
 
 
-                                    <a href="{{Route('institutioncoursecontentquize',['id'=>$course['course_id'],'content_id'=>$course['id'],,'user_id'=>$user_id])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Quiz</a>
+                                    <a href="{{Route('institutioncoursecontentquize',['id'=>$course['course_id'],'content_id'=>$course['id'],'user_id'=>$user_id])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Quiz</a>
 
 
 
