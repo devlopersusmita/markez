@@ -1536,8 +1536,15 @@ public function student(Request $request)
 
     public function coursecontent(Request $request,$id)
     {
-            $course_id = $id;
-            $user_id = $request->user_id;
+        if($request->institution_id == null) {
+            $user_id = $_GET['institution_id'];
+        } else {
+            $user_id = $request->institution_id;
+        }
+
+
+        $course_id = $id;
+            //$user_id = $request->user_id;
             //dd($user_id);
            $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
            if($check_course_accessibility_by_institution){
