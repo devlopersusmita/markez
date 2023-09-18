@@ -122,8 +122,7 @@ class RegisterController extends Controller
                'city_id' => $default_city_id,
                'user_id' => $user_id,
                'created_by'=> $user_id,
-               'user_type'=> 'Institution',
-               'institution_id' => $institution_id,
+              'institution_id' => $institution_id,
                'subscription_start_date'=> $start_date,
                'subscription_end_date'=> $end_date
            ]);
