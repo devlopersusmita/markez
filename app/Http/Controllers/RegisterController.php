@@ -336,6 +336,8 @@ class RegisterController extends Controller
 
 
              $institution_id = $institution->id;
+             $user = User::where('id',$request->user_id)->first();
+             $user_id = $user->id;
 
         return view('theme.step3',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'order_details'=>$order_details,'user_id'=>$user_id]);
 
