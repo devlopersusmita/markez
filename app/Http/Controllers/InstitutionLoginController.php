@@ -1537,7 +1537,9 @@ public function student(Request $request)
     public function coursecontent(Request $request,$id)
     {
             $course_id = $id;
-           $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id);
+            $user_id = $request->user_id;
+            dd($user_id);
+           $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
            if($check_course_accessibility_by_institution){
             $course_details = Course::where('id',$course_id)->first();
             //dd($course_details);
@@ -1599,9 +1601,9 @@ public function student(Request $request)
            $data = $this->paginate_coursecontent($thearray,$course_id);
 
            if($request->ajax()){
-               return view('theme.institution.coursecontent-pagination',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details]);
+               return view('theme.institution.coursecontent-pagination',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id]);
            }
-           return view('theme.institution.coursecontent',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details]);
+           return view('theme.institution.coursecontent',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id]);
         }
         else{
             return view('theme.institution.no_access_course');
@@ -1795,7 +1797,7 @@ else{
     }
     public function check_course_accessibility_by_institution($course_id)
     {
-        $user_id = Auth::id();
+        //$user_id = Auth::id();
 
 
         $course_exist = Course::
