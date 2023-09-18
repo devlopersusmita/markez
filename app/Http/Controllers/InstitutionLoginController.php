@@ -1546,7 +1546,7 @@ public function student(Request $request)
 
         $existforthisuser=Course::leftJoin('course_contents', 'course_contents.course_id', '=', 'courses.id')
         ->get()->count();
-        dd($existforthisuser);
+        //dd($existforthisuser);
 
 
 
