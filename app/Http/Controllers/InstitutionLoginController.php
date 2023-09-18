@@ -1537,10 +1537,10 @@ public function student(Request $request)
     public function coursecontent(Request $request,$id)
     {
 
-        if($request->user_id == null) {
-            $user_id = $_GET['user_id'];
+        if($request->institution_id == null) {
+            $user_id = $_GET['institution_id'];
         } else {
-            $user_id = $request->user_id;
+            $user_id = $request->institution_id;
         }
 
 
