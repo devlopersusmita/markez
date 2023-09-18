@@ -1,118 +1,71 @@
 @extends('theme.institution.default')
-
 @section('content')
+<div class="app-main">
+@include('theme.institution.sidebar')
 
+<div class="app-main__outer">
+   <div class="app-main__inner">
 
- <div class="view-wrapper">
+    <div class="category-top-row">
+      <h2>Question</h2>
 
-        <!-- Container -->
-        <div class="container is-custom">
+    </div>
 
-            <!- <div class="view-wrapper">
+    <div class="table-responsive category-table">
+      <table class="table course-table">
+        <thead>
+        <th>Question Text</th>
+                <th>Answer</th>
+                <th>Marks</th>
 
-                <!-- Container -->
-         <div class="container is-custom">
+                <th>Actions</th>
+        </thead>
+        <tbody>
 
-             <!-- Profile page main wrapper -->
-             <div id="profile-about" class="view-wrap is-headless">
-                 <div class="columns is-multiline no-margin">
-                     <!-- Left side column -->
-                     <div class="column is-paddingless">
-                         <!-- Timeline Header -->
-
-                     </div>
-
-                 </div>
-
-                 <div class="column">
-
-                     <!-- About sections -->
-                     <div class="profile-about side-menu">
-                         @include('theme.institution.sidebar')
-                         <div class="right-content">
-                            <div class="groups-grid padding_0">
-
-                                <div class="grid-header">
-                                    <div class="header-inner">
-                                        <h2>Quiz Question</h2>
-                                        <div class="header-actions">
-                                             <div class="buttons">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                     <div class="header-inner padding_top_10">
-                                        <h2>&nbsp;</h2>
-
-                                        <div class="header-actions">
-
-                                        <form id="searchform" name="searchform" >
-                                    <div class="field is-grouped">
-                                        <div class="control" >
-                                            <input type="text" name="question_text" class="input" placeholder="Question Text" />
-                                        </div>
-                                        <div class="control" >
-                                            <a class="button is-solid primary-button raised"  href="{{Route('institutioncoursecontentquizequestion',['id'=>$course_id,'content_id'=>$course_content_id,'quiz_id'=>$course_content_quiz_id])}}" id='search_btn'>Search</a>
-                                        </div>
-                                    </div>
-                                   </form>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="header-inner padding_top_10">
-
-
-                                        <div class="header-actions">
-
-
-                                    <div class="field is-grouped">
-                                        <div class="control" >
-                                            <a href="{{route('institutioncourse')}}"><h1>{{$course_details->title}}</h1></a>
-                                        </div>
-                                        <div class="control" >
-                                            <a href='{{Route("institutioncoursecontent",["id"=>$course_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
-                                        </div>
-                                       <div class="control" >
-                                            <a href= "{{Route('institutioncoursecontentquize',['id'=>$course_id,'content_id'=>$course_content_details->id])}}"><h1>>> {{$course_content_quiz_details->title}}</h1></a>
-                                        </div>
-                                    </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                             <div id="overview-content" class="content-section is-active">
-
-                                <div id="pagination_data">
-                                    @include("theme.institution.coursequestion-pagination",['questions'=>$questions,'course_content_id'=>$course_content_id,'course_id'=>$course_id,'course_details'=>$course_details,'course_content_quiz_id'=>$course_content_quiz_id,'course_content_quiz_details'=>$course_content_quiz_details])
-                                </div>
-                            </div>
+        @foreach($questions as $question)
 
 
 
-
-
-                         </div>
-
-                     </div>
-                 </div>
-             </div>
-
-            </div>
-                 </div>
+          <tr>
+          <td>{!!$question['question_text']!!} </td>
+                <td>{{$question['answer']}}  </td>
+                <td>{{$question['marks']}}  </td>
 
 
 
+                <td>
+                    <div class="ui-elements">
+                       <div class="buttons">
+                    <table>
+                             <tr>
 
 
+                                    <td style="padding: 0px 5px;">
+                                        <span   class="button is-solid blue-button raised view_modal_question"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $question['id']?>" >View</span>
+                                    </td>
 
 
+                             </tr>
+                     </table>
+                       </div>
+                   </div>
 
-  <!-- Modal to view  Quiz starts-->
+
+               </td>
+
+
+          </tr>
+          @endforeach
+
+
+        </tbody>
+      </table>
+    </div>
+
+    @endsection
+
+
+  <!-- Modal to view  Question starts-->
   <div id="modals-view"  class="modal change-cover-modal is-medium has-light-bg">
     <div class="modal-background" ></div>
      <div class="modal-content">
@@ -153,15 +106,7 @@
 
     </div>
 </div>
-     <!-- Modal to view  Quiz Ends-->
+     <!-- Modal to view  Question Ends-->
 
 
 
-
-
-
-
-    </div>
-
-
-@endsection
