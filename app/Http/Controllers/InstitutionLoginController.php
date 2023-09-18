@@ -542,7 +542,7 @@ public function institutionmessage(Request $request)
 
 
 
-        $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
 
         $data7=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('user_id',$user_id)->orderBy('courses.id','desc')
@@ -1114,7 +1114,7 @@ public function student(Request $request)
     {
         //return view('theme.institution.student');
          $user_id = Auth::id();
-         $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+         $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
           $data7_public=InstitutionStudent::leftJoin('users', 'institution_students.user_id', '=', 'users.id')
          ->where(['institution_students.institution_id'=>$institution_id,'users.status'=>'active','users.role'=>'1'])
@@ -2068,7 +2068,7 @@ public function noaccesspage(Request $request)
 
      $user_id=Auth::id();
 
-        $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
 
         $institution_details = Institution::where('id',$institution_id)->first();
@@ -2090,7 +2090,7 @@ public function institutionteacherview(Request $request)
             $user_id = $request->institution_id;
         }
         //dd($user_id);
-    $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+    $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
     //dd($institution_id);
 
 
@@ -2144,7 +2144,7 @@ public function institutionmyteacher(Request $request)
         $current_date = date('Y-m-d H:i:s');
 
         $course_lists = Course::where('user_id',$user_id)->orderBy('title','asc')->get();
-        $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
         $my_teachers=InstitutionTeacher::leftjoin('users','institution_teachers.user_id','=','users.id')->where(['users.status'=>'active','users.role'=>'2','institution_teachers.institution_id'=>$institution_id,'institution_teachers.status'=>'approve',])->select('users.*')->orderBy('users.name','asc')->get();
             // dd($my_teachers);
 
@@ -2236,7 +2236,7 @@ public function institutionteacherrequest(Request $request)
         } else {
             $user_id = $request->institution_id;
         }
-  $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+  $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
 
   $teacherrequests=RequestDetails::leftjoin('users as u1','request_details.sender_id','=','u1.id')
