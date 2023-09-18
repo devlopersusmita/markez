@@ -1538,7 +1538,7 @@ public function student(Request $request)
     {
             $course_id = $id;
             $user_id = $request->user_id;
-            dd($user_id);
+            //dd($user_id);
            $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
            if($check_course_accessibility_by_institution){
             $course_details = Course::where('id',$course_id)->first();
@@ -1795,7 +1795,7 @@ else{
         $items = $items instanceof Collection ? $items : Collection::make($items);
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
-    public function check_course_accessibility_by_institution($course_id)
+    public function check_course_accessibility_by_institution($course_id,$user_id = 0)
     {
         //$user_id = Auth::id();
 
