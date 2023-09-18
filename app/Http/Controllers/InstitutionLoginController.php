@@ -1598,12 +1598,10 @@ public function student(Request $request)
                 }
              }
 
-           $data = $this->paginate_coursecontent($thearray,$course_id);
 
-           if($request->ajax()){
-               return view('theme.institution.coursecontent-pagination',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id]);
-           }
-           return view('theme.institution.coursecontent',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id]);
+
+
+           return view('theme.institution.coursecontent',['coursecontents'=>$thearray,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id]);
         }
         else{
             return view('theme.institution.no_access_course');
