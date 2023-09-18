@@ -7,8 +7,8 @@
    <div class="app-main__inner">
 
     <div class="category-top-row">
-      <h2>Course</h2>
-      <a href="javascript:void(0)"  class="button is-solid accent-button raised modal-trigger" data-toggle="modal" data-target="#modals-add" id="add-new-course-link">Add New Course</a>
+      <h2>Quiz</h2>
+
     </div>
 
     <div class="table-responsive category-table">
