@@ -632,6 +632,7 @@ public function coursesubscriptionpay(Request $request)
 
        $id=$request->id;
        $institution_id=$request->institution_id;
+       $user_id = $request->user_id;
 
        $token = base64_encode("sk_test_hniWbWT7zPnoPFEcUxM1UxHgt8ZvAD5DtGTpnxKo".':');
        $payment = Http::baseUrl('https://api.moyasar.com/v1')
@@ -742,7 +743,7 @@ public function coursesubscriptionpay(Request $request)
             //dd($payment);
             //dd(Auth::user());
 
-            $user_id = $institution_id;
+            //$user_id = $institution_id;
             //dd($user_id);
 
             $paymentdb = new Payment();
@@ -780,6 +781,7 @@ public function coursesubscriptionpay(Request $request)
 
 
             $paymentdb->user_id = $user_id;
+            $paymentdb->institution_id = $institution_id;
 
 
             $paymentdb->save();
@@ -795,7 +797,7 @@ public function coursesubscriptionpay(Request $request)
 
 
 
-                if(($user_id > 0))
+                if(($institution_id > 0))
                     {
 
                         ///
@@ -803,8 +805,8 @@ public function coursesubscriptionpay(Request $request)
 
                                 $institution_subscription = new InstitutionSubcription();
                                 $institution_subscription->institution_subcription_package_id = $institution_subcription_package_id;
-                                $institution_subscription->user_id = $user_id;
-                                $institution_subscription->created_by  = $user_id;
+                                $institution_subscription->user_id = $institution_id;
+                                $institution_subscription->created_by  = $institution_id;
                                 $institution_subscription->days = $order_details->days;
                                 $institution_subscription->start_date = $order_details->start_date;
                                 $institution_subscription->end_date = $order_details->end_date;
@@ -818,14 +820,14 @@ public function coursesubscriptionpay(Request $request)
 
 
 
-                            $institution = Institution::where('id',$user_id)->first();
+                            $institution = Institution::where('id',$institution_id)->first();
 
                             if ($institution)
                             {
                                $institution->payment_status = 'paid';
                                $institution->save();
                            }
-                           $user_details = UserDetail::where('user_id',$user_id)->first();
+                           $user_details = UserDetail::where('institution_id',$institution_id)->first();
                            //dd($user_details);
                            $user_details->subscription_end_date=$order_details->end_date;
                            $user_details->save();

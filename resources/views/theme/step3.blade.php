@@ -39,6 +39,7 @@
 
 
     <input type="hidden" value="{{$institution_id}}" name="institution_id">
+    <input type="test" value="{{$user_id}}" name="user_id">
     <div class="mysr-form"></div>
         <script>
 
@@ -62,7 +63,7 @@
                     description: 'registration subcription  #1',
                     publishable_api_key: 'pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP',
                     //publishable_api_key: "{{ env('MOYASAR_PUBLISHABLE_KEY') }}",
-                    callback_url: "{{route('payment.callback',['order'=>$order_details->id,'institution_id'=>$institution_id])}}",
+                    callback_url: "{{route('payment.callback',['order'=>$order_details->id,'institution_id'=>$institution_id,'user_id'=>$user_id])}}",
                     methods: ['creditcard'],
                 })
         </script>
