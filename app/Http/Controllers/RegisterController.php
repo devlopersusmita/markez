@@ -126,7 +126,7 @@ class RegisterController extends Controller
                'subscription_start_date'=> $start_date,
                'subscription_end_date'=> $end_date
            ]);
-
+dd($user_details);
 
            $institution_theme_details = new InstitutionTheme();
            $institution_theme_details->institution_id = $institution_id;
