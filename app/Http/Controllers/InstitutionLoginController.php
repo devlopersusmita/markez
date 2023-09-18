@@ -1538,7 +1538,7 @@ public function student(Request $request)
     {
 
         if($request->institution_id == null) {
-            $user_id = $_GET['institution_id'];
+            $user_id = $_GET['user_id'];
         } else {
             $user_id = $request->institution_id;
         }
