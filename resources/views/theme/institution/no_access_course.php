@@ -8,7 +8,7 @@
 			<div class="app-main__outer">
 				<div class="app-main__inner">
 					<div class="profile-btn right-btn">
-						<a href="{{url('institutionwebsite/'.$user_id)}}">View My website <img src="images/next-icon.png" alt="next"></a>
+
 					</div>
 
 				</div>
