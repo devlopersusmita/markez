@@ -36,7 +36,7 @@
                     </td>
 
                     <td style="padding: 0px 5px;">
-                        <span   class="button is-solid blue-button raised view_modal_quize"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $quize['id']?>" >View</span>
+                        <span   class="view_modal_quize"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $quize['id']?>" ><i class="fa fa-eye" style="font-size:18px"></span>
                     </td>
 
 

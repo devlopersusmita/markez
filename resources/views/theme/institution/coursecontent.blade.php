@@ -58,7 +58,7 @@
 
 @endif
                                     <td style="padding: 0px 5px;">
-                                        <span   class="button is-solid blue-button raised coursecontentview_modal"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $course['id']?>" >View</span>
+                                        <span   class="coursecontentview_modal"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $course['id']?>" ><i class="fa fa-eye" style="font-size:18px"></span>
                                     </td>
                              </tr>
                      </table>
