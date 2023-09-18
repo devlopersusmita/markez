@@ -110,8 +110,8 @@ class RegisterController extends Controller
                    $institution_admin= InstitutionAdmin::create([
                        'institution_id' => $institution_id,
                        'access' => 'dashboard',
-                       'created_by' => $institution_id,
-                       'user_id'=> $institution_id
+                       'created_by' => $user_id,
+                       'user_id'=> $user_id
 
                    ]);
 
@@ -120,8 +120,8 @@ class RegisterController extends Controller
                'user_type' => 'Institution',
                'country_id' => $default_country_id,
                'city_id' => $default_city_id,
-               'user_id' => $institution_id,
-               'created_by'=> $institution_id,
+               'user_id' => $user_id,
+               'created_by'=> $user_id,
                'user_type'=> 'Institution',
                'subscription_start_date'=> $start_date,
                'subscription_end_date'=> $end_date
@@ -134,7 +134,7 @@ class RegisterController extends Controller
 
            $institution_theme_details->save();
 
-           return redirect()->route('register.step2',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id]);
+           return redirect()->route('register.step2',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'user_id'=>$user_id]);
 
 
         }
@@ -147,14 +147,17 @@ class RegisterController extends Controller
         $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
 
         $institution = Institution::where('id',$request->institution_id)->first();
+        $institution_id = $institution->id;
 
         //dd($users_id);
+        $user = User::where('id',$request->user_id)->first();
+        $user_id = $user->id;
 
 
-             $institution_id = $institution->id;
 
 
-           return view('theme.step2',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id]);
+
+           return view('theme.step2',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'user_id'=>$user_id]);
 
 
 
@@ -183,9 +186,12 @@ class RegisterController extends Controller
             $institution = Institution::where('id',$request->institution_id)->first();
 
             //dd($users_id);
+            //$users = User::where('id',$request->institution_id)->first();
 
 
                  $institution_id = $institution->id;
+                 $user = User::where('id',$request->user_id)->first();
+                 $user_id = $user->id;
                  $subscription_id = $request->input('subscription');
                     //dd($subscription_id);
 
@@ -296,13 +302,14 @@ class RegisterController extends Controller
                 }
 
                 $order_details = new Order();
-                $order_details->user_id = $institution_id;
+                $order_details->institution_id = $institution_id;
+                $order_details->user_id = $user_id;
                 $order_details->course_id = 0;
                 $order_details->status = 'Pending';
                 $order_details->type = 'subcription';
                 $order_details->total = $subscription_price;
                 $order_details->days = $days; $order_details->institution_subcription_package_id = $subscription_id;
-                $order_details->created_by = $institution_id;
+                $order_details->created_by = $user_id;
                 $order_details->start_date = $start_date;
                 $order_details->end_date = $end_date;
                 $order_details->save();
@@ -310,7 +317,7 @@ class RegisterController extends Controller
 
 
 
-                return redirect()->route('register.step3',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'order_details'=>$order_details]);
+                return redirect()->route('register.step3',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'order_details'=>$order_details,'user_id'=>$user_id]);
 
 
 
@@ -325,12 +332,12 @@ class RegisterController extends Controller
         $institution = Institution::where('id',$request->institution_id)->first();
 
         //dd($users_id);
-        $order_details = Order::where('user_id',$request->institution_id)->first();
+        $order_details = Order::where('institution_id',$request->institution_id)->first();
 
 
              $institution_id = $institution->id;
 
-        return view('theme.step3',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'order_details'=>$order_details]);
+        return view('theme.step3',['subscriptions'=>$subscriptions,'institution_id'=>$institution_id,'order_details'=>$order_details,'user_id'=>$user_id]);
 
 
 
