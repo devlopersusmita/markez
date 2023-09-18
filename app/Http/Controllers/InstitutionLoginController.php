@@ -1632,7 +1632,7 @@ public function student(Request $request)
         $course_details = Course::where('id',$course_id)->first();
         $course_content_details = CourseContent::where('id',$course_content_id)->first();
         //dd($course_content_details);
-        $user_id = Auth::id();
+        // $user_id = Auth::id();
         $data7=Quiz::
        orderBy('id','desc')
 
