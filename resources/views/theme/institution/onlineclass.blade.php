@@ -7,7 +7,7 @@
    <div class="app-main__inner">
 
     <div class="category-top-row">
-      <h2>Quiz</h2>
+      <h2>Online Class</h2>
 
     </div>
 
