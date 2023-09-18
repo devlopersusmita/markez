@@ -90,7 +90,7 @@
 
                 </td>
 
-
+                <input type="text" value="{{$user_id}}" name="user_id">
 
                 <td class="course-action">
 
@@ -99,13 +99,13 @@
 
                                 <span   class="view_modal_course"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $course['id']?>" ><i class="fa fa-eye" style="font-size:18px"></i></span>
                                 <span   class="edit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo $course['id']?>" ><i class="fa fa-pencil" style="font-size:18px"></i></span>
-                             
-                                <?php  if($current_date_time < $course['start_date']){?>   
+
+                                <?php  if($current_date_time < $course['start_date']){?>
                                 <span   class="delete_modal" data-toggle="modal" data-target="#modals-delete" style="cursor: pointer;"data-id="<?php echo $course['id']?>"><i class="fa fa-trash-o" style="font-size:18px"></i></span>
-                                
+
                                     <?php } ?>
                 </td>
-                  
+
           </tr>
           @endforeach
 
