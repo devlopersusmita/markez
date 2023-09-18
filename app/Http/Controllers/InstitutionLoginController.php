@@ -1540,7 +1540,7 @@ public function student(Request $request)
         $user_id = $request->user_id;
             //dd($user_id);
            $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
-           dd($check_course_accessibility_by_institution);
+
            if($check_course_accessibility_by_institution){
             $course_details = Course::where('id',$course_id)->first();
             //dd($course_details);
