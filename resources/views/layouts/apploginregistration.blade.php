@@ -260,10 +260,10 @@ if (typeof (FileReader) != "undefined") {
             passwordError = false;
             return false;
         }
-        if (passwordValue.length < 3 || passwordValue.length > 30) {
+        if (passwordValue.length < 3 || passwordValue.length > 10) {
             $("#passcheck").show();
             $("#passcheck").html(
-                "**length of your password must be 3"
+                "**length of your password must be between 3 and 10"
             );
             $("#passcheck").css("color", "red");
             passwordError = false;
