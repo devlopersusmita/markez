@@ -1799,7 +1799,8 @@ else{
 
      public function onlineclassindex(Request $request,$id,$content_id)
     {
-        $user_id = Auth::id();
+        //$user_id = Auth::id();
+        $user_id = $request->user_id;
 
        $course_id = $id;
 
@@ -1857,12 +1858,10 @@ else{
  }
 }
 
-$data = $this->paginate_class($thearray,$course_id,$course_content_id);
 
-    if($request->ajax()){
-               return view('theme.institution.onlineclass-pagination',['online_classes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details]);
-           }
-           return view('theme.institution.onlineclass',['online_classes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details]);
+
+
+           return view('theme.institution.onlineclass',['online_classes'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id]);
 
 
     }
