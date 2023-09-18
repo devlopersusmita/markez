@@ -123,7 +123,7 @@ class RegisterController extends Controller
                'user_id' => $user_id,
                'created_by'=> $user_id,
                'user_type'=> 'Institution',
-               'user_id' => $institution_id,
+               'institution_id' => $institution_id,
                'subscription_start_date'=> $start_date,
                'subscription_end_date'=> $end_date
            ]);
