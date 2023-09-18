@@ -39,7 +39,7 @@
 
 
     <input type="hidden" value="{{$institution_id}}" name="institution_id">
-    <input type="test" value="{{$user_id}}" name="user_id">
+    <input type="hidden" value="{{$user_id}}" name="user_id">
     <div class="mysr-form"></div>
         <script>
 
