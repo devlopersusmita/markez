@@ -12,6 +12,7 @@ class Order extends Model
         'status',
         'user_id',
         'course_id',
+        'institution_id',
         'total',
         'created_by',
         'institution_subcription_package_id',

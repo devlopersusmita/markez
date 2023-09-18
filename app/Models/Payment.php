@@ -28,6 +28,7 @@ class Payment extends Model
         'created_at',
         'updated_at',
         'user_id',
+        'institution_id',
         'payment_type'
 
     ];

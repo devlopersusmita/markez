@@ -12,13 +12,14 @@ class UserDetail extends Model
         'country_id',
         'city_id',
         'user_id',
+        'institution_id',
         'created_by',
         'user_type',
         'address',
         'description',
         'subscription_start_date',
         'subscription_end_date'
-               
+
     ];
     public function createdby()
     {
