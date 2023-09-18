@@ -1542,10 +1542,11 @@ public function student(Request $request)
             $course_details = Course::where('id',$course_id)->first();
             //dd($course_details);
         $type = $course_details["type"];
-        $user_id = Auth::id();
+        //$user_id = Auth::id();
 
         $existforthisuser=Course::leftJoin('course_contents', 'course_contents.course_id', '=', 'courses.id')
         ->get()->count();
+        dd($existforthisuser);
 
 
 
