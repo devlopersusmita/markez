@@ -1622,7 +1622,8 @@ public function student(Request $request)
     public function coursequize(Request $request,$id,$content_id)
     {
         $course_id = $id;
-        $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id);
+        $user_id = $request->user_id;
+        $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id, $user_id);
         if($check_course_accessibility_by_institution){
         $course_content_id = $content_id;
        //dd($course_content_id);
@@ -1669,19 +1670,7 @@ public function student(Request $request)
 
            }
         }
-
-      $data = $this->paginate_coursequize($thearray,$course_id,$course_content_id);
-
-
-
-
-
-
-
-           if($request->ajax()){
-               return view('theme.institution.coursequize-pagination',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details]);
-           }
-           return view('theme.institution.coursequize',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details]);
+           return view('theme.institution.coursequize',['quizes'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id]);
 
         }
         else{
@@ -1712,7 +1701,8 @@ public function student(Request $request)
     {
 
         $course_id = $id;
-        $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id);
+        $user_id = $request->user_id;
+        $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
         if($check_course_accessibility_by_institution){
         $course_content_id = $content_id;
         $course_content_quiz_id = $quiz_id;
@@ -1723,7 +1713,7 @@ public function student(Request $request)
         //  echo "<pre>";
         $all_q_id_array = explode(',', $course_content_quiz_details->all_questions);
 
-       $user_id = Auth::id();
+
 
 
 
@@ -1766,18 +1756,9 @@ public function student(Request $request)
            }
         }
 
-      $data = $this->paginate_coursequizequestion($thearray,$course_id,$course_content_id,$course_content_quiz_id);
 
 
-
-
-
-
-
-           if($request->ajax()){
-               return view('theme.institution.coursequestion-pagination',['questions'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details]);
-           }
-           return view('theme.institution.coursequestion',['questions'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details]);
+           return view('theme.institution.coursequestion',['questions'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details,'user_id'=>$user_id]);
 
         }
 
