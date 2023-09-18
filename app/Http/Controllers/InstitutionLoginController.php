@@ -1536,11 +1536,7 @@ public function student(Request $request)
 
     public function coursecontent(Request $request,$id)
     {
-
-
-
-
-        $course_id = $id;
+       $course_id = $id;
         $user_id = $request->user_id;
             //dd($user_id);
            $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
@@ -1552,7 +1548,7 @@ public function student(Request $request)
 
         $existforthisuser=Course::leftJoin('course_contents', 'course_contents.course_id', '=', 'courses.id')
         ->get()->count();
-        //dd($existforthisuser);
+        dd($existforthisuser);
 
 
 
@@ -1563,49 +1559,49 @@ public function student(Request $request)
 
 
 
-        $data7=CourseContent::join('courses', 'course_contents.course_id', '=', 'courses.id')
-                    ->orderBy('course_contents.id','desc')
-                     ->where('courses.id',$course_id)
-              ->when($request->has("title"),function($q)use($request){
+                        $data7=CourseContent::join('courses', 'course_contents.course_id', '=', 'courses.id')
+                                    ->orderBy('course_contents.id','desc')
+                                    ->where('courses.id',$course_id)
+                            ->when($request->has("title"),function($q)use($request){
 
 
 
-                   $title  = $request->get("title");
-                   if($title!='')
-                    {
-                       return $q->where("course_contents.title","like","%".$title."%");
-                   }
+                                $title  = $request->get("title");
+                                if($title!='')
+                                    {
+                                    return $q->where("course_contents.title","like","%".$title."%");
+                                }
 
 
-            })->select('course_contents.*')->get();
+                            })->select('course_contents.*')->get();
 
-        //return view('theme.teacher.coursedetails',['course_details'=>$course_details]);
-              $thearray = [];
-             if(count($data7) > 0)
-             {
-                foreach($data7 as $k2=>$v2)
-                {
-
-
-                            $thearray[]=array(
-                                'title'=>$v2->title
-                                ,'slug'=>$v2->slug
-                                ,'visibility'=>$v2->visibility
-                                ,'status'=>$v2->status
-                                 ,'type'=>$v2->type
-                                 ,'start_date'=>date('Y-m-d',strtotime($v2->start_date))
-                                ,'end_date'=>date('Y-m-d',strtotime($v2->end_date))
-                                 ,'course_id'=>$v2->course_id
-                                ,'id'=>$v2->id
-                            );
-
-                }
-             }
+                        //return view('theme.teacher.coursedetails',['course_details'=>$course_details]);
+                            $thearray = [];
+                            if(count($data7) > 0)
+                            {
+                                foreach($data7 as $k2=>$v2)
+                                {
 
 
+                                            $thearray[]=array(
+                                                'title'=>$v2->title
+                                                ,'slug'=>$v2->slug
+                                                ,'visibility'=>$v2->visibility
+                                                ,'status'=>$v2->status
+                                                ,'type'=>$v2->type
+                                                ,'start_date'=>date('Y-m-d',strtotime($v2->start_date))
+                                                ,'end_date'=>date('Y-m-d',strtotime($v2->end_date))
+                                                ,'course_id'=>$v2->course_id
+                                                ,'id'=>$v2->id
+                                            );
+
+                                }
+                            }
 
 
-           return view('theme.institution.coursecontent',['coursecontents'=>$thearray,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id]);
+
+
+                        return view('theme.institution.coursecontent',['coursecontents'=>$thearray,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id]);
         }
         else{
             return view('theme.institution.no_access_course');
