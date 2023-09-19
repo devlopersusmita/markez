@@ -26,18 +26,15 @@
 
                                     <!--Form-->
 
-                                    <form  id="myform" method="POST" class="msform" action="{{ route('Step1submit') }}">
+                                    <form  id="step1myForm" method="POST" class="msform" action="{{ route('Step1submit') }}">
                                         @csrf
 
                                         @include('frontend.notification')
                                         <div class="form-group">
-                                            <!-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   required autocomplete="name" autofocus placeholder="Institution Name"> -->
+                                        <label for="field">Required, minimum length 3: </label>
+                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   required autocomplete="name" autofocus placeholder="Institution Name">
                                             <label for="field">Required, minimum length 3: </label>
-<input type="text" class="left" id="field" name="field">
-                                            <h6 id="usercheck"
-                        style="color: red;">
 
-                    </h6>
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
