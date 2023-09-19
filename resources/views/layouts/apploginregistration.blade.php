@@ -312,29 +312,6 @@ if (typeof (FileReader) != "undefined") {
 
 });
 
-$(document).ready(function() {
-    $('#phone').blur(function(e) {
-        if (validatePhone('phone')) {
-            $('#validation_status').html('Valid');
-            $('#validation_status').css('color', 'green');
-        }
-        else {
-            $('#validation_status').html('Invalid');
-            $('#validation_status').css('color', 'red');
-        }
-    });
-});
-
-function validatePhone(phone) {
-    var a = document.getElementById(phone).value;
-    var filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
-    if (filter.test(a)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
       </script>
 
 </body>
