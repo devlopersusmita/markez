@@ -328,6 +328,10 @@ $( "#step1myForm" ).validate({
       required: true,
       minlength: 3
     }
+    phone: {
+      required: true,
+      minlength: 10
+    }
   }
 });
 </script>
