@@ -206,32 +206,135 @@ if (typeof (FileReader) != "undefined") {
         </script>
 
         <script>
-  //validate name
-var name = $('input[name="name"]').val();
-if (name.length < 3)
-{
-    alert('Please enter a name 3 characters or more.');
-    return false;
-}
-//validate email
-var email = $('input[name="email"]').val(),
-    emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
-if(!emailReg.test(email) || email == '')
-{
-     alert('Please enter a valid email address.');
-     return false;
-}
-//validate cellphoneNummber
-var cellphoneNummber = $('input[name="phone"]').val(),
-    intRegex = /[0-9 -()+]+$/;
-if((cellphoneNummber.length < 6) || (!intRegex.test(cellphoneNummber)))
-{
-     alert('Please enter a valid cell phoneNummber.');
-     return false;
-}
+            $(document).ready(function () {
+
+ // Validate Username
+ $("#usercheck").hide();
+ let usernameError = true;
+ $("#name").keyup(function () {
+     validateUsername();
+ });
+
+ function validateUsername() {
+     let usernameValue = $("#name").val();
+     if (usernameValue.length == "") {
+         $("#usercheck").show();
+         usernameError = false;
+         return false;
+     } else if (usernameValue.length < 3 || usernameValue.length > 20) {
+         $("#usercheck").show();
+         $("#usercheck").html("**length of name must be between 3 and 20");
+         usernameError = false;
+         return false;
+     } else {
+         $("#usercheck").hide();
+     }
+ }
 
 
+ // Validate Email
+ const email = document.getElementById("email");
+    email.addEventListener("blur", () => {
+        let regex =
+        /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+        let s = email.value;
+        if (regex.test(s)) {
+            email.classList.remove("is-invalid");
+            emailError = true;
+        } else {
+            email.classList.add("is-invalid");
+            emailError = false;
+        }
+    });
 
+    // Validate Password
+    $("#passcheck").hide();
+    let passwordError = true;
+    $("#password").keyup(function () {
+        validatePassword();
+    });
+    function validatePassword() {
+        let passwordValue = $("#password").val();
+        if (passwordValue.length == "") {
+            $("#passcheck").show();
+            passwordError = false;
+            return false;
+        }
+        if (passwordValue.length < 3 || passwordValue.length > 10) {
+            $("#passcheck").show();
+            $("#passcheck").html(
+                "**length of your password must be between 3 and 10"
+            );
+            $("#passcheck").css("color", "red");
+            passwordError = false;
+            return false;
+        } else {
+            $("#passcheck").hide();
+        }
+    }
+
+    // Validate Confirm Password
+    $("#conpasscheck").hide();
+    let confirmPasswordError = true;
+    $("#password-confirm").keyup(function () {
+        validateConfirmPassword();
+    });
+    function validateConfirmPassword() {
+        let confirmPasswordValue = $("#password-confirm").val();
+        let passwordValue = $("#password").val();
+        if (passwordValue != confirmPasswordValue) {
+            $("#conpasscheck").show();
+            $("#conpasscheck").html("**Password didn't Match");
+            $("#conpasscheck").css("color", "red");
+            confirmPasswordError = false;
+            return false;
+        } else {
+            $("#conpasscheck").hide();
+        }
+    }
+// Submit button
+
+        validateUsername();
+        validatePassword();
+        validateConfirmPassword();
+        validateEmail();
+        if (
+            usernameError == true &&
+            passwordError == true &&
+            confirmPasswordError == true &&
+            emailError == true
+        ) {
+            $("#step1myForm").submit();
+            return true;
+        } else {
+            return false;
+        }
+
+});
+
+$(document).ready(function() {
+    $('#phone').blur(function(e) {
+        if (validatePhone('phone')) {
+            $('#validation_status').html('Valid');
+            $('#validation_status').css('color', 'green');
+        }
+        else {
+            $('#validation_status').html('Invalid');
+            $('#validation_status').css('color', 'red');
+        }
+    });
+});
+
+function validatePhone(phone) {
+    var a = document.getElementById(phone).value;
+    var filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
       </script>
 
 </body>
