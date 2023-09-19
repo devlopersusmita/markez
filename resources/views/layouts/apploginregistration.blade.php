@@ -312,31 +312,48 @@ if (typeof (FileReader) != "undefined") {
 
 });
 
-$(document).ready(function() {
-    $('#phone').blur(function(e) {
-        if (validatePhone('phone')) {
-            $('#validation_status').html('Valid');
-            $('#validation_status').css('color', 'green');
-        }
-        else {
-            $('#validation_status').html('Invalid');
-            $('#validation_status').css('color', 'red');
-        }
-    });
-});
+// $(document).ready(function() {
+//     $('#phone').blur(function(e) {
+//         if (validatePhone('phone')) {
+//             $('#validation_status').html('Valid');
+//             $('#validation_status').css('color', 'green');
+//         }
+//         else {
+//             $('#validation_status').html('Invalid');
+//             $('#validation_status').css('color', 'red');
+//         }
+//     });
+// });
 
-function validatePhone(phone) {
-    var a = document.getElementById(phone).value;
-    var filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
-    if (filter.test(a)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
+// function validatePhone(phone) {
+//     var a = document.getElementById(phone).value;
+//     var filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+//     if (filter.test(a)) {
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+// }
       </script>
+ <script>
+    $(document).ready(function() {
+      // Regular expression for a valid phone number (10 digits)
+      var phonePattern = /^\d{10}$/;
 
+      $("#step1myForm").submit(function(event) {
+        var phoneNumber = $("#phone").val();
+        var phoneError = $("#phone-error");
+
+        if (!phonePattern.test(phoneNumber)) {
+          phoneError.text("Invalid phone number. Please enter 10 digits.");
+          event.preventDefault(); // Prevent form submission if phone number is invalid
+        } else {
+          phoneError.text(""); // Clear any previous error message
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
