@@ -312,24 +312,22 @@ if (typeof (FileReader) != "undefined") {
 
 });
 
-
-$(window).load(function(){
 $(document).ready(function() {
     $('#phone').blur(function(e) {
         if (validatePhone('phone')) {
-            $('#spnPhoneStatus').html('Valid Mobil Number');
-            $('#spnPhoneStatus').css('color', 'green');
+            $('#validation_status').html('Valid');
+            $('#validation_status').css('color', 'green');
         }
         else {
-            $('#spnPhoneStatus').html('Invalid Mobile Number');
-            $('#spnPhoneStatus').css('color', 'red');
+            $('#validation_status').html('Invalid');
+            $('#validation_status').css('color', 'red');
         }
     });
 });
 
-function validatePhone(txtPhone) {
+function validatePhone(phone) {
     var a = document.getElementById(phone).value;
-    var filter = /[1-9]{1}[0-9]{9}/;
+    var filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
     if (filter.test(a)) {
         return true;
     }
@@ -337,7 +335,6 @@ function validatePhone(txtPhone) {
         return false;
     }
 }
-});
       </script>
 
 </body>
