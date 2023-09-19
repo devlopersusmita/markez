@@ -140,7 +140,10 @@
         <script src="{{asset('assets/js/custom.js')}}"></script>
 
     <!-- end 24.07.23 -->
-    <script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <!-- <script>
        function subscriptionChecked(){
 
         var getSelectedValue = document.querySelector( 'input[name="subscription"]:checked');
@@ -152,7 +155,7 @@
         }
 
        }
-       </script>
+       </script> -->
         <script>
        $("#logo").on('change', function () {
 
@@ -204,7 +207,7 @@ if (typeof (FileReader) != "undefined") {
 // })
 
         </script>
-
+<!--
         <script>
             $(document).ready(function () {
 
@@ -312,7 +315,22 @@ if (typeof (FileReader) != "undefined") {
 
 });
 
-      </script>
+      </script> -->
+      <script>
+// just for the demos, avoids form submit
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$( "#step1myForm" ).validate({
+  rules: {
+    name: {
+      required: true,
+      minlength: 3
+    }
+  }
+});
+</script>
 
 </body>
 
