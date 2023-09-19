@@ -84,10 +84,7 @@
                                         </div>
                                         <div class="form-group">
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
-                                            <h6 id="conpasscheck"
-                        style="color: red;">
-                        **Password didn't match
-</6>
+
                                         </div>
                                         <button class="btn-banner next step-link" id="submitbtn" type="submit">Next</button>
                                     </form>
