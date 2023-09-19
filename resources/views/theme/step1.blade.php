@@ -89,7 +89,7 @@
                         **Password didn't match
 </h6>
                                         </div>
-                                        <button class="btn-banner next step-link" id="submitbtn" type="submit">Next</button>
+                                        <button class="btn-banner next step-link"  type="submit">Next</button>
                                     </form>
                                         <p class="bottom-text"> Already Have An Account <a href="{{ Route('instlogin') }}">Sign In</a></p>
 
