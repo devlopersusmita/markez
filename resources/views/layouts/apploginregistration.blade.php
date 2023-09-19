@@ -327,7 +327,7 @@ $( "#step1myForm" ).validate({
     name: {
       required: true,
       minlength: 3
-    }
+    },
     phone: {
       required: true,
       minlength: 10
