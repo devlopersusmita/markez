@@ -31,9 +31,9 @@
 
                                         @include('frontend.notification')
                                         <div class="form-group">
-                                        <label for="field">Required, minimum length 3: </label>
+
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   required autocomplete="name" autofocus placeholder="Institution Name">
-                                            <label for="field">Required, minimum length 3: </label>
+
 
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
