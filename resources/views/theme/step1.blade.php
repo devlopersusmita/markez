@@ -69,10 +69,7 @@
                                         </div>
                                         <div class="form-group">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
-                                                            <h6 id="passcheck"
-                                        style="color: red;">
 
-                                    </h6>
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
