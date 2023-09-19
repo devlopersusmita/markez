@@ -322,9 +322,9 @@ jQuery.validator.setDefaults({
   debug: true,
   success: "valid"
 });
-$( "#step1myForm" ).validate({
+$( "#myform" ).validate({
   rules: {
-    name: {
+    field: {
       required: true,
       minlength: 3
     }
