@@ -140,7 +140,6 @@
         <script src="{{asset('assets/js/custom.js')}}"></script>
 
     <!-- end 24.07.23 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
        function subscriptionChecked(){
 
@@ -313,48 +312,31 @@ if (typeof (FileReader) != "undefined") {
 
 });
 
-// $(document).ready(function() {
-//     $('#phone').blur(function(e) {
-//         if (validatePhone('phone')) {
-//             $('#validation_status').html('Valid');
-//             $('#validation_status').css('color', 'green');
-//         }
-//         else {
-//             $('#validation_status').html('Invalid');
-//             $('#validation_status').css('color', 'red');
-//         }
-//     });
-// });
-
-// function validatePhone(phone) {
-//     var a = document.getElementById(phone).value;
-//     var filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
-//     if (filter.test(a)) {
-//         return true;
-//     }
-//     else {
-//         return false;
-//     }
-// }
-      </script>
- <script>
-    $(document).ready(function() {
-      // Regular expression for a valid phone number (10 digits)
-      var phonePattern = /^\d{10}$/;
-
-      $("#step1myForm").submit(function(event) {
-        var phoneNumber = $("#phone").val();
-        var phoneError = $("#phone-error");
-
-        if (!phonePattern.test(phoneNumber)) {
-          phoneError.text("Invalid phone number. Please enter 10 digits.");
-          event.preventDefault(); // Prevent form submission if phone number is invalid
-        } else {
-          phoneError.text(""); // Clear any previous error message
+$(document).ready(function() {
+    $('#phone').blur(function(e) {
+        if (validatePhone('phone')) {
+            $('#validation_status').html('Valid');
+            $('#validation_status').css('color', 'green');
         }
-      });
+        else {
+            $('#validation_status').html('Invalid');
+            $('#validation_status').css('color', 'red');
+        }
     });
-  </script>
+});
+
+function validatePhone(phone) {
+    var a = document.getElementById(phone).value;
+    var filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+      </script>
+
 </body>
 
 </html>
