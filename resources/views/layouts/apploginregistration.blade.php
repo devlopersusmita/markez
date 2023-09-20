@@ -224,9 +224,9 @@ if (typeof (FileReader) != "undefined") {
          $("#usercheck").show();
          usernameError = false;
          return false;
-     } else if (usernameValue.length < 3 || usernameValue.length > 20) {
+     } else if (usernameValue.length < 3  {
          $("#usercheck").show();
-         $("#usercheck").html("**length of name must be between 3 and 20");
+         $("#usercheck").html("**length of name must be 3 ");
          usernameError = false;
          return false;
      } else {
