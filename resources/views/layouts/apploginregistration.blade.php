@@ -208,7 +208,7 @@ if (typeof (FileReader) != "undefined") {
 
         </script>
 
-        <script>
+<script>
             $(document).ready(function () {
 
  // Validate Username
@@ -224,7 +224,7 @@ if (typeof (FileReader) != "undefined") {
          $("#usercheck").show();
          usernameError = false;
          return false;
-     } else if (usernameValue.length < 3  {
+     } else if (usernameValue.length < 3) {
          $("#usercheck").show();
          $("#usercheck").html("**length of name must be 3 ");
          usernameError = false;
@@ -263,7 +263,7 @@ if (typeof (FileReader) != "undefined") {
             passwordError = false;
             return false;
         }
-        if (passwordValue.length < 3 ) {
+        if (passwordValue.length < 3) {
             $("#passcheck").show();
             $("#passcheck").html(
                 "**length of your password must be 3 "
@@ -316,25 +316,7 @@ if (typeof (FileReader) != "undefined") {
 });
 
       </script>
-      <!-- <script>
-// just for the demos, avoids form submit
-jQuery.validator.setDefaults({
-  debug: true,
-  success: "valid"
-});
-$( "#step1myForm" ).validate({
-  rules: {
-    name: {
-      required: true,
-      minlength: 3
-    },
-    phone: {
-      required: true,
-      minlength: 10
-    }
-  }
-});
-</script> -->
+
 
 </body>
 
