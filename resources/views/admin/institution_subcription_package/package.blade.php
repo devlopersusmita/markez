@@ -109,23 +109,23 @@
              <div class="row">
                 <div class="col-md-12">
                     <label>Title</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="Title" maxlength="250" />
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Title" maxlength="250" required />
                 </div>
                 <div class="col-md-12">
                     <label>Order Number</label>
-                    <input type="number" class="form-control" name="order_no" id="order_no" placeholder="Order Number" maxlength="250" />
+                    <input type="number" class="form-control" name="order_no" id="order_no" placeholder="Order Number" maxlength="250" required />
                 </div>
                 <div class="col-md-12">
                     <label>Price</label>
-                    <input type="number" class="form-control" name="price" id="price" placeholder="Price" maxlength="250" />
+                    <input type="number" class="form-control" name="price" id="price" placeholder="Price" maxlength="250" required />
                 </div>
                 <div class="col-md-12">
                     <label>Day</label>
-                    <input type="text" class="form-control" name="days" id="days" placeholder="Day" maxlength="250" />
+                    <input type="text" class="form-control" name="days" id="days" placeholder="Day" maxlength="250"  required/>
                 </div>
                 <div class="col-md-12">
                     <label>Description</label>
-                <input type="text" class="form-control" id="descriptions" placeholder="Enter the Descriptions" name="descriptions" maxlength="250">
+                <input type="text" class="form-control" id="descriptions" placeholder="Enter the Descriptions" name="descriptions" maxlength="250" required>
             </div>
                 <div class="col-md-6">
                 </div>
