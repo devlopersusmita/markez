@@ -4,50 +4,27 @@
 
 
 <div class="card">
-<div class="card-body table-responsive">
-    <table id="example1_123" class="table table-bordered table-striped">
-        <div class="row">
 
 
-        <thead>
-            <tr>
-                <th>Privacy Policy</th>
+@foreach($privacypolicys as $privacypolicy)
+    <div class="form-group m-3" >
+    <div class="row">
+        <div class="col-md-6">
+            <label>Name</label>
+            <p id="show_name"> {{$company['name']}}</p>
+        </div>
 
-
-
-            </tr>
-        </thead>
-        <tbody>
-
-        @foreach($privacypolicys as $privacypolicy)
-            <tr >
-                  <td> {!!$privacypolicy['privacy_policy']!!}</td>
-
-
-
-                 <td> <span class="btn btn-warning edit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo $privacypolicy['id']?>" >Update</span></td>
-
-
-
-
-
-
-
-
-
-            </tr>
-
-           @endforeach
-        </tbody>
-    </table>
-
-
+        <div class="col-md-12 mt-3 text-right"  >
+        <span class="btn btn-warning edit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo $privacypolicy['id']?>" >Update</span>        </div>
+    </div>
+    </div>
+    @endforeach
 <div id="pagination">
-{{ $privacypolicys->links() }}
+    {{ $privacypolicys->links() }}
   </div>
 
 
-</div>
+
 
 </div>
     @endif
