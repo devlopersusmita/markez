@@ -162,7 +162,7 @@
                   </div>
                   <div class="col-md-12">
                       <label>Link</label>
-                      <input type="text" class="form-control" name="link" id="link" placeholder="link" required/>
+                      <input type="url" class="form-control" name="link" id="link" placeholder="link" required/>
                   </div>
 
 
@@ -232,7 +232,7 @@
                   </div>
                   <div class="col-md-12">
                       <label>Link</label>
-                      <input type="text" class="form-control" name="link" id="link_edit" placeholder="link" maxlength="250" />
+                      <input type="url" class="form-control" name="link" id="link_edit" placeholder="link" maxlength="250" />
                   </div>
 
               </div>
