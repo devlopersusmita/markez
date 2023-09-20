@@ -179,28 +179,28 @@ class AdminController extends Controller
 
                 $data7=Privacypolicy::orderBy('privacy_policy.id','desc')->select('privacy_policy.*')->get();
 
-                  $thearray = [];
-                 if(count($data7) > 0)
-                 {
-                    foreach($data7 as $k2=>$v2)
-                    {
+                //   $thearray = [];
+                //  if(count($data7) > 0)
+                //  {
+                //     foreach($data7 as $k2=>$v2)
+                //     {
 
 
 
 
-                                $thearray[]=array(
-                                    'privacy_policy'=>$v2->privacy_policy
+                //                 $thearray[]=array(
+                //                     'privacy_policy'=>$v2->privacy_policy
 
 
 
-                                    ,'id'=>$v2->id
+                //                     ,'id'=>$v2->id
 
-                                );
+                //                 );
 
-                    }
-                 }
+                //     }
+                //  }
 
-               $data = $this->paginate_privacypolicy($thearray);
+               $data = $this->paginate_privacypolicy($data7);
 
                if($request->ajax()){
                    return view('admin.privacypolicy.privacypolicy-pagination',['privacypolicys'=>$data]);
