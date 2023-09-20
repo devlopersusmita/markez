@@ -4,7 +4,7 @@
       </div>
     @endif
 
-@if(!empty($categories))
+
 @include('frontend.notification')
 
 
@@ -68,7 +68,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 
