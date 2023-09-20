@@ -1,8 +1,12 @@
-@if(!empty($data))
+
+@if($data->count()==0)
+    <div class="review_filter">
+        <h3>No Data Found</h3>
+      </div>
 @include('frontend.notification')
 
 
-
+@else
 <div class="card">
 <div class="card-body table-responsive">
     <table id="example1_123" class="table table-bordered table-striped">
@@ -24,7 +28,7 @@
             @foreach($data as $result)
             <tr >
                   <td>
-                  <?php 
+                  <?php
                   if($result['sender_type']=='Institution')
                   {
                     echo $result['sender_name'];
@@ -35,8 +39,8 @@
                   }
                   ?>
                     </td>
-                  <td> 
-                  <?php 
+                  <td>
+                  <?php
                   if($result['sender_type']=='Teacher')
                   {
                     echo $result['sender_name'];
@@ -51,20 +55,20 @@
                <td> <?php echo $result['sender_type'];?></td>
                <td> <?php echo $result['created_at'];?></td>
                <td> <?php echo $result['status'];?></td>
-               <td> 
+               <td>
                 <span    class="btn btn-success approve_modal" data-toggle="modal" data-target="#modals-approve" style="cursor: pointer;"  data-id="<?php echo $result['id']?>" >Approve</span>
                 <span    class="btn btn-danger reject_modal" data-toggle="modal" data-target="#modals-reject" style="cursor: pointer;"  data-id="<?php echo $result['id']?>" >Reject</span>
 
                </td>
 
-                   
+
 
             </tr>
 
            @endforeach
         </tbody>
     </table>
-    
+
 
 <div id="pagination">
     {{ $data->links() }}
@@ -77,4 +81,4 @@
     @endif
 
 
-    
+

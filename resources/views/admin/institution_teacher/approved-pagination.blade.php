@@ -1,8 +1,13 @@
-@if(!empty($data))
+
+
+@if($data->count()==0)
+    <div class="review_filter">
+        <h3>No Data Found</h3>
+      </div>
 @include('frontend.notification')
 
 
-
+@else
 <div class="card">
 <div class="card-body table-responsive">
     <table id="example1_123" class="table table-bordered table-striped">
@@ -13,9 +18,9 @@
             <tr>
                 <th>Institution</th>
                 <th>Teacher</th>
-               
+
                 <th>Date</th>
-               
+
             </tr>
         </thead>
         <tbody>
@@ -24,17 +29,17 @@
             <tr >
                    <td> <?php echo $result['institution_name'];?></td>
                      <td> <?php echo $result['teacher_name'];?></td>
-             
+
                <td> <?php echo $result['created_at'];?></td>
-              
-                   
+
+
 
             </tr>
 
            @endforeach
         </tbody>
     </table>
-    
+
 
 <div id="pagination">
     {{ $data->links() }}
@@ -47,4 +52,4 @@
     @endif
 
 
-    
+
