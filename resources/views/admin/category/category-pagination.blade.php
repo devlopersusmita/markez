@@ -1,3 +1,9 @@
+@if($categories->count()==0)
+      <div class="review_filter">
+        <h3>No Data Found</h3>
+      </div>
+    @endif
+
 @if(!empty($categories))
 @include('frontend.notification')
 
@@ -33,26 +39,26 @@
                     <?php if($category['status']=='inactive'){?>
                         <span    class="btn btn-danger statuschange_modal" data-toggle="modal" data-target="#modals-statuschange" style="cursor: pointer;" data-status='active' data-id="<?php echo $category['id']?>" >Inactive</span>
                     <?php } ?>
-                    </td></tr></table> 
+                    </td></tr></table>
                 </td>
 
 
                 <td>
-                    <table><tr><td> <span   class="btn btn-info view_modal"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >View</span></td><td> <span   class="btn btn-warning edit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >Edit</span></td><td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#modals-delete" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >Delete</span></td></tr></table>                 
-                   
-                   
+                    <table><tr><td> <span   class="btn btn-info view_modal"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >View</span></td><td> <span   class="btn btn-warning edit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >Edit</span></td><td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#modals-delete" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >Delete</span></td></tr></table>
+
+
 
                 </td>
 
 
-                   
+
 
             </tr>
 
            @endforeach
         </tbody>
     </table>
-    
+
 
 <div id="pagination">
     {{ $categories->links() }}
@@ -65,4 +71,4 @@
     @endif
 
 
-    
+
