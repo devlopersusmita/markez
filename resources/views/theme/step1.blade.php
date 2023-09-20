@@ -33,7 +33,10 @@
                                         <div class="form-group">
 
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   required autocomplete="name" autofocus placeholder="Institution Name">
+                                            <h6 id="usercheck"
+                        style="color: red;">
 
+                    </h6>
 
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
@@ -69,7 +72,10 @@
                                         </div>
                                         <div class="form-group">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                                            <h6 id="passcheck"
+                                        style="color: red;">
 
+                                    </h6>
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -79,7 +85,10 @@
                                         </div>
                                         <div class="form-group">
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
-
+                                            <h6 id="conpasscheck"
+                        style="color: red;">
+                        **Password didn't match
+</h6>
                                         </div>
                                         <button class="btn-banner next step-link"  type="submit">Next</button>
                                     </form>
