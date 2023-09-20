@@ -1,3 +1,8 @@
+@if($courses->count()==0)
+      <div class="review_filter">
+        <h3>No Data Found</h3>
+      </div>
+    @endif
 @if(!empty($courses))
 @include('frontend.notification')
 
