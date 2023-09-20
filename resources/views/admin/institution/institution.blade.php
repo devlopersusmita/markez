@@ -44,30 +44,11 @@
                  <div class="card-body">
 
              <div class="row">
-                
+
 
                 <div class="col-md-12">
 
-               <form id="searchform" name="searchform">
-                   <div class="row mt-4">
 
-                        <div class="col-md-8"></div>
-                        <div class="col-md-4" style="float: right;">
-
-
-                               <div class="input-group mb-3">
-
-                                    </div>
-
-
-                         </div>
-
-
-
-
-
-                    </div>
-                </form>
             </div>
             </div>
         </div>
