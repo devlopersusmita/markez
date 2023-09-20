@@ -15,7 +15,7 @@
         </div>
 
         <div class="col-md-12 mt-3 text-right"  >
-        <span class="btn btn-warning edit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo @$privacypolicy->id?>" >Update</span>        </div>
+        <span class="btn btn-warning privacypolicyedit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo @$privacypolicy->id?>" >Update</span>        </div>
     </div>
     </div>
 

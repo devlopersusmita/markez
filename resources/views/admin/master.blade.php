@@ -4818,7 +4818,7 @@ var editHomesettingForm = $('.edit-new-homestting');
     });
   }
 
-  $(document).on('click', '.edit_modal', function () {
+  $(document).on('click', '.privacypolicyedit_modal', function () {
       var id = $(this).data("id");
 
       var url = baseurl + '/admin/privacypolicyview/'+id;
