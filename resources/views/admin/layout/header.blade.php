@@ -5,10 +5,10 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="{{route('admin')}}" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
+            <a href="{{route('enquiry')}}" class="nav-link">Contact</a>
         </li>
     </ul>
 
@@ -103,7 +103,7 @@
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <!-- <i class="far fa-bell"></i> -->
                 <i class="fa-solid fa-right-from-bracket">Sign Out</i>
-               
+
 
                 <!-- <span class="badge badge-warning navbar-badge">15</span> -->
             </a>
