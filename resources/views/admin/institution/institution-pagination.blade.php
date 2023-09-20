@@ -1,8 +1,11 @@
-@if(!empty($institutions))
+
+
+@if($institutions->count()==0)
+
 @include('frontend.notification')
 
 
-
+@else
 <div class="card">
 <div class="card-body table-responsive">
     <table id="example1_123" class="table table-bordered table-striped">
@@ -15,7 +18,7 @@
                 <th>Email</th>
 
                 <th>Status</th>
-               
+
             </tr>
         </thead>
         <tbody>

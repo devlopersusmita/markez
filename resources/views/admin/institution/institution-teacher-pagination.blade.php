@@ -1,8 +1,13 @@
-@if(!empty($institution_teachers))
+
+
+@if($institution_teachers->count()==0)
+    <div class="review_filter">
+        <h3>No Data Found</h3>
+      </div>
 @include('frontend.notification')
 
 
-
+@else
 <div class="card">
 <div class="card-body table-responsive">
     <table id="example1_123" class="table table-bordered table-striped">
