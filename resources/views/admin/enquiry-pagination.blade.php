@@ -16,6 +16,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Address</th>
+                <th>Action</th>
 
 
             </tr>
@@ -29,6 +30,7 @@
                   <td>{{$enquiry['email']}} </td>
                   <td>{{$enquiry['phone']}} </td>
                   <td>{{$enquiry['address']}} </td>
+                  <td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#enquirymodals-delete" style="cursor: pointer;" data-id="<?php echo $enquiry['id']?>" >Delete</span></td>
 
 
 

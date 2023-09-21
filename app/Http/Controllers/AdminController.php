@@ -76,7 +76,32 @@ class AdminController extends Controller
             $items = $items instanceof Collection ? $items : Collection::make($items);
             return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
         }
+        public function enquirydelete($id)
+        {
 
+          $enquiry = Contactus::find($id);
+          $result =$enquiry->delete();
+
+          if($result)
+          {
+              Session::flash('error', 'Data deleted successfully!');
+
+              return response()->json([
+                'message' => 'Data deleted successfully!'
+              ]);
+          }
+          else
+          {
+              Session::flash('error', 'Something wrong!');
+
+              return response()->json([
+                'message' => 'Something wrong!'
+              ]);
+          }
+
+
+
+        }
         public function termsandcondition(Request $request)
         {
 
@@ -267,7 +292,7 @@ class AdminController extends Controller
                 }
 
 
-                public function aboutus(Request $request)
+        public function aboutus(Request $request)
         {
 
 
@@ -532,40 +557,40 @@ class AdminController extends Controller
 
      public function adminform(Request $request)
      {
-        $form=AdminForm::orderBy('admin_form.id','desc')->select('admin_form.*')->get();
+            $form=AdminForm::orderBy('admin_form.id','desc')->select('admin_form.*')->get();
 
-             $thearray = [];
-             if(count($form) > 0)
-             {
-                 foreach($form as $k2=>$v2)
-                 {
+                $thearray = [];
+                if(count($form) > 0)
+                {
+                    foreach($form as $k2=>$v2)
+                    {
 
-                 $field_data=AdminFormField::orderBy('admin_form_field.id','desc')->where('form_id',$v2->id)->select('admin_form_field.*')->get();
+                    $field_data=AdminFormField::orderBy('admin_form_field.id','desc')->where('form_id',$v2->id)->select('admin_form_field.*')->get();
 
-                             $thearray[]=array(
-                                 'form_name'=>$v2->form_name
+                                $thearray[]=array(
+                                    'form_name'=>$v2->form_name
 
-                                 ,'form_status'=>$v2->form_status
-                                 ,'created_at'=>$v2->created_at
-                                 ,'id'=>$v2->id
-                                 ,'total_field'=>$field_data->count()
-                             );
+                                    ,'form_status'=>$v2->form_status
+                                    ,'created_at'=>$v2->created_at
+                                    ,'id'=>$v2->id
+                                    ,'total_field'=>$field_data->count()
+                                );
 
-                 }
-             }
-            // dd($thearray);
-            $data = $this->paginate_adminform($thearray);
+                    }
+                }
+                // dd($thearray);
+                $data = $this->paginate_adminform($thearray);
 
-            if($request->ajax()){
-                return view('admin.form.form-pagination',['formdata'=>$data]);
-            }
-            return view('admin.form.form',['formdata'=>$data]);
-
-
+                if($request->ajax()){
+                    return view('admin.form.form-pagination',['formdata'=>$data]);
+                }
+                return view('admin.form.form',['formdata'=>$data]);
 
 
 
-        }
+
+
+    }
         public function paginate_adminform($items, $perPage = 3, $page = null, $options = [])
             {
                 $options = ['path' => Route('adminform')] ;
@@ -642,31 +667,31 @@ class AdminController extends Controller
             }
 
             public function adminformdelete($id)
-{
+            {
 
-  $form = AdminForm::find($id);
-  $result =$form->delete();
+                    $form = AdminForm::find($id);
+                    $result =$form->delete();
 
-  if($result)
-  {
-      Session::flash('error', 'Data deleted successfully!');
+                    if($result)
+                    {
+                        Session::flash('error', 'Data deleted successfully!');
 
-      return response()->json([
-        'message' => 'Data deleted successfully!'
-      ]);
-  }
-  else
-  {
-      Session::flash('error', 'Something wrong!');
+                        return response()->json([
+                            'message' => 'Data deleted successfully!'
+                        ]);
+                    }
+                    else
+                    {
+                        Session::flash('error', 'Something wrong!');
 
-      return response()->json([
-        'message' => 'Something wrong!'
-      ]);
-  }
+                        return response()->json([
+                            'message' => 'Something wrong!'
+                        ]);
+                    }
 
 
 
-}
+            }
 
 public function adminformfielddelete($id)
 {

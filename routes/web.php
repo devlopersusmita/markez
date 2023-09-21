@@ -548,6 +548,7 @@ Route::post('/decline/{id}',[InstitutionTeacherRequestController::class,'decline
 
 //Enquiry section//
 Route::get('/enquiry',[AdminController::class,'enquiry'])->name('enquiry');
+Route::post('/enquirydelete/{id}',[AdminController::class,'enquirydelete'])->name('enquirydelete');
 //enquiry section//
 
 //Home section

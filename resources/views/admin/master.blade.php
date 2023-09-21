@@ -5617,6 +5617,59 @@ $.ajax({
 
 //END FORM  //
 
+//start delete form //
+
+$(document).on('click', '#enquiry_delete', function () {
+
+
+var id = $('#delete_id').val();
+var url = baseurl + '/admin/enquirydelete/'+id;
+
+// alert(url);
+
+$.ajax({
+    beforeSend: function(){
+      $('.ajax-loader').css("visibility", "visible");
+    },
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: [],
+    url: url,
+    type: "post",
+    dataType: 'json',
+    success: function (data) {
+      window.location.href="{{ route('adminform') }}";
+       $('#search_btn').trigger('click');
+       $('body').removeClass('modal-open');
+      $('body').css('padding-right', '0px');
+      $('.modal-backdrop').remove();
+
+      $('#enquirymodals-delete').modal('hide');
+
+
+
+
+
+
+    },
+    error: function (data) {
+        alert(JSON.stringify(data));
+        console.log( data);
+
+    } ,
+    complete: function(){
+      $('.ajax-loader').css("visibility", "hidden");
+    }
+});
+
+
+
+});
+
+//end delete form //
+
+
 function getfieldtype(value){
 if(value == "input"){
    $(".fieldinput").show();
