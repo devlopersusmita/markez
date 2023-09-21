@@ -1,4 +1,4 @@
-@if(!empty($cmses))
+
 @include('frontend.notification')
 
 
@@ -24,7 +24,7 @@
             <tr >
                   <td>{{$cms['title']}}  </td>
                   <td>{{$cms['slug']}} </td>
-              
+
 
 
                 <td>
@@ -52,6 +52,15 @@
             </tr>
 
            @endforeach
+           @if ($cmses->count() == 0)
+
+<tr>
+<td colspan="6">
+    No Record Found!!
+</td>
+</tr>
+
+@endif
         </tbody>
     </table>
 
@@ -64,7 +73,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 

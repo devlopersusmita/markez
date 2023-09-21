@@ -1,4 +1,4 @@
-@if(!empty($homes))
+
 @include('frontend.notification')
 
 

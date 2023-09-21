@@ -1,4 +1,4 @@
-@if($courses->count()==0)
+
       <div class="review_filter">
         <h3>No Data Found</h3>
       </div>
@@ -55,6 +55,15 @@
             </tr>
 
            @endforeach
+           @if ($courses->count() == 0)
+
+<tr>
+<td colspan="6">
+    No Record Found!!
+</td>
+</tr>
+
+@endif
         </tbody>
     </table>
 
@@ -67,7 +76,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 
