@@ -227,7 +227,7 @@ class AdminController extends Controller
 
                $data = $this->paginate_privacypolicy($data7);
 
-               dd($data);
+            //    dd($data);
 
                if($request->ajax()){
                    return view('admin.privacypolicy.privacypolicy-pagination',['privacypolicys'=>$data]);
