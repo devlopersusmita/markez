@@ -50,8 +50,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <!-- <div class="field is-flex">
-                                        <div class="switch-block">
+                                    <div class="field is-flex">
+                                        <!-- <div class="switch-block">
                                             <label class="f-switch">
                                                  <input class="is-switch" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                 <i></i>
@@ -65,7 +65,7 @@
                                         @if (Route::has('password.request'))
                                             <a  href="{{ route('password.request') }}">Forgot Password?</a>
                                         @endif -->
-                                    <!-- </div>  -->
+                                    </div>
                                 </div>
 
                                 <div class="buttons">
