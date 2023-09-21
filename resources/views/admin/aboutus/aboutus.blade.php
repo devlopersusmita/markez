@@ -81,13 +81,13 @@
                 </div>
                 <div class="col-md-4">
                     <label>Aboutus Banner</label>
-                    <input type="file"  name="aboutus_banner" />
+                    <input type="file"  name="aboutus_banner" accept=".png, .jpg, .jpeg" />
                     <input type="hidden" name="old_aboutus_banner" id="old_aboutus_banner" value="" />
                     <div id="aboutus_banner_edit_div"></div>
                 </div>
                 <div class="col-md-4">
                     <label>Aboutus SiteImage</label>
-                    <input type="file"  name="aboutus_siteimage" />
+                    <input type="file"  name="aboutus_siteimage"  accept=".png, .jpg, .jpeg"/>
                     <input type="hidden" name="old_aboutus_siteimage" id="old_aboutus_siteimage" value="" />
                     <div id="aboutus_siteimage_edit_div"></div>
                 </div>
