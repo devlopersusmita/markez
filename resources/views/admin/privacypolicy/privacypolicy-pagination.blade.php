@@ -15,11 +15,11 @@
         </div>
 
         <div class="col-md-12 mt-3 text-right"  >
-        <?php if(@$privacypolicy->id) { ?>
+
         <span class="btn btn-warning privacypolicyedit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo @$privacypolicy->id?>" >Update</span>
-        <?php  } else { ?>
-            <span class="btn btn-warning privacypolicyedit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="0" >Update</span>
-            <?php } ?>
+
+
+
               </div>
     </div>
     </div>
