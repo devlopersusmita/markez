@@ -825,7 +825,7 @@
 
     });
 
-      $(document).on('click', '.edit_modal', function () {
+      $(document).on('click', '.categoryedit_modal', function () {
       var id = $(this).data("id");
 
       var url = baseurl + '/admin/viewcategory/'+id;
