@@ -172,11 +172,11 @@
     <!-- Modal to view new form Ends-->
 
       <!-- Modal to delete Category start-->
-    <div class="modal fade" id="modals-delete" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="formmodals-delete" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
            <div class="modal-header">
-            <h5 class="modal-title" >Delete Category</h5>
+            <h5 class="modal-title" >Delete Form</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
