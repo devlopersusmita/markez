@@ -8,7 +8,7 @@
     <div class="content-header">
 
         <div class="container">
-            
+
             <div class="row mt-4">
 
                 <div class="col-md-6">
@@ -49,27 +49,27 @@
 
 
                 <div class="col-md-12">
-                
+
                <form id="searchform" name="searchform">
                    <div class="row mt-4">
-                  
+
                         <div class="col-md-8"></div>
                         <div class="col-md-4" style="float: right;">
-                            
-                                             
+
+
                                <div class="input-group mb-3">
                                       <input type="text" name="name" value="" class="form-control " placeholder="Name" aria-label="Name" aria-describedby="basic-addon2">
                                       <div class="input-group-append">
-                                      
+
                                         <a class='btn btn-info' href='{{Route("category")}}' id='search_btn'>Search</a>
                                       </div>
                                     </div>
 
 
                          </div>
-                      
 
-               
+
+
 
 
                     </div>
@@ -87,7 +87,7 @@
 
 
       </section>
-     
+
     </div>
 
 @endsection
@@ -115,24 +115,24 @@
                 </div>
             </div>
             <div class="mb-2"></div>
-            
-           
+
+
            <button type="submit" id="category_add" class="btn btn-success data-add">Save</button>
             <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
             </form>
 
               </div>
           </div>
-      
-        
-     
+
+
+
       </div>
     </div>
     <!-- Modal to add new Category Ends-->
 
 
  <!-- Modal to edit new Category starts-->
-    <div class="modal fade" id="modals-edit" tabindex="1" aria-hidden="true">
+    <div class="modal fade" id="categorymodals-edit" tabindex="1" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
            <div class="modal-header">
@@ -159,16 +159,16 @@
             </div>
             <div class="mb-2"></div>
             <input type="hidden" id="edit_id" value="" />
-           
+
            <button type="submit" id="category_edit" class="btn btn-success data-edit">Save</button>
             <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
             </form>
 
               </div>
           </div>
-      
-        
-     
+
+
+
       </div>
     </div>
     <!-- Modal to add new Category Ends-->
@@ -186,10 +186,10 @@
           </div>
           <div class="modal-body" >
             <div class="mb-1" id="details_modal_body_content">
-             
+
             </div>
-           
-           
+
+
             <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
           </div>
         </form>
@@ -209,7 +209,7 @@
           </div>
 
           <div class="modal-body p-3 pt-0">
-            
+
             <div class="alert alert-warning" role="alert">
                  <p>Are you sure?</p>
               <h6 class="alert-heading">Warning!</h6>
@@ -218,15 +218,15 @@
               </div>
             </div>
 
-         
-            
+
+
               <div class="col-sm-12 ps-sm-0">
                 <input type="hidden" id="delete_id" value="" />
                 <button type="submit" id="category_delete" class="btn btn-danger data-delete">Delete</button>
                  <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
               </div>
-             
-           
+
+
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@
           </div>
 
           <div class="modal-body p-3 pt-0">
-            
+
             <div class="alert" role="alert">
                  <p>Are you sure?</p>
               <h6 class="alert-heading">Warning!</h6>
@@ -255,16 +255,16 @@
               </div>
             </div>
 
-         
-            
+
+
               <div class="col-sm-12 ps-sm-0">
                 <input type="hidden" id="statuschange_id" value="" />
                 <input type="hidden" id="statuschange_status" value="" />
                 <button type="submit" id="category_statuschange" class="btn btn-danger data-delete">Save</button>
                 <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
               </div>
-             
-           
+
+
           </div>
         </div>
       </div>

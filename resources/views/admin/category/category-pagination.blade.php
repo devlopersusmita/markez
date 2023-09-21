@@ -43,7 +43,7 @@
 
 
                 <td>
-                    <table><tr><td> <span   class="btn btn-info view_modal"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >View</span></td><td> <span   class="btn btn-warning categoryedit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >Edit</span></td><td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#modals-delete" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >Delete</span></td></tr></table>
+                    <table><tr><td> <span   class="btn btn-info view_modal"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >View</span></td><td> <span   class="btn btn-warning categoryedit_modal" data-toggle="modal" data-target="#categorymodals-edit" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >Edit</span></td><td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#modals-delete" style="cursor: pointer;" data-id="<?php echo $category['id']?>" >Delete</span></td></tr></table>
 
 
 

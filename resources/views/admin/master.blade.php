@@ -406,7 +406,7 @@
                 $('body').css('padding-right', '0px');
                 $('.modal-backdrop').remove();
                 $('#name_edit').val('');
-                $('#modals-edit').hide();
+                $('#categorymodals-edit').hide();
 
 
               },
