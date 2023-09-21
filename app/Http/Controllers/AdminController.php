@@ -248,6 +248,9 @@ class AdminController extends Controller
                 public function privacypolicyupdate(Request $request,$id)
                 {
 
+                    $exist_no = Privacypolicy::get()->count();
+                    dd($exist_no);
+
                     $privacy_policy = $request->input('privacy_policy_value');
                      $privacypolicys =  Privacypolicy::where('id',$id)->first();
 
