@@ -52,7 +52,7 @@
             </tr>
            @endforeach
 
-           @if ($categories.length == 0)
+           @if ($categories->count() == 0)
 
            <tr>
             <td colspan="4">
