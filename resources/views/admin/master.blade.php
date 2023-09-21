@@ -3965,7 +3965,7 @@ $(document).on('click', '.edit_modalpackage', function () {
                 var data = datav.data;
                   //alert(JSON.stringify(data));
 
-                  alert(data.from_date);
+                 // alert(data.from_date);
 
 
 
