@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-6">
             <label>Privacy Policy</label>
-            <p id="show_name">{!!@$privacypolicys->privacy_policy!!}</p>
+            <p id="show_name">{!!@$privacypolicys[0]->privacy_policy!!}</p>
         </div>
 
         <div class="col-md-12 mt-3 text-right"  >
