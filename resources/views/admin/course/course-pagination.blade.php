@@ -1,9 +1,5 @@
 
-      <div class="review_filter">
-        <h3>No Data Found</h3>
-      </div>
-    @endif
-@if(!empty($courses))
+
 @include('frontend.notification')
 
 
@@ -55,15 +51,15 @@
             </tr>
 
            @endforeach
-           @if ($courses->count() == 0)
+                        @if ($courses->count() == 0)
 
-<tr>
-<td colspan="6">
-    No Record Found!!
-</td>
-</tr>
+                <tr>
+                <td colspan="6">
+                    No Record Found!!
+                </td>
+                </tr>
 
-@endif
+                @endif
         </tbody>
     </table>
 
