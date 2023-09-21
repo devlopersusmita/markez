@@ -3974,7 +3974,8 @@ $(document).on('click', '.edit_modalpackage', function () {
                   $('#order_no_edit').val(data.order_no);
                   $('#price_edit').val(data.price);
                   $('#days_edit').val(data.days);
-                  $('#descriptions_edit').val(data.descriptions);
+
+                  CKEDITOR.instances.descriptions_edit.setData(data.descriptions);
 
 
 
