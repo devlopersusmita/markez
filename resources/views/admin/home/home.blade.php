@@ -143,7 +143,7 @@
 
                   <div class="col-md-12">
                       <label>Slider</label>
-                      <input type="file" class="form-control" name="slider" id="slider"  required/>
+                      <input type="file" class="form-control" name="slider" id="slider" accept=".png, .jpg, .jpeg"  required/>
 
                   </div>
                   <div class="col-md-12">
@@ -206,7 +206,7 @@
                   <div class="col-md-12">
                       <label>Slider</label>
 
-                     <img src="" id="old_slider"  name="old_slider" alt="" width="80%">
+                     <img src="" id="old_slider"  name="old_slider" alt="" width="80%" accept=".png, .jpg, .jpeg" >
                      <br>
 
 
