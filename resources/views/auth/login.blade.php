@@ -62,10 +62,10 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- @if (Route::has('password.request'))
+                                        @if (Route::has('password.request'))
                                             <a  href="{{ route('password.request') }}">Forgot Password?</a>
                                         @endif -->
-                                    </div> -->
+                                    <!-- </div>  -->
                                 </div>
 
                                 <div class="buttons">
