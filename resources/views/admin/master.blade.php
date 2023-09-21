@@ -4853,7 +4853,7 @@ var editHomesettingForm = $('.edit-new-homestting');
 
                  // alert(data.from_date);
 
-             CKEDITOR.instances.privacy_policy_edit.setData(data.privacy_policy);
+             CKEDITOR.instances.privacy_policy_edit.setData(data[0].privacy_policy);
 
 
 
