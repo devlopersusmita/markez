@@ -14,9 +14,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1>Terms and Conditions</h1>
-             
-				<p>  {!!$termsandcondition->terms_contents!!}</p>
-             
+
+				<p>  {!!@$termsandcondition->terms_contents!!}</p>
+
 
 			</div>
 		</div>
