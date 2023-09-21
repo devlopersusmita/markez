@@ -1,4 +1,4 @@
-@if(!empty($students))
+
 @include('frontend.notification')
 
 
@@ -57,6 +57,15 @@
             </tr>
 
            @endforeach
+           @if ($students->count() == 0)
+
+                <tr>
+                <td colspan="6">
+                    No Record Found!!
+                </td>
+                </tr>
+
+            @endif
         </tbody>
     </table>
 
@@ -69,7 +78,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 

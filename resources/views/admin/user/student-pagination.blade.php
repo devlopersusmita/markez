@@ -1,4 +1,4 @@
-@if(!empty($students))
+
 @include('frontend.notification')
 
 
@@ -25,7 +25,7 @@
                   <td>{{$student['name']}}  </td>
                    <td>{{$student['email']}} </td>
                    <td>
-                    <?php 
+                    <?php
                     if($student['avatar']!=''){
                         echo '<img src="'.asset($student['avatar']).'" width="80" />';
                         } ?>
@@ -43,20 +43,29 @@
                     </td></tr></table>
                 </td>
 
-                
+
                  <td>
                     <table><tr><td> <span   class="btn btn-info student_view_modals"  data-toggle="modal" data-target="#student-modals-view" style="cursor: pointer;" data-id="<?php echo $student['id']?>" >View</span></td><td> <span   class="btn btn-warning student_password_modal" data-toggle="modal" data-target="#modals-password-student" style="cursor: pointer;" data-id="<?php echo $student['id']?>" >Password Change</span></td></tr></table>
 
 
 
                 </td>
-              
+
 
 
 
             </tr>
 
            @endforeach
+           @if ($students->count() == 0)
+
+                <tr>
+                <td colspan="6">
+                    No Record Found!!
+                </td>
+                </tr>
+
+            @endif
         </tbody>
     </table>
 
@@ -69,7 +78,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 

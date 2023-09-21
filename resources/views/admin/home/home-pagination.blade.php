@@ -50,6 +50,17 @@
             </tr>
 
            @endforeach
+
+
+           @if ($homes->count() == 0)
+
+                <tr>
+                <td colspan="6">
+                    No Record Found!!
+                </td>
+                </tr>
+
+            @endif
         </tbody>
     </table>
 
@@ -62,7 +73,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 

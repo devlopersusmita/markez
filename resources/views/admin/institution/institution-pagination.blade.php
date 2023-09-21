@@ -1,11 +1,11 @@
 
 
-@if($institutions->count()==0)
+
 
 @include('frontend.notification')
 
 
-@else
+
 <div class="card">
 <div class="card-body table-responsive">
     <table id="example1_123" class="table table-bordered table-striped">
@@ -50,6 +50,15 @@
             </tr>
 
            @endforeach
+                        @if ($institutions->count() == 0)
+
+                <tr>
+                <td colspan="6">
+                    No Record Found!!
+                </td>
+                </tr>
+
+                @endif
         </tbody>
     </table>
 
@@ -62,7 +71,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 

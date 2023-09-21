@@ -1,4 +1,4 @@
-@if(!empty($formdata))
+
 @include('frontend.notification')
 
 
@@ -48,6 +48,16 @@
             </tr>
 
            @endforeach
+
+           @if ($formdata->count() == 0)
+
+                <tr>
+                <td colspan="6">
+                    No Record Found!!
+                </td>
+                </tr>
+
+            @endif
         </tbody>
     </table>
 
@@ -60,7 +70,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 

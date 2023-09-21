@@ -1,4 +1,4 @@
-@if(!empty($faqs))
+
 @include('frontend.notification')
 
 
@@ -50,6 +50,16 @@
             </tr>
 
            @endforeach
+
+                                @if ($faqs->count() == 0)
+
+                        <tr>
+                        <td colspan="4">
+                            No Record Found!!
+                        </td>
+                        </tr>
+
+                        @endif
         </tbody>
     </table>
 
@@ -62,7 +72,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 

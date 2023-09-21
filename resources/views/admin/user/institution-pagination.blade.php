@@ -1,4 +1,4 @@
-@if(!empty($institutions))
+
 @include('frontend.notification')
 
 
@@ -25,7 +25,7 @@
                   <td>{{$institution['name']}}  </td>
                    <td>{{$institution['email']}} </td>
                    <td>
-                    <?php 
+                    <?php
                     if($institution['avatar']!=''){
                         echo '<img src="'.asset($institution['avatar']).'" width="80" />';
                         } ?>
@@ -43,20 +43,29 @@
                     </td></tr></table>
                 </td>
 
-                
+
                  <td>
                     <table><tr><td> <span   class="btn btn-info institution_view_modals"  data-toggle="modal" data-target="#institution-modals-view" style="cursor: pointer;" data-id="<?php echo $institution['id']?>" >View</span></td><td> <span   class="btn btn-warning institution_password_modal" data-toggle="modal" data-target="#modals-password-institution" style="cursor: pointer;" data-id="<?php echo $institution['id']?>" >Password Change</span></td></tr></table>
 
 
 
                 </td>
-              
+
 
 
 
             </tr>
 
            @endforeach
+           @if ($institutions->count() == 0)
+
+<tr>
+<td colspan="6">
+    No Record Found!!
+</td>
+</tr>
+
+@endif
         </tbody>
     </table>
 
@@ -69,7 +78,7 @@
 </div>
 
 </div>
-    @endif
+
 
 
 
