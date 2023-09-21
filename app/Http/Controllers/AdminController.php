@@ -285,7 +285,7 @@ class AdminController extends Controller
 
                         $privacypolicys =  Privacypolicy::first();
 
-                        $privacypolicys->privacy_policy = $privacy_policy;
+                        $privacypolicys[0]->privacy_policy = $privacy_policy;
 
 
 
