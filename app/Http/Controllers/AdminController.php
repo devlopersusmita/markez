@@ -293,10 +293,6 @@ class AdminController extends Controller
 
 
 
-
-
-
-
                            if($privacypolicys->save()){
 
                                $data7=Privacypolicy::orderBy('privacy_policy.id','desc')->select('privacy_policy.*')->get();
