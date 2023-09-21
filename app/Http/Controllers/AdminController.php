@@ -282,9 +282,10 @@ class AdminController extends Controller
                     else{
 
                         $privacy_policy = $request->input('privacy_policy_value');
-                        $privacypolicys =  Privacypolicy::where('id',$id)->first();
 
-                           $privacypolicys->privacy_policy = $privacy_policy;
+                        $privacypolicys =  Privacypolicy::get();
+
+                        $privacypolicys->privacy_policy = $privacy_policy;
 
 
 
