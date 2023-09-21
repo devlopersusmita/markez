@@ -5291,6 +5291,15 @@ $(document).on('click', '.formview-modals', function () {
 
                htmlcont=htmlcont+'</thead>';
                htmlcont=htmlcont+'<tbody>';
+
+               if(field_datalist.length==0){
+                htmlcont+=`<tr>
+                    <td colspan="10">
+                        No Record Found!!
+                    </td>
+                </tr>`;
+               }
+
                let text = "";
              for (let i = 0; i < field_datalist.length; i++) {
                htmlcont=htmlcont+'<tr>';
