@@ -18,7 +18,7 @@
         <?php if(@$privacypolicy->id) { ?>
         <span class="btn btn-warning privacypolicyedit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo @$privacypolicy->id?>" >Update</span>
         <?php  } else { ?>
-            <span class="btn btn-warning privacypolicyedit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="0" >Add (<?php echo $privacypolicy->id; ?>)</span>
+            <span class="btn btn-warning privacypolicyedit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="0" >Add (<?php echo @$privacypolicy[0]->id; ?>)</span>
             <?php } ?>
               </div>
     </div>
