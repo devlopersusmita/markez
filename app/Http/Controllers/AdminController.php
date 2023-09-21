@@ -268,10 +268,10 @@ class AdminController extends Controller
 
                             $data7=Privacypolicy::orderBy('privacy_policy.id','desc')->select('privacy_policy.*')->get();
 
-                             Session::flash('success', 'successfully  updated!');
+                             Session::flash('success', 'successfully  added!');
 
                              return response()->json([
-                              'message' => 'successfully  updated!',
+                              'message' => 'successfully  added!',
                               'data'=> $data7
                             ]);
                         }else{
@@ -338,29 +338,9 @@ class AdminController extends Controller
 
             $data7=Aboutus::orderBy('about_us.id','desc')->select('about_us.*')->get();
 
-              $thearray = [];
-             if(count($data7) > 0)
-             {
-                foreach($data7 as $k2=>$v2)
-                {
 
 
-
-
-                            $thearray[]=array(
-                                'aboutus_content'=>$v2->aboutus_content
-                                ,'aboutus_banner'=>$v2->aboutus_banner
-                                ,'aboutus_siteimage'=>$v2->aboutus_siteimage
-
-
-                                ,'id'=>$v2->id
-
-                            );
-
-                }
-             }
-
-           $data = $this->paginate_aboutus($thearray);
+           $data = $this->paginate_aboutus($data7);
 
            if($request->ajax()){
                return view('admin.aboutus.aboutus-pagination',['aboutuss'=>$data]);
@@ -382,6 +362,11 @@ class AdminController extends Controller
 
             public function aboutusupdate(Request $request,$id)
             {
+
+
+                $exist_no = Aboutus::orderBy('about_us.id','desc')->select('about_us.*')->get()->count();
+
+                if($exist_no == 0) {
 
                 $aboutus_content = $request->input('aboutus_content_value');
 
@@ -460,7 +445,11 @@ class AdminController extends Controller
                             }
                          }
                 }
-                 $aboutus =  Aboutus::where('id',$id)->first();
+
+                 $aboutus = new Aboutus();
+
+
+
                  if($aboutus_banner) {
                     $aboutus->aboutus_banner = $aboutus_banner;
                 }
@@ -483,10 +472,10 @@ class AdminController extends Controller
 
                         $data7=Aboutus::orderBy('about_us.id','desc')->select('about_us.*')->get();
 
-                         Session::flash('success', 'successfully  updated!');
+                         Session::flash('success', 'successfully  added!');
 
                          return response()->json([
-                          'message' => 'successfully  updated!',
+                          'message' => 'successfully  added!',
                           'data'=> $data7
                         ]);
                     }else{
@@ -495,7 +484,124 @@ class AdminController extends Controller
                               'message' => 'Something wrong!'
                             ]);
                     }
+                }
+                else
+                {
 
+                    $aboutus_content = $request->input('aboutus_content_value');
+
+                    $aboutus_banner=$request->old_aboutus_banner;
+
+
+                    if($request->file('aboutus_banner'))
+                    {
+                        if(file_exists(public_path().'/'.$request->old_aboutus_banner))
+                        {
+                            if($request->old_aboutus_banner!='')
+                            {
+                            unlink(public_path().'/'.$request->old_aboutus_banner);
+                            }
+                        }
+
+                            $image=$request->file('aboutus_banner') ;
+
+
+                             $originName = $image->getClientOriginalName();
+                             $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                             $fileName = preg_replace("/[^a-zA-Z0-9]+/", "", $fileName);
+
+                             $extension = $image->getClientOriginalExtension();
+                             $fileName = $fileName.'_'.time().'.'.$extension;
+
+                             if (in_array($extension,['png','jpg','jpeg']))
+                             {
+                                if($image->move(public_path().'/frontend/images/', $fileName))
+                                {
+                                    $attachment_1 =  'frontend/images/'.$fileName;
+
+                                    $aboutus_banner = $attachment_1;
+                                }
+                                else
+                                {
+                                   return response()->json(['status'=>'error','error'=>'aboutus_banner  couldn\'t save, please try again later!']);
+                                }
+                             }
+                    }
+
+                    $aboutus_siteimage=$request->old_aboutus_siteimage;
+
+
+                    if($request->file('aboutus_siteimage'))
+                    {
+                        if(file_exists(public_path().'/'.$request->old_aboutus_siteimage))
+                        {
+                            if($request->old_aboutus_siteimage!='')
+                            {
+                            unlink(public_path().'/'.$request->old_aboutus_siteimage);
+                            }
+                        }
+
+                            $image=$request->file('aboutus_siteimage') ;
+
+
+                             $originName = $image->getClientOriginalName();
+                             $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                             $fileName = preg_replace("/[^a-zA-Z0-9]+/", "", $fileName);
+
+                             $extension = $image->getClientOriginalExtension();
+                             $fileName = $fileName.'_'.time().'.'.$extension;
+
+                             if (in_array($extension,['png','jpg','jpeg']))
+                             {
+                                if($image->move(public_path().'/frontend/images/', $fileName))
+                                {
+                                    $attachment_1 =  'frontend/images/'.$fileName;
+
+                                    $aboutus_siteimage = $attachment_1;
+                                }
+                                else
+                                {
+                                   return response()->json(['status'=>'error','error'=>'aboutus_siteimage  couldn\'t save, please try again later!']);
+                                }
+                             }
+                    }
+                     $aboutus =  Aboutus::where('id',$id)->first();
+                     if($aboutus_banner) {
+                        $aboutus->aboutus_banner = $aboutus_banner;
+                    }
+                    if($aboutus_siteimage) {
+                        $aboutus-> aboutus_siteimage= $aboutus_siteimage;
+                    }
+
+                        $aboutus->aboutus_content = $aboutus_content;
+
+
+
+
+
+
+
+
+
+
+                        if($aboutus->save()){
+
+                            $data7=Aboutus::orderBy('about_us.id','desc')->select('about_us.*')->get();
+
+                             Session::flash('success', 'successfully  updated!');
+
+                             return response()->json([
+                              'message' => 'successfully  updated!',
+                              'data'=> $data7
+                            ]);
+                        }else{
+                             Session::flash('error', 'Something wrong!');
+                             return response()->json([
+                                  'message' => 'Something wrong!'
+                                ]);
+                        }
+
+                }
             }
 
 
@@ -503,7 +609,7 @@ class AdminController extends Controller
             {
 
 
-                $aboutus = Aboutus::find($id);
+                $aboutus = Aboutus::get();
                 //return $categories;
                 $asset = asset('');
                 return json_encode(array('status'=>'ok','data'=>$aboutus,'asset'=>$asset));

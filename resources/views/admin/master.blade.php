@@ -4989,29 +4989,29 @@ var editHomesettingForm = $('.edit-new-homestting');
                  // alert(data.from_date);
                  var asset = datav.asset;
 
-             CKEDITOR.instances.aboutus_content_edit.setData(data.aboutus_content);
+             CKEDITOR.instances.aboutus_content_edit.setData(data[0].aboutus_content);
 
 
-             if((data.aboutus_banner=='') || (data.aboutus_banner==null))
+             if((data[0].aboutus_banner=='') || (data[0].aboutus_banner==null))
                    {
 
                    }
                    else
                     {
-                       $('#aboutus_banner_edit_div').html('<img src="'+asset+data.aboutus_banner+'" width="100" />');
+                       $('#aboutus_banner_edit_div').html('<img src="'+asset+data[0].aboutus_banner+'" width="100" />');
                     }
-                    $('#old_aboutus_banner').val(data.aboutus_banner);
+                    $('#old_aboutus_banner').val(data[0].aboutus_banner);
 
 
-                     if((data.aboutus_siteimage=='') || (data.aboutus_siteimage==null))
+                     if((data[0].aboutus_siteimage=='') || (data[0].aboutus_siteimage==null))
                    {
 
                    }
                    else
                     {
-                       $('#aboutus_siteimage_edit_div').html('<img src="'+asset+data.aboutus_siteimage+'" width="100" />');
+                       $('#aboutus_siteimage_edit_div').html('<img src="'+asset+data[0].aboutus_siteimage+'" width="100" />');
                     }
-                    $('#old_aboutus_siteimage').val(data.aboutus_siteimage);
+                    $('#old_aboutus_siteimage').val(data[0].aboutus_siteimage);
 
 
 
