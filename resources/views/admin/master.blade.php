@@ -4785,6 +4785,8 @@ var editHomesettingForm = $('.edit-new-homestting');
                         processData: false,
                         success: function (data) {
 
+
+
                             window.location.href="{{route('privacypolicy')}}";
 
                             var responce = data.data[0];

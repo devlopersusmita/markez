@@ -249,6 +249,7 @@ class AdminController extends Controller
                 {
 
                     $exist_no = Privacypolicy::orderBy('privacy_policy.id','desc')->select('privacy_policy.*')->get()->count();
+
                     if($exist_no == 0) {
                     $privacy_policy = $request->input('privacy_policy_value');
                      $privacypolicys = new Privacypolicy();
@@ -316,8 +317,10 @@ class AdminController extends Controller
                 {
 
 
-                    $privacypolicys = Privacypolicy::find($id);
+                    $privacypolicys = Privacypolicy::get();
                     //return $categories;
+
+
 
                     return json_encode(array('status'=>'ok','data'=>$privacypolicys));
 
