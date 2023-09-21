@@ -53,8 +53,19 @@
 
 
             </tr>
-
            @endforeach
+
+           @if ($categories.length == 0)
+
+           <tr>
+            <td colspan="4">
+                No Record Found!!
+            </td>
+           </tr>
+
+           @endif
+
+
         </tbody>
     </table>
 
