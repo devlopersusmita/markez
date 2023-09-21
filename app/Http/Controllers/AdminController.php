@@ -285,11 +285,11 @@ class AdminController extends Controller
 
                         $privacypolicys =  Privacypolicy::first();
 
-                        return response()->json([
-                            'data' => $privacypolicys
-                          ]);
+                        // return response()->json([
+                        //     'data' => $privacypolicys
+                        //   ]);
 
-                        $privacypolicys[0]->privacy_policy = $privacy_policy;
+                        $privacypolicys->privacy_policy = $privacy_policy;
 
 
 
