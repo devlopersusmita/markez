@@ -171,7 +171,7 @@
     </div>
     <!-- Modal to view new form Ends-->
 
-      <!-- Modal to delete Category start-->
+      <!-- Modal to delete form start-->
     <div class="modal fade" id="formmodals-delete" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -196,7 +196,7 @@
 
               <div class="col-sm-12 ps-sm-0">
                 <input type="hidden" id="delete_id" value="" />
-                <button type="submit" id="category_delete" class="btn btn-danger data-delete">Delete</button>
+                <button type="submit" id="form_delete" class="btn btn-danger data-delete">Delete</button>
                  <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary" >Cancel</button>
               </div>
 
@@ -205,7 +205,7 @@
         </div>
       </div>
     </div>
-    <!-- Modal to delete Category Ends-->
+    <!-- Modal to delete form Ends-->
 
 
  <!-- Modal to add new form starts-->
