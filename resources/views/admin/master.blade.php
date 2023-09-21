@@ -331,6 +331,7 @@
                cache: false,
                processData: false,
               success: function (data) {
+                window.location.href="{{ route('category') }}";
 
                $('#category_add').html('Save');
                    // alert(JSON.stringify(data));
@@ -397,6 +398,7 @@
                cache: false,
                processData: false,
               success: function (data) {
+                window.location.href="{{ route('category') }}";
 
                $('#category_edit').html('Save');
                    // alert(JSON.stringify(data));
@@ -453,6 +455,7 @@
               type: "post",
               dataType: 'json',
               success: function (data) {
+                window.location.href="{{ route('category') }}";
 
                  $('#search_btn').trigger('click');
                  $('body').removeClass('modal-open');
@@ -624,6 +627,8 @@
               type: "post",
               dataType: 'json',
               success: function (data) {
+                window.location.href="{{ route('category') }}";
+
 
                  $('#search_btn').trigger('click');
                  $('body').removeClass('modal-open');
