@@ -5639,7 +5639,7 @@ $.ajax({
     type: "post",
     dataType: 'json',
     success: function (data) {
-      window.location.href="{{ route('adminform') }}";
+      window.location.href="{{ route('enquiry') }}";
        $('#search_btn').trigger('click');
        $('body').removeClass('modal-open');
       $('body').css('padding-right', '0px');
