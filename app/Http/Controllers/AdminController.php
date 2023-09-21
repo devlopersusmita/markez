@@ -247,8 +247,39 @@ class AdminController extends Controller
 
                 public function privacypolicyupdate(Request $request,$id)
                 {
-
+                    if($id == 0)
+                    {
                     $privacy_policy = $request->input('privacy_policy_value');
+                     //$privacypolicys =  Privacypolicy::where('id',$id)->first();
+                     $privacypolicys = new Privacypolicy();
+
+                        $privacypolicys->privacy_policy = $privacy_policy;
+
+
+
+
+
+
+
+                        if($privacypolicys->save()){
+
+                            $data7=Privacypolicy::orderBy('privacy_policy.id','desc')->select('privacy_policy.*')->get();
+
+                             Session::flash('success', 'successfully  updated!');
+
+                             return response()->json([
+                              'message' => 'successfully  updated!',
+                              'data'=> $data7
+                            ]);
+                        }else{
+                             Session::flash('error', 'Something wrong!');
+                             return response()->json([
+                                  'message' => 'Something wrong!'
+                                ]);
+                        }
+                    }
+                    else{
+                        $privacy_policy = $request->input('privacy_policy_value');
                      $privacypolicys =  Privacypolicy::where('id',$id)->first();
 
                         $privacypolicys->privacy_policy = $privacy_policy;
@@ -276,6 +307,7 @@ class AdminController extends Controller
                                 ]);
                         }
 
+                    }
                 }
 
 
