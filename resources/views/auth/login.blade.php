@@ -16,7 +16,7 @@
 
                         <h2 class="form-title text-center">Welcome Back</h2>
                         <h3 class="form-subtitle text-center">Enter your credentials to sign in.</h3>
-                        
+
 
                         <!--Form-->
                         <form method="POST" action="{{ route('login') }}">
@@ -50,7 +50,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="field is-flex">
+                                    <!-- <div class="field is-flex">
                                         <div class="switch-block">
                                             <label class="f-switch">
                                                  <input class="is-switch" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -65,7 +65,7 @@
                                         <!-- @if (Route::has('password.request'))
                                             <a  href="{{ route('password.request') }}">Forgot Password?</a>
                                         @endif -->
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <div class="buttons">
@@ -74,9 +74,9 @@
 
                                <!--  <div class="account-link has-text-centered">
                                      @if (Route::has('register'))
-                                       
+
                                             <a  href="{{ route('register') }}">Don't have an account? Sign Up</a>
-                                     
+
                                     @endif
                                 </div> -->
                             </div>
