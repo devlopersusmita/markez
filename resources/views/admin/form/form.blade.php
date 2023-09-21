@@ -208,7 +208,7 @@
     <!-- Modal to delete form Ends-->
 
 
- <!-- Modal to add new form starts-->
+ <!-- Modal to add new formfield starts-->
  <div class="modal fade common_modal" id="pagemodals-add-field" tabindex="1" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -239,7 +239,7 @@
                         <div class="field">
                             <label class="required">Sort Order </label>
                             <div class="control">
-                            <input class="form-control"  type="text" name="field_order" id="field_order"  placeholder="Field Order" required>
+                            <input class="form-control"  type="number" name="field_order" id="field_order"  placeholder="Field Order" required>
                             </div>
                         </div>
                 </div>
@@ -405,5 +405,5 @@
 
       </div>
     </div>
-    <!-- Modal to add new form Ends-->
+    <!-- Modal to add new formfield Ends-->
 
