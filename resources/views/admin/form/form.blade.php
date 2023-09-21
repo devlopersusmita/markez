@@ -239,7 +239,7 @@
                         <div class="field">
                             <label class="required">Sort Order </label>
                             <div class="control">
-                            <input class="form-control"  type="number" name="field_order" id="field_order"  placeholder="Field Order" required>
+                            <input class="form-control"  type="number" name="field_order" id="field_order" maxlenth="10" placeholder="Field Order" required>
                             </div>
                         </div>
                 </div>
