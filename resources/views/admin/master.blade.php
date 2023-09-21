@@ -720,7 +720,7 @@
     });
 
 
-    $(document).on('click', '.view_modal', function () {
+    $(document).on('click', '.categoryview_modal', function () {
 
       var id = $(this).data("id");
 
