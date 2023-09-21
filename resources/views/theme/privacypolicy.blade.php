@@ -14,9 +14,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1>Privacy Policy</h1>
-               
-				<p>  {!!$privacypolicy->privacy_policy!!}</p>
-              
+
+				<p>  {!!@$privacypolicy->privacy_policy!!}</p>
+
 			</div>
 		</div>
 	</div>
