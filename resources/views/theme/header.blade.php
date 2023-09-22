@@ -21,7 +21,7 @@
                </a>
             </div>
             <div class="header-btn">
-
+<h1>{{Session::has('institute_name')}}</h1>
             @if(Session::has('institute_name'))
                <ul class="nav-div">
                   <li class="nav-item dropdown">
