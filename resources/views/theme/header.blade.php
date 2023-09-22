@@ -22,7 +22,7 @@
             </div>
             <div class="header-btn">
 <h1>{{Session::has('institute_name')}}</h1>
-
+            @if(Session::has('institute_name') != 1)
                <ul class="nav-div">
                   <li class="nav-item dropdown">
                      <a href="#" class="dropdown-toggle login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
@@ -37,7 +37,6 @@
                         </li>
                      </ul>
                   </li>
-                  @if(Session::has('institute_name'))
                   @if (Route::has('register.step1'))
                   <li class="nav-item"><a class="nav-link" href="{{ Route('register.step1') }}">Sign Up</a></li>
                   @endif
