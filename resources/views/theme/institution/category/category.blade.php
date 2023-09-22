@@ -13,7 +13,7 @@
     @include('frontend.notification')
     <div class="table-responsive category-table">
       <table class="table">
-         
+
         <thead>
           <th>Category Name</th>
           <th>Slug</th>
@@ -41,12 +41,12 @@
           </tr>
         @endforeach
         </tbody>
-        
+
       </table>
     </div>
        @endsection
-   
-  
+
+
 
  <!-- Modal to add new Category starts-->
  <div class="modal fade" id="modals-add" tabindex="1" aria-hidden="true">
@@ -63,6 +63,7 @@
           <div class="modal-body p-3">
             <form class="add-new-category"   enctype="multipart/form-data" >
             <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$user_ids}}" name="user_ids">
              <div class="row">
                 <div class="col-md-6 modal-bottom-gap">
                     <label>Name</label>
@@ -103,6 +104,7 @@
           <div class="modal-body p-3">
             <form class="edit-new-category"   enctype="multipart/form-data" >
             <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$user_ids}}" name="user_ids">
              <div class="row">
                 <div class="col-md-6 modal-bottom-gap">
                     <label>Name</label>

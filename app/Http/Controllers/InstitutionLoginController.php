@@ -3113,6 +3113,12 @@ public function institutioncategory(Request $request)
     } else {
         $user_id = $request->institution_id;
     }
+  //userstable id//
+  if($request->user_id == null) {
+    $user_ids = $_GET['user_id'];
+} else {
+    $user_ids = $request->user_id;
+}
 
 
     $data7=Category::where('institution_id',$user_id)->orderBy('categories.id','desc')->select('categories.*')->get();
@@ -3136,7 +3142,7 @@ public function institutioncategory(Request $request)
      }
 
 
-   return view('theme.institution.category.category',['categories'=>$thearray,'user_id'=>$user_id]);
+   return view('theme.institution.category.category',['categories'=>$thearray,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 
