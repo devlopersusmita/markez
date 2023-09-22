@@ -190,10 +190,11 @@ public function pageupdate(Request $request,$id)
             $content=$request->content_value;
         }
      $title = $request->input('title');
-
+     $slug = Str::slug($request->input('title'));
 
      $page =  Page::where('id',$id)->first();
         $page->title = $request->title;
+        $page->slug = $slug;
         $page->created_by =  $request->user_id;
 
 
