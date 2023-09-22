@@ -119,7 +119,7 @@
                   <div class="field">
                      <label>Link</label>
                      <div class="control">
-                        <input type="text" class="input title-input" id="link" placeholder="Enter the Link" name="link" required>
+                        <input type="url" class="input title-input" id="link" placeholder="Enter the Link" name="link" required>
                      </div>
                   </div>
                   <div class="field">
@@ -191,7 +191,7 @@
                   <div class="field">
                      <label>Link</label>
                      <div class="control">
-                        <input type="text" class="input title-input" id="link_edit" placeholder="Enter the Link" name="link" required>
+                        <input type="url" class="input title-input" id="link_edit" placeholder="Enter the Link" name="link" required>
                      </div>
                   </div>
                   <div class="field">
