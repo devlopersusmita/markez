@@ -93,7 +93,7 @@ class InstitutionLoginController extends Controller
         //dd($institution_theme_details);
 
 
-         return view('theme.institution.profile',['user_details'=>$user_details,'institution_details'=>$institution_details,'themes'=>$themes,'institution_theme_details'=>$institution_theme_details,'user_id'=>$user_id]);
+         return view('theme.institution.profile',['user_details'=>$user_details,'institution_details'=>$institution_details,'themes'=>$themes,'institution_theme_details'=>$institution_theme_details,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
     }
 
