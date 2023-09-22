@@ -47,7 +47,7 @@
                <div class="navbar-item"> <a href="{{ Route('institutionprofile') }}" >
                {{ Session::get('institute_name'); }}
                </a></div>
-               @endif
+
                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
