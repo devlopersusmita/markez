@@ -561,7 +561,7 @@ public function institutionmessage(Request $request)
       ->select('courses.*','categories.name as category_name')
         ->get();
 
-         //dd($data7);
+         dd($data7);
 
         //$users = User::where('created_at', '>=', $date)->get();
 
