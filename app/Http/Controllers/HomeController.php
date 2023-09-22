@@ -60,7 +60,7 @@ use Illuminate\Support\Facades\Http;
 use DB;
 
 use Carbon\Carbon;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 use App\Models\Country;
 use App\Models\Institution;
