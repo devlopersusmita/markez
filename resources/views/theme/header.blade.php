@@ -22,7 +22,7 @@
             </div>
             <div class="header-btn">
 
-                @if(session()->has('qwick'))
+
                <ul class="nav-div">
                   <li class="nav-item dropdown">
                      <a href="#" class="dropdown-toggle login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
@@ -41,14 +41,14 @@
                   <li class="nav-item"><a class="nav-link" href="{{ Route('register.step1') }}">Sign Up</a></li>
                   @endif
                </ul>
-               @else
+
                <div class="navbar-item">
                   <a href="{{ Route('institutionprofile') }}" >
                   {{ Session::get('institute_name'); }}
                   </a>
                </div>
 
-               @endif
+
             </div>
          </div>
       </div>
