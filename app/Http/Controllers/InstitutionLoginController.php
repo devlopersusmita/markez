@@ -3113,12 +3113,13 @@ public function institutioncategory(Request $request)
     } else {
         $user_id = $request->institution_id;
     }
-  //userstable id//
-  if($request->user_id == null) {
-    $user_ids = $_GET['user_id'];
-} else {
-    $user_ids = $request->user_id;
-}
+        //userstable id//
+        dd($request->user_id );
+        if($request->user_id == null) {
+            $user_ids = $_GET['user_id'];
+        } else {
+            $user_ids = $request->user_id;
+        }
 
 
     $data7=Category::where('institution_id',$user_id)->orderBy('categories.id','desc')->select('categories.*')->get();
