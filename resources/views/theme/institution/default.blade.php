@@ -5370,7 +5370,8 @@ $(document).on('click', '.categoryedit_modal', function () {
                                 processData: false,
                                 success: function (data) {
 
-                                    window.location.href="{{ route('institutionfaq', ['institution_id' => $_GET['institution_id']]) }}";
+
+                                    window.location.href=`/institutionfaq?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
                                     if(data.type == 'success'){
                                         $('#form-input-error').html('');
                                     $('#form-input-success').html('');
@@ -5456,7 +5457,9 @@ $(document).on('click', '.categoryedit_modal', function () {
                cache: false,
                processData: false,
               success: function (data) {
-                window.location.href="{{ route('institutionfaq', ['institution_id' => $_GET['institution_id']]) }}";
+
+
+                window.location.href=`/institutionfaq?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
                 if(data.type == 'success'){
                     $('#form-input-error').html('');
                  $('#form-input-success').html('');
@@ -5526,7 +5529,8 @@ $(document).on('click', '.categoryedit_modal', function () {
               type: "post",
               dataType: 'json',
               success: function (data) {
-                window.location.href="{{ route('institutionfaq', ['institution_id' => $_GET['institution_id']]) }}";
+
+                window.location.href=`/institutionfaq?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
 
                  $('#search_btn').trigger('click');
                  $('body').removeClass('modal-open');
@@ -5572,7 +5576,8 @@ $(document).on('click', '.categoryedit_modal', function () {
               type: "post",
               dataType: 'json',
               success: function (data) {
-                window.location.href="{{ route('institutionfaq', ['institution_id' => $_GET['institution_id']]) }}";
+
+                window.location.href=`/institutionfaq?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
 
                  $('#search_btn').trigger('click');
                  $('body').removeClass('modal-open');

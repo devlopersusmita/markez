@@ -3289,6 +3289,14 @@ public function institutionfaq(Request $request)
         $user_id = $request->institution_id;
     }
 
+
+        //userstable id//
+        if($request->user_id == null) {
+            $user_ids = $_GET['user_id'];
+        } else {
+            $user_ids = $request->user_id;
+        }
+
     $data7=Faq::where('institution_id',$user_id)->orderBy('faq.id','desc')->select('faq.*')->get();
 
       $thearray = [];
@@ -3312,7 +3320,7 @@ public function institutionfaq(Request $request)
      }
 
 
-   return view('theme.institution.faq.faq',['faqs'=>$thearray,'user_id'=>$user_id]);
+   return view('theme.institution.faq.faq',['faqs'=>$thearray,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 
