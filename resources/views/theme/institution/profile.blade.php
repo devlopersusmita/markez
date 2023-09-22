@@ -14,6 +14,7 @@
          @csrf
 		 @include('frontend.notification')
          <input type="hidden" value="{{$user_id}}" name="user_id">
+         <input type="text" value="{{$user_ids}}" name="user_ids">
 						<div class="profile-edit-wrap">
 							<div class="profile-edit">
 								<div class="avatar-upload">
@@ -29,7 +30,7 @@
 										@else
 										<div style="background-image: url({{asset($institution_details->logo)}});">
 
-                                       </div>  
+                                       </div>
 									   @endif
 									</div>
 								</div>
@@ -68,7 +69,7 @@
 												<input type="radio" name="theme_id"  id="<?php echo $cls_name?>" value="{{($theme->id)}}"
 										<?php if($theme->id==$institution_theme_details->theme_id){ echo "checked";}?>
 										/>
-										
+
 													<label for="<?php echo $cls_name?>" class="<?php echo $cls_name?>">
 							<label>{{$theme->theme_name}}</label>
 							<div class="card">
@@ -78,7 +79,7 @@
 							</label>
 							<?php $count=$count + 1;?>
 							@endforeach
-								
+
 							</div>
 						</div>
 

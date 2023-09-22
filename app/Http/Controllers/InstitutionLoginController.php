@@ -71,6 +71,12 @@ class InstitutionLoginController extends Controller
                 $user_id = $request->institution_id;
             }
 
+            if($request->user_id == null) {
+                $user_ids = $_GET['user_id'];
+            } else {
+                $user_ids = $request->user_id;
+            }
+
         //dd($user_id);
 
 
