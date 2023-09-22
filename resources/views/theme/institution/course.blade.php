@@ -94,6 +94,7 @@
                 <td class="course-action">
 
                 <input type="hidden" value="{{$user_id}}" name="user_id">
+                <input type="hidden" value="{{$user_ids}}" name="user_ids">
                                 <?php $course_id = $course["id"]; ?>
                                 <a href='{{Route("institutioncoursecontent",["id"=>$course_id,"institution_id"=>$user_id])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
 
@@ -134,6 +135,7 @@
         <div class="modal-body p-3">
                             <form class="add-new-course" enctype="multipart/form-data" >
                                 <input type="hidden" value="{{$user_id}}" name="user_id">
+                                <input type="hidden" value="{{$user_ids}}" name="user_ids">
                                 <div class="login-form">
                                     <div class="field">
                                         <label class="required">Title</label>
@@ -303,6 +305,7 @@
                 <form class="edit-new-course"   enctype="multipart/form-data" >
                     <input type="hidden" name="old_preview_image" id="old_preview_image" value="">
                     <input type="hidden" value="{{$user_id}}" name="user_id">
+                    <input type="hidden" value="{{$user_ids}}" name="user_ids">
                     <div class="login-form">
                         <div class="field">
                             <style>

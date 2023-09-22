@@ -530,6 +530,12 @@ public function institutionmessage(Request $request)
             $user_id = $request->institution_id;
         }
 
+            //userstable id//
+            if($request->user_id == null) {
+                $user_ids = $_GET['user_id'];
+            } else {
+                $user_ids = $request->user_id;
+            }
 
         //$user_id=Auth::id();
         $categories = Category::where('institution_id',$user_id)->orderBy('name','asc')->get();
@@ -586,7 +592,7 @@ public function institutionmessage(Request $request)
          }
 
 
-       return view('theme.institution.course',['courses'=>$thearray,'categories'=>$categories,'user_id'=>$user_id]);
+       return view('theme.institution.course',['courses'=>$thearray,'categories'=>$categories,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 
@@ -660,7 +666,7 @@ public function institutionmessage(Request $request)
 
 
 
-                        $created_by = $request->user_id;
+                        $created_by = $request->user_ids;
 
                         $slug = Str::slug($request->input('title'));
 
@@ -704,6 +710,7 @@ public function institutionmessage(Request $request)
                             $course->status = $request->status;
                             $course->created_by = $created_by;
                             $course->user_id = $created_by;
+                            $course->institution_id = $request->user_id;
                             $course->category_id = $request->category_id;
                             $course->description =  $description;
                             $course->students_limit =  $request->students_limit;
@@ -969,7 +976,7 @@ public function update(Request $request, Course $course,$id)
 
 
 
-                            $created_by = $request->user_id;
+                            $created_by = $request->user_ids;
 
                 $preview_image=$request->old_preview_image;
 
@@ -1043,62 +1050,7 @@ public function update(Request $request, Course $course,$id)
                         //course_teachers_user_id
 
 
-                    //     $submitted_teacher_id =$request->teacher_id;
-                    //     if(count($submitted_teacher_id) > 0){
 
-
-
-                    //     $course_teachers_user_id = CourseTeacher::where(['course_id'=>$course_id])->get();
-
-                    //     $existing_teacher_id_array =[];
-                    //     if(!empty($course_teachers_user_id))
-                    //     {
-                    //         foreach($course_teachers_user_id as $ctid)
-                    //         {
-                    //             $existing_teacher_id_array[] = $ctid->user_id;
-                    //         }
-                    //     }
-
-
-
-
-
-
-                    //     $remove_array = array_diff($existing_teacher_id_array,$submitted_teacher_id);
-
-
-                    //     $add_array = array_diff($submitted_teacher_id,$existing_teacher_id_array);
-
-
-
-
-                    //     if(count($remove_array) > 0)
-                    //     {
-
-                    //         foreach($remove_array as $r_teacher_id)
-                    //         {
-                    //             //delete
-                    //             CourseTeacher::where(['course_id'=>$course_id,'user_id'=>$r_teacher_id])->delete();
-
-                    //         }
-                    //     }
-
-                    //     if(count($add_array) > 0)
-                    //     {
-
-                    //         foreach($add_array as $a_teacher_id)
-                    //         {
-                    //             $courseTeacher =new CourseTeacher();
-                    //             $courseTeacher->course_id = $course_id;
-                    //             $courseTeacher->user_id = $a_teacher_id;
-                    //             $courseTeacher->created_by = Auth::id();
-                    //             $courseTeacher->commission_percentage = 0;
-                    //             $courseTeacher->save();
-
-                    //         }
-                    //     }
-
-                    // }
                         Session::flash('success', 'successfully course updated!');
 
                         return response()->json([
