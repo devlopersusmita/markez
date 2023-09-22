@@ -94,7 +94,7 @@
                 <td class="course-action">
 
                 <input type="hidden" value="{{$user_id}}" name="user_id">
-                <input type="hidden" value="{{$user_ids}}" name="user_ids">
+                <input type="text" value="{{$user_ids}}" name="user_ids">
                                 <?php $course_id = $course["id"]; ?>
                                 <a href='{{Route("institutioncoursecontent",["id"=>$course_id,"institution_id"=>$user_id])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
 
