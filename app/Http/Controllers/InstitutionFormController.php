@@ -54,6 +54,13 @@ class InstitutionFormController extends Controller
                  $user_id = $request->institution_id;
              }
              // dd($user_id);
+
+                    //userstable id//
+                    if($request->user_id == null) {
+                        $user_ids = $_GET['user_id'];
+                    } else {
+                        $user_ids = $request->user_id;
+                    }
          if($user_id){
                  $user = Institution::where('id',$user_id)->first();
 
@@ -86,7 +93,7 @@ class InstitutionFormController extends Controller
 
 
 
-             return view('theme.institution.institution-form',['pages'=>$data7,'formdata'=> $thearray,'user_id'=>$user_id,'form'=>$form]);
+             return view('theme.institution.institution-form',['pages'=>$data7,'formdata'=> $thearray,'user_id'=>$user_id,'form'=>$form,'user_ids'=>$user_ids]);
 
          }else{
 
