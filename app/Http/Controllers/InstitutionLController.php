@@ -58,7 +58,7 @@ class InstitutionLController extends Controller
                 }
                 if($user->domain_status == 'complete' && $user->payment_status == 'paid' && $user->inst_status == 'active') {
                     Session::put('institute_name', $user->name);
-                    Session::put('institute_id', $user->id);
+                    Session::put('institution_id', $user->id);
                     return redirect()->route('institutionprofile', ['institution_id' => $user->id]);
 
                 }

@@ -47,7 +47,7 @@
                <li class="nav-item">
                   <a href="{{ Route('institutionprofile') }}" >
                   {{ Session::get('institute_name'); }}
-                  {{ Session::get('institute_id');}}
+                  {{ Session::get('institution_id');}}
                   </a>
 
                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
