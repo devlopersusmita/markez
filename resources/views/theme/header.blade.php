@@ -44,7 +44,7 @@
                @else
                <ul class="nav-div">
                <li class="nav-item">
-                  <a href="{{ Route('institutionprofile',['institution_id' => $_GET['institution_id']]) }}" >
+                  <a href="{{ Route('institutionprofile') }}" >
                   {{ Session::get('institute_name'); }}
                   </a>
 
