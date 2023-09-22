@@ -14,7 +14,7 @@
          @csrf
 		 @include('frontend.notification')
          <input type="hidden" value="{{$user_id}}" name="user_id">
-         <input type="text" value="{{$user_ids}}" name="user_ids">
+         <input type="hidden" value="{{$user_ids}}" name="user_ids">
 						<div class="profile-edit-wrap">
 							<div class="profile-edit">
 								<div class="avatar-upload">
