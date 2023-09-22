@@ -49,7 +49,7 @@
                   {{ Session::get('institute_name'); }}
                   {{ Session::get('institution_id');}}
                   </a>
-
+<p>{{ Session::get('institution_id');}} </p>
                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
