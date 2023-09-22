@@ -40,17 +40,18 @@ class InstitutionLController extends Controller
 
 
         $user = Institution::where('email', $email)->first();
+        $userstable = User::where('email', $email)->first();
         if (($user && Hash::check($password, $user->password)))
         {
 
                 if($user->domain_status == 'pending' && $user->payment_status == 'pending' && $user->inst_status == 'inactive') {
                     $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
-                    return view('theme.step2',['subscriptions'=>$subscriptions,'institution_id'=>$user->id]);
+                    return view('theme.step2',['subscriptions'=>$subscriptions,'institution_id'=>$user->id,'user_id'=>$userstable->id]);
                 }
                 if($user->domain_status == 'complete' && $user->payment_status == 'pending' && $user->inst_status == 'inactive') {
                     $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
                     $order_details = Order::where('user_id',$user->id)->first();
-                    return view('theme.step3',['subscriptions'=>$subscriptions,'institution_id'=>$user->id,'order_details'=>$order_details]);
+                    return view('theme.step3',['subscriptions'=>$subscriptions,'institution_id'=>$user->id,'user_id'=>$userstable->id,'order_details'=>$order_details]);
                 }
                 if($user->domain_status == 'complete' && $user->payment_status == 'paid' && $user->inst_status == 'inactive') {
                     return redirect('/instlogin')->with('error', 'Your status is Inactive, Please contact with Administrator');
@@ -59,7 +60,7 @@ class InstitutionLController extends Controller
                 if($user->domain_status == 'complete' && $user->payment_status == 'paid' && $user->inst_status == 'active') {
                     Session::put('institute_name', $user->name);
                     Session::put('institution_id', $user->id);
-                    return redirect()->route('institutionprofile', ['institution_id' => $user->id]);
+                    return redirect()->route('institutionprofile', ['institution_id' => $user->id,'user_id'=>$userstable->id]);
 
                 }
 
