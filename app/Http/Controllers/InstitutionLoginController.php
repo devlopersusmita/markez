@@ -529,7 +529,7 @@ public function institutionmessage(Request $request)
         } else {
             $user_id = $request->institution_id;
         }
-        dd($user_ids = $request->user_id);
+
 
             //userstable id//
             if($request->user_id == null) {
@@ -542,7 +542,7 @@ public function institutionmessage(Request $request)
         $categories = Category::where('institution_id',$user_id)->orderBy('name','asc')->get();
 
 
-        $user_details = UserDetail::where('user_id',$user_id)->first();
+        $user_details = UserDetail::where('institution_id',$user_id)->first();
 
         $current_date = date('Y-m-d H:i:s');
         $subscription_end_date = $user_details->subscription_end_date;
@@ -557,7 +557,7 @@ public function institutionmessage(Request $request)
         $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
 
-        $data7=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('user_id',$user_id)->orderBy('courses.id','desc')
+        $data7=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('institution_id',$user_id)->orderBy('courses.id','desc')
       ->select('courses.*','categories.name as category_name')
         ->get();
 
