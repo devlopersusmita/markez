@@ -561,7 +561,7 @@ public function institutionmessage(Request $request)
       ->select('courses.*','categories.name as category_name')
         ->get();
 
-         dd($data7);
+         //dd($data7);
 
         //$users = User::where('created_at', '>=', $date)->get();
 
@@ -3154,7 +3154,7 @@ public function institutioncategorystore(Request $request)
         $category->name = $request->name;
         $category->slug = $slug;
         $category->institution_id = $created_by;
-        $category->created_by = $created_by;
+        //$category->created_by = $created_by;
 
         if($category->save()){
              Session::flash('success', 'successfully category added!');
