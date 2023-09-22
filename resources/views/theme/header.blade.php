@@ -23,7 +23,7 @@
             <div class="header-btn">
 
                   <ul class="nav-div">
-                  @guest
+
                   <li class="nav-item dropdown">
                      <a href="#" class="dropdown-toggle login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,8 +40,10 @@
                   @if (Route::has('register.step1'))
                   <li class="nav-item"><a class="nav-link" href="{{ Route('register.step1') }}">Sign Up</a></li>
                   @endif
-                  @else
+
 </ul>
+
+<?php echo $value = session('institute_name'); ?>
 
 
                <div class="navbar-item"> <a href="{{ Route('institutionprofile') }}" >
@@ -56,7 +58,7 @@
                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                @csrf
                </form>
-               @endguest
+
             </div>
          </div>
       </div>
