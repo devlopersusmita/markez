@@ -42,11 +42,12 @@
                   @endif
                </ul>
                @else
-               <div class="navbar-item">
+               <ul class="nav-div">
+               <li class="nav-item">
                   <a href="{{ Route('institutionprofile') }}" >
                   {{ Session::get('institute_name'); }}
                   </a>
-               </div>
+
                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
@@ -55,6 +56,8 @@
                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
                </form>
+            </li>
+              </ul>
                @endif
             </div>
          </div>
