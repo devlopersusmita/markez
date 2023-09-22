@@ -3114,7 +3114,7 @@ public function institutioncategory(Request $request)
         $user_id = $request->institution_id;
     }
         //userstable id//
-        dd($request->user_id );
+
         if($request->user_id == null) {
             $user_ids = $_GET['user_id'];
         } else {
