@@ -22,7 +22,7 @@
             </div>
             <div class="header-btn">
 
-
+             @if(session()->has('qwick'))
                <ul class="nav-div">
                   <li class="nav-item dropdown">
                      <a href="#" class="dropdown-toggle login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
@@ -47,7 +47,14 @@
                   {{ Session::get('institute_name'); }}
                   </a>
                </div>
-
+               <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+               {{ __('Logout') }}
+               </a>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+               </form>
 
             </div>
          </div>
