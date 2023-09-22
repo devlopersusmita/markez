@@ -529,6 +529,7 @@ public function institutionmessage(Request $request)
         } else {
             $user_id = $request->institution_id;
         }
+        dd($user_ids = $request->user_id);
 
             //userstable id//
             if($request->user_id == null) {
