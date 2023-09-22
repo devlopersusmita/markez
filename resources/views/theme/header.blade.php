@@ -42,12 +42,12 @@
                   @endif
                </ul>
                @else
-               <?php {{Session::get('institute_id');}}?>
+
                <ul class="nav-div">
                <li class="nav-item">
                   <a href="{{ Route('institutionprofile') }}" >
                   {{ Session::get('institute_name'); }}
-
+                  {{Session::get('institute_id');}}
                   </a>
 
                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
