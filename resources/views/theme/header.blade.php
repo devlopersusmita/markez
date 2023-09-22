@@ -45,7 +45,7 @@
 
                <div class="navbar-item">
 
-               <a href="{{ Route('institutionprofile',['institution_id'=> Session::has('institution_id')]) }}" >
+               <a href="{{ Route('institutionprofile',['institution_id'=> Session::has('institution_id'),'user_id'=> Session::has('user_id')]) }}" >
                   {{ Session::get('institute_name'); }}
 
 
