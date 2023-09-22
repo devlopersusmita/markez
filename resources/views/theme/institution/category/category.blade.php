@@ -63,7 +63,7 @@
           <div class="modal-body p-3">
             <form class="add-new-category"   enctype="multipart/form-data" >
             <input type="hidden" value="{{$user_id}}" name="user_id">
-            <input type="text" value="{{$user_ids}}" name="user_ids">
+            <input type="hidden" value="{{$user_ids}}" name="user_ids">
              <div class="row">
                 <div class="col-md-6 modal-bottom-gap">
                     <label>Name</label>
