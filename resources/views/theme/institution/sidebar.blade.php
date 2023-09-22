@@ -42,7 +42,7 @@
 							</li>
 
                             <li class="{{ Request::routeIs('institutioncategory') ? 'mm-active' : '' }}">
-								<a href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id']]) }}">
+								<a href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/page-icon.svg">
 									<span>Category</span>
 									<img class="metismenu-state-icon" src="images/page-icon.svg">
@@ -50,7 +50,7 @@
 							</li>
 
 							<li class="{{ Request::routeIs('institutionpage') ? 'mm-active' : '' }}">
-								<a href="{{ route('institutionpage', ['institution_id' => $_GET['institution_id']]) }}">
+								<a href="{{ route('institutionpage', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/page-icon.svg">
 									<span>Pages CRUD</span>
 									<img class="metismenu-state-icon" src="images/page-icon.svg">
@@ -68,7 +68,7 @@
 								</a>
 								<div class=" {{ Request::routeIs('institutionmyteacher') ? 'custom_show_active_menu' : 'hide-menu' }}" >
 
-									<a href="{{ route('institutionmyteacher', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutionmyteacher') ? 'submenu-active-link' : '' }}">
+									<a href="{{ route('institutionmyteacher', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="{{ Request::routeIs('institutionmyteacher') ? 'submenu-active-link' : '' }}">
 										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
 										My Teachers
 										<img class="metismenu-state-icon" src="images/setting-icon.svg">
@@ -79,7 +79,7 @@
 							</li>
 
 							<li class="{{ Request::routeIs('assigncourserequest') ? 'mm-active' : '' }}">
-                            <a href="{{ route('assigncourserequest', ['institution_id' => $_GET['institution_id']]) }}">
+                            <a href="{{ route('assigncourserequest', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 
 									<img class="metismenu-icon" src="images/assign.svg">
 									<span>Assigned Courses Requests</span>
@@ -89,14 +89,14 @@
 
 
 							<li class="{{ Request::routeIs('institutioncourse') ? 'mm-active' : '' }}">
-								<a href="{{ route('institutioncourse', ['institution_id' => $_GET['institution_id']]) }}">
+								<a href="{{ route('institutioncourse', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/course-icon.svg">
 									<span>Courses Crud</span>
 									<img class="metismenu-state-icon" src="images/course-icon.svg">
 								</a>
                            </li>
                            <li class="{{ Request::routeIs('assigncoursetoteacher') ? 'mm-active' : '' }}">
-                                <a  href="{{ route('assigncoursetoteacher',['institution_id' => $_GET['institution_id']]) }}">
+                                <a  href="{{ route('assigncoursetoteacher',['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
                                 <img class="metismenu-icon" src="images/assign.svg">
 									<span>View Assigned Courses</span>
 									<img class="metismenu-state-icon" src="images/assign.svg">
@@ -104,7 +104,7 @@
 							</li>
 
 							<li class="{{ Request::routeIs('showinstitutionsubscription') ? 'mm-active' : '' }}">
-							<a href="{{ route('showinstitutionsubscription', ['institution_id' => $_GET['institution_id']]) }}">
+							<a href="{{ route('showinstitutionsubscription', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/subscription-icon.svg">
 									<span>Subscription</span>
 									<img class="metismenu-state-icon" src="images/subscription-icon.svg">
@@ -112,7 +112,7 @@
 							</li>
 
 							<li class="{{ Request::routeIs('institutionfaq') ? 'mm-active' : '' }}">
-								<a href="{{ route('institutionfaq', ['institution_id' => $_GET['institution_id']]) }}">
+								<a href="{{ route('institutionfaq', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/faq.svg">
 									<span>Faq Crud</span>
 									<img class="metismenu-state-icon" src="images/faq.svg">
@@ -121,7 +121,7 @@
 
 
 							<li class="{{ Request::routeIs('institutionmenu') ? 'mm-active' : '' }}">
-								<a href="{{ route('institutionmenu', ['institution_id' => $_GET['institution_id']]) }}">
+								<a href="{{ route('institutionmenu', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/menu-icon.svg">
 									<span>Menu Crud</span>
 									<img class="metismenu-state-icon" src="images/menu-icon.svg">
@@ -138,19 +138,19 @@
 									<img class="metismenu-state-icon" src="images/setting-icon.svg">
 								</a>
 								<div class=" {{ ((Request::routeIs('institutioncompany')) || (Request::routeIs('institutionsystem')) || (Request::routeIs('institutionbannersetting'))) ? 'custom_show_active_menu' : 'hide-menu' }}" >
-									<a href="{{ route('institutioncompany', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutioncompany') ? 'submenu-active-link' : '' }}">
+									<a href="{{ route('institutioncompany', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="{{ Request::routeIs('institutioncompany') ? 'submenu-active-link' : '' }}">
 										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
 										Company Settings
 										<img class="metismenu-state-icon" src="images/setting-icon.svg">
 									</a>
 
-									<a href="{{ route('institutionsystem', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutionsystem') ? 'submenu-active-link' : '' }}">
+									<a href="{{ route('institutionsystem', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="{{ Request::routeIs('institutionsystem') ? 'submenu-active-link' : '' }}">
 										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
 										System Settings
 										<img class="metismenu-state-icon" src="images/setting-icon.svg">
 									</a>
 
-									<a href="{{ route('institutionbannersetting', ['institution_id' => $_GET['institution_id']]) }}" class="{{ Request::routeIs('institutionbannersetting') ? 'submenu-active-link' : '' }}">
+									<a href="{{ route('institutionbannersetting', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="{{ Request::routeIs('institutionbannersetting') ? 'submenu-active-link' : '' }}">
 										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
 										Banner Settings
 										<img class="metismenu-state-icon" src="images/setting-icon.svg">
@@ -173,7 +173,7 @@
 							</li> -->
 
 							<li class="{{ Request::routeIs('institutionform') ? 'mm-active' : '' }}">
-								<a href="{{ route('institutionform', ['institution_id' => $_GET['institution_id']]) }}">
+								<a href="{{ route('institutionform', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/form.svg">
 									<span>Form Crud</span>
 									<img class="metismenu-state-icon" src="images/form.svg">
