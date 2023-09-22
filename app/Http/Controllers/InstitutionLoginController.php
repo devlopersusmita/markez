@@ -557,7 +557,7 @@ public function institutionmessage(Request $request)
         $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
 
-        $data7=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('institution_id',$institution_id)->orderBy('courses.id','desc')
+        $data7=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('courses.institution_id',$institution_id)->orderBy('courses.id','desc')
       ->select('courses.*','categories.name as category_name')
         ->get();
 
