@@ -21,7 +21,7 @@
                </a>
             </div>
             <div class="header-btn">
-               
+
                   <ul class="nav-div">
                   @guest
                   <li class="nav-item dropdown">
@@ -42,10 +42,10 @@
                   @endif
                   @else
 </ul>
-              
-               @if(Auth::user()->role=='3')
+
+
                <div class="navbar-item"> <a href="{{ Route('institutionprofile') }}" >
-               {{ Auth::user()->name }}
+               {{ Session::get('institute_name'); }}
                </a></div>
                @endif
                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
