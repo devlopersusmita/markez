@@ -47,7 +47,7 @@ class InstitutionLController extends Controller
                     $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
                     return view('theme.step2',['subscriptions'=>$subscriptions,'institution_id'=>$user->id]);
                 }
-                if($user->domain_status == 'complete' && $user->payment_status == 'pending' && $user->inst_status == 'inactive') {  
+                if($user->domain_status == 'complete' && $user->payment_status == 'pending' && $user->inst_status == 'inactive') {
                     $subscriptions = InstitutionSubcriptionPackage::orderBy('title','asc')->get();
                     $order_details = Order::where('user_id',$user->id)->first();
                     return view('theme.step3',['subscriptions'=>$subscriptions,'institution_id'=>$user->id,'order_details'=>$order_details]);
@@ -58,6 +58,7 @@ class InstitutionLController extends Controller
                 }
                 if($user->domain_status == 'complete' && $user->payment_status == 'paid' && $user->inst_status == 'active') {
                     Session::put('institute_name', $user->name);
+                    Session::put('institute_id', $user->id);
                     return redirect()->route('institutionprofile', ['institution_id' => $user->id]);
 
                 }
