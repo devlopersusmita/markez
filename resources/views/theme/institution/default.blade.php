@@ -4934,7 +4934,7 @@ var editHomesettingForm = $('.edit-new-homestting');
                processData: false,
               success: function (data) {
 
-                window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id']]) }}";
+                window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}";
 
                $('#category_add').html('Save');
                    // alert(JSON.stringify(data));
@@ -5001,7 +5001,7 @@ var editHomesettingForm = $('.edit-new-homestting');
                cache: false,
                processData: false,
               success: function (data) {
-                window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id']]) }}";
+                window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}";
 
                $('#category_edit').html('Save');
                    // alert(JSON.stringify(data));
@@ -5058,7 +5058,7 @@ var editHomesettingForm = $('.edit-new-homestting');
               type: "post",
               dataType: 'json',
               success: function (data) {
-                window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id']]) }}";
+                window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}";
 
                  $('#search_btn').trigger('click');
                  $('body').removeClass('modal-open');
@@ -5102,7 +5102,7 @@ var url = baseurl + '/institutioncategorydelete/'+id;
       type: "post",
       dataType: 'json',
       success: function (data) {
-        window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id']]) }}";
+        window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}";
 
 
          $('#search_btn').trigger('click');
