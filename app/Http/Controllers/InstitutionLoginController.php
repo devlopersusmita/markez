@@ -85,12 +85,11 @@ class InstitutionLoginController extends Controller
 
         $institution_details = Institution::where('id',$institution_id)->first();
 
-        $user_details = UserDetail::where('user_id',$institution_id)->first();
-        // $countries = Country::orderBy('c_name','asc')->get();
-        // $cities = City::where('country_id',$user_details->country_id)->orderBy('city_name','asc')->get();
+        $user_details = UserDetail::where('institution_id',$institution_id)->first();
+
         $themes = Theme::orderBy('theme_name','asc')->get();
         $institution_theme_details = InstitutionTheme::where('institution_id',$institution_id)->first();
-        //dd($institution_theme_details);
+
 
 
          return view('theme.institution.profile',['user_details'=>$user_details,'institution_details'=>$institution_details,'themes'=>$themes,'institution_theme_details'=>$institution_theme_details,'user_id'=>$user_id,'user_ids'=>$user_ids]);
