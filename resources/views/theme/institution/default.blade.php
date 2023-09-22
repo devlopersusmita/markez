@@ -4937,7 +4937,7 @@ var editHomesettingForm = $('.edit-new-homestting');
                processData: false,
               success: function (data) {
 
-                window.location.href="{{ route('institutioncategory', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}";
+                window.location.href=`/institutioncategory?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
 
                $('#category_add').html('Save');
                    // alert(JSON.stringify(data));
