@@ -375,7 +375,7 @@ if (in_array("1", $array))
 
 
 
-
+            Session::get();
 
 
 
