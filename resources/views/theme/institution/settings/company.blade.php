@@ -148,20 +148,20 @@
                 </div>
                  <div class="col-md-4">
                     <label>Logo</label>
-                    <input type="file"  name="logo" />
+                    <input type="file"  name="logo" accept=".png, .jpg, .jpeg" />
                     <input type="hidden" name="old_logo" id="old_logo" value="" />
                     <div id="logo_edit_div"></div>
                 </div>
                  <div class="col-md-4">
                     <label>Fav Icon</label>
-                    <input type="file"  name="fav_icon" />
+                    <input type="file"  name="fav_icon" accept=".png, .jpg, .jpeg"  />
                     <input type="hidden" name="old_fav_icon" id="old_fav_icon" value="" />
                     <div id="fav_icon_edit_div"></div>
                 </div>
 
                  <div class="col-md-4">
                     <label>Director signature</label>
-                    <input type="file"  name="director_signature" />
+                    <input type="file"  name="director_signature"  accept=".png, .jpg, .jpeg" />
                     <input type="hidden" name="old_director_signature" id="old_director_signature" value="" />
                     <div id="director_signature_edit_div"></div>
                 </div>
@@ -193,28 +193,28 @@
 
                 <div class="col-md-6">
                     <label>Facebook Link</label>
-                    <input type="text" class="form-control" name="facebook_link" id="facebook_link_edit" placeholder="Facebook Link" maxlength="250" />
+                    <input type="url" class="form-control" name="facebook_link" id="facebook_link_edit" placeholder="Facebook Link" maxlength="250" />
                 </div>
                 <div class="col-md-6">
                     <label>Instagram Link</label>
-                    <input type="text" class="form-control" name="instagram_link" id="instagram_link_edit" placeholder="Instagram Link" maxlength="250" />
+                    <input type="url" class="form-control" name="instagram_link" id="instagram_link_edit" placeholder="Instagram Link" maxlength="250" />
                 </div>
                 <div class="col-md-6">
                     <label>Twiter Link</label>
-                    <input type="text" class="form-control" name="twiter_link" id="twiter_link_edit" placeholder="Twiter Link" maxlength="250" />
+                    <input type="url" class="form-control" name="twiter_link" id="twiter_link_edit" placeholder="Twiter Link" maxlength="250" />
                 </div>
                 <div class="col-md-6">
                     <label>Linkedin Link</label>
-                    <input type="text" class="form-control" name="linkedin_link" id="linkedin_link_edit" placeholder="Linkedin Link" maxlength="250" />
+                    <input type="url" class="form-control" name="linkedin_link" id="linkedin_link_edit" placeholder="Linkedin Link" maxlength="250" />
                 </div>
                 <div class="col-md-6">
                     <label>Youtube Link</label>
-                    <input type="text" class="form-control" name="youtube_link" id="youtube_link_edit" placeholder="Youtube Link" maxlength="250" />
+                    <input type="url" class="form-control" name="youtube_link" id="youtube_link_edit" placeholder="Youtube Link" maxlength="250" />
                 </div>
 
                 <div class="col-md-6">
                     <label>Phone</label>
-                    <input type="number" class="form-control" name="phone" id="phone_edit" placeholder="Phone" maxlength="250"/>
+                    <input type="number" class="form-control" name="phone" id="phone_edit" placeholder="Phone" maxlength="14" minlength="14"/>
                 </div>
                 <div class="col-md-6">
                     <label>Fax</label>
@@ -222,7 +222,7 @@
                 </div>
                 <div class="col-md-6">
                     <label>Website</label>
-                    <input type="text" class="form-control" name="website" id="website_edit" placeholder="Website" maxlength="250"  />
+                    <input type="url" class="form-control" name="website" id="website_edit" placeholder="Website" maxlength="250"  />
                 </div>
                 <div class="col-md-6">
                     <label>Country</label>
