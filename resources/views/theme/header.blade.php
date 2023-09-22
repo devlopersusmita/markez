@@ -44,7 +44,8 @@
 @else
 
                <div class="navbar-item">
-                  <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id);]) }}" >
+                  <!-- <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id);]) }}" > -->
+                  <a href="{{ Route('institutionprofile') }}" >
                   {{ Session::get('institute_name'); }}
                   {{ Session::get('institution_id'); }}
 
