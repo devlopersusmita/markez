@@ -43,7 +43,7 @@
 
 </ul>
 
-<?php echo $value = session('institute_name'); ?>
+
 
 
                <div class="navbar-item"> <a href="{{ Route('institutionprofile') }}" >
