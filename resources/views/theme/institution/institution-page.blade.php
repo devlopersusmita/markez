@@ -64,7 +64,7 @@
                     <div class="card-body">
                         <form class="add-new-page"   enctype="multipart/form-data" >
                         <input type="hidden" value="{{$user_id}}" name="user_id">
-                        <input type="text" value="{{$user_ids}}" name="user_ids">
+                        <input type="hidden" value="{{$user_ids}}" name="user_ids">
                             <div class="login-form">
                                 <div class="field">
                                     <label class="required">Title</label>
