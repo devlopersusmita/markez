@@ -1482,8 +1482,11 @@ public function coursesubscriptionpay(Request $request)
                             $sender_type = 'A institution';
                         }
                         else if($sender_details->role=='3')
-                        {
-                            $sender_type = 'An Institution';
+                        {          //dd($categorys);
+                            // $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$categorys)->orderBy('courses.id','desc')
+                            // ->select('courses.*','categories.name as category_name')
+                            // ->get();
+                          // dd($categorywise_courselists);
                         }
 
                         $details = [
@@ -2728,14 +2731,10 @@ public function institutionwebsite(Request $request,$id)
                        $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$categorys)->orderBy('courses.id','desc')
                        ->select('courses.*','categories.name as category_name')
                        ->get();
-                        dd($categorywise_courselists);
+                        //dd($categorywise_courselists);
                     }
 
-                   //dd($categorys);
-                // $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$categorys)->orderBy('courses.id','desc')
-                // ->select('courses.*','categories.name as category_name')
-                // ->get();
-              // dd($categorywise_courselists);
+                    $output_array =[];
 
 
     return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists]);
