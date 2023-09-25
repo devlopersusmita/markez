@@ -4,8 +4,7 @@
 
 
 <?php echo($output_array[0]['name']); ?>
-<?php echo "<pre>"; ?>
-<?php print_r($output_array); ?>
+
 
 
 <!-- Banner Start -->
@@ -61,24 +60,11 @@
 			<!-- Nav tabs -->
 
 			<ul class="nav nav-tabs">
+            @foreach($output_array as $output_arrays)
 				<li class="nav-item">
-					<a class="nav-link active" data-bs-toggle="tab" href="#menu1">Course-1</a>
+					<a class="nav-link active" data-bs-toggle="tab" href="#menu1">($output_arrays[0]['name']</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu2">Course-2</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu3">Course-3</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu4">Course-4</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu5">Course-5</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu6">Course-6</a>
-				</li>
+                @endforeach
 			</ul>
 
 			<!-- Tab panes -->
