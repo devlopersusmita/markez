@@ -3,6 +3,7 @@
 @section('content')
 
 
+{{ $output_array }}
 
 
 <!-- Banner Start -->
