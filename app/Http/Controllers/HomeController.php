@@ -2727,11 +2727,11 @@ public function institutionwebsite(Request $request,$id)
                        $categorys= $category_list->id;
                     }
 
-dd($categorys);
-        //         $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$t2_array)->orderBy('courses.id','desc')
-        //     ->select('courses.*','categories.name as category_name')
-        //         ->get();
-        // dd($categorywise_courselists);
+                   //dd($categorys);
+                $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$categorys)->orderBy('courses.id','desc')
+                ->select('courses.*','categories.name as category_name')
+                ->get();
+               dd($categorywise_courselists);
 
 
     return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists]);
