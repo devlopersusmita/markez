@@ -266,20 +266,7 @@ public function institutionmessage(Request $request)
     public function getstudentlistforinstitutionmessage(Request $request)
     {
 
-            // if($request->institution_id == null) {
-            //     $user_id = $_GET['institution_id'];
-            // } else {
-            //     $user_id = $request->institution_id;
-            // }
-            //dd($request->institution_id);
-        //userstable id//
-            // if($request->user_id == null) {
-            //     $user_ids = $_GET['user_id'];
-            // } else {
-            //     $user_ids = $request->user_id;
-            // }
-
-          $user_id =$request->user_id;
+         $user_id =$request->user_id;
 
 
        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
