@@ -2728,7 +2728,7 @@ public function institutionwebsite(Request $request,$id)
                     }
 
                    //dd($categorys);
-                $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$category_lists)->orderBy('courses.id','desc')
+                $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$categorys)->orderBy('courses.id','desc')
                 ->select('courses.*','categories.name as category_name')
                 ->get();
                dd($categorywise_courselists);
