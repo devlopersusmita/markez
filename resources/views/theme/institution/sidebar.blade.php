@@ -189,8 +189,8 @@
 							</li>
 
 
-							<li>
-								<a href="#">
+							<li class="{{ Request::routeIs('institutionmessage') ? 'mm-active' : '' }}">
+								<a href="{{ route('institutionmessage', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/message.svg" alt="Messages">
 									<span>View Messages</span>
 									<img class="metismenu-state-icon" src="images/message.svg" alt="Messages">

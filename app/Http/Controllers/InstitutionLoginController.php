@@ -99,9 +99,21 @@ class InstitutionLoginController extends Controller
 public function institutionmessage(Request $request)
     {
 
-       $user_id=Auth::id();
+      // $user_id=Auth::id();
+       if($request->institution_id == null) {
+        $user_id = $_GET['institution_id'];
+    } else {
+        $user_id = $request->institution_id;
+    }
+//userstable id//
+    if($request->user_id == null) {
+        $user_ids = $_GET['user_id'];
+    } else {
+        $user_ids = $request->user_id;
+    }
 
-      return view('theme.institution.message');
+
+      return view('theme.institution.message',['user_id'=>$user_id,'user_ids'=>$user_ids]);
 
     }
 
