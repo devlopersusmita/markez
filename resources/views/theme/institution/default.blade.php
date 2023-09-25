@@ -3728,7 +3728,7 @@ console.log(form_data,"add field form data")
                     success: function (data) {
                         console.log(data,"add field success");
 
-                        window.location.href=`/institutionform?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
+                        window.location.href=`/institution-form?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
 
                         if(data.type == 'success'){
                             $('#form-input-error').html('');
@@ -5863,7 +5863,7 @@ var newFormForm = $('.add-new-form');
                     processData: false,
                     success: function (data) {
 
-                        window.location.href=`/institutionform?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
+                        window.location.href=`/institution-form?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
                         if(data.type == 'success'){
                             $('#form-input-error').html('');
                         $('#form-input-success').html('');
@@ -6021,7 +6021,7 @@ var formData = new FormData(this);
            cache: false,
            processData: false,
           success: function (data) {
-            window.location.href=`/institutionform?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
+            window.location.href=`/institution-form?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
             if(data.type == 'success'){
                 $('#form-input-error').html('');
              $('#form-input-success').html('');
@@ -6247,7 +6247,7 @@ var url = baseurl + '/formfielddelete/'+id;
       success: function (data) {
 
 
-        window.location.href=`/institutionform?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
+        window.location.href=`/institution-form?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
          $('#search_btn').trigger('click');
          $('body').removeClass('modal-open');
         $('body').css('padding-right', '0px');
@@ -6301,7 +6301,7 @@ var url = baseurl + '/formdelete/'+id;
       type: "post",
       dataType: 'json',
       success: function (data) {
-        window.location.href=`/institutionform?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
+        window.location.href=`/institution-form?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
          $('#search_btn').trigger('click');
          $('body').removeClass('modal-open');
         $('body').css('padding-right', '0px');
