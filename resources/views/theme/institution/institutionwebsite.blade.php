@@ -62,16 +62,30 @@
 
 			<ul class="nav nav-tabs">
             @foreach($output_array as $output_arrays)
-				<li class="nav-item">
-					<a class="nav-link active" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }} {{ $loop->index }} </a>
-				</li>
+                @if($loop->index==0)
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }} </a>
+                    </li>
+                @else
+                <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }} </a>
+                    </li>
+                @endif
                 @endforeach
 			</ul>
 
 			<!-- Tab panes -->
 			<div class="tab-content">
 
-               
+                @foreach($output_array as $output_arrays)
+                    <div class="tab-pane container fade active show" id="menu{{ $output_arrays['id'] }}">
+                        <div class="row">
+
+
+
+                        </div>
+                    </div>
+                @endforeach
 			</div>
 
 		</div>
