@@ -27,7 +27,7 @@
 						<ul class="vertical-nav-menu">
 
                         <li class="{{ Request::routeIs('institutiondashboard') ? 'mm-active' : '' }}">
-							<a href="{{ route('institutiondashboard', ['institution_id' => $_GET['institution_id']]) }}">
+							<a href="{{ route('institutiondashboard', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
 									<img class="metismenu-icon" src="images/home-icon.svg">
 									<span>Dashboard</span>
 									<img class="metismenu-state-icon" src="images/home-icon.svg">
