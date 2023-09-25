@@ -2668,7 +2668,7 @@ if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['i
   ?>
 
      var student_search_text = '';
-     alert(student_search_text);
+     //alert(student_search_text);
      getstudentlistforinstitutionmessage(student_search_text);
 
      $("#student_search_text").keyup(function(){
@@ -2707,7 +2707,7 @@ if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['i
                   'send_message_text':send_message_text
                 },
                 success : function(data){
-                     //alert(data);
+                     alert(data);
                     // alert('success');
                      //alert(JSON.stringify(data));
                      $('#send_message_text').val('');
