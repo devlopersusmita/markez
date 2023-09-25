@@ -78,7 +78,7 @@
 			<div class="tab-content">
 
                 @foreach($output_array as $output_arrays)
-                    <div class="tab-pane container fade active show" id="menu{{ $output_arrays['id'] }}">
+                    <div class="tab-pane container fade active {{ $loop->index==0?'show':'' }}" id="menu{{ $output_arrays['id'] }}">
                         <div class="row">
 
                             @foreach($output_arrays['course_data'] as $course_data)
