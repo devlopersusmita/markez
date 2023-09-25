@@ -122,6 +122,7 @@
             <div class="modal-body p-3 pt-0">
               <form class="add-new-homestting"   enctype="multipart/form-data" >
               <input type="hidden" value="{{$user_id}}" name="user_id">
+              <input type="hidden" value="{{$user_ids}}" name="user_ids">
                <div class="row">
 
                   <div class="col-md-12">
@@ -185,6 +186,7 @@
             <div class="modal-body p-3 pt-0">
               <form class="edit-new-homestting"   enctype="multipart/form-data" >
               <input type="hidden" value="{{$user_id}}" name="user_id">
+              <input type="hidden" value="{{$user_ids}}" name="user_ids">
                <div class="row">
 
                   <div class="col-md-12">

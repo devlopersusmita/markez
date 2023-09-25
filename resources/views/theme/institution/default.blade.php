@@ -4495,7 +4495,7 @@ var editHomesettingForm = $('.edit-new-homestting');
                                 processData: false,
                                 success: function (data) {
 
-                                    window.location.href="{{ route('institutionbannersetting', ['institution_id' => $_GET['institution_id']]) }}";
+                                    window.location.href=`/institutionbannersetting?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
                                     if(data.type == 'success'){
                                         $('#form-input-error').html('');
                                     $('#form-input-success').html('');
@@ -4584,7 +4584,7 @@ var editHomesettingForm = $('.edit-new-homestting');
                processData: false,
               success: function (data) {
 
-                window.location.href="{{ route('institutionbannersetting', ['institution_id' => $_GET['institution_id']]) }}";
+                window.location.href=`/institutionbannersetting?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
                 if(data.type == 'success'){
                     $('#form-input-error').html('');
                  $('#form-input-success').html('');
@@ -4664,7 +4664,7 @@ var editHomesettingForm = $('.edit-new-homestting');
               dataType: 'json',
               success: function (data) {
 
-                window.location.href="{{ route('institutionbannersetting', ['institution_id' => $_GET['institution_id']]) }}";
+                window.location.href=`/institutionbannersetting?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
 
                  $('#search_btn').trigger('click');
                  $('body').removeClass('modal-open');

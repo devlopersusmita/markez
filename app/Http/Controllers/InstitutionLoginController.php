@@ -2917,6 +2917,13 @@ public function institutionbannersetting(Request $request)
         $user_id = $request->institution_id;
     }
 
+    //userstable id//
+    if($request->user_id == null) {
+        $user_ids = $_GET['user_id'];
+    } else {
+        $user_ids = $request->user_id;
+    }
+
     $data7=InstitutionBannerSetting::where('institution_id',$user_id)->select('institution_banner_settings.*')->get();
 
       $thearray = [];
@@ -2941,7 +2948,7 @@ public function institutionbannersetting(Request $request)
      }
 
 
-   return view('theme.institution.settings.home',['homes'=>$thearray,'user_id'=>$user_id]);
+   return view('theme.institution.settings.home',['homes'=>$thearray,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 
