@@ -5,10 +5,27 @@
 
 
 
+
 <!-- Banner Start -->
 <section class="banner-section">
 	<div class="owl-carousel owl-theme hero-slider">
-		<div class="slide slide1">
+    @if(!$institution_sliders->isEmpty())
+         @foreach($institution_sliders as $institution_slider)
+            <div class="slide slide1" style="background-image:url({{asset($institution_slider->slider)}});">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-9">
+                        <h1>{{$institution_slider->slider_header}}</h1>
+                            <h4>{{$institution_slider->slider_text}}</h4>
+                            <p>{{$institution_slider->description}}</p>
+                            <a href="{{$institution_slider->link}}" class="btn-banner">REGISTER WITH US</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @else
+        <div class="slide slide1" style="background-image:url('images/600x400.png);">
 			<div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-9">
@@ -20,7 +37,8 @@
                 </div>
             </div>
 		</div>
-		<div class="slide slide2">
+
+        <div class="slide slide2" style="background-image:url('images/600x400.png');">
 			<div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-9">
@@ -32,7 +50,7 @@
                 </div>
             </div>
 		</div>
-		<div class="slide slide3">
+		<div class="slide slide3" style="background-image:url('images/600x400.png');">
 			<div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-9">
@@ -44,7 +62,8 @@
                 </div>
             </div>
 		</div>
-	</div>
+            @endif
+	    </div>
 </section>
 <!-- Banner End -->
 
@@ -58,24 +77,15 @@
 			<!-- Nav tabs -->
 
 			<ul class="nav nav-tabs">
+             <input type="text" value="{{$id}}" name="user_id">
+                @foreach($category_lists as $category_list)
 				<li class="nav-item">
-					<a class="nav-link active" data-bs-toggle="tab" href="#menu1">Course-1</a>
+
+                <a class="nav-link active" data-bs-toggle="tab" href="#"  onClick="category_manage(<?php echo $category_list->id; ?>)">{{$category_list->name}}</a>
+
+
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu2">Course-2</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu3">Course-3</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu4">Course-4</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu5">Course-5</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu6">Course-6</a>
-				</li>
+				@endforeach
 			</ul>
 
 			<!-- Tab panes -->
@@ -163,6 +173,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="tab-pane container fade" id="menu2">
 					<div class="row">
 						<div class="col-lg-3 col-md-6">
@@ -246,6 +257,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="tab-pane container fade" id="menu3">
 					<div class="row">
 						<div class="col-lg-3 col-md-6">
@@ -329,6 +341,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="tab-pane container fade" id="menu4">
 					<div class="row">
 						<div class="col-lg-3 col-md-6">
