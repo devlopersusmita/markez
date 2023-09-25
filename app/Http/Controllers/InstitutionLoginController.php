@@ -261,7 +261,7 @@ public function institutionmessage(Request $request)
 
             $data7_public=InstitutionStudent::leftJoin('users','users.id','=','institution_students.user_id')->Join('institutions', 'institutions.id','=','institution_students.institution_id')
             ->where(['institution_students.institution_id'=>$user_id])
-            ->orderBy('users.name','asc')->select('users.*')->get();
+            ->orderBy('users.name','asc')
 
             // echo"<pre>";
             //  print_r($data7_public);
@@ -269,15 +269,15 @@ public function institutionmessage(Request $request)
 
 
 
-            // ->when($request->has("student_search_text"),function($q)use($request){
-            //        $name  = $request->post("student_search_text");
-            //        if($name!='')
-            //         {
-            //            return $q->where("users.name","like","%".$name."%");
-            //        }
+            ->when($request->has("student_search_text"),function($q)use($request){
+                   $name  = $request->post("student_search_text");
+                   if($name!='')
+                    {
+                       return $q->where("users.name","like","%".$name."%");
+                   }
 
 
-            // })->select('users.*')->get();
+            })->select('users.*')->get();
 
               $thearray_public = [];
              if(count($data7_public) > 0)
