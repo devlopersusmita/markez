@@ -3841,7 +3841,8 @@ var newAssigncourseForm = $('.assign-course-to-teacher');
                cache: false,
                processData: false,
               success: function (data) {
-                window.location.href="{{ route('assigncoursetoteacher', ['institution_id' => $_GET['institution_id']]) }}";
+                window.location.href=`/assigncoursetoteacher?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
+
 
 
                 if(data.type == 'success'){
@@ -3934,7 +3935,8 @@ var newAssigncourseForm = $('.assign-course-to-teacher');
                cache: false,
                processData: false,
               success: function (data) {
-                window.location.href="{{ route('assigncoursetoteacher', ['institution_id' => $_GET['institution_id']]) }}";
+                window.location.href=`/assigncoursetoteacher?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
+
                $('#assign_edit').html('Save');
 
                   // alert(JSON.stringify(data));

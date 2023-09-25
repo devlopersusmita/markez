@@ -2322,6 +2322,13 @@ public function assigncoursetoteacher(Request $request)
     } else {
         $user_id = $request->institution_id;
     }
+
+    //userstable id//
+    if($request->user_id == null) {
+        $user_ids = $_GET['user_id'];
+    } else {
+        $user_ids = $request->user_id;
+    }
     $categories = Category::where('institution_id',$user_id)->orderBy('name','asc')->get();
     //$user_id=Auth::id();
    // $user_details = UserDetail::where('user_id',$user_id)->first();
@@ -2375,7 +2382,7 @@ public function assigncoursetoteacher(Request $request)
      }
 
 
-   return view('theme.institution.assignteacher',['courses'=>$thearray,'categories'=>$categories,'course_lists'=>$course_lists,'data_teacher'=>$data_teacher,'user_id'=>$user_id]);
+   return view('theme.institution.assignteacher',['courses'=>$thearray,'categories'=>$categories,'course_lists'=>$course_lists,'data_teacher'=>$data_teacher,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 
