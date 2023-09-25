@@ -263,8 +263,8 @@ public function institutionmessage(Request $request)
             ->where(['institution_students.institution_id'=>$user_id])
             ->orderBy('users.name','asc')->select('users.*')->get();
 
-            echo"<pre>";
-             print_r($data7_public);
+            // echo"<pre>";
+            //  print_r($data7_public);
 
 
 
