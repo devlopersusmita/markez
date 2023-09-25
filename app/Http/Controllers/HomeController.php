@@ -2734,9 +2734,16 @@ public function institutionwebsite(Request $request,$id)
                        ->get();
                         // dd($categorywise_courselists);
 
-                        $category_list->course_data=$categorywise_courselists;
+                        $aaa=[
+                            'id'=>$category_list->id,
+                            'name'=>$category_list->name,
+                            'status'=>$category_list->status,
+                            'course_data'=>$categorywise_courselists
+                        ];
 
-                        array_push($output_array,$category_list);
+                        // $category_list->course_data=$categorywise_courselists;
+
+                        array_push($output_array,$aaa);
 
                     }
 
