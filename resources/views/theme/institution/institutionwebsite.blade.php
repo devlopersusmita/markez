@@ -65,7 +65,7 @@
 				<li class="nav-item">
 					<a class="nav-link active" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }}</a>
 
-                    <p>{{$output_arrays['course_data']->title }}
+                    <p>{{$output_arrays['course_data'][0]->title }}
 				</li>
                 @endforeach
 			</ul>
