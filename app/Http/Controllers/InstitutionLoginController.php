@@ -265,10 +265,6 @@ public function institutionmessage(Request $request)
 
     public function getstudentlistforinstitutionmessage(Request $request)
     {
-
-    //    $user_id=Auth::id();
-
-            // $user_id=Auth::id();
             if($request->institution_id == null) {
                 $user_id = $_GET['institution_id'];
             } else {
