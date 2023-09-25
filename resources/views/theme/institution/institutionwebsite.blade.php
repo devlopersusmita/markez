@@ -3,7 +3,7 @@
 @section('content')
 
 
-<?php echo($output_array[0]); ?>
+<?php echo($output_array[0]['name']); ?>
 <?php echo "<pre>"; ?>
 <?php print_r($output_array); ?>
 
