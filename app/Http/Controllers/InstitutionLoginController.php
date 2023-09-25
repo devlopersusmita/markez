@@ -196,6 +196,7 @@ public function institutionmessage(Request $request)
                         } else {
                             $user_ids = $request->user_id;
                         }
+
        $student_id = $request->post("student_id");
        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
@@ -273,6 +274,7 @@ public function institutionmessage(Request $request)
             } else {
                 $user_id = $request->institution_id;
             }
+            dd($request->institution_id);
         //userstable id//
             if($request->user_id == null) {
                 $user_ids = $_GET['user_id'];
