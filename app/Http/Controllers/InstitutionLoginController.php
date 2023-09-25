@@ -274,7 +274,7 @@ public function institutionmessage(Request $request)
             } else {
                 $user_id = $request->institution_id;
             }
-            dd($request->institution_id);
+            //dd($request->institution_id);
         //userstable id//
             if($request->user_id == null) {
                 $user_ids = $_GET['user_id'];
