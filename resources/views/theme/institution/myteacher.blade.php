@@ -60,6 +60,7 @@
                         <form class="assign-teacher-send"   enctype="multipart/form-data" >
                         <input type="hidden" value="{{$user_id}}" name="user_id">
                         <input type="hidden" name="teacher_id" id="teacher_id">
+                        <input type="hidden" value="{{$user_ids}}" name="user_ids">
 
                             <div class="login-form">
 
