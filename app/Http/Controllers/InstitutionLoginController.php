@@ -3606,7 +3606,7 @@ public function institutiondashboard(Request $request)
             }
 
           $current_date = date('Y-m-d H:i:s');
-                $course_count = Course::where(['user_id'=>$user_id])->orderBy('id','asc')->get()->count();
+                $course_count = Course::where(['institution_id'=>$user_id])->orderBy('id','asc')->get()->count();
                 //dd($courses);
                 $total_payment = Payment::where(['institution_id'=>$user_id])->orderBy('id','asc')->get()->sum('amount');
                 //dd($total_payment);
