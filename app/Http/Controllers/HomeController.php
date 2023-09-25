@@ -2720,21 +2720,21 @@ public function institutionwebsite(Request $request,$id)
         $institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
             //dd($institution_sliders);
             $category_lists =Category::where('institution_id',$id)->orderBy('name','asc')->get();
-        //dd($category_lists);
-            $t2_array =[];
-                if(!empty($category_lists) )
-                {
-                    foreach ($category_lists as $category_list)
-                    {
-                        $t2_array[]= $category_list->id;
-                    }
-                }
+        dd($category_lists);
+            // $t2_array =[];
+            //     if(!empty($category_lists) )
+            //     {
+            //         foreach ($category_lists as $category_list)
+            //         {
+            //             $t2_array[]= $category_list->id;
+            //         }
+            //     }
                  //dd($t2_array);
 
-                $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$t2_array)->orderBy('courses.id','desc')
-            ->select('courses.*','categories.name as category_name')
-                ->get();
-        dd($categorywise_courselists);
+        //         $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$t2_array)->orderBy('courses.id','desc')
+        //     ->select('courses.*','categories.name as category_name')
+        //         ->get();
+        // dd($categorywise_courselists);
 
 
     return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists]);
