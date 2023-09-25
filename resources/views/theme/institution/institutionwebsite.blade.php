@@ -70,14 +70,14 @@
 
 			<!-- Tab panes -->
 			<div class="tab-content">
-
+            @foreach($course_data as $course_datas)
 				<div class="tab-pane container fade active show" id="menu1">
 					<div class="row">
 						<div class="col-lg-3 col-md-6">
 							<div class="course-grid">
 								<img src="images/course1.png" alt="">
 								<div class="couse-content">
-									<h3>Lorem ipsum dolor amet, <br> consetetur elitr,</h3>
+									<h3>{{$course_datas[0]->title}}</h3>
 									<p>Lorem ipsum dolor</p>
 									<div class="rating">
 										<span>4.6</span>
@@ -92,66 +92,8 @@
 								</div>
 							</div>
 						</div>
+@endforeach
 
-						<div class="col-lg-3 col-md-6">
-							<div class="course-grid">
-								<img src="images/course2.png" alt="">
-								<div class="couse-content">
-									<h3>Lorem ipsum dolor amet, <br> consetetur elitr,</h3>
-									<p>Lorem ipsum dolor</p>
-									<div class="rating">
-										<span>4.6</span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<small>(380,527)</small>
-									</div>
-									<p class="course-price"><strong>$2,000</strong><span>$3,399</span></p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-md-6">
-							<div class="course-grid">
-								<img src="images/course3.png" alt="">
-								<div class="couse-content">
-									<h3>Lorem ipsum dolor amet, <br> consetetur elitr,</h3>
-									<p>Lorem ipsum dolor</p>
-									<div class="rating">
-										<span>4.6</span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<small>(380,527)</small>
-									</div>
-									<p class="course-price"><strong>$2,000</strong><span>$3,399</span></p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-md-6">
-							<div class="course-grid">
-								<img src="images/course4.png" alt="">
-								<div class="couse-content">
-									<h3>Lorem ipsum dolor amet, <br> consetetur elitr,</h3>
-									<p>Lorem ipsum dolor</p>
-									<div class="rating">
-										<span>4.6</span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<small>(380,527)</small>
-									</div>
-									<p class="course-price"><strong>$2,000</strong><span>$3,399</span></p>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 
