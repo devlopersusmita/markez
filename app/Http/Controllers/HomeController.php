@@ -2730,7 +2730,7 @@ public function institutionwebsite(Request $request,$id)
                     {
                        $categorys= $category_list->id;
                        $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$categorys)->orderBy('courses.id','desc')
-                       ->select('courses.*','categories.name as category_name')
+                       ->select('courses.*')
                        ->get();
                         // dd($categorywise_courselists);
 
@@ -2740,13 +2740,13 @@ public function institutionwebsite(Request $request,$id)
 
                     }
 
-                    echo "<pre>";
-                    print_r($output_array);
-                    exit();
+                    // echo "<pre>";
+                    // print_r($output_array);
+                    // exit();
 
 
 
-    return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists]);
+    return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists,'output_array'=>$output_array]);
 }
 
 public function teacherstudentregister(Request $request,$id)
