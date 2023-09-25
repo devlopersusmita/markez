@@ -2725,16 +2725,25 @@ public function institutionwebsite(Request $request,$id)
             $category_lists =Category::where('institution_id',$id)->orderBy('name','asc')->get();
        // dd($category_lists);
 
+       $output_array =[];
                     foreach ($category_lists as $category_list)
                     {
                        $categorys= $category_list->id;
                        $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$categorys)->orderBy('courses.id','desc')
                        ->select('courses.*','categories.name as category_name')
                        ->get();
-                        //dd($categorywise_courselists);
+                        // dd($categorywise_courselists);
+
+                        $category_list->course_data=$categorywise_courselists;
+
+                        array_push($output_array,$category_list);
+
                     }
 
-                    $output_array =[];
+                    echo "<pre>";
+                    print_r($output_array);
+                    exit();
+
 
 
     return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists]);
