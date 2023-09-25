@@ -71,35 +71,7 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 
-                <!-- @foreach($output_array as $output_arrays)
-                    <div class="tab-pane container fade active show" id="menu{{ $output_arrays['id'] }}">
-                        <div class="row">
-
-                            @foreach($output_arrays['course_data'] as $course_data)
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="course-grid">
-                                        <img src="images/course1.png" alt="">
-                                        <div class="couse-content">
-                                            <h3>{{ $course_datas['title'] }}</h3>
-                                            <p>Lorem ipsum dolor</p>
-                                            <div class="rating">
-                                                <span>4.6</span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <small>(380,527)</small>
-                                            </div>
-                                            <p class="course-price"><strong>$2,000</strong><span>$3,399</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                @endforeach -->
+               
 			</div>
 
 		</div>
