@@ -2668,7 +2668,7 @@ if(\Request::route()->getName() == 'institutionmessage')
   ?>
 
      var student_search_text = '';
-     alert(student_search_text);
+     //alert(student_search_text);
      getstudentlistforinstitutionmessage(student_search_text);
 
      $("#student_search_text").keyup(function(){
