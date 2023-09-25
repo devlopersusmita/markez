@@ -99,18 +99,18 @@ class InstitutionLoginController extends Controller
 public function institutionmessage(Request $request)
     {
 
-      // $user_id=Auth::id();
-       if($request->institution_id == null) {
-        $user_id = $_GET['institution_id'];
-    } else {
-        $user_id = $request->institution_id;
-    }
-//userstable id//
-    if($request->user_id == null) {
-        $user_ids = $_GET['user_id'];
-    } else {
-        $user_ids = $request->user_id;
-    }
+                // $user_id=Auth::id();
+                if($request->institution_id == null) {
+                    $user_id = $_GET['institution_id'];
+                } else {
+                    $user_id = $request->institution_id;
+                }
+            //userstable id//
+                if($request->user_id == null) {
+                    $user_ids = $_GET['user_id'];
+                } else {
+                    $user_ids = $request->user_id;
+                }
 
 
       return view('theme.institution.message',['user_id'=>$user_id,'user_ids'=>$user_ids]);
@@ -120,8 +120,21 @@ public function institutionmessage(Request $request)
     public function sendmessagechatforinstitutionstudent(Request $request)
     {
 
-       $user_id=Auth::id();
-       $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+                //    $user_id=Auth::id();
+                        // $user_id=Auth::id();
+                if($request->institution_id == null) {
+                    $user_id = $_GET['institution_id'];
+                } else {
+                    $user_id = $request->institution_id;
+                }
+            //userstable id//
+                if($request->user_id == null) {
+                    $user_ids = $_GET['user_id'];
+                } else {
+                    $user_ids = $request->user_id;
+                }
+
+       $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
        $student_id = $request->post("student_id");
        $contents = $request->post("send_message_text");
@@ -170,9 +183,21 @@ public function institutionmessage(Request $request)
      public function getmessagechatforinstitutionstudent(Request $request)
     {
 
-       $user_id=Auth::id();
+
+                        // $user_id=Auth::id();
+                        if($request->institution_id == null) {
+                            $user_id = $_GET['institution_id'];
+                        } else {
+                            $user_id = $request->institution_id;
+                        }
+                    //userstable id//
+                        if($request->user_id == null) {
+                            $user_ids = $_GET['user_id'];
+                        } else {
+                            $user_ids = $request->user_id;
+                        }
        $student_id = $request->post("student_id");
-       $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+       $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
 
        $institution_details = Institution::where('id',$institution_id)->first();
@@ -234,14 +259,27 @@ public function institutionmessage(Request $request)
 
 
 
-       return response()->json(['success'=>'success','user_id'=>$user_id,'student_id'=>$student_id,'data'=>$thearray_public,'institution_name'=>$institution_name,'institution_logo'=>$institution_logo,'student_name'=>$student_name,'student_avatar'=>$student_avatar]);
+       return response()->json(['success'=>'success','user_id'=>$user_id,'student_id'=>$student_id,'data'=>$thearray_public,'institution_name'=>$institution_name,'institution_logo'=>$institution_logo,'student_name'=>$student_name,'student_avatar'=>$student_avatar,'user_ids'=>$user_ids]);
    }
 
     public function getstudentlistforinstitutionmessage(Request $request)
     {
 
-       $user_id=Auth::id();
-       $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
+    //    $user_id=Auth::id();
+
+            // $user_id=Auth::id();
+            if($request->institution_id == null) {
+                $user_id = $_GET['institution_id'];
+            } else {
+                $user_id = $request->institution_id;
+            }
+        //userstable id//
+            if($request->user_id == null) {
+                $user_ids = $_GET['user_id'];
+            } else {
+                $user_ids = $request->user_id;
+            }
+       $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
        $student_search_text = $request->post("student_search_text");
 
@@ -294,7 +332,7 @@ public function institutionmessage(Request $request)
 
 
 
-       return response()->json(['success'=>'success','user_id'=>$user_id,'student_search_text'=>$student_search_text,'data'=>$thearray_public]);
+       return response()->json(['success'=>'success','user_id'=>$user_id,'student_search_text'=>$student_search_text,'data'=>$thearray_public,'user_ids'=>$user_ids]);
 
 
     }
