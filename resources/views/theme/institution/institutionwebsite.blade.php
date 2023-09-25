@@ -28,7 +28,7 @@
             </div>
             @endforeach
             @else
-        <div class="slide slide1" style="background-image:url('images/600x400.png);">
+        <div class="slide slide1" style="background-image:url('../images/600x400.png);">
 			<div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-9">
@@ -41,7 +41,7 @@
             </div>
 		</div>
 
-        <div class="slide slide2" style="background-image:url('images/600x400.png');">
+        <div class="slide slide2" style="background-image:url('../images/600x400.png');">
 			<div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-9">
@@ -53,7 +53,7 @@
                 </div>
             </div>
 		</div>
-		<div class="slide slide3" style="background-image:url('images/600x400.png');">
+		<div class="slide slide3" style="background-image:url('../images/600x400.png');">
 			<div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-9">
