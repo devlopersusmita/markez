@@ -3550,6 +3550,12 @@ public function showinstitutionsubscription(Request $request)
     } else {
         $user_id = $request->institution_id;
     }
+    //userstable id//
+    if($request->user_id == null) {
+        $user_ids = $_GET['user_id'];
+    } else {
+        $user_ids = $request->user_id;
+    }
 
     $data7=InstitutionSubcription::leftJoin('institution_subscription_packages','institution_subscription_packages.id','=','institution_subscriptions.institution_subcription_package_id')->where('user_id',$user_id)->orderBy('institution_subscriptions.id','desc')->select('institution_subscriptions.*','institution_subscription_packages.title','institution_subscription_packages.price')->get();
 
@@ -3574,7 +3580,7 @@ public function showinstitutionsubscription(Request $request)
 
         }
      }
-   return view('theme.institution.subscription',['subscriptions'=>$thearray,'user_id'=>$user_id]);
+   return view('theme.institution.subscription',['subscriptions'=>$thearray,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 
