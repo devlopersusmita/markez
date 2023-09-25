@@ -7,7 +7,7 @@
    <div class="app-main__inner">
 
     <div class="category-top-row">
-      <h2>Message</h2>
+
 
     </div>
     @include('frontend.notification')
