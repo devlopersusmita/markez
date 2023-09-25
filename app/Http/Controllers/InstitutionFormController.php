@@ -114,7 +114,7 @@ public function fieldstore(Request $request)
 
 
     $user_id = $request->user_id;
-    $user_ids =$request->$user_ids;
+
 
 
 
