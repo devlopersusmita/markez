@@ -265,7 +265,8 @@ public function institutionmessage(Request $request)
 
     public function getstudentlistforinstitutionmessage(Request $request)
     {
-        dd($request->institution_id);
+        return response()->json(['institution_id'=>$request->institution_id]);
+        exit();
             if($request->institution_id == null) {
                 $user_id = $_GET['institution_id'];
             } else {
