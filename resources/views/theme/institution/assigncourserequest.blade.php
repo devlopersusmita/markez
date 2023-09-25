@@ -29,7 +29,7 @@
                     <td>{{$course['title']}}  </td>
                             <td>{{$course['name']}} </td>
 
-                        <td class="starus-row"> 
+                        <td class="starus-row">
                         <?php if($course['status']=='pending'){?>
                             <span class="pending">Pending</span>
                     <?php } ?>
@@ -39,7 +39,7 @@
                     <?php if($course['status']=='reject'){?>
                         <span class="reject">Reject</span>
                     <?php } ?>
-                     
+
                         </td>
 
 
@@ -84,6 +84,7 @@
                     <div class="card-body">
                         <form class="assign-course-to-teacher"   enctype="multipart/form-data" >
                         <input type="hidden" value="{{$user_id}}" name="user_id">
+                        <input type="hidden" value="{{$user_ids}}" name="user_ids">
                             <div class="login-form">
 
                             <div class="field">
@@ -164,6 +165,7 @@
             <div class="card-body">
                 <form class="edit-assign-course-to-teacher"   enctype="multipart/form-data" >
                      <input type="hidden" value="{{$user_id}}" name="user_id">
+                     <input type="hidden" value="{{$user_ids}}" name="user_ids">
                         <div class="login-form">
 
                             <div class="field">
