@@ -2797,11 +2797,18 @@ public function institutionsystem(Request $request)
     } else {
         $user_id = $request->institution_id;
     }
+
+    //userstable id//
+    if($request->user_id == null) {
+        $user_ids = $_GET['user_id'];
+    } else {
+        $user_ids = $request->user_id;
+    }
     $countries = Country::orderBy('c_name','asc')->get();
     $cities = City::orderBy('city_name','asc')->get();
 
     $data7 = InstitutionSystemSetting::leftJoin('countries','institution_system_settings.default_country_id','=','countries.id')->leftJoin('cities','institution_system_settings.default_city_id','=','cities.id')->where('institution_id',$user_id)->select('institution_system_settings.*','countries.c_name','cities.city_name')->first();
-     return view('theme.institution.settings.system',['systems'=>$data7,'countries'=>$countries,'cities'=>$cities,'user_id'=>$user_id]);
+     return view('theme.institution.settings.system',['systems'=>$data7,'countries'=>$countries,'cities'=>$cities,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 

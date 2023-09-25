@@ -40,6 +40,7 @@
         </div>
         <div class="col-md-12 mt-3 text-right"  >
         <input type="hidden" value="{{$user_id}}" name="user_id">
+        <input type="hidden" value="{{$user_ids}}" name="user_ids">
         <?php if(@$systems->id) { ?>
             <span   class="btn btn-warning systemedit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo @$systems->id; ?>" >Update</span>
             <?php  } else { ?>
@@ -83,6 +84,7 @@
           <div class="modal-body p-3 pt-0">
             <form class="edit-new-system"   enctype="multipart/form-data" >
             <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$user_ids}}" name="user_ids">
              <div class="row">
                 <div class="col-md-6">
                     <label>Student Default Subscription Day</label>

@@ -4324,8 +4324,7 @@ var editSystemForm = $('.edit-new-system');
                             success: function (data) {
 
 
-
-                                window.location.href="{{ route('institutionsystem', ['institution_id' => $_GET['institution_id']]) }}";
+                                window.location.href=`/institutionsystem?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
                                 var responce = data.data[0];
                                 //console.log(responce,"ertwer")
 
