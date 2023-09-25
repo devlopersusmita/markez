@@ -269,7 +269,7 @@ public function institutionmessage(Request $request)
          $user_id =$request->user_id;
 
          $user_ids =$request->user_ids;
-       $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
+    //    $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
        $student_search_text = $request->post("student_search_text");
 
@@ -277,23 +277,23 @@ public function institutionmessage(Request $request)
 
             $data7_public=InstitutionStudent::leftJoin('users','users.id','=','institution_students.user_id')->Join('institutions', 'institutions.id','=','institution_students.institution_id')
             ->where(['institution_students.institution_id'=>$user_id])
-            ->orderBy('users.name','asc')
+            ->orderBy('users.name','asc')->select('users.*')->get();
 
-            // echo"<pre>";
-             //print_r($data7_public);
-
-
+            echo"<pre>";
+             print_r($data7_public);
 
 
-            ->when($request->has("student_search_text"),function($q)use($request){
-                   $name  = $request->post("student_search_text");
-                   if($name!='')
-                    {
-                       return $q->where("users.name","like","%".$name."%");
-                   }
 
 
-            })->select('users.*')->get();
+            // ->when($request->has("student_search_text"),function($q)use($request){
+            //        $name  = $request->post("student_search_text");
+            //        if($name!='')
+            //         {
+            //            return $q->where("users.name","like","%".$name."%");
+            //        }
+
+
+            // })->select('users.*')->get();
 
               $thearray_public = [];
              if(count($data7_public) > 0)
