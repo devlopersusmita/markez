@@ -86,7 +86,7 @@
                                     <div class="course-grid">
                                         <img src="images/course1.png" alt="">
                                         <div class="couse-content">
-                                            <h3>{{ $course_datas['title'] }}</h3>
+                                            <h3>{{ $course_data['title'] }}</h3>
                                             <p>Lorem ipsum dolor</p>
                                             <div class="rating">
                                                 <span>4.6</span>
