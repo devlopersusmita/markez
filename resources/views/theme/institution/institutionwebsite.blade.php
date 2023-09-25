@@ -3,7 +3,8 @@
 @section('content')
 
 
-{{ $output_array }}
+<?php echo "<pre>"; ?>
+<?php print_r($output_array); ?>
 
 
 <!-- Banner Start -->
