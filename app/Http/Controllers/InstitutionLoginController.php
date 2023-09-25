@@ -122,17 +122,9 @@ public function institutionmessage(Request $request)
 
                 //    $user_id=Auth::id();
                         // $user_id=Auth::id();
-                if($request->institution_id == null) {
-                    $user_id = $_GET['institution_id'];
-                } else {
-                    $user_id = $request->institution_id;
-                }
-            //userstable id//
-                if($request->user_id == null) {
-                    $user_ids = $_GET['user_id'];
-                } else {
-                    $user_ids = $request->user_id;
-                }
+                        $user_id =$request->user_id;
+
+                        $user_ids =$request->user_ids;
 
        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
@@ -185,17 +177,9 @@ public function institutionmessage(Request $request)
 
 
                         // $user_id=Auth::id();
-                        if($request->institution_id == null) {
-                            $user_id = $_GET['institution_id'];
-                        } else {
-                            $user_id = $request->institution_id;
-                        }
-                    //userstable id//
-                        if($request->user_id == null) {
-                            $user_ids = $_GET['user_id'];
-                        } else {
-                            $user_ids = $request->user_id;
-                        }
+                        $user_id =$request->user_id;
+
+                        $user_ids =$request->user_ids;
 
        $student_id = $request->post("student_id");
        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
@@ -266,18 +250,10 @@ public function institutionmessage(Request $request)
     public function getstudentlistforinstitutionmessage(Request $request)
     {
 
-        if($request->institution_id == null) {
-            $user_id = $_GET['institution_id'];
-        } else {
-            $user_id = $request->institution_id;
-        }
-//userstable id//
-        if($request->user_id == null) {
-            $user_ids = $_GET['user_id'];
-        } else {
-            $user_ids = $request->user_id;
-        }
-    //    $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
+         $user_id =$request->user_id;
+
+         $user_ids =$request->user_ids;
+       $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
        $student_search_text = $request->post("student_search_text");
 
