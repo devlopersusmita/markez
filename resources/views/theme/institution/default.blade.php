@@ -2662,10 +2662,10 @@ var url = baseurl + '/institutionorderdelete/'+id;
 
        });
 
-     <?php
-if(\Request::route()->getName() == 'institutionmessage')
-{
-  ?>
+//      <?php
+// if(\Request::route()->getName() == 'institutionmessage')
+// {
+//   ?>
 
      var student_search_text = '';
      alert(student_search_text);
@@ -2857,9 +2857,9 @@ if(\Request::route()->getName() == 'institutionmessage')
       });
      }
 
-  <?php
-}
-?>
+//   <?php
+// }
+// ?>
 
 // page start //
 
