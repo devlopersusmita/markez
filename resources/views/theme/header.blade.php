@@ -7,7 +7,7 @@
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <span>{!!$company_settings->header_text!!} </span>
+               <span>{!!@$company_settings->header_text!!} </span>
             </div>
          </div>
       </div>
