@@ -64,13 +64,15 @@
             @foreach($output_array as $output_arrays)
 				<li class="nav-item">
 					<a class="nav-link active" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }}</a>
+
+                    <p>{{$output_arrays['course_data'][0]->title }}
 				</li>
                 @endforeach
 			</ul>
 
 			<!-- Tab panes -->
 			<div class="tab-content">
-            @foreach($course_data as $course_datas)
+
 				<div class="tab-pane container fade active show" id="menu1">
 					<div class="row">
 						<div class="col-lg-3 col-md-6">
@@ -92,7 +94,7 @@
 								</div>
 							</div>
 						</div>
-@endforeach
+
 
 					</div>
 				</div>
