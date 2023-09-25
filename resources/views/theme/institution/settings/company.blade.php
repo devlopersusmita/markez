@@ -137,6 +137,7 @@
           <div class="modal-body p-3 pt-0">
             <form class="edit-new-company"   enctype="multipart/form-data" >
             <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$user_ids}}" name="user_ids">
              <div class="row">
                 <div class="col-md-6">
                     <label>Name</label>

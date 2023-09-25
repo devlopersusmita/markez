@@ -2521,9 +2521,16 @@ public function institutioncompany(Request $request)
         $user_id = $request->institution_id;
     }
 
+    //userstable id//
+    if($request->user_id == null) {
+        $user_ids = $_GET['user_id'];
+    } else {
+        $user_ids = $request->user_id;
+    }
+
   $data7=InstitutionCompanySetting::where('institution_id',$user_id)->select('institution_company_settings.*')->first();
 
-  return view('theme.institution.settings.company',['companys'=>$data7,'user_id'=>$user_id]);
+  return view('theme.institution.settings.company',['companys'=>$data7,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 

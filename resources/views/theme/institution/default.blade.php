@@ -4138,7 +4138,7 @@ if (editCompanyForm.length) {
                processData: false,
               success: function (data) {
 
-                window.location.href="{{ route('institutioncompany', ['institution_id' => $_GET['institution_id']]) }}";
+                window.location.href=`/institutioncompany?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
 
                   var responce = data.data[0];
                   //console.log(responce,"ertwer")
