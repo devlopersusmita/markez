@@ -2720,7 +2720,7 @@ public function institutionwebsite(Request $request,$id)
         $institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
             //dd($institution_sliders);
             $category_lists =Category::where('institution_id',$id)->orderBy('name','asc')->get();
-        // dd($category_lists);
+        dd($category_lists);
             $t2_array =[];
                 if(!empty($category_lists) )
                 {
