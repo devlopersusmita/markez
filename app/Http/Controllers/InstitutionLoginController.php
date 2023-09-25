@@ -269,18 +269,18 @@ public function institutionmessage(Request $request)
          $user_id =$request->user_id;
 
 
-       $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
+    //    $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
        $student_search_text = $request->post("student_search_text");
 
 
 
             $data7_public=InstitutionStudent::leftJoin('users','users.id','=','institution_students.user_id')->Join('institutions', 'institutions.id','=','institution_students.institution_id')
-            ->where(['institution_students.institution_id'=>$institution_id])
+            ->where(['institution_students.institution_id'=>$user_id])
             ->orderBy('users.name','asc')
 
             // echo"<pre>";
-            // print_r($data7_public);
+             //print_r($data7_public);
 
 
 
