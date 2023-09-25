@@ -114,6 +114,7 @@ public function fieldstore(Request $request)
 
 
     $user_id = $request->user_id;
+    $user_ids =$request->$user_ids;
 
 
 
@@ -303,6 +304,7 @@ public function addnewform(Request $request)
 {
 
    $user_id = $request->user_id;
+   $user_ids =$request->$user_ids;
 
       $pages = Page::orderBy('pages.id','desc')->where('created_by',$user_id)->select('pages.*')->get();
 

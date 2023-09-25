@@ -302,6 +302,7 @@
                             <div class="login-form">
                             <div class="field">
                             <input type="hidden" value="{{$user_id}}" name="user_id">
+                            <input type="hidden" value="{{$user_ids}}" name="user_ids">
                                     <label class="required">Field type </label>
                                     <div class="control">
                                         <select class="input title-input" name="field_type" id="field_type" onchange="getfieldtype(this.value)" maxlength="250" required>
