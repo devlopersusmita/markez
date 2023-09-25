@@ -265,7 +265,7 @@ public function institutionmessage(Request $request)
 
             echo"<pre>";
              print_r($data7_public);
-             exit();
+             //exit();
 
 
 
