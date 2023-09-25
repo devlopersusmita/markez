@@ -2663,7 +2663,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
        });
 
      <?php
-if(\Request::route()->getName() == 'institutionmessage')
+if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`)
 {
   ?>
 
