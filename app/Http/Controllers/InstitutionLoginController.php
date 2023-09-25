@@ -3598,6 +3598,13 @@ public function institutiondashboard(Request $request)
                 $user_id = $request->institution_id;
             }
 
+            //userstable id//
+            if($request->user_id == null) {
+                $user_ids = $_GET['user_id'];
+            } else {
+                $user_ids = $request->user_id;
+            }
+
           $current_date = date('Y-m-d H:i:s');
                 $course_count = Course::where(['user_id'=>$user_id])->orderBy('id','asc')->get()->count();
                 //dd($courses);
@@ -3614,7 +3621,7 @@ public function institutiondashboard(Request $request)
 
 
 
-       return view('theme.institution.dashboard',['user_id'=>$user_id,'course_count'=>$course_count,'total_payment'=>$total_payment,'total_student'=>$total_student,'students_lists'=>$students_lists,'teachers_lists'=>$teachers_lists,'total_visitor'=>$total_visitor]);
+       return view('theme.institution.dashboard',['user_id'=>$user_id,'course_count'=>$course_count,'total_payment'=>$total_payment,'total_student'=>$total_student,'students_lists'=>$students_lists,'teachers_lists'=>$teachers_lists,'total_visitor'=>$total_visitor,'user_ids'=>$user_ids]);
 
     }
 
