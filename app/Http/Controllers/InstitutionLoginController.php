@@ -279,9 +279,8 @@ public function institutionmessage(Request $request)
             //     $user_ids = $request->user_id;
             // }
 
-          // dd($user_id =$request->user_id;);
-           return response()->json(['user_id'=>$request->user_id]);
-           exit();
+          $user_id =$request->user_id;
+
 
        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
