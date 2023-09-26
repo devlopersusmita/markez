@@ -253,6 +253,8 @@ public function institutionmessage(Request $request)
          $user_id =$request->user_id;
 
          $user_ids =$request->user_ids;
+
+
        $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
 

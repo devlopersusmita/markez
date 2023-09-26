@@ -2671,7 +2671,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
      $("#student_search_text").keyup(function(){
         // alert('123');
        student_search_text = $('#student_search_text').val();
-       alert(student_search_text);
+    //    alert(student_search_text);
        getstudentlistforinstitutionmessage(student_search_text);
      });
 
@@ -2814,7 +2814,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
           dataType : 'json',
           data: {
             'student_search_text':student_search_text
-            'user_id':<?php echo $_GET['user_id']; ?>
+
           },
           success : function(data){
               consloe.log("123 ",data);
