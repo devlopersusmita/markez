@@ -2674,7 +2674,7 @@ if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['i
      $("#student_search_text").keyup(function(){
         // alert('123');
        student_search_text = $('#student_search_text').val();
-       //alert('000');
+       alert(student_search_text);
        getstudentlistforinstitutionmessage(student_search_text);
      });
 
@@ -2808,7 +2808,7 @@ if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['i
 
      function getstudentlistforinstitutionmessage(student_search_text)
      {
-        alert(student_search_text);
+        alert("222 ",student_search_text);
         return;
    //alert(student_search_text);
        $.ajax({
