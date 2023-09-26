@@ -2184,6 +2184,9 @@ public function teachersend(Request $request)
 
                            //$slug = Str::slug($request->input('title'));
                            //$course_id = $course->id;
+
+                           $courseteacher_access_count=CourseTeacher::where(['user_id'=>$user_id,'course_id'=>$request->course_id])->count();
+                           dd($courseteacher_access_count);
                             $course_teacher = new CourseTeacher();
                             $course_teacher->course_id =  $request->course_id;
                             $course_teacher->user_id= $request->teacher_id;
