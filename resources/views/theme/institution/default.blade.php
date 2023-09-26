@@ -2808,6 +2808,8 @@ if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['i
 
      function getstudentlistforinstitutionmessage(student_search_text)
      {
+        alert(student_search_text);
+        return;
    //alert(student_search_text);
        $.ajax({
           type : 'POST',
