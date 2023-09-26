@@ -2922,7 +2922,7 @@ public function postteacherstudentlogin(Request $request)
     //echo "lgjdfjgl";exit;
     // Validate the login request
     $request->validate([
-        'email' => 'required|email',
+        'email' => 'required|email|unique:users',
         'password' => 'required',
     ]);
 
