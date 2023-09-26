@@ -2981,7 +2981,9 @@ public function postteacherstudentlogin(Request $request)
             return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'You are not register in this Institution');
 
         }
-
+       dd( Session::put('student_name', $user->name));
+        // Session::put('institution_id', $user->id);
+        // Session::put('user_id', $userstable->id);
 
             return redirect()->route('profile', ['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
 
