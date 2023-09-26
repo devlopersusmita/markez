@@ -2806,7 +2806,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
      function getstudentlistforinstitutionmessage(student_search_text)
      {
         // alert("222 ",student_search_text);
-        return;
+        // return;
    //alert(student_search_text);
        $.ajax({
           type : 'POST',
@@ -2817,7 +2817,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
           },
           success : function(data){
               consloe.log("123 ",data);
-              return;
+            //   return;
             //    alert(data);
             //    alert('success');
             //   alert(JSON.stringify(data));
