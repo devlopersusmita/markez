@@ -120,8 +120,7 @@ class StudentController extends Controller
 
           $sender_details = User::where(['id'=>$user_ids])->first();
 
-          return response()->json(['sender_details'=>$sender_details]);
-          exit();
+
 
             $receiver_details = Institution::where(['id'=>$user_id])->first();
 
