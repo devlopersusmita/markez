@@ -2671,7 +2671,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
      $("#student_search_text").keyup(function(){
         // alert('123');
        student_search_text = $('#student_search_text').val();
-    //    alert(student_search_text);
+       alert(student_search_text);
        getstudentlistforinstitutionmessage(student_search_text);
      });
 
