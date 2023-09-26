@@ -2127,7 +2127,7 @@ public function institutionmyteacher(Request $request)
         $categories = Category::where('institution_id',$user_id)->orderBy('name','asc')->get();
         $current_date = date('Y-m-d H:i:s');
 
-        $course_lists = Course::where('user_id',$user_id)->orderBy('title','asc')->get();
+        $course_lists = Course::where('institution_id',$user_id)->orderBy('title','asc')->get();
         $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
         $my_teachers=InstitutionTeacher::leftjoin('users','institution_teachers.user_id','=','users.id')->where(['users.status'=>'active','users.role'=>'2','institution_teachers.institution_id'=>$institution_id,'institution_teachers.status'=>'approve',])->select('users.*')->orderBy('users.name','asc')->get();
             // dd($my_teachers);
