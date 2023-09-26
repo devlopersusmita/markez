@@ -2805,6 +2805,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
 
      function getstudentlistforinstitutionmessage(student_search_text)
      {
+        alert(<?php echo $_GET['user_id']; ?>)
         // alert("222 ",student_search_text);
         // return;
    //alert(student_search_text);
