@@ -77,9 +77,21 @@ class StudentController extends Controller
      public function messageinstitution(Request $request)
     {
 
-       $user_id=Auth::id();
+                //this is institution id ;
+                if($request->institution_id == null) {
+                    $user_id = $_GET['institution_id'];
+                } else {
+                    $user_id = $request->institution_id;
+                }
+            // this is student  id //
+                if($request->user_id == null) {
+                    $user_ids = $_GET['user_id'];
+                } else {
+                    $user_ids = $request->user_id;
+                }
 
-      return view('theme.student.institutionmessage');
+
+      return view('theme.student.institutionmessage',['user_id'=>$user_id,'user_ids'=>$user_ids]);
 
     }
 
@@ -87,44 +99,37 @@ class StudentController extends Controller
     public function sendmessagechatforstudentinstitution(Request $request)
     {
 
-       $user_id=Auth::id();
+    //    $user_id=Auth::id();
+         //this is institution id //
+         $user_id =$request->institution_ids;
+         //this is student id //
+          $user_ids =$request->user_id;
        $institution_id = $request->post("institution_id");
        $contents = $request->post("send_message_text");
 
         $message = new Message();
-          $message->sender_id = $user_id;
+          $message->sender_id = $user_ids;
           $message->sender_type = 'Student';
           $message->receiver_id = $institution_id;
           $message->receiver_type = 'Institution';
           $message->contents = $contents;
-          $message->created_by = $user_id;
+          $message->created_by = $user_ids;
 
           $message->save();
 
 
-          $sender_details = User::where(['id'=>$user_id])->first();
+          $sender_details = User::where(['id'=>$user_ids])->first();
 
 
-            $receiver_details = User::leftjoin('institution_admins','institution_admins.user_id','=','users.id')->where(['institution_admins.institution_id'=>$institution_id])->first();
+            $receiver_details = Institution::where(['id'=>$user_id])->first();
 
-            if($sender_details->role=='1')
-            {
-                $sender_type = 'A Student';
-            }
-            else if($sender_details->role=='2')
-            {
-                $sender_type = 'A Teacher';
-            }
-            else if($sender_details->role=='3')
-            {
-                $sender_type = 'An Institution';
-            }
+
 
             $details = [
                   'receiver_name'=>$receiver_details->name,
                   'sender_name'=>$sender_details->name,
-                  'sender_type' => $sender_type,
-                  'body' => $sender_type.' ('.$sender_details->name.') sent you a message <br>Message : '.$contents.'<br><br>',
+                  'sender_type' => 'An Institution',
+                  'body' => 'An Institution'.' ('.$sender_details->name.') sent you a message <br>Message : '.$contents.'<br><br>',
               ];
 
             Mail::to($receiver_details->email)->send(new NotifyMail($details));
@@ -139,13 +144,16 @@ class StudentController extends Controller
      public function getmessagechatforstudentinstitution(Request $request)
     {
 
-       $user_id=Auth::id();
+      //this is institution id //
+      $user_id =$request->institution_ids;
+      //this is student id //
+       $user_ids =$request->user_id;
        $institution_id = $request->post("institution_id");
 
        $institution_details = Institution::where('id',$institution_id)->first();
-       $student_details = User::where('id',$user_id)->first();
+       $student_details = User::where('id',$user_ids)->first();
 
-        $data7_public=Message::whereRaw(' ((messages.sender_id="'.$user_id.'" and messages.sender_type="Student" and messages.receiver_id="'.$institution_id.'" and messages.receiver_type="Institution") or (messages.sender_id="'.$institution_id.'" and messages.sender_type="Institution" and messages.receiver_id="'.$user_id.'" and messages.receiver_type="Student")) ')
+        $data7_public=Message::whereRaw(' ((messages.sender_id="'.$user_ids.'" and messages.sender_type="Student" and messages.receiver_id="'.$institution_id.'" and messages.receiver_type="Institution") or (messages.sender_id="'.$institution_id.'" and messages.sender_type="Institution" and messages.receiver_id="'.$user_ids.'" and messages.receiver_type="Student")) ')
          ->orderBy('messages.id','desc')
          ->limit(100)
 
@@ -206,7 +214,10 @@ class StudentController extends Controller
     public function getinstitutionlistforstudentmessage(Request $request)
     {
 
-       $user_id=Auth::id();
+         //this is institution id //
+         $user_id =$request->institution_ids;
+         //this is student id //
+          $user_ids =$request->user_id;
 
 
 
@@ -215,7 +226,7 @@ class StudentController extends Controller
 
 
         $data7_public=InstitutionStudent::leftJoin('institutions', 'institution_students.institution_id', '=', 'institutions.id')
-         ->where(['institution_students.user_id'=>$user_id])
+         ->where(['institution_students.user_id'=>$user_ids])
          ->orderBy('institutions.name','asc')
 
             ->when($request->has("institution_search_text"),function($q)use($request){

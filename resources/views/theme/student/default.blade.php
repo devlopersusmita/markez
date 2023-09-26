@@ -2711,6 +2711,8 @@ if(\Request::route()->getName() == 'studentmessageinstitution')
 
 
      $(document).on('click', '#send_message_button', function () {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_ids=<?php echo $_GET['institution_id']; ?>;
            var send_message_text = $('#send_message_text').val();
            if(send_message_text!='')
            {
@@ -2730,7 +2732,9 @@ if(\Request::route()->getName() == 'studentmessageinstitution')
                 dataType : 'json',
                 data: {
                   'institution_id':last_institution_id_for_message,
-                  'send_message_text':send_message_text
+                  'send_message_text':send_message_text,
+                  'user_id':user_id,
+            'institution_id':institution_ids,
                 },
                 success : function(data){
                     //  alert(data);
@@ -2761,6 +2765,8 @@ if(\Request::route()->getName() == 'studentmessageinstitution')
 
      function getmessagechatforstudentinstitution()
      {
+        user_id=<?php echo $_GET['user_id']; ?>;
+        institution_ids=<?php echo $_GET['institution_id']; ?>;
        if(last_institution_id_for_message!='')
        {
 
@@ -2773,7 +2779,9 @@ if(\Request::route()->getName() == 'studentmessageinstitution')
                 url : baseurl+'/getmessagechatforstudentinstitution',
                 dataType : 'json',
                 data: {
-                  'institution_id':last_institution_id_for_message
+                  'institution_id':last_institution_id_for_message,
+                  'user_id':user_id,
+            'institution_id':institution_ids,
                 },
                 success : function(data){
                     //  alert(data);
@@ -2835,13 +2843,17 @@ if(\Request::route()->getName() == 'studentmessageinstitution')
 
      function getinstitutionlistforstudentmessage(institution_search_text)
      {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_ids=<?php echo $_GET['institution_id']; ?>;
 
        $.ajax({
           type : 'POST',
           url : baseurl+'/getinstitutionlistforstudentmessage',
           dataType : 'json',
           data: {
-            'institution_search_text':institution_search_text
+            'institution_search_text':institution_search_text,
+            'user_id':user_id,
+            'institution_id':institution_ids,
           },
           success : function(data){
                //alert(data);

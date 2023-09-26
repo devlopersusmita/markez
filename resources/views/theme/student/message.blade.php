@@ -46,7 +46,7 @@
                                 </div>
 
                             </div>
-                           
+
 
 
 
@@ -63,6 +63,8 @@
                                         <label>Search Teacher</label>
                                         <div class="control has-icon">
                                             <input type="text" class="input" id="teacher_search_text">
+                                            <input type="hidden" value="{{$user_id}}" name="user_id">
+                                            <input type="hidden" value="{{$user_ids}}" name="user_ids">
                                             <div class="form-icon">
                                                 <i data-feather="search"></i>
                                             </div>
@@ -75,7 +77,7 @@
                                               ...
                                             </div>
 
-                                           
+
                                         </div>
                                     </div>
 
@@ -88,18 +90,18 @@
                                         <div class="box-subscribers" style="padding-left:30px;">
                                             <div class="box-subscriber" >
                                                 <div id="teacher_avatar">
-                                                    
+
                                                 </div>
                                                 <div class="subscriber-meta">
-                                                    <span class="meta-title" id="teacher_name"></span> 
-                                                </div> 
+                                                    <span class="meta-title" id="teacher_name"></span>
+                                                </div>
                                             </div>
                                         </div>
-                                       
+
                                           <div id="chat-body" class="chat-body is-opened">
                                             <!-- Conversation with Dan -->
                                             <div id="dan-conversation" class="chat-body-inner has-slimscroll">
-                                              
+
                                                 <!--
                                                 <div class="chat-message is-received">
                                                     <img src="https://via.placeholder.com/300x300" data-demo-src="assets/img/avatars/dan.jpg" alt="">
@@ -190,7 +192,7 @@
 
 
                                             </div>
-                                           
+
 
                                         </div>
                                          <div class="columns"  id="send_message" style="margin:10px;display: none;" />
@@ -202,18 +204,18 @@
                                                     Send
                                                 </button>
 
-                                               
+
                                              </div>
                                               <div class="column is-1" style="padding-left: 5px;padding-right: 5px;">
-                                                
+
 
                                                 <div style="float: right; display: none;" id="loading_message_send"><img src="{{asset('frontend/images/loadingpleasewait.gif')}}" width="40"></div>
                                              </div>
                                          </div>
 
-                                        
 
-                                       
+
+
                                     </div>
                                 </div>
                              </div>
