@@ -2931,7 +2931,7 @@ public function postteacherstudentlogin(Request $request)
     $institution_id = $request->institution_id;
 
     $user = User::where('email', $email)->first();
-    //dd($user->id);
+    dd($user);
 
     $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
     //dd(sizeof($institution_teacher));
