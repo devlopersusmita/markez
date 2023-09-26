@@ -119,6 +119,7 @@ class StudentController extends Controller
 
 
           $sender_details = User::where(['id'=>$user_ids])->first();
+          dd($sender_details);
 
 
             $receiver_details = Institution::where(['id'=>$user_id])->first();
