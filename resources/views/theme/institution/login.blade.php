@@ -73,11 +73,11 @@
                                 </div>
 
                                 <div class="account-link has-text-centered">
-                                     @if (Route::has('register'))
 
-                                            <a  href="{{ route('register') }}">Don't have an account? Sign Up</a>
 
-                                    @endif
+                                            <a  href="{{url('teacherstudentregister/'.$id)}}">Don't have an account? Sign Up</a>
+
+
                                 </div>
                             </div>
                         </form>
