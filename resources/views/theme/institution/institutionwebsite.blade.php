@@ -145,7 +145,9 @@
 					<img src="images/popular-course1.png" alt="">
 					<div class="couse-content">
 						<h3>{{$popular_course->title}}</h3>
-						<p>{!!$popular_course->description!!}</p>
+						<p>
+                        {!! Str::words($popular_course->description, 2, ' ...') !!}
+                        </p>
 						<div class="rating">
 							<span>4.6</span>
 							<span class="fa fa-star checked"></span>
