@@ -147,8 +147,8 @@ public function institutionmessage(Request $request)
             $details = [
                   'receiver_name'=>$receiver_details->name,
                   'sender_name'=>$sender_details->name,
-                  'sender_type' => $sender_type,
-                  'body' => $sender_type.' ('.$sender_details->name.') sent you a message <br>Message : '.$contents.'<br><br>',
+                  'sender_type' => 'INSTITUTION',
+                  'body' =>'INSTITUTION'.' ('.$sender_details->name.') sent you a message <br>Message : '.$contents.'<br><br>',
               ];
 
             Mail::to($receiver_details->email)->send(new NotifyMail($details));
