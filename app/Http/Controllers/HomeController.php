@@ -2926,10 +2926,10 @@ public function postteacherstudentlogin(Request $request)
 {
     //echo "lgjdfjgl";exit;
     // Validate the login request
-    $request->validate([
-        'email' => 'required|email|users',
-        'password' => 'required',
-    ]);
+    // $request->validate([
+    //     'email' => 'required|email|users',
+    //     'password' => 'required',
+    // ]);
 
     $email = $request->input('email');
     $password = $request->input('password');
