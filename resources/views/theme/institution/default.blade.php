@@ -2662,11 +2662,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
 
        });
 
-     <?php
-     echo \Request::route()->getName();
-if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`)
-{
-  ?>
+
 
      var student_search_text = '';
      alert('1111111');
@@ -2861,9 +2857,7 @@ if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['i
       });
      }
 
-  <?php
-}
-?>
+
 
 // page start //
 
