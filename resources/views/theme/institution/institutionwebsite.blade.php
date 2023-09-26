@@ -137,12 +137,13 @@
 <section class="course popular-course">
 	<div class="container">
 		<h2>Popular Courses</h2>
+        @foreach($popular_courses as $popular_course)
 		<div class="row">
 			<div class="col-lg-3 col-md-6">
 				<div class="course-grid">
 					<img src="images/popular-course1.png" alt="">
 					<div class="couse-content">
-						<h3>Lorem ipsum dolor amet, <br> consetetur elitr,</h3>
+						<h3>{{$popular_course->title}}</h3>
 						<p>Lorem ipsum dolor</p>
 						<div class="rating">
 							<span>4.6</span>
@@ -153,71 +154,13 @@
 							<span class="fa fa-star checked"></span>
 							<small>(380,527)</small>
 						</div>
-						<p class="course-price"><strong>$2,000</strong><span>$3,399</span></p>
+						<p class="course-price"><strong>{{$popular_course->price}}</strong><span>$3,399</span></p>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-lg-3 col-md-6">
-				<div class="course-grid">
-					<img src="images/popular-course2.png" alt="">
-					<div class="couse-content">
-						<h3>Lorem ipsum dolor amet, <br> consetetur elitr,</h3>
-						<p>Lorem ipsum dolor</p>
-						<div class="rating">
-							<span>4.6</span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<small>(380,527)</small>
-						</div>
-						<p class="course-price"><strong>$2,000</strong><span>$3,399</span></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6">
-				<div class="course-grid">
-					<img src="images/popular-course3.png" alt="">
-					<div class="couse-content">
-						<h3>Lorem ipsum dolor amet, <br> consetetur elitr,</h3>
-						<p>Lorem ipsum dolor</p>
-						<div class="rating">
-							<span>4.6</span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<small>(380,527)</small>
-						</div>
-						<p class="course-price"><strong>$2,000</strong><span>$3,399</span></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6">
-				<div class="course-grid">
-					<img src="images/course4.png" alt="">
-					<div class="couse-content">
-						<h3>Lorem ipsum dolor amet, <br> consetetur elitr,</h3>
-						<p>Lorem ipsum dolor</p>
-						<div class="rating">
-							<span>4.6</span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<small>(380,527)</small>
-						</div>
-						<p class="course-price"><strong>$2,000</strong><span>$3,399</span></p>
-					</div>
-				</div>
-			</div>
 		</div>
+        @endforeach
 	</div>
 </section>
 

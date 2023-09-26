@@ -2754,12 +2754,12 @@ public function institutionwebsite(Request $request,$id)
                     // print_r($output_array);
                     // exit();
 
-      $popular_courses =Course::where('institution_id',$id)->orderBy('courses.id','desc')
-      ->select('courses.*')
-      ->get();
-      dd($popular_courses);
+                $popular_courses =Course::where('institution_id',$id)->orderBy('courses.id','desc')
+                ->select('courses.*')
+                ->get();
+                //dd($popular_courses);
 
-    return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists,'output_array'=>$output_array]);
+    return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists,'output_array'=>$output_array,'popular_courses'=>$popular_courses]);
 }
 
 public function teacherstudentregister(Request $request,$id)
