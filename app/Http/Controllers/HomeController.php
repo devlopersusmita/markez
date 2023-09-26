@@ -2933,8 +2933,8 @@ public function postteacherstudentlogin(Request $request)
     $user = User::where('email', $email)->first();
     //dd($user);
 
-    $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
-    dd(sizeof($institution_teacher));
+    // $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
+    //dd(sizeof($institution_teacher));
     //dd($institution_teacher[0]->status);
 
     if (($user && Hash::check($password, $user->password)))
@@ -2943,6 +2943,7 @@ public function postteacherstudentlogin(Request $request)
 
        if($user->role == 2)
        {
+        $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
         $institution_teacher_relation = InstitutionTeacher::where(['user_id' => $user->id, 'institution_id'=>$institution_id])->get();
         //dd($institution_teacher_relation);
         if($institution_teacher_relation->isEmpty()) {
