@@ -2685,6 +2685,8 @@ var url = baseurl + '/institutionorderdelete/'+id;
 
 
      $(document).on('click', '#send_message_button', function () {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_id=<?php echo $_GET['institution_id']; ?>;
            var send_message_text = $('#send_message_text').val();
            if(send_message_text!='')
            {
@@ -2701,7 +2703,9 @@ var url = baseurl + '/institutionorderdelete/'+id;
                 dataType : 'json',
                 data: {
                   'student_id':last_student_id_for_message,
-                  'send_message_text':send_message_text
+                  'send_message_text':send_message_text,
+                  'user_id':user_id,
+            'institution_id':institution_id,
                 },
                 success : function(data){
                      alert(data);

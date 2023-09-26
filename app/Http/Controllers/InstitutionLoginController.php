@@ -120,14 +120,14 @@ public function institutionmessage(Request $request)
     public function sendmessagechatforinstitutionstudent(Request $request)
     {
 
-                //    $user_id=Auth::id();
-                        // $user_id=Auth::id();
-                        $user_id =$request->user_id;
+                 //this is institution id //
+      $user_id =$request->institution_id;
+      //this is user id //
+       $user_ids =$request->user_id;
 
-                        $user_ids =$request->user_ids;
 
-       $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
 
+      $institution_id=$request->institution_id;
        $student_id = $request->post("student_id");
        $contents = $request->post("send_message_text");
 
@@ -141,21 +141,8 @@ public function institutionmessage(Request $request)
 
           $message->save();
 
-           $sender_details = User::where(['id'=>$user_id])->first();
+           $sender_details = Institution::where(['id'=>$user_id])->first();
             $receiver_details = User::where(['id'=>$student_id])->first();
-
-            if($sender_details->role=='1')
-            {
-                $sender_type = 'A Student';
-            }
-            else if($sender_details->role=='2')
-            {
-                $sender_type = 'A Teacher';
-            }
-            else if($sender_details->role=='3')
-            {
-                $sender_type = 'An Institution';
-            }
 
             $details = [
                   'receiver_name'=>$receiver_details->name,
