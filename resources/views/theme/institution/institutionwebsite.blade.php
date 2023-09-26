@@ -146,7 +146,7 @@
 					<div class="couse-content">
 						<h3>{{$popular_course->title}}</h3>
 						<p>
-                        {!! Str::words($popular_course->description, 2, ' ...') !!}
+                        {!! Str::words($popular_course->description, 10, ' ...') !!}
                         </p>
 						<div class="rating">
 							<span>4.6</span>
@@ -181,7 +181,7 @@
 					<img src="images/course1.png" alt="">
 					<div class="couse-content">
                     <h3>{{$popular_course->title}}</h3>
-						<p>{!!$popular_course->description!!}</p>
+						<p>{!! Str::words($popular_course->description, 10, ' ...') !!}</p>
 						<div class="rating">
 							<span>4.6</span>
 							<span class="fa fa-star checked"></span>
