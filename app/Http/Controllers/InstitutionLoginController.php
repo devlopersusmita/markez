@@ -174,15 +174,17 @@ public function institutionmessage(Request $request)
 
      public function getmessagechatforinstitutionstudent(Request $request)
     {
+        //this is institution id //
+      $user_id =$request->institution_id;
+       //this is user id //
+        $user_ids =$request->user_id;
 
 
-                        // $user_id=Auth::id();
-                        $user_id =$request->user_id;
 
-                        $user_ids =$request->user_ids;
+       $institution_id=$request->institution_id;
 
        $student_id = $request->post("student_id");
-       $institution_id = InstitutionAdmin::where('institution_id',$user_id)->first()->institution_id;
+
 
 
        $institution_details = Institution::where('id',$institution_id)->first();

@@ -2662,7 +2662,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
 
        });
 
-
+//Message start Institution for student //
 
       var student_search_text = '';
 
@@ -2732,6 +2732,9 @@ var url = baseurl + '/institutionorderdelete/'+id;
 
      function getmessagechatforinstitutionstudent()
      {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_id=<?php echo $_GET['institution_id']; ?>;
+
       if(last_student_id_for_message!='')
       {
 
@@ -2743,7 +2746,9 @@ var url = baseurl + '/institutionorderdelete/'+id;
               url : baseurl+'/getmessagechatforinstitutionstudent',
               dataType : 'json',
               data: {
-                'student_id':last_student_id_for_message
+                'student_id':last_student_id_for_message,
+                'user_id':user_id,
+            'institution_id':institution_id,
               },
               success : function(data){
                    //alert(data);
