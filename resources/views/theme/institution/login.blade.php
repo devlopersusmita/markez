@@ -51,7 +51,7 @@
                                         </div>
                                     </div>
                                     <div class="field is-flex">
-                                        <div class="switch-block">
+                                        <!-- <div class="switch-block">
                                             <label class="f-switch">
                                                  <input class="is-switch" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                 <i></i>
@@ -61,7 +61,7 @@
                                                     {{ __('Remember Me') }}
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         @if (Route::has('password.request'))
                                             <a  href="{{ route('password.request') }}">Forgot Password?</a>
                                         @endif
