@@ -2931,10 +2931,10 @@ public function postteacherstudentlogin(Request $request)
     $institution_id = $request->institution_id;
 
     $user = User::where('email', $email)->first();
-    dd($user);
+    //dd($user);
 
     $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
-    //dd(sizeof($institution_teacher));
+    dd(sizeof($institution_teacher));
     //dd($institution_teacher[0]->status);
 
     if (($user && Hash::check($password, $user->password)))
