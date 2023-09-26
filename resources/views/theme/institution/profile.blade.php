@@ -45,7 +45,7 @@
                   @enderror
 							</div>
 						</div>
-
+                        <input type="text" id="skillInput" placeholder="Enter skills" />
 						<div class="select-theme">
 							<h3>Choose Theme</h3>
 							<div class="subscription-container select-theme-wrap">
