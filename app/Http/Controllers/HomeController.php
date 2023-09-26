@@ -2780,6 +2780,11 @@ public function teacherstudentlogin(Request $request,$id)
 public function registerstore(Request $request)
 {
 
+    $request->validate([
+        'email' => 'required|email|unique:users',
+        'password' => 'required',
+    ]);
+
     $institution_id = $request->institution_id;
     //dd(institution_id)
 
