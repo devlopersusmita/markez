@@ -63,8 +63,7 @@
                                         <label>Search Teacher</label>
                                         <div class="control has-icon">
                                             <input type="text" class="input" id="teacher_search_text">
-                                            <input type="hidden" value="{{$user_id}}" name="user_id">
-                                            <input type="hidden" value="{{$user_ids}}" name="user_ids">
+
                                             <div class="form-icon">
                                                 <i data-feather="search"></i>
                                             </div>
