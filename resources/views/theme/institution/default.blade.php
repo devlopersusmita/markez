@@ -2817,7 +2817,8 @@ if(\Request::route()->getName() == `institutionmessage?institution_id={{$_GET['i
             'student_search_text':student_search_text
           },
           success : function(data){
-              consloe.log(data)
+              consloe.log("123 ",data);
+              return;
             //    alert(data);
             //    alert('success');
             //   alert(JSON.stringify(data));
