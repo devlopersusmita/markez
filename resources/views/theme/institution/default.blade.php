@@ -2708,7 +2708,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
             'institution_id':institution_id,
                 },
                 success : function(data){
-                     alert(data);
+                     //alert(data);
                     // alert('success');
                      //alert(JSON.stringify(data));
                      $('#send_message_text').val('');
