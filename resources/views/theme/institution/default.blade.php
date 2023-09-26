@@ -2805,7 +2805,8 @@ var url = baseurl + '/institutionorderdelete/'+id;
 
      function getstudentlistforinstitutionmessage(student_search_text)
      {
-        alert(<?php echo $_GET['user_id']; ?>)
+        var user_id=<?php echo $_GET['user_id']; ?>
+        var institution_id=<?php echo $_GET['institution_id']; ?>
         // alert("222 ",student_search_text);
         // return;
    //alert(student_search_text);
@@ -2814,8 +2815,9 @@ var url = baseurl + '/institutionorderdelete/'+id;
           url : baseurl+'/getstudentlistforinstitutionmessage',
           dataType : 'json',
           data: {
-            'student_search_text':student_search_text
-
+            'student_search_text':student_search_text,
+            'user_id':user_id,
+            'institution_id':institution_id,
           },
           success : function(data){
               consloe.log("123 ",data);
