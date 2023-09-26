@@ -2664,12 +2664,12 @@ var url = baseurl + '/institutionorderdelete/'+id;
 
 
 
-    //  var student_search_text = '';
-    // //  alert('1111111');
-    //  getstudentlistforinstitutionmessage(student_search_text);
+      var student_search_text = '';
+
+     getstudentlistforinstitutionmessage(student_search_text);
 
      $("#student_search_text").keyup(function(){
-        // alert('123');
+
        student_search_text = $('#student_search_text').val();
     //    alert(student_search_text);
        getstudentlistforinstitutionmessage(student_search_text);
