@@ -45,10 +45,7 @@
                   @enderror
 							</div>
 						</div>
-                         <div class="form-group">
-        <label for="skills">Skills:</label>
-        <input type="text" class="form-control" id="skills" name="skills" value="{{ implode(', ', $user->skills->pluck('name')->toArray()) }}">
-    </div>
+
 						<div class="select-theme">
 							<h3>Choose Theme</h3>
 							<div class="subscription-container select-theme-wrap">
