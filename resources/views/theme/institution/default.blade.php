@@ -2820,7 +2820,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
             'institution_id':institution_id,
           },
           success : function(data){
-              consloe.log("123 ",data);
+             // consloe.log("123 ",data);
             //   return;
             //    alert(data);
             //    alert('success');
