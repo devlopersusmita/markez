@@ -2814,6 +2814,7 @@ var url = baseurl + '/institutionorderdelete/'+id;
           dataType : 'json',
           data: {
             'student_search_text':student_search_text
+            'user_id':<?php echo $GET['user_id']; ?>
           },
           success : function(data){
               consloe.log("123 ",data);
