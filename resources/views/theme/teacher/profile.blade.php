@@ -257,10 +257,10 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <!-- <div class="form-group">
         <label for="skills">Skills:</label>
         <input type="text" class="form-control" id="skills" name="skills">
-    </div>
+    </div> -->
                                                     <div class="columns">
                                                         <div class="column is-6">
                                                              <div class="buttons">
