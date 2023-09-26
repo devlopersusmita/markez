@@ -256,6 +256,11 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <div class="form-group">
+        <label for="skills">Skills:</label>
+        <input type="text" class="form-control" id="skills" name="skills" value="{{ implode(', ', $user_details->skills->pluck('name')->toArray()) }}">
+    </div>
                                                     <div class="columns">
                                                         <div class="column is-6">
                                                              <div class="buttons">
