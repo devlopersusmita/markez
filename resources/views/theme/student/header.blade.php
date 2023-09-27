@@ -27,8 +27,8 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 <div class="navbar-item">
 
- <div class="navbar-item"> <a href="{{ Route('profile') }}" >
- {{ Session::get('user_name'); }}
+ <div class="navbar-item"> <a href="" >
+
         </a></div>
 
 
