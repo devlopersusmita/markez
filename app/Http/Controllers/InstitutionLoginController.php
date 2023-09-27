@@ -3681,11 +3681,58 @@ public function institutiondashboard(Request $request)
 
 
     //start institution contact us //
-    public function institutioncontactusstore(Request $request)
+
+
+public function institutionenquiry(Request $request)
 {
 
+    if($request->institution_id == null) {
+        $user_id = $_GET['institution_id'];
+    } else {
+        $user_id = $request->institution_id;
+    }
+
+    //userstable id//
+    if($request->user_id == null) {
+        $user_ids = $_GET['user_id'];
+    } else {
+        $user_ids = $request->user_id;
+    }
+
+
+    $data7=InstitutionContactus::orderBy('institution_contact_us.id','desc')->get();
+
+      $thearray = [];
+     if(count($data7) > 0)
+     {
+        foreach($data7 as $k2=>$v2)
+        {
+
+
+                    $thearray[]=array(
+                        'firstname'=>$v2->firstname
+                        ,'institution_id'=>$v2->institution_id
+                        ,'lastname'=>$v2->lastname
+                        , 'email'=>$v2->email
+                        ,'phone'=>$v2->phone
+                        ,'address'=>$v2->address
+                        , 'helpyou'=>$v2->helpyou
+                        ,'id'=>$v2->id
+                    );
+
+        }
+     }
+ return view('theme.institution.enquiry',['enquirys'=>$thearray,'user_id'=>$user_id,'user_ids'=>$user_ids]);
+
+
+
+}
+public function institutioncontactusstore(Request $request)
+{
+
+    $id = $request->id;
         $contact_us = new InstitutionContactus();
-        //$contact_us->institution_id = $request->institution_id;
+        $contact_us->institution_id = $id ;
         $contact_us->firstname = $request->firstname;
         $contact_us->lastname = $request->lastname;
         $contact_us->email = $request->email;
@@ -3710,6 +3757,32 @@ public function institutiondashboard(Request $request)
             ]);
 
         }
+
+
+}
+public function institutionenquirydelete($id)
+{
+
+  $enquiry = InstitutionContactus::find($id);
+  $result =$enquiry->delete();
+
+  if($result)
+  {
+      Session::flash('error', 'Data deleted successfully!');
+
+      return response()->json([
+        'message' => 'Data deleted successfully!'
+      ]);
+  }
+  else
+  {
+      Session::flash('error', 'Something wrong!');
+
+      return response()->json([
+        'message' => 'Something wrong!'
+      ]);
+  }
+
 
 
 }

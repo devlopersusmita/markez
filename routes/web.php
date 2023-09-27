@@ -446,6 +446,10 @@ Route::post('/institutionbannersettingupdate/{id}',[InstitutionLoginController::
         //start contact us management //
         Route::post('institutioncontactusstore',[InstitutionLoginController::class,'institutioncontactusstore'])->name('institutioncontactusstore');
 
+        Route::get('/institutionenquiry',[InstitutionLoginController::class,'institutionenquiry'])->name('institutionenquiry');
+        Route::post('/institutionenquirydelete/{id}',[InstitutionLoginController::class,'institutionenquirydelete'])->name('institutionenquirydelete');
+
+
         //end contect us manangement //
 // institution end//
 
