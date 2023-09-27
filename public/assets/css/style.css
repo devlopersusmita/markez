@@ -230,6 +230,12 @@ body {
     z-index: 999;
 }
 
+.about_img img {
+    height: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
 
 /* Service CSS  */
 
@@ -1095,12 +1101,6 @@ p.bottom-text {
 .subscription-container ul li {
     color: #1f1208;
     text-shadow: 0 0 .1rem rgba(0, 0, 0, .4);
-}
-
-p.about_img img {
-    object-fit: cover;
-    height: 100%;
-    max-height: 300px;
 }
 
 
@@ -3007,8 +3007,8 @@ td.form_edit_btn {
     .stat-info h2 {
         font-size: 20px;
     }
-    p.about_img img {
-        max-height: 200px;
+    .about_img img {
+        height: 200px;
     }
 }
 
