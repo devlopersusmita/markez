@@ -226,36 +226,37 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<h2>Contact Us</h2>
-				<form>
+                <form method="POST" action="{{ route('institutioncontactusstore') }}">
+                            @csrf
 					<div class="row g-3">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="First Name">
+								<input type="text" class="form-control" name ="firstname" id="firstname" placeholder="First Name" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Last Name">
+								<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Email Address">
+								<input type="email" name="email" id="email" class="form-control" placeholder="Email Address" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="number" class="form-control" placeholder="Phone Number">
+								<input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number" required>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Address">
+								<input type="text" class="form-control" name="address" id="address" placeholder="Address" required>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<textarea class="form-control" placeholder="How can we help you?"></textarea>
+								<textarea class="form-control" placeholder="How can we help you?" name="helpyou" id="helpyou" required></textarea>
 							</div>
 						</div>
 						<div class="col-md-12">

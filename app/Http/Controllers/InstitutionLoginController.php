@@ -36,6 +36,7 @@ use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Faq;
 use App\Models\UserVisitor;
+use App\Models\InstitutionContactus;
 
 use File;
 use Session;
@@ -3677,5 +3678,42 @@ public function institutiondashboard(Request $request)
        return view('theme.institution.dashboard',['user_id'=>$user_id,'course_count'=>$course_count,'total_payment'=>$total_payment,'total_student'=>$total_student,'students_lists'=>$students_lists,'teachers_lists'=>$teachers_lists,'total_visitor'=>$total_visitor,'user_ids'=>$user_ids]);
 
     }
+
+
+    //start institution contact us //
+    public function institutioncontactusstore(Request $request)
+{
+
+        $contact_us = new InstitutionContactus();
+        //$contact_us->institution_id = $request->institution_id;
+        $contact_us->firstname = $request->firstname;
+        $contact_us->lastname = $request->lastname;
+        $contact_us->email = $request->email;
+        $contact_us->phone =  $request->phone;
+        $contact_us->address = $request->address;
+        $contact_us->helpyou =  $request->helpyou;
+
+
+
+        if($contact_us->save())
+        {
+
+            return redirect('/')->with('success', 'contact us successful!');
+
+        }
+        else
+        {
+            Session::flash('error', 'Something wrong!');
+
+            return response()->json([
+              'message' => 'Something wrong!'
+            ]);
+
+        }
+
+
+}
+
+  //end institution contact us //
 
 }

@@ -205,6 +205,8 @@ Route::post('/menudelete/{id}',[InstitutionMenuController::class,'menudelete'])-
 
 //End  menu management//
 
+
+
 // End Institution dashboard
 
 
@@ -441,7 +443,10 @@ Route::post('/institutionbannersettingupdate/{id}',[InstitutionLoginController::
 
      Route::post('teachersend',[InstitutionLoginController::class,'teachersend'])->name('teachersend');
 
+        //start contact us management //
+        Route::post('institutioncontactusstore',[InstitutionLoginController::class,'institutioncontactusstore'])->name('institutioncontactusstore');
 
+        //end contect us manangement //
 // institution end//
 
 //admin section
