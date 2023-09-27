@@ -17,7 +17,7 @@
 						<img src="images/logo.png" alt="">
 					</a>
 				</div>
-                {{ Session::get('user_role'); }}
+
 				<div class="header-search-box">
 					<input type="text" placeholder="Search now" class="form-control">
 				</div>
@@ -39,25 +39,64 @@
 
 
 				</div>
-                @else
 
-                <div class="header-btn">
-
-
-                        <input type="hidden" value="{{$id}}" name="id">
+                @elseif(Session::has('user_role') == 1)
+                            <div class="header-btn">
 
 
-
-
-                                    <a href="{{url('teacherstudentlogin/'.$id)}}"class="login-btn">Login</a>
-
-
-                                <a href="{{url('teacherstudentregister/'.$id)}}" class="signup-btn">Sign Up</a>
+                    <input type="hidden" value="{{$id}}" name="id">
 
 
 
+                    <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" >
+                  {{ Session::get('institute_name'); }}
 
-				</div>
+
+
+                  </a>
+
+               </div>
+               <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+               {{ __('Logout') }}
+               </a>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+               </form>
+
+
+
+                    </div>
+                    @elseif(Session::has('user_role') == 2)
+                    <div class="header-btn">
+
+
+                    <input type="hidden" value="{{$id}}" name="id">
+
+
+
+                    <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" >
+                  {{ Session::get('institute_name'); }}
+
+
+
+                  </a>
+
+               </div>
+               <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+               {{ __('Logout') }}
+               </a>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+               </form>
+
+
+
+                    </div>
+
                 @endif
 			</div>
 		</div>

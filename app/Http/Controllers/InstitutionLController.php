@@ -41,7 +41,7 @@ class InstitutionLController extends Controller
 
         $user = Institution::where('email', $email)->first();
         $userstable = User::where('email', $email)->first();
-        //dd( $userstable->role);
+        dd( $userstable->name);
         if (($user && Hash::check($password, $user->password)))
         {
 
@@ -63,6 +63,7 @@ class InstitutionLController extends Controller
                     Session::put('institution_id', $user->id);
                     Session::put('user_id', $userstable->id);
                     Session::put('user_role', $userstable->role);
+                    Session::put('user_name', $userstable->name);
                     return redirect()->route('institutionprofile', ['institution_id' => $user->id,'user_id'=>$userstable->id]);
 
                 }
