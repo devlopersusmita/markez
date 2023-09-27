@@ -17,6 +17,7 @@
 						<img src="images/logo.png" alt="">
 					</a>
 				</div>
+                {{ Session::get('user_role'); }}
 				<div class="header-search-box">
 					<input type="text" placeholder="Search now" class="form-control">
 				</div>
