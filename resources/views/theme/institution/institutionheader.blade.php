@@ -24,7 +24,7 @@
                 @if(Session::has('user_role') == 3)
 				<div class="header-btn">
 
-                <a href="#"class="login-btn">Back To Dashboard</a>
+                <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn">Back To Dashboard</a>
                      <input type="hidden" value="{{$id}}" name="id">
 
 
