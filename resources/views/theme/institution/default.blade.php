@@ -3852,7 +3852,7 @@ var newAssigncourseForm = $('.assign-course-to-teacher');
                cache: false,
                processData: false,
               success: function (data) {
-                window.location.href=`/assigncoursetoteacher?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
+                window.location.href=`/assigncourserequest?institution_id={{$_GET['institution_id']}}&user_id={{$_GET['user_id']}}`;
 
 
 
