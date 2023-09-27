@@ -2430,7 +2430,7 @@ public function assigncoursetoteacherstore(Request $request)
                     }
                     else
                     {
-                        $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$data_teacher->id,'course_id'=>$course_lists->id])->count();
+                        $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$teacher->id,'course_id'=>$course_list->id])->count();
                         dd($course_already_teacher_request_count);
 
                         $institution_id = $request->user_id;
