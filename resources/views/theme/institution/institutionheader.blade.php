@@ -21,83 +21,83 @@
 				<div class="header-search-box">
 					<input type="text" placeholder="Search now" class="form-control">
 				</div>
-                @if(Session::has('user_role') == 3)
-				<div class="header-btn">
+                        @if(Session::has('user_role') == 3)
+                        <div class="header-btn">
 
-                <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn">Back To Dashboard</a>
-                     <input type="hidden" value="{{$id}}" name="id">
-
-
-
-
-                                 <a href="{{url('teacherstudentlogin/'.$id)}}"class="login-btn">Login</a>
-
-
-					        <a href="{{url('teacherstudentregister/'.$id)}}" class="signup-btn">Sign Up</a>
+                                <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn">Back To Dashboard</a>
+                                    <input type="hidden" value="{{$id}}" name="id">
 
 
 
 
-				</div>
+                                                <a href="{{url('teacherstudentlogin/'.$id)}}"class="login-btn">Login</a>
 
-                @elseif(Session::has('user_role') == 1)
+
+                                            <a href="{{url('teacherstudentregister/'.$id)}}" class="signup-btn">Sign Up</a>
+
+
+
+
+                        </div>
+
+                        @elseif(Session::has('user_role') == 1)
+                        <div class="header-btn">
+
+
+                                <input type="hidden" value="{{$id}}" name="id">
+
+
+
+                                        <a href="" >
+                                    {{ Session::get('user_name'); }}
+
+
+
+                                    </a>
+
+
+                                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+
+
+
+                        </div>
+                        @elseif(Session::has('user_role') == 2)
                             <div class="header-btn">
 
 
-                    <input type="hidden" value="{{$id}}" name="id">
+                                        <input type="hidden" value="{{$id}}" name="id">
 
 
 
-                    <a href="" >
-                  {{ Session::get('user_name'); }}
+                                        <a href="" >
+                                    {{ Session::get('user_name'); }}
 
 
 
-                  </a>
-
-               </div>
-               <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-               {{ __('Logout') }}
-               </a>
-               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                  @csrf
-               </form>
+                                    </a>
 
 
-
-                    </div>
-                    @elseif(Session::has('user_role') == 2)
-                    <div class="header-btn">
-
-
-                    <input type="hidden" value="{{$id}}" name="id">
+                                            <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
 
 
 
-                    <a href="" >
-                  {{ Session::get('user_name'); }}
+                            </div>
 
-
-
-                  </a>
-
-               </div>
-               <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-               {{ __('Logout') }}
-               </a>
-               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                  @csrf
-               </form>
-
-
-
-                    </div>
-
-                @endif
+                        @endif
 			</div>
 		</div>
 	</div>
