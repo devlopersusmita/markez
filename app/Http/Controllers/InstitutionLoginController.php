@@ -3730,9 +3730,9 @@ public function institutionenquiry(Request $request)
 public function institutioncontactusstore(Request $request)
 {
 
-    $id = $request->id;
+        //$id = $request->id;
         $contact_us = new InstitutionContactus();
-        $contact_us->institution_id = $id ;
+        $contact_us->institution_id = $request->id ;
         $contact_us->firstname = $request->firstname;
         $contact_us->lastname = $request->lastname;
         $contact_us->email = $request->email;
