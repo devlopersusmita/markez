@@ -9,7 +9,7 @@
 				<div class="app-main__inner">
 					<div class="profile-btn right-btn">
 						<a href="{{url('institutionwebsite/'.$user_id)}}">View My website <img src="images/next-icon.png" alt="next"></a>
-                        {{ Session::get('user_role'); }}
+
 					</div>
 					<form method="POST" action="{{ route('institutioninstitutionupdate') }}" enctype="multipart/form-data">
          @csrf
