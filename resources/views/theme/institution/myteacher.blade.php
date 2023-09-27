@@ -10,7 +10,7 @@
       <h2>My Teachers</h2>
 
     </div>
-
+    @include('frontend.notification')
     <div class="table-responsive category-table">
       <table class="table">
         <thead>
