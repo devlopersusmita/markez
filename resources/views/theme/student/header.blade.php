@@ -33,7 +33,7 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 
 
-                  </a></div>
+                  </a>
 
 
 
