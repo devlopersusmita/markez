@@ -2743,10 +2743,11 @@ th.teacher-img-row {
     min-width: 250px !important;
 }
 
-.course-table td,
+
+/* .course-table td,
 .course-table th {
     text-align: center !important;
-}
+} */
 
 td.course-action {
     display: flex;
