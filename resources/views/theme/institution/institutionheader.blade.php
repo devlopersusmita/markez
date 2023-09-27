@@ -21,7 +21,10 @@
 				<div class="header-search-box">
 					<input type="text" placeholder="Search now" class="form-control">
 				</div>
+                @if(Session::has('user_role') == 3)
 				<div class="header-btn">
+
+                <a href="#"class="login-btn">Back To Dashboard</a>
                      <input type="hidden" value="{{$id}}" name="id">
 
 
@@ -36,6 +39,26 @@
 
 
 				</div>
+                @else
+
+                <div class="header-btn">
+
+
+                     <input type="hidden" value="{{$id}}" name="id">
+
+
+
+
+                                 <a href="{{url('teacherstudentlogin/'.$id)}}"class="login-btn">Login</a>
+
+
+					        <a href="{{url('teacherstudentregister/'.$id)}}" class="signup-btn">Sign Up</a>
+
+
+
+
+				</div>
+                @endif
 			</div>
 		</div>
 	</div>
