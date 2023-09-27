@@ -2190,7 +2190,7 @@ public function teachersend(Request $request)
                             $course_teacher = new CourseTeacher();
                             $course_teacher->course_id =  $request->course_id;
                             $course_teacher->user_id= $request->teacher_id;
-                            $course_teacher->created_by = $created_by;
+                            $course_teacher->created_by = $request->teacher_id;
                             $course_teacher->status = 'pending';
                             $course_teacher->save();
 
@@ -2442,7 +2442,7 @@ public function assigncoursetoteacherstore(Request $request)
                             $course_teacher = new CourseTeacher();
                             $course_teacher->course_id =  $request->course_id;
                             $course_teacher->user_id= $request->teacher_id;
-                            $course_teacher->created_by = $created_by;
+                            $course_teacher->created_by = $request->teacher_id;
                             $course_teacher->save();
 
 
