@@ -61,6 +61,7 @@ class InstitutionLController extends Controller
                     Session::put('institute_name', $user->name);
                     Session::put('institution_id', $user->id);
                     Session::put('user_id', $userstable->id);
+                    Session::put('user_role', $userstable->role);
                     return redirect()->route('institutionprofile', ['institution_id' => $user->id,'user_id'=>$userstable->id]);
 
                 }
