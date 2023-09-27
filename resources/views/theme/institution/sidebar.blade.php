@@ -155,6 +155,11 @@
 										Banner Settings
 										<img class="metismenu-state-icon" src="images/setting-icon.svg">
 									</a>
+                                    <a href="{{ route('institutionenquiry', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="{{ Request::routeIs('institutionenquiry') ? 'submenu-active-link' : '' }}">
+										<img class="metismenu-icon" src="images/icon-arrow-right2.svg">
+										Contact Us
+										<img class="metismenu-state-icon" src="images/setting-icon.svg">
+									</a>
 								</div>
 							</li>
 
