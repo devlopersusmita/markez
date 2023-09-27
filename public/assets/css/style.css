@@ -2713,7 +2713,8 @@ div#modals-view_it .data-cancel {
 }
 
 a#add-new-page-link,
-a#add-new-menu-link {
+a#add-new-menu-link,
+.button.is-solid.accent-button {
     background: #3d70b2 !important;
     border-color: #3d70b2 !important;
 }
