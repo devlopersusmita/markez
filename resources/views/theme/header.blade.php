@@ -51,7 +51,7 @@
 
 
                   </a>
-                  <p> {{ Session::get('user_role'); }}</p>
+                  <a> {{ Session::get('user_role'); }}</a>
                </div>
                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
                   onclick="event.preventDefault();

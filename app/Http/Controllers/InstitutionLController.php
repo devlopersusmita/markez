@@ -41,7 +41,7 @@ class InstitutionLController extends Controller
 
         $user = Institution::where('email', $email)->first();
         $userstable = User::where('email', $email)->first();
-        dd( $userstable->role);
+        //dd( $userstable->role);
         if (($user && Hash::check($password, $user->password)))
         {
 
