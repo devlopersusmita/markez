@@ -48,10 +48,10 @@
                <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" >
                   {{ Session::get('institute_name'); }}
 
-
+                  {{ Session::get('user_role'); }}
 
                   </a>
-                  <a> {{ Session::get('user_role'); }}</a>
+
                </div>
                <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
