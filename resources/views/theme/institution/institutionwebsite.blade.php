@@ -221,7 +221,7 @@
 
 <!-- Contact Start -->
 
-<section class="institution_contact" id="institution_contact">
+<section class="contact" >
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">

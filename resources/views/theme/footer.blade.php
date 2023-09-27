@@ -17,7 +17,7 @@
 						<li><a href="{{ route('allinstitutions') }}">Institutions List</a></li>
 						<li><a href="#subscribe">Pricing</a></li>
 						<li><a href="{{route('directaboutus')}}">About Us</a></li>
-						<li><a href="#institution_contact">Contact Us</a></li>
+						<li><a href="#contact">Contact Us</a></li>
 						<li><a href="{{ route('directtermsandcondition') }}">Terms And Condition</a></li>
 						<li><a href="{{ route('directprivacypolicy') }}">Privacy Policy</a></li>
 					</ul>
