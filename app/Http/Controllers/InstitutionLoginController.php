@@ -2298,8 +2298,8 @@ public function assigncourserequest(Request $request)
 
 
 
- dd($data7);
-//  $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$data_teacher['id'],'course_id'=>$course_lists['id']])->count();
+ //dd($data7);
+ $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$data_teacher['id'],'course_id'=>$course_lists['id']])->count();
 
 //dd($course_already_teacher_request_count);
 
