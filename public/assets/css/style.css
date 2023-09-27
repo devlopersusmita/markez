@@ -3009,7 +3009,6 @@ td.form_edit_btn {
     }
     p.about_img img {
         max-height: 200px;
-        object-fit: cover;
     }
 }
 
