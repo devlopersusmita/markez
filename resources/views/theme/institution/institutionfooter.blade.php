@@ -1,5 +1,9 @@
 <!-- Footer Start -->
+<?php
+                    $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
+
+                    ?>
 <footer class="footer-two">
 	<div class="footer-top-two">
 		<div class="container">
@@ -48,7 +52,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<p>© Copyright 2023. All Right Reserved</p>
+					<p>{!!$institution_company_settings->footer_text!!}</p>
 				</div>
 			</div>
 		</div>
