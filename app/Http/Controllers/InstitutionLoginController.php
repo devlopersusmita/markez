@@ -2291,7 +2291,7 @@ public function assigncourserequest(Request $request)
         }
     }
 
-  dd($t2_array[]);
+  dd($t2_array);
 
      $data7 = CourseTeacher::leftJoin('users','users.id','=','course_teachers.user_id')->leftJoin('courses','courses.id','=','course_teachers.course_id')->where(['course_teachers.institution_id'=>$user_id])->select('course_teachers.*','courses.id as courses_id','courses.title','users.id as users_id','users.name')->get();
 
