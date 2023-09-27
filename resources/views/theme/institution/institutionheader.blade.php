@@ -21,7 +21,7 @@
 				<div class="header-search-box">
 					<input type="text" placeholder="Search now" class="form-control">
 				</div>
-                        @if(Session::has('user_role') == 3)
+                        @if(Session::has('user_role') == '3')
                         <div class="header-btn">
 
                                 <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn">Back To Dashboard</a>
@@ -40,7 +40,7 @@
 
                         </div>
 
-                        @else
+                        @elseif(Session::has('user_role') == '1')
                         <div class="header-btn">
 
 
@@ -68,7 +68,34 @@
 
 
                         </div>
+                        @elseif(Session::has('user_role') == '2')
+                            <div class="header-btn">
 
+
+                                        <input type="hidden" value="{{$id}}" name="id">
+
+
+
+                                        <a href="" >
+                                    {{ Session::get('user_name'); }}
+
+
+
+                                    </a>
+
+
+                                            <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+
+
+
+                            </div>
 
                         @endif
 			</div>
