@@ -2298,7 +2298,7 @@ public function assigncourserequest(Request $request)
 
 
 
- dd($data7);
+ //dd($data7);
 
 
 
