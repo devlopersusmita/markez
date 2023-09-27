@@ -53,7 +53,7 @@
     <!-- Pageloader -->
     <div class="pageloader"></div>
     <div class="infraloader is-active"></div>
-@include(theme.student.header)
+@include('theme.student.header')
 @yield('content')
 
 
