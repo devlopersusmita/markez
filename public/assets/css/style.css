@@ -1422,6 +1422,14 @@ input[id="card_four"]:checked~label[for="card_four"] .card .check_btn {
     position: relative;
 }
 
+.closed-sidebar .app-sidebar ul.vertical-nav-menu li {
+    line-height: 35px;
+}
+
+.closed-sidebar .app-sidebar:hover .vertical-nav-menu li a span {
+    margin-left: 0;
+}
+
 .vertical-nav-menu li.mm-active:after {
     content: '';
     background: url('../../images/icon-arrow-right.svg');
