@@ -11,8 +11,9 @@
 
       <a href="javascript:void(0)" class="button is-solid accent-button raised modal-trigger" id="add-assign-course-link" data-modal="assigncourse-add">Assign Course to Teacher</a>
     </div>
-
+    @include('frontend.notification')
     <div class="table-responsive category-table">
+
       <table class="table">
         <thead>
         <th>Course Name</th>
@@ -83,7 +84,7 @@
                     </div>
                     <div class="card-body">
                         <form class="assign-course-to-teacher"   enctype="multipart/form-data" >
-                        @include('frontend.notification')
+
                         <input type="hidden" value="{{$user_id}}" name="user_id">
                         <input type="hidden" value="{{$user_ids}}" name="user_ids">
                             <div class="login-form">
