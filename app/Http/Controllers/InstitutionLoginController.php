@@ -2430,37 +2430,51 @@ public function assigncoursetoteacherstore(Request $request)
                     }
                     else
                     {
-                        $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$request->teacher_id,'course_id'=>$request->course_id])->count();
-                        dd($course_already_teacher_request_count);
+                        $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$request->teacher_id,'course_id'=>$request->course_id])->get()->count();
+                        //dd($course_already_teacher_request_count);
 
-                        $institution_id = $request->user_id;
+                        if($course_already_teacher_request_count > 0)
+                        {
+                            Session::flash('error', 'Already Send!');
 
-                           //$slug = Str::slug($request->input('title'));
-                           //$course_id = $course->id;
-                            $course_teacher = new CourseTeacher();
-                            $course_teacher->course_id =  $request->course_id;
-                            $course_teacher->user_id= $request->teacher_id;
-                            $course_teacher->created_by = $request->teacher_id;
-                            $course_teacher->institution_id = $institution_id;
-                            $course_teacher->save();
+                               return response()->json([
+                                 'message' => 'Already Send!'
+                               ]);
+                        }
+                        else
+                        {
+                            $institution_id = $request->user_id;
+
+                            //$slug = Str::slug($request->input('title'));
+                            //$course_id = $course->id;
+                             $course_teacher = new CourseTeacher();
+                             $course_teacher->course_id =  $request->course_id;
+                             $course_teacher->user_id= $request->teacher_id;
+                             $course_teacher->created_by = $request->teacher_id;
+                             $course_teacher->institution_id = $institution_id;
+                             $course_teacher->save();
 
 
-                            Session::flash('success', 'successfully assign to course added!');
+                             Session::flash('success', 'successfully assign to course added!');
 
-                            return response()->json([
-                                'type' => 'success',
-                            'message' => 'successfully assign to course added!'
-                            ]);
+                             return response()->json([
+                                 'type' => 'success',
+                             'message' => 'successfully assign to course added!'
+                             ]);
 
 
-                    }
+                     }
 
-                    Session::flash('error', 'Something wrong!');
-                            return response()->json([
-                                'type' => 'error',
-                                'message' => 'Something wrong!',
-                                'category' => $categories
-                                ]);
+                     Session::flash('error', 'Something wrong!');
+                             return response()->json([
+                                 'type' => 'error',
+                                 'message' => 'Something wrong!',
+                                 'category' => $categories
+                                 ]);
+
+                        }
+
+
 }
 
 
