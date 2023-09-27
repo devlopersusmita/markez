@@ -2179,20 +2179,16 @@ public function teachersend(Request $request)
                     else
                     {
 
+                        $institution_id = $request->user_id;
 
-                        $created_by = $request->user_id;
-
-                           //$slug = Str::slug($request->input('title'));
-                           //$course_id = $course->id;
-
-                        //    $courseteacher_access_count=CourseTeacher::where(['user_id'=>$created_by,'course_id'=>$request->course_id])->count();
-                        //    dd($courseteacher_access_count);
-                            $course_teacher = new CourseTeacher();
-                            $course_teacher->course_id =  $request->course_id;
-                            $course_teacher->user_id= $request->teacher_id;
-                            $course_teacher->created_by = $request->teacher_id;
-                            $course_teacher->status = 'pending';
-                            $course_teacher->save();
+                        //$slug = Str::slug($request->input('title'));
+                        //$course_id = $course->id;
+                         $course_teacher = new CourseTeacher();
+                         $course_teacher->course_id =  $request->course_id;
+                         $course_teacher->user_id= $request->teacher_id;
+                         $course_teacher->created_by = $request->teacher_id;
+                         $course_teacher->institution_id = $institution_id;
+                         $course_teacher->save();
 
 
                             Session::flash('success', 'successfully assign to course added!');
@@ -2297,7 +2293,7 @@ public function assigncourserequest(Request $request)
 
   //dd($data_teacher);
 
-     $data7 = CourseTeacher::leftJoin('users','users.id','=','course_teachers.user_id')->leftJoin('courses','courses.id','=','course_teachers.course_id')->where(['course_teachers.created_by'=>$user_id])->select('course_teachers.*','courses.id as courses_id','courses.title','users.id as users_id','users.name')->get();
+     $data7 = CourseTeacher::leftJoin('users','users.id','=','course_teachers.user_id')->leftJoin('courses','courses.id','=','course_teachers.course_id')->where(['course_teachers.institution_id'=>$user_id])->select('course_teachers.*','courses.id as courses_id','courses.title','users.id as users_id','users.name')->get();
 
 
 
@@ -2435,7 +2431,7 @@ public function assigncoursetoteacherstore(Request $request)
                     {
 
 
-                        $created_by = $request->user_id;
+                        $institution_id = $request->user_id;
 
                            //$slug = Str::slug($request->input('title'));
                            //$course_id = $course->id;
@@ -2443,6 +2439,7 @@ public function assigncoursetoteacherstore(Request $request)
                             $course_teacher->course_id =  $request->course_id;
                             $course_teacher->user_id= $request->teacher_id;
                             $course_teacher->created_by = $request->teacher_id;
+                            $course_teacher->institution_id = $institution_id;
                             $course_teacher->save();
 
 
