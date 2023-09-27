@@ -630,6 +630,7 @@ body {
 
 .course-grid {
     margin-top: 12px;
+    border: 1px solid #d9d1d1;
 }
 
 .checked {
@@ -648,6 +649,8 @@ body {
 
 .course-grid img {
     width: 100%;
+    max-height: 150px;
+    object-fit: contain;
 }
 
 .couse-content h3 {
