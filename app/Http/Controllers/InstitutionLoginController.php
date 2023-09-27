@@ -3727,7 +3727,7 @@ public function institutionenquiry(Request $request)
 
 
 }
-public function institutioncontactusstore(Request $request)
+public function institutioncontactusstore(Request $request,$id)
 {
 
     $id = $request->id;
