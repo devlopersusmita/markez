@@ -48,8 +48,8 @@
 
 
 
-                    <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" >
-                  {{ Session::get('institute_name'); }}
+                    <a href="" >
+                  {{ Session::get('user_name'); }}
 
 
 
@@ -76,8 +76,8 @@
 
 
 
-                    <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" >
-                  {{ Session::get('institute_name'); }}
+                    <a href="" >
+                  {{ Session::get('user_name'); }}
 
 
 
