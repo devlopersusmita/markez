@@ -21,7 +21,7 @@
                 <th>Address</th>
                 <th>Action</th>
 
-          <th>Action</th>
+
         </thead>
         <tbody>
 
