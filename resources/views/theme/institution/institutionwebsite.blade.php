@@ -111,6 +111,9 @@
 
                                         <div class="couse-content">
                                             <h3>{{ $course_data['title'] }}</h3>
+                                            <p>
+                        {!! Str::words($course_data['description'], 10, ' ...') !!}
+                        </p>
 
                                             <div class="rating">
                                                 <span>4.6</span>
