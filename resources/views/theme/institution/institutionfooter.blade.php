@@ -52,7 +52,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<p>{!!$institution_company_settings->footer_text!!}</p>
+					<p>{!!@$institution_company_settings->footer_text!!}</p>
 				</div>
 			</div>
 		</div>
