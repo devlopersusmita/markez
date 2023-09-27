@@ -27,9 +27,13 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 <div class="navbar-item">
 
- <div class="navbar-item"> <a href="" >
 
-        </a></div>
+    <a href="" >
+                  {{ Session::get('student_name'); }}
+
+
+
+                  </a></div>
 
 
 
