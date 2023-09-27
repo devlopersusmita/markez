@@ -38,15 +38,6 @@
                   <td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#enquirymodals-delete" style="cursor: pointer;" data-id="<?php echo $enquiry['id']?>" >Delete</span></td>
           </tr>
           @endforeach
-          @if ($enquirys->count() == 0)
-
-<tr>
-<td colspan="6">
-    No Record Found!!
-</td>
-</tr>
-
-@endif
 
 
 
