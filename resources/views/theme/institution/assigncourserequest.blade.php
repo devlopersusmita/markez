@@ -83,8 +83,8 @@
                     </div>
                     <div class="card-body">
                         <form class="assign-course-to-teacher"   enctype="multipart/form-data" >
-                        <input type="hidden" value="{{$user_id}}" name="user_id">
-                        <input type="hidden" value="{{$user_ids}}" name="user_ids">
+                        <input type="text" value="{{$user_id}}" name="user_id">
+                        <input type="text" value="{{$user_ids}}" name="user_ids">
                             <div class="login-form">
 
                             <div class="field">
