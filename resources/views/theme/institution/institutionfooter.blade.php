@@ -8,10 +8,10 @@
 					<h4>Quick Links</h4>
 					<ul>
 						<li><a href="#">Teach With Us</a></li>
-				
+
 						<li><a href="#"> About us</a></li>
-						<li><a href="#">Contact us</a></li>
-					
+						<li><a href="#contact">Contact us</a></li>
+
 					</ul>
 				</div>
 				<div class="col-md-3">
@@ -19,8 +19,7 @@
 					<ul>
 						<li><a href="#">Blog</a></li>
 						<li><a href="#">Help and Support</a></li>
-						<li><a href="#"> Affiliate</a></li>
-						<li><a href="#">Investors</a></li>
+
 					</ul>
 				</div>
 				<div class="col-md-3">
@@ -28,8 +27,7 @@
 					<ul>
 						<li><a href="#">Terms</a></li>
 						<li><a href="#">Privacy policy</a></li>
-						<li><a href="#"> Sitemap</a></li>
-						<li><a href="#">Accessibility statement</a></li>
+
 					</ul>
 				</div>
 				<div class="col-md-3">
