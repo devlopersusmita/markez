@@ -231,7 +231,7 @@
 					<div class="row g-3">
 						<div class="col-md-6">
 							<div class="form-group">
-                            <input type="text" value="{{$id}}" name="user_id">
+                            <input type="hidden" value="{{$id}}" name="user_id">
 								<input type="text" class="form-control" name ="firstname" id="firstname" placeholder="First Name" required>
 							</div>
 						</div>
