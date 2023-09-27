@@ -2280,7 +2280,7 @@ public function assigncourserequest(Request $request)
     $categories = Category::where('institution_id',$user_id)->orderBy('name','asc')->get();
     $current_date = date('Y-m-d H:i:s');
     $course_lists = Course::where('institution_id',$user_id)->orderBy('title','asc')->get();
-    dd($course_lists[0]->id);
+   // dd($course_lists[0]->id);
    $data_teacher=InstitutionTeacher::leftjoin('users','institution_teachers.user_id','=','users.id')->where(['users.status'=>'active','users.role'=>'2','institution_teachers.institution_id'=>$user_id])->select('users.*')->orderBy('users.name','asc')->get();
    $t2_array =[];
    if(!empty($data_teacher) )
@@ -2291,7 +2291,7 @@ public function assigncourserequest(Request $request)
         }
     }
 
-  //dd($data_teacher);
+  dd($t2_array[]);
 
      $data7 = CourseTeacher::leftJoin('users','users.id','=','course_teachers.user_id')->leftJoin('courses','courses.id','=','course_teachers.course_id')->where(['course_teachers.institution_id'=>$user_id])->select('course_teachers.*','courses.id as courses_id','courses.title','users.id as users_id','users.name')->get();
 
