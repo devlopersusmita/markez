@@ -2299,9 +2299,9 @@ public function assigncourserequest(Request $request)
 
 
  //dd($data7);
+ $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$data_teacher->id,'course_id'=>$course_lists->id])->count();
 
-
-
+dd($course_already_teacher_request_count);
 
 
       $thearray = [];
@@ -2355,7 +2355,7 @@ public function assigncoursetoteacher(Request $request)
     //$subscription_end_date = $user_details->subscription_end_date;
     // $institution_id = InstitutionAdmin::where('user_id',$user_id)->first()->institution_id;
     $course_lists = Course::where('institution_id',$user_id)->orderBy('title','asc')->get();
-    dd($course_lists);
+    //dd($course_lists);
    $data_teacher=InstitutionTeacher::leftjoin('users','institution_teachers.user_id','=','users.id')->where(['users.status'=>'active','users.role'=>'2','institution_teachers.institution_id'=>$user_id])->select('users.*')->orderBy('users.name','asc')->get();
    $t2_array =[];
    if(!empty($data_teacher) )
@@ -2376,7 +2376,7 @@ public function assigncoursetoteacher(Request $request)
  //dd($data7);
 
 
- $data_exist_order=CourseTeacher::where(['user_id'=>$user_id,'course_id'=>$request->course_id])->count();
+
 
 
 
