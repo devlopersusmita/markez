@@ -35,7 +35,7 @@
                   <td>{{$enquiry['email']}} </td>
                   <td>{{$enquiry['phone']}} </td>
                   <td>{{$enquiry['address']}} </td>
-                  <td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#enquirymodals-delete" style="cursor: pointer;" data-id="<?php echo $enquiry['id']?>" ><i class="fa fa-trash-o" style="font-size:18px"></i></span></td>
+                  <td><span  class="delete_modal" data-toggle="modal" data-target="#enquirymodals-delete" style="cursor: pointer;" data-id="<?php echo $enquiry['id']?>" ><i class="fa fa-trash-o" style="font-size:18px"></i></span></td>
           </tr>
           @endforeach
 
