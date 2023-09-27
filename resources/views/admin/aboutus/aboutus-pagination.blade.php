@@ -16,12 +16,12 @@
         </div>
         <div class="col-md-4">
             <label>Aboutus Banner</label>
-            <p id="show_logo"><img src="{{asset(@$aboutuss[0]->aboutus_banner)}}" alt="" width="100%"></p>
+            <p id="show_logo" class="about_img"><img src="{{asset(@$aboutuss[0]->aboutus_banner)}}" alt="" width="100%"></p>
 
         </div>
         <div class="col-md-4">
             <label>Aboutus SiteImage</label>
-            <p id="show_logo"><img src="{{asset(@$aboutuss[0]->aboutus_siteimage)}}" alt="" width="100%"></p>
+            <p id="show_logo" class="about_img"><img src="{{asset(@$aboutuss[0]->aboutus_siteimage)}}" alt="" width="100%"></p>
         </div>
 
 
