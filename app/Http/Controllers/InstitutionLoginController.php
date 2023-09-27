@@ -2291,7 +2291,7 @@ public function assigncourserequest(Request $request)
         }
     }
 
-  dd($t2_array);
+  //dd($t2_array);
 
      $data7 = CourseTeacher::leftJoin('users','users.id','=','course_teachers.user_id')->leftJoin('courses','courses.id','=','course_teachers.course_id')->where(['course_teachers.institution_id'=>$user_id])->select('course_teachers.*','courses.id as courses_id','courses.title','users.id as users_id','users.name')->get();
 
@@ -2299,9 +2299,9 @@ public function assigncourserequest(Request $request)
 
 
  //dd($data7);
- $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$data_teacher['id'],'course_id'=>$course_lists['id']])->count();
+//  $course_already_teacher_request_count=CourseTeacher::where(['user_id'=>$data_teacher['id'],'course_id'=>$course_lists['id']])->count();
 
-dd($course_already_teacher_request_count);
+// dd($course_already_teacher_request_count);
 
 
       $thearray = [];
