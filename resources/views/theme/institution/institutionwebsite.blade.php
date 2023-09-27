@@ -187,7 +187,11 @@
         @foreach($popular_courses as $popular_course)
 			<div class="col-lg-3 col-md-6">
 				<div class="course-grid">
-					<img src="images/course1.png" alt="">
+                @if(($popular_course->preview_image) && (file_exists($popular_course->preview_image)))
+                                                            <img src="{{asset($popular_course->preview_image)}}" alt="">
+                                                            @else
+                                                            <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
+                                                            @endif
 					<div class="couse-content">
                     <h3>{{$popular_course->title}}</h3>
 						<p>{!! Str::words($popular_course->description, 10, ' ...') !!}</p>
