@@ -7,8 +7,8 @@
    <div class="app-main__inner">
 
     <div class="category-top-row">
-      <h2>Banner setting</h2>
-      <a  class="btn btn-primary float-right add_modal" data-toggle="modal" data-target="#homemodals-add" style="cursor: pointer;"><i class="fa fa-plus"></i> New Banner setting</a>
+      <h2>Contact Us</h2>
+
     </div>
 
     <div class="table-responsive category-table banner-setting-table">
@@ -35,7 +35,7 @@
                   <td>{{$enquiry['email']}} </td>
                   <td>{{$enquiry['phone']}} </td>
                   <td>{{$enquiry['address']}} </td>
-                  <td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#enquirymodals-delete" style="cursor: pointer;" data-id="<?php echo $enquiry['id']?>" >Delete</span></td>
+                  <td><span    class="btn btn-danger delete_modal" data-toggle="modal" data-target="#enquirymodals-delete" style="cursor: pointer;" data-id="<?php echo $enquiry['id']?>" ><i class="fa fa-trash-o" style="font-size:18px"></i></span></td>
           </tr>
           @endforeach
 
