@@ -3700,7 +3700,7 @@ public function institutionenquiry(Request $request)
     }
 
 
-    $data7=InstitutionContactus::orderBy('institution_contact_us.id','desc')->get();
+    $data7=InstitutionContactus::where(['institution_id'=>$user_id])->orderBy('institution_contact_us.id','desc')->get();
 
       $thearray = [];
      if(count($data7) > 0)
@@ -3722,7 +3722,7 @@ public function institutionenquiry(Request $request)
 
         }
      }
- return view('theme.institution.enquiry',['enquirys'=>$thearray,'user_id'=>$user_id,'user_ids'=>$user_ids]);
+ return view('theme.institution.settings.enquiry',['enquirys'=>$thearray,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
 
