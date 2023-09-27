@@ -5635,7 +5635,7 @@ $.ajax({
 
 //END FORM  //
 
-//start delete form //
+//start delete enquiry //
 
 $(document).on('click', '#enquiry_delete', function () {
 
@@ -5685,7 +5685,7 @@ $.ajax({
 
 });
 
-//end delete form //
+//end delete enquiry //
 
 
 function getfieldtype(value){
