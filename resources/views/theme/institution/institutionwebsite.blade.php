@@ -103,7 +103,12 @@
                             @foreach($output_arrays['course_data'] as $course_data)
                                 <div class="col-lg-3 col-md-6">
                                     <div class="course-grid">
-                                        <img src="images/course1.png" alt="">
+                                    @if(($course_data['preview_image']) && (file_exists($course_data['preview_image'])))
+                                                            <img src="{{asset($course_data['preview_image'])}}" alt="">
+                                                            @else
+                                                            <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
+                                                            @endif
+
                                         <div class="couse-content">
                                             <h3>{{ $course_data['title'] }}</h3>
 
