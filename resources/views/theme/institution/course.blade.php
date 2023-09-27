@@ -32,7 +32,6 @@
 
         @if(!empty($courses))
         @foreach($courses as $course)
-          <tr>
 
           <tr>
                   <td>{{$course['title']}}  </td>
