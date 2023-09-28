@@ -985,7 +985,7 @@ public function coursesubscriptionpay(Request $request)
     }
 
 
-    public function teacherstudentstudentapprove($id,$type)
+    public function teacherstudentstudentapprove(Request $request,$id,$type)
       {
         //$user_id=Auth::id();
         $user_id = $request->teacher_id;

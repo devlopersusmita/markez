@@ -463,7 +463,7 @@
         var id = $('#approve_id').val();
         var type = $('#approve_type').val();
         var teacher_id = $('#user_id').val();
-        alert(teacher_id);
+        //alert(teacher_id);
       var url = baseurl + '/teacherstudentstudentapprove/'+id+'/'+type;
 
       $('#loading_student_approvet').show();
