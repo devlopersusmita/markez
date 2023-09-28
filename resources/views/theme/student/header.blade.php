@@ -6,7 +6,7 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 <div class="navbar navbar-v1 is-inline-flex is-transparent no-shadow no-background is-landing is-hidden-mobile">
         <div class="container is-desktop">
             <div class="navbar-brand">
-                <a href="{{route('institutionwebsite',['institution_id'=> Session::get('institution_id')])}}" class="navbar-item">
+                <a href="{{route('institutionwebsite/'.Session::get('institution_id'))}}" class="navbar-item">
                     <img class="logo" src="{{@$institution_company_settings->logo!= ''?asset(@$institution_company_settings->logo):asset('assets/img/logo/friendkit-bold.svg')}}" alt="">
                 </a>
             </div>
