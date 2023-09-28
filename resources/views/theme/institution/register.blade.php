@@ -106,7 +106,7 @@
                                 </div>
 
                                 <div class="account-link has-text-centered">
-                                     <a  href="{{ route('login') }}">Have an account? Sign In</a>
+                                     <a  href="{{url('teacherstudentlogin/'.$institution_id)}}">Have an account? Sign In</a>
                                 </div>
                             </div>
                         </form>
