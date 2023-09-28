@@ -21,7 +21,7 @@
 				<div class="header-search-box">
 					<input type="text" placeholder="Search now" class="form-control">
 				</div>
-                @if(empty(Session::has('user_role') == 'null')
+                @if(empty(Session::get('user_role')))
                         @if(Session::has('user_role') == '3')
                         <div class="header-btn">
 
