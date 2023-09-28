@@ -2936,7 +2936,7 @@ public function postteacherstudentlogin(Request $request)
     $institution_id = $request->institution_id;
 
     $user = User::where('email', $email)->first();
-    //dd($user);
+    dd($user->id);
 
     // $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
     //dd(sizeof($institution_teacher));
@@ -2991,7 +2991,7 @@ public function postteacherstudentlogin(Request $request)
         Session::put('student_name', $user->name);
         Session::put('institution_id',                $request->institution_id);
         Session::put('user_role', $user->role);
-        dd(Session::put('user_id', $user->id));
+        Session::put('user_id', $user->id);
 
             return redirect()->route('profile', ['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
 
