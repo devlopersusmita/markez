@@ -956,6 +956,7 @@
      $(document).on('click', '#send_message_button', function () {
         user_id=<?php echo $_GET['user_id']; ?>;
          institution_id=<?php echo $_GET['institution_id']; ?>;
+         //alert(user_id);
            var send_message_text = $('#send_message_text').val();
            if(send_message_text!='')
            {
