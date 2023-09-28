@@ -49,13 +49,7 @@
         </div>
     @endif
 @endif
-I've made the following changes:
 
-Replaced Session::has('user_role') with Session::get('user_role') to correctly retrieve the value of the user_role session variable.
-
-Removed the extra semicolons within the curly braces for displaying session values.
-
-With these corrections, your code should work as intended. It will display the appropriate content based on the value of the user_role session variable.
 
 
 
