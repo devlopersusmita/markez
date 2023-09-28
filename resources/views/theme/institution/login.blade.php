@@ -20,11 +20,12 @@
                         <!--Form-->
                         <form method="POST" action="{{ route('postteacherstudentlogin') }}">
                             @csrf
+                            @include('frontend.notification')
                             <input type="hidden" value="{{$institution_id}}" name="institution_id">
                             <div class="login-form">
                                 <div class="form-panel">
                                     <div class="field">
-                                        @include('frontend.notification')
+
                                     </div>
                                     <div class="field">
                                         <label>Email</label>
