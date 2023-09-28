@@ -6,7 +6,7 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 <div class="navbar navbar-v1 is-inline-flex is-transparent no-shadow no-background is-landing is-hidden-mobile">
         <div class="container is-desktop">
             <div class="navbar-brand">
-                <a href="{{ Route('institutionwebsite',Session::get('institution_id')) }}" class="navbar-item">
+                <a href="#" class="navbar-item">
                     <img class="logo" src="{{@$institution_company_settings->logo!= ''?asset(@$institution_company_settings->logo):asset('assets/img/logo/friendkit-bold.svg')}}" alt="">
                 </a>
             </div>
@@ -40,12 +40,19 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 
 
-                  <form method="POST" action="{{ route('signout') }}">
-    @csrf <!-- Include a CSRF token if required by your application -->
-    <button type="submit">Logout</button>
-</form>
 
-</div>
+
+                    <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+
 
               </div>
 </div>
