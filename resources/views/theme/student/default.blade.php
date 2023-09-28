@@ -1087,6 +1087,7 @@
 
      function getteacherlistforstudentmessage(teacher_search_text)
      {
+        alert(user_id=<?php echo $_GET['user_id']; ?>;)
         user_id=<?php echo $_GET['user_id']; ?>;
          institution_id=<?php echo $_GET['institution_id']; ?>;
 
@@ -1102,7 +1103,7 @@
           success : function(data){
                alert(data);
                //alert('success');
-               //alert(JSON.stringify(data.data));
+               alert(JSON.stringify(data.data));
                var fdata = data.data;
                var html = "";
                if(fdata.length > 0)
