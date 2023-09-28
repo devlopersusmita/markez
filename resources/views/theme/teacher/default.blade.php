@@ -3396,6 +3396,8 @@ if(\Request::route()->getName() == 'teachermessage')
 
 
      $(document).on('click', '#send_message_button', function () {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_id=<?php echo $_GET['institution_id']; ?>;
            var send_message_text = $('#send_message_text').val();
            if(send_message_text!='')
            {
@@ -3412,7 +3414,9 @@ if(\Request::route()->getName() == 'teachermessage')
                 dataType : 'json',
                 data: {
                   'student_id':last_student_id_for_message,
-                  'send_message_text':send_message_text
+                  'send_message_text':send_message_text,
+                  'user_id':user_id,
+            'institution_id':institution_id
                 },
                 success : function(data){
                     // alert(data);
@@ -3443,6 +3447,8 @@ if(\Request::route()->getName() == 'teachermessage')
 
      function getmessagechatforteacherstudent()
      {
+        user_id=<?php echo $_GET['user_id']; ?>;
+        institution_id=<?php echo $_GET['institution_id']; ?>;
       if(last_student_id_for_message!='')
       {
 
@@ -3454,7 +3460,9 @@ if(\Request::route()->getName() == 'teachermessage')
               url : baseurl+'/getmessagechatforteacherstudent',
               dataType : 'json',
               data: {
-                'student_id':last_student_id_for_message
+                'student_id':last_student_id_for_message,
+                'user_id':user_id,
+            'institution_id':institution_id,
               },
               success : function(data){
                    //alert(data);
@@ -3516,13 +3524,17 @@ if(\Request::route()->getName() == 'teachermessage')
 
      function getstudentlistforteachermessage(student_search_text)
      {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_id=<?php echo $_GET['institution_id']; ?>;
 
        $.ajax({
           type : 'POST',
           url : baseurl+'/getstudentlistforteachermessage',
           dataType : 'json',
           data: {
-            'student_search_text':student_search_text
+            'student_search_text':student_search_text,
+            'user_id':user_id,
+            'institution_id':institution_id,
           },
           success : function(data){
                //alert(data);
