@@ -1137,7 +1137,8 @@
                //alert(data);
                //alert('success');
               // alert(JSON.stringify(data.data));
-               alert(var fdata = data.data;);
+               var fdata = data.data;
+               alert(fdata);
                var html = "";
                if(fdata.length > 0)
                {
