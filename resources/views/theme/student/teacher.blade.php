@@ -355,8 +355,8 @@
                   <div class="card-heading">
                       <div class="dropdown is-primary share-dropdown">
                           <div>
-                          <input type="text" value="{{$user_id}}" name="user_id" id ="user_id">
-                                                    <input type="text" value="{{$institution_id}}" name="institution_id" id="institution_id">
+                          <input type="hidden" value="{{$user_id}}" name="user_id" id ="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id" id="institution_id">
                           <h3 style="text-align:center;">Approve </h3>
 
                           </div>

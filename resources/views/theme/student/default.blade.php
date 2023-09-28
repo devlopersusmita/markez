@@ -575,6 +575,7 @@
 
         var id = $('#delete_id').val();
         var type = $('#delete_type').val();
+        var student_id = $('#user_id').val();
       var url = baseurl + '/studentteacherstudentdelete/'+id+'/'+type;
 
       $('#loading_teacher_delete').show();
@@ -587,7 +588,7 @@
               headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
-              data: [],
+              data: { student_id: student_id },
               url: url,
               type: "post",
               dataType: 'json',
