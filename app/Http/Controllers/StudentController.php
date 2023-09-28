@@ -1580,7 +1580,7 @@ class StudentController extends Controller
 
 
 
-       return response()->json(['success'=>'success','user_id'=>$user_id,'teacher_id'=>$teacher_id,'data'=>$thearray_public,'teacher_name'=>$teacher_name,'teacher_avatar'=>$teacher_avatar,'student_name'=>$student_name,'student_avatar'=>$student_avatar,'user_id'=>$user_id,'user_ids'=>$user_ids]);
+       return response()->json(['success'=>'success','teacher_id'=>$teacher_id,'data'=>$thearray_public,'teacher_name'=>$teacher_name,'teacher_avatar'=>$teacher_avatar,'student_name'=>$student_name,'student_avatar'=>$student_avatar,'user_id'=>$user_id,'user_ids'=>$user_ids]);
    }
 
     public function getteacherlistforstudentmessage(Request $request)
