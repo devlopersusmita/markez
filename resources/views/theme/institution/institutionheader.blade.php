@@ -21,6 +21,7 @@
 				<div class="header-search-box">
 					<input type="text" placeholder="Search now" class="form-control">
 				</div>
+                @if($_SESSION=="")
                         @if(Session::has('user_role') == '3')
                         <div class="header-btn">
 
@@ -39,8 +40,36 @@
 
 
                         </div>
+                        @elseif(Session::has('user_role') == '1')
+                        <div class="header-btn">
 
-                        @else
+                                <!-- <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn">Back To Dashboard</a> -->
+                                    <input type="hidden" value="{{$id}}" name="id">
+
+
+
+                                    {{ Session::get('student_name'); }}
+
+
+
+
+                        </div>
+                        @elseif(Session::has('user_role') == '2')
+                        <div class="header-btn">
+
+                                <!-- <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn">Back To Dashboard</a> -->
+                                    <input type="hidden" value="{{$id}}" name="id">
+
+
+
+                                    {{ Session::get('teacher_name'); }}
+
+
+
+
+                        </div>
+
+                @else
                         <div class="header-btn">
 
 
