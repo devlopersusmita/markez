@@ -42,15 +42,10 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 
 
-                    <a class="button is-cta is-solid primary-button raised" href="{{ route('signout') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('signout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                  <form method="GET" action="{{ route('signout') }}">
+    @csrf <!-- Include a CSRF token if required by your application -->
+    <button type="submit">Logout</button>
+</form>
 
 </div>
 
