@@ -29,7 +29,7 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 
     <a href="" >
-                  {{ Session::get('student_name'); }}
+                <p>  {{ Session::get('student_name'); }} </p>
 
 
 
