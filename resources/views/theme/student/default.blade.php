@@ -1120,8 +1120,7 @@
      function getteacherlistforstudentmessage(teacher_search_text)
      {
 
-        user_id=<?php echo $_GET['user_id']; ?>;
-         institution_id=<?php echo $_GET['institution_id']; ?>;
+
 
 
        $.ajax({
@@ -1129,14 +1128,13 @@
           url : baseurl+'/getteacherlistforstudentmessage',
           dataType : 'json',
           data: {
-            'teacher_search_text':teacher_search_text,
-            'user_id':user_id,
-            'institution_id':institution_id,
+            'teacher_search_text':teacher_search_text
+
           },
           success : function(data){
                //alert(data);
                //alert('success');
-              // alert(JSON.stringify(data.data));
+               //alert(JSON.stringify(data.data));
                var fdata = data.data;
                //alert(fdata);
                var html = "";
