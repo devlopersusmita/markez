@@ -626,7 +626,7 @@
         var id = $('#approve_id').val();
         var type = $('#approve_type').val();
         var student_id = $('#user_id').val();
-        //alert(student_id);
+       // alert(student_id);
       var url = baseurl + '/studentteacherstudentapprove/'+id+'/'+type;
 
       $('#loading_teacher_approvet').show();
@@ -936,38 +936,6 @@
 
                  htmlcont=htmlcont+'<tr>';
 
-
-                 htmlcont=htmlcont+'<td>';
-                 htmlcont=htmlcont+'Address';
-                 htmlcont=htmlcont+'</td>';
-                 htmlcont=htmlcont+'<td>';
-                 htmlcont=htmlcont+user_details.address;
-                 htmlcont=htmlcont+'</td>';
-                 htmlcont=htmlcont+'</tr>';
-                 htmlcont=htmlcont+'</table>';
-
-
-                  $('#details_modal_body_content').html(htmlcont);
-
-
-
-
-
-              },
-              error: function (data) {
-                  alert(JSON.stringify(data));
-                  console.log( data);
-
-              } ,
-              complete: function(){
-                $('.ajax-loader').css("visibility", "hidden");
-              }
-          });
-
-
-
-    });
-
    // teacher message //
      var teacher_search_text = '';
      getteacherlistforstudentmessage(teacher_search_text);
@@ -986,9 +954,6 @@
 
 
      $(document).on('click', '#send_message_button', function () {
-        user_id=<?php echo $_GET['user_id']; ?>;
-         institution_id=<?php echo $_GET['institution_id']; ?>;
-         //alert(user_id);
            var send_message_text = $('#send_message_text').val();
            if(send_message_text!='')
            {
@@ -1008,9 +973,7 @@
                 dataType : 'json',
                 data: {
                   'teacher_id':last_teacher_id_for_message,
-                  'send_message_text':send_message_text,
-                  'user_id':user_id,
-            'institution_id':institution_id,
+                  'send_message_text':send_message_text
                 },
                 success : function(data){
                     // alert(data);
@@ -1041,23 +1004,19 @@
 
      function getmessagechatforstudentteacher()
      {
-        user_id=<?php echo $_GET['user_id']; ?>;
-         institution_id=<?php echo $_GET['institution_id']; ?>;
        if(last_teacher_id_for_message!='')
        {
 
 
           $("#send_message").show();
-          alert(last_teacher_id_for_message);
+          //alert(last_teacher_id_for_message);
 
               $.ajax({
                 type : 'POST',
                 url : baseurl+'/getmessagechatforstudentteacher',
                 dataType : 'json',
                 data: {
-                  'teacher_id':last_teacher_id_for_message,
-                  'user_id':user_id,
-            'institution_id':institution_id,
+                  'teacher_id':last_teacher_id_for_message
                 },
                 success : function(data){
                      //alert(data);
@@ -1120,30 +1079,23 @@
      function getteacherlistforstudentmessage(teacher_search_text)
      {
 
-
-
-
        $.ajax({
           type : 'POST',
           url : baseurl+'/getteacherlistforstudentmessage',
           dataType : 'json',
           data: {
             'teacher_search_text':teacher_search_text
-
           },
           success : function(data){
                //alert(data);
                //alert('success');
                //alert(JSON.stringify(data.data));
                var fdata = data.data;
-               //alert(fdata);
                var html = "";
                if(fdata.length > 0)
                {
-
                 for(var aa=0; aa < fdata.length; aa++ )
                 {
-                    //alert("hhhh");
                   var temp = fdata[aa];
                     html = html + '<div class="box-subscriber teacher_message_chat"  data-id="'+temp.id+'">';
                     if(temp.avatar!='')
@@ -1368,6 +1320,36 @@
       });
      }
 
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+'Address';
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+user_details.address;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'</tr>';
+                 htmlcont=htmlcont+'</table>';
+
+
+                  $('#details_modal_body_content').html(htmlcont);
+
+
+
+
+
+              },
+              error: function (data) {
+                  alert(JSON.stringify(data));
+                  console.log( data);
+
+              } ,
+              complete: function(){
+                $('.ajax-loader').css("visibility", "hidden");
+              }
+          });
+
+
+
+    });
 
 
     $(document).on('click', '.send_modal_it', function () {
