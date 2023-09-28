@@ -85,7 +85,7 @@ class InstitutionLController extends Controller
 public function signout(Request $request) {
     Session::flush();
 
-    return redirect('/');
+    return view('theme.institution.institutionwebsite');
 }
 
 
