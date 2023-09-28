@@ -32,9 +32,9 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 
                   <div class="navbar-item">
-                                <a href="#" >
+
                             {{ Session::get('teacher_name'); }}
-                                </a>
+
                   </div>
 
 
