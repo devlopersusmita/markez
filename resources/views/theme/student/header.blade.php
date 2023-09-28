@@ -52,7 +52,7 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
                             @csrf
                         </form>
 
-
+</div>
 
               </div>
 </div>
