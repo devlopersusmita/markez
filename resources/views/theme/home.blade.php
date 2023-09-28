@@ -51,7 +51,7 @@
 							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,</p>
 						</li>
 					</ul>
-					<a href="#" class="btn-banner">REGISTER WITH US</a>
+					<a href="{{ Route('home') }}" class="btn-banner">REGISTER WITH US</a>
 				</div>
 			</div>
 		</div>
@@ -126,9 +126,9 @@
                                     			<div class="package-btn">
                                     				<a href="#" class="subscription-btn">Choose Plan</a>
                                     			</div>
-                                    			
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
