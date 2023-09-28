@@ -1439,31 +1439,48 @@ class StudentController extends Controller
     public function message(Request $request)
     {
 
-       $user_id=Auth::id();
+    //    $user_id=Auth::id();
+                    //this is institution id ;
+                if($request->institution_id == null) {
+                    $user_id = $_GET['institution_id'];
+                } else {
+                    $user_id = $request->institution_id;
+                }
+            // this is student  id //
+                if($request->user_id == null) {
+                    $user_ids = $_GET['user_id'];
+                } else {
+                    $user_ids = $request->user_id;
+                }
 
-      return view('theme.student.message');
+      return view('theme.student.message',['user_id'=>$user_id,'user_ids'=>$user_ids]);
 
     }
 
      public function sendmessagechatforstudentteacher(Request $request)
     {
 
-       $user_id=Auth::id();
+
+    // $user_id=Auth::id();
+    //this is institution id //
+    $user_id =$request->institution_ids;
+    //this is student id //
+     $user_ids =$request->user_id;
        $teacher_id = $request->post("teacher_id");
        $contents = $request->post("send_message_text");
 
         $message = new Message();
-          $message->sender_id = $user_id;
+          $message->sender_id = $user_ids;
           $message->sender_type = 'Student';
           $message->receiver_id = $teacher_id;
           $message->receiver_type = 'Teacher';
           $message->contents = $contents;
-          $message->created_by = $user_id;
+          $message->created_by = $user_ids;
 
           $message->save();
 
 
-          $sender_details = User::where(['id'=>$user_id])->first();
+          $sender_details = User::where(['id'=>$user_ids])->first();
             $receiver_details = User::where(['id'=>$teacher_id])->first();
 
             if($sender_details->role=='1')
@@ -1498,13 +1515,17 @@ class StudentController extends Controller
      public function getmessagechatforstudentteacher(Request $request)
     {
 
-       $user_id=Auth::id();
+    //    $user_id=Auth::id();
+       //this is institution id //
+       $user_id =$request->institution_ids;
+       //this is student id //
+        $user_ids =$request->user_id;
        $teacher_id = $request->post("teacher_id");
 
        $teacher_details = User::where('id',$teacher_id)->first();
-       $student_details = User::where('id',$user_id)->first();
+       $student_details = User::where('id',$user_ids)->first();
 
-        $data7_public=Message::whereRaw(' ((messages.sender_id="'.$user_id.'" and messages.sender_type="Student" and messages.receiver_id="'.$teacher_id.'" and messages.receiver_type="Teacher") or (messages.sender_id="'.$teacher_id.'" and messages.sender_type="Teacher" and messages.receiver_id="'.$user_id.'" and messages.receiver_type="Student")) ')
+        $data7_public=Message::whereRaw(' ((messages.sender_id="'.$user_ids.'" and messages.sender_type="Student" and messages.receiver_id="'.$teacher_id.'" and messages.receiver_type="Teacher") or (messages.sender_id="'.$teacher_id.'" and messages.sender_type="Teacher" and messages.receiver_id="'.$user_ids.'" and messages.receiver_type="Student")) ')
          ->orderBy('messages.id','desc')
          ->limit(100)
 
@@ -1559,13 +1580,16 @@ class StudentController extends Controller
 
 
 
-       return response()->json(['success'=>'success','user_id'=>$user_id,'teacher_id'=>$teacher_id,'data'=>$thearray_public,'teacher_name'=>$teacher_name,'teacher_avatar'=>$teacher_avatar,'student_name'=>$student_name,'student_avatar'=>$student_avatar]);
+       return response()->json(['success'=>'success','user_id'=>$user_id,'teacher_id'=>$teacher_id,'data'=>$thearray_public,'teacher_name'=>$teacher_name,'teacher_avatar'=>$teacher_avatar,'student_name'=>$student_name,'student_avatar'=>$student_avatar,'user_id'=>$user_id,'user_ids'=>$user_ids]);
    }
 
     public function getteacherlistforstudentmessage(Request $request)
     {
 
-       $user_id=Auth::id();
+          //this is institution id //
+    $user_id =$request->institution_ids;
+    //this is student id //
+     $user_ids =$request->user_id;
        $teacher_search_text = $request->post("teacher_search_text");
 
         $data7_public=TeacherStudent::leftJoin('users', 'teacher_students.teacher_id', '=', 'users.id')
@@ -1609,7 +1633,7 @@ class StudentController extends Controller
 
 
 
-       return response()->json(['success'=>'success','user_id'=>$user_id,'teacher_search_text'=>$teacher_search_text,'data'=>$thearray_public]);
+       return response()->json(['success'=>'success','teacher_search_text'=>$teacher_search_text,'data'=>$thearray_public,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
     }

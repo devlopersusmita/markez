@@ -954,6 +954,8 @@
 
 
      $(document).on('click', '#send_message_button', function () {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_id=<?php echo $_GET['institution_id']; ?>;
            var send_message_text = $('#send_message_text').val();
            if(send_message_text!='')
            {
@@ -973,7 +975,9 @@
                 dataType : 'json',
                 data: {
                   'teacher_id':last_teacher_id_for_message,
-                  'send_message_text':send_message_text
+                  'send_message_text':send_message_text,
+                  'user_id':user_id,
+            'institution_id':institution_id,
                 },
                 success : function(data){
                     // alert(data);
@@ -1004,6 +1008,8 @@
 
      function getmessagechatforstudentteacher()
      {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_id=<?php echo $_GET['institution_id']; ?>;
        if(last_teacher_id_for_message!='')
        {
 
@@ -1016,7 +1022,9 @@
                 url : baseurl+'/getmessagechatforstudentteacher',
                 dataType : 'json',
                 data: {
-                  'teacher_id':last_teacher_id_for_message
+                  'teacher_id':last_teacher_id_for_message,
+                  'user_id':user_id,
+            'institution_id':institution_id,
                 },
                 success : function(data){
                      //alert(data);
@@ -1078,13 +1086,17 @@
 
      function getteacherlistforstudentmessage(teacher_search_text)
      {
+        user_id=<?php echo $_GET['user_id']; ?>;
+         institution_id=<?php echo $_GET['institution_id']; ?>;
 
        $.ajax({
           type : 'POST',
           url : baseurl+'/getteacherlistforstudentmessage',
           dataType : 'json',
           data: {
-            'teacher_search_text':teacher_search_text
+            'teacher_search_text':teacher_search_text,
+            'user_id':user_id,
+            'institution_id':institution_id,
           },
           success : function(data){
                //alert(data);
