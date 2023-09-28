@@ -1529,7 +1529,8 @@ public function coursesubscriptionpay(Request $request)
     }
     public function studentteacherstudentdelete($id,$type)
       {
-        $user_id=Auth::id();
+        //$user_id=Auth::id();
+        $user_id = $request->student_id;
         $result = null;
         if($type=='private_pending')
         {
@@ -1747,7 +1748,8 @@ public function coursesubscriptionpay(Request $request)
 
     public function studentteacherstudentsend($id,$type)
       {
-        $user_id=Auth::id();
+        //$user_id=Auth::id();
+        $user_id = $request->student_id;
         $result = null;
 
         $exist_no = RequestDetails::where(['sender_id'=>$user_id,'sender_type'=>'Student','receiver_type'=>'Teacher','receiver_id'=>$id,'type'=>'Teacher_Student'])->get()->count();
