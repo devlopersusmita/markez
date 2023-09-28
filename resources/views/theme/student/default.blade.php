@@ -1015,7 +1015,7 @@
                 success : function(data){
                     // alert(data);
                      //alert('success');
-                     alert(JSON.stringify(data));
+                     //alert(JSON.stringify(data));
                      $('#send_message_text').val('');
                       $('#send_message_button').text('Send');
                        $('#loading_message_send').hide();
@@ -1062,7 +1062,7 @@
                 success : function(data){
                      //alert(data);
                      //alert('success');
-                     alert(JSON.stringify(data));
+                    // alert(JSON.stringify(data));
 
 
                       $("#teacher_name").html(data.teacher_name);
@@ -1141,6 +1141,7 @@
                var html = "";
                if(fdata.length > 0)
                {
+                alert("hhhh");
                 for(var aa=0; aa < fdata.length; aa++ )
                 {
                   var temp = fdata[aa];
