@@ -1137,14 +1137,14 @@
                //alert(data);
                //alert('success');
               // alert(JSON.stringify(data.data));
-               var fdata = data.data;
+               alert(var fdata = data.data;);
                var html = "";
                if(fdata.length > 0)
                {
 
                 for(var aa=0; aa < fdata.length; aa++ )
                 {
-                    alert("hhhh");
+                    //alert("hhhh");
                   var temp = fdata[aa];
                     html = html + '<div class="box-subscriber teacher_message_chat"  data-id="'+temp.id+'">';
                     if(temp.avatar!='')
