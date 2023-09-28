@@ -1016,7 +1016,7 @@
 
 
           $("#send_message").show();
-          //alert(last_teacher_id_for_message);
+          alert(last_teacher_id_for_message);
 
               $.ajax({
                 type : 'POST',
