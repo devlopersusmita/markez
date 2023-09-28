@@ -1527,7 +1527,7 @@ public function coursesubscriptionpay(Request $request)
         }
 
     }
-    public function studentteacherstudentdelete($id,$type)
+    public function studentteacherstudentdelete(Request $request,$id,$type)
       {
         //$user_id=Auth::id();
         $user_id = $request->student_id;
@@ -1746,7 +1746,7 @@ public function coursesubscriptionpay(Request $request)
 
     }
 
-    public function studentteacherstudentsend($id,$type)
+    public function studentteacherstudentsend(Request $request,$id,$type)
       {
         //$user_id=Auth::id();
         $user_id = $request->student_id;
