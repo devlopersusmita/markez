@@ -933,6 +933,8 @@
                  htmlcont=htmlcont+'</tr>';
 
                  htmlcont=htmlcont+'<tr>';
+
+   // teacher message //
      var teacher_search_text = '';
      getteacherlistforstudentmessage(teacher_search_text);
      $("#teacher_search_text").keyup(function(){
