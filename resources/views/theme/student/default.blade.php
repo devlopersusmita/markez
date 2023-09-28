@@ -1119,9 +1119,10 @@
 
      function getteacherlistforstudentmessage(teacher_search_text)
      {
-        alert(user_id=<?php echo $_GET['user_id']; ?>;)
+        //alert(user_id=<?php echo $_GET['user_id']; ?>;)
         user_id=<?php echo $_GET['user_id']; ?>;
          institution_id=<?php echo $_GET['institution_id']; ?>;
+         alert(user_id);
 
        $.ajax({
           type : 'POST',
