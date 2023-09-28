@@ -1452,7 +1452,7 @@ class StudentController extends Controller
                 } else {
                     $user_ids = $request->user_id;
                 }
-
+dd($request->institution_id);
       return view('theme.student.message',['user_id'=>$user_id,'user_ids'=>$user_ids]);
 
     }
