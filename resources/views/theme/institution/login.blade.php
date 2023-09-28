@@ -73,7 +73,7 @@
                                      <button type="submit" class="button is-solid primary-button is-fullwidth raised">Login</button>
                                 </div>
 
-
+                                <a href="{{url('teacherstudentregister/'.$institution_id)}}" class="signup-btn">Sign Up</a>
                             </div>
                         </form>
                     </div>
