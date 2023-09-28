@@ -81,12 +81,17 @@ class InstitutionLController extends Controller
 
 
 }
-
 public function signout(Request $request) {
-    Session::flush();
+    try {
+        Session::flush();
+    } catch (\Exception $e) {
+        // Handle any potential exceptions here
+        dd($e->getMessage());
+    }
 
     return view('theme.institution.institutionwebsite');
 }
+
 
 
 
