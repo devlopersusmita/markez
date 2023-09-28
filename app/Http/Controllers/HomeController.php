@@ -2966,7 +2966,7 @@ public function postteacherstudentlogin(Request $request)
             }
             if($user->status == 'active'  && $institution_teacher[0]->status == 'approve')
             {
-                Session::put('student_name', $user->name);
+                Session::put('teacher_name', $user->name);
 
                 return redirect()->route('teacherprofile',['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
 
@@ -2985,6 +2985,7 @@ public function postteacherstudentlogin(Request $request)
        //dd( Session::put('student_name', $user->role));
         // Session::put('institution_id', $user->id);
         // Session::put('user_id', $userstable->id);
+        Session::put('student_name', $user->name);
 
             return redirect()->route('profile', ['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
 
