@@ -68,6 +68,7 @@
 
 
                         </div>
+                        @endif
 
                 @else
                         <div class="header-btn">
@@ -89,7 +90,7 @@
                         </div>
 
 
-                        @endif
+                @endif
 			</div>
 		</div>
 	</div>
