@@ -51,7 +51,7 @@
 							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,</p>
 						</li>
 					</ul>
-					<a href="{{ Route('home') }}" class="btn-banner">REGISTER WITH US</a>
+					<a href="{{ Route('register.step1') }}" class="btn-banner">REGISTER WITH US</a>
 				</div>
 			</div>
 		</div>
