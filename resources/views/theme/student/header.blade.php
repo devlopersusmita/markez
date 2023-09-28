@@ -40,9 +40,7 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 
 
-
-
-                  <form method="GET" action="{{ route('signout') }}">
+                  <form method="POST" action="{{ route('signout') }}">
     @csrf <!-- Include a CSRF token if required by your application -->
     <button type="submit">Logout</button>
 </form>

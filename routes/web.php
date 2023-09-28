@@ -155,7 +155,7 @@ Route::post('/register/submit',  [RegisterController::class,'submit'])->name('re
 
 Route::get('/instlogin', [InstitutionLController::class, 'instlogin'])->name('instlogin');
 Route::post('/postinstlogin', [InstitutionLController::class, 'postinstlogin'])->name('postinstlogin');
-Route::post('/signout', [InstitutionLController::class, 'signout'])->name('signout');
+Route::get('/signout', [InstitutionLController::class, 'signout'])->name('signout');
 
 
 
