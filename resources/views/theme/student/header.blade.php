@@ -25,36 +25,36 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
                 <div class="navbar-end">
 
-<div class="navbar-item">
-
-
-    <a href="" >
-                <p>  {{ Session::get('student_name'); }} </p>
 
 
 
-                  </a>
 
-
-
+                  <div class="navbar-item">
+                                <a href="#" >
+                            {{ Session::get('student_name'); }}
+                                </a>
+                  </div>
 
 
 
 
 
-          <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
 
 
 
-</div>
+                    <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+
+
+              </div>
 </div>
 
 </div>
