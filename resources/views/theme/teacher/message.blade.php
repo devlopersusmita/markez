@@ -67,8 +67,7 @@
                                                 <i data-feather="search"></i>
 
                                             </div>
-                                            <input type="hidden" value="{{$user_id}}" name="user_id">
-                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
+
                                         </div>
                                     </div>
 
