@@ -40,7 +40,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            
+
          <div id="pagination_data">
             @include("admin.company.company-pagination",['companys'=>$companys])
           </div>
@@ -83,37 +83,37 @@
                 </div>
                  <div class="col-md-4">
                     <label>Logo</label>
-                    <input type="file"  name="logo" />
+                    <input type="file"  name="logo" accept=".png, .jpg, .jpeg" />
                     <input type="hidden" name="old_logo" id="old_logo" value="" />
                     <div id="logo_edit_div"></div>
                 </div>
                  <div class="col-md-4">
                     <label>Fav Icon</label>
-                    <input type="file"  name="fav_icon" />
+                    <input type="file"  name="fav_icon" accept=".png, .jpg, .jpeg"/>
                     <input type="hidden" name="old_fav_icon" id="old_fav_icon" value="" />
                     <div id="fav_icon_edit_div"></div>
                 </div>
 
                  <div class="col-md-4">
                     <label>Director signature</label>
-                    <input type="file"  name="director_signature" />
+                    <input type="file"  name="director_signature"  accept=".png, .jpg, .jpeg"/>
                     <input type="hidden" name="old_director_signature" id="old_director_signature" value="" />
                     <div id="director_signature_edit_div"></div>
                 </div>
 
-                
+
 
                  <div class="col-md-12">
                     <label>Home Page Short Description</label>
                     <br>
                      <input type="text" class="input title-input" id="home_page_short_description_edit" placeholder="Enter the Home Page Short Description" name="home_page_short_description">
-                   
+
                 </div>
                  <div class="col-md-12">
                     <label>Footer Text</label>
                     <br>
                      <input type="text" class="input title-input" id="footer_text_edit" placeholder="Enter the Footer Text" name="footer_text">
-                   
+
                 </div>
                 <div class="col-md-12">
                     <label>Header Text</label>
@@ -128,23 +128,23 @@
 
                 <div class="col-md-6">
                     <label>Facebook Link</label>
-                    <input type="text" class="form-control" name="facebook_link" id="facebook_link_edit" placeholder="Facebook Link" maxlength="250" />
+                    <input type="url" class="form-control" name="facebook_link" id="facebook_link_edit" placeholder="Facebook Link" maxlength="250" />
                 </div>
                 <div class="col-md-6">
                     <label>Instagram Link</label>
-                    <input type="text" class="form-control" name="instagram_link" id="instagram_link_edit" placeholder="Instagram Link" maxlength="250" />
+                    <input type="url" class="form-control" name="instagram_link" id="instagram_link_edit" placeholder="Instagram Link" maxlength="250" />
                 </div>
                 <div class="col-md-6">
                     <label>Twiter Link</label>
-                    <input type="text" class="form-control" name="twiter_link" id="twiter_link_edit" placeholder="Twiter Link" maxlength="250" />
+                    <input type="url" class="form-control" name="twiter_link" id="twiter_link_edit" placeholder="Twiter Link" maxlength="250" />
                 </div>
                 <div class="col-md-6">
                     <label>Linkedin Link</label>
-                    <input type="text" class="form-control" name="linkedin_link" id="linkedin_link_edit" placeholder="Linkedin Link" maxlength="250" />
+                    <input type="url" class="form-control" name="linkedin_link" id="linkedin_link_edit" placeholder="Linkedin Link" maxlength="250" />
                 </div>
                 <div class="col-md-6">
                     <label>Youtube Link</label>
-                    <input type="text" class="form-control" name="youtube_link" id="youtube_link_edit" placeholder="Youtube Link" maxlength="250" />
+                    <input type="url" class="form-control" name="youtube_link" id="youtube_link_edit" placeholder="Youtube Link" maxlength="250" />
                 </div>
 
                 <div class="col-md-6">
@@ -153,11 +153,11 @@
                 </div>
                 <div class="col-md-6">
                     <label>Fax</label>
-                    <input type="text" class="form-control" name="fax" id="fax_edit" placeholder="Fax" maxlength="250" required/>
+                    <input type="text" class="form-control" name="fax" id="fax_edit" placeholder="Fax" maxlength="250"/>
                 </div>
                 <div class="col-md-6">
                     <label>Website</label>
-                    <input type="text" class="form-control" name="website" id="website_edit" placeholder="Website" maxlength="250" required />
+                    <input type="url" class="form-control" name="website" id="website_edit" placeholder="Website" maxlength="250" required />
                 </div>
                 <div class="col-md-6">
                     <label>Country</label>
