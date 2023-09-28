@@ -72,13 +72,7 @@
                                 <div class="buttons">
                                      <button type="submit" class="button is-solid primary-button is-fullwidth raised">Login</button>
                                 </div>
-                                <div class="account-link has-text-centered">
-                                <input type="text" value="{{$id}}" name="id">
 
-                                            <a  href="{{url('teacherstudentregister/'.$id)}}">Don't have an account? Sign Up</a>
-
-
-                                </div>
 
                             </div>
                         </form>
