@@ -65,7 +65,7 @@
                             <div class="teacher-grid">
                                 <div class="teacher-grid-top-info">
                                     <h2>Teachers</h2>
-                                    <a href="#">View All</a>
+                                    <!-- <a href="#">View All</a> -->
                                 </div>
 
                                 <div class="row">
