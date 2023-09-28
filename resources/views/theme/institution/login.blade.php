@@ -76,7 +76,7 @@
                                 <div class="account-link has-text-centered">
 
 
-                                            <a  href="{{url('teacherstudentregister/'.$id)}}">Don't have an account? Sign Up</a>
+                                            <a  href="{{url('teacherstudentregister/'.$institution_id)}}">Don't have an account? Sign Up</a>
 
                                 </div>
                             </div>
