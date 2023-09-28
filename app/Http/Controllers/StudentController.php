@@ -1463,7 +1463,7 @@ class StudentController extends Controller
 
     // $user_id=Auth::id();
     //this is institution id //
-    $user_id =$request->institution_ids;
+    $user_id =$request->institution_id;
     //this is student id //
      $user_ids =$request->user_id;
        $teacher_id = $request->post("teacher_id");
@@ -1517,7 +1517,7 @@ class StudentController extends Controller
 
     //    $user_id=Auth::id();
        //this is institution id //
-       $user_id =$request->institution_ids;
+       $user_id =$request->institution_id;
        //this is student id //
         $user_ids =$request->user_id;
        $teacher_id = $request->post("teacher_id");
@@ -1587,13 +1587,13 @@ class StudentController extends Controller
     {
 
           //this is institution id //
-    $user_id =$request->institution_ids;
+    $user_id =$request->institution_id;
     //this is student id //
      $user_ids =$request->user_id;
        $teacher_search_text = $request->post("teacher_search_text");
 
         $data7_public=TeacherStudent::leftJoin('users', 'teacher_students.teacher_id', '=', 'users.id')
-         ->where(['teacher_students.user_id'=>$user_id,'users.status'=>'active','users.role'=>'2'])
+         ->where(['teacher_students.user_id'=>$user_ids,'users.status'=>'active','users.role'=>'2'])
          ->orderBy('users.name','asc')
 
             ->when($request->has("teacher_search_text"),function($q)use($request){

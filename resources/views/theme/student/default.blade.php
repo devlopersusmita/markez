@@ -1100,7 +1100,7 @@
             'institution_id':institution_id,
           },
           success : function(data){
-               //alert(data);
+               alert(data);
                //alert('success');
                //alert(JSON.stringify(data.data));
                var fdata = data.data;
