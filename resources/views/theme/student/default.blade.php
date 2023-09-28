@@ -522,6 +522,7 @@
 
         var id = $('#send_id').val();
         var type = $('#send_type').val();
+        var student_id = $('#user_id').val();
       var url = baseurl + '/studentteacherstudentsend/'+id+'/'+type;
 
       $('#loading_teacher_send').show();
@@ -535,7 +536,7 @@
               headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
-              data: [],
+              data: { student_id: student_id },
               url: url,
               type: "post",
               dataType: 'json',
@@ -624,7 +625,7 @@
         var id = $('#approve_id').val();
         var type = $('#approve_type').val();
         var student_id = $('#user_id').val();
-        alert(student_id);
+        //alert(student_id);
       var url = baseurl + '/studentteacherstudentapprove/'+id+'/'+type;
 
       $('#loading_teacher_approvet').show();
