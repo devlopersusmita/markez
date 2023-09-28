@@ -2991,7 +2991,7 @@ public function postteacherstudentlogin(Request $request)
         Session::put('student_name', $user->name);
         Session::put('institution_id',                $request->institution_id);
         Session::put('user_role', $user->role);
-        Session::put('user_id', $user->id);
+        dd(Session::put('user_id', $user->id));
 
             return redirect()->route('profile', ['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
 
