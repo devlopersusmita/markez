@@ -16,7 +16,7 @@
       <div class="container">
          <div class="main-header-row">
             <div class="logo">
-               <a href="#" class="navbar-brand">
+               <a href="{{ Route('home') }}" class="navbar-brand">
                <img  src="{{@$company_settings->logo!= ''?asset(@$company_settings->logo):asset('assets/img/logo/friendkit-bold.svg')}}" alt="">
                </a>
             </div>
@@ -25,7 +25,7 @@
             @if(Session::has('institute_name') != 1)
                <ul class="nav-div">
                   <li class="nav-item dropdown">
-                     <a href="#" class="dropdown-toggle login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                     <a href="" class="dropdown-toggle login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>  @if (Route::has('instlogin'))
                            <a class="nav-link dropdown-item" href="{{ Route('instlogin') }}">Institution</a>
