@@ -17,7 +17,7 @@
          <div class="main-header-row">
             <div class="logo">
                <a href="#" class="navbar-brand">
-               <img  src="{{$company_settings->logo!= ''?asset($company_settings->logo):asset('assets/img/logo/friendkit-bold.svg')}}" alt="">
+               <img  src="{{@$company_settings->logo!= ''?asset(@$company_settings->logo):asset('assets/img/logo/friendkit-bold.svg')}}" alt="">
                </a>
             </div>
             <div class="header-btn">
