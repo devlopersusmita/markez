@@ -37,15 +37,15 @@
         </div>
     @elseif(Session::get('user_role') == '1')
         <div class="header-btn">
-            <!-- <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn">Back To Dashboard</a> -->
+            <a href="{{ Route('profile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn"> {{ Session::get('student_name') }}</a>
             <input type="hidden" value="{{$id}}" name="id">
-            {{ Session::get('student_name') }}
+
         </div>
     @elseif(Session::get('user_role') == '2')
         <div class="header-btn">
-            <!-- <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn">Back To Dashboard</a> -->
+            <a href="{{ Route('teacherprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn"> {{ Session::get('teacher_name') }}</a>
             <input type="hidden" value="{{$id}}" name="id">
-            {{ Session::get('teacher_name') }}
+
         </div>
     @endif
 @endif
