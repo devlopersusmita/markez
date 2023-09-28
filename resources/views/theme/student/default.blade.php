@@ -936,6 +936,38 @@
 
                  htmlcont=htmlcont+'<tr>';
 
+
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+'Address';
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'<td>';
+                 htmlcont=htmlcont+user_details.address;
+                 htmlcont=htmlcont+'</td>';
+                 htmlcont=htmlcont+'</tr>';
+                 htmlcont=htmlcont+'</table>';
+
+
+                  $('#details_modal_body_content').html(htmlcont);
+
+
+
+
+
+              },
+              error: function (data) {
+                  alert(JSON.stringify(data));
+                  console.log( data);
+
+              } ,
+              complete: function(){
+                $('.ajax-loader').css("visibility", "hidden");
+              }
+          });
+
+
+
+    });
+
    // teacher message //
      var teacher_search_text = '';
      getteacherlistforstudentmessage(teacher_search_text);
@@ -1334,36 +1366,6 @@
       });
      }
 
-                 htmlcont=htmlcont+'<td>';
-                 htmlcont=htmlcont+'Address';
-                 htmlcont=htmlcont+'</td>';
-                 htmlcont=htmlcont+'<td>';
-                 htmlcont=htmlcont+user_details.address;
-                 htmlcont=htmlcont+'</td>';
-                 htmlcont=htmlcont+'</tr>';
-                 htmlcont=htmlcont+'</table>';
-
-
-                  $('#details_modal_body_content').html(htmlcont);
-
-
-
-
-
-              },
-              error: function (data) {
-                  alert(JSON.stringify(data));
-                  console.log( data);
-
-              } ,
-              complete: function(){
-                $('.ajax-loader').css("visibility", "hidden");
-              }
-          });
-
-
-
-    });
 
 
     $(document).on('click', '.send_modal_it', function () {
