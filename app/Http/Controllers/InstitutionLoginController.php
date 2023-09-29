@@ -1516,10 +1516,24 @@ public function student(Request $request)
     {
        $course_id = $id;
        //this is institution id //
-        $user_id = $request->user_id;
+        // $user_id = $request->user_id;
             //this is user id //
-            $user_ids = $request->user_ids;
-            dd($user_ids);
+            // $user_ids = $request->user_ids;
+
+            if($request->institution_id == null) {
+                $user_id = $_GET['institution_id'];
+            } else {
+                $user_id = $request->institution_id;
+            }
+
+
+                //userstable id//
+                if($request->user_id == null) {
+                    $user_ids = $_GET['user_id'];
+                } else {
+                    $user_ids = $request->user_id;
+                }
+            //dd($user_ids);
            $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
 
            if($check_course_accessibility_by_institution){
