@@ -399,17 +399,18 @@ class TeacherController extends Controller
     }
     public function course(Request $request)
     {
-        //return view('theme.teacher.course');
-        // $user_id = Auth::id();
 
+        //this is teacher id//
         $user_id = $request->user_id;
-        //dd($user_id);
+
+           //this is institution id//
          $institution_id =$request->institution_id;
-         dd($user_id,$institution_id);
-         $categories = Category::orderBy('name','asc')->get();
+         //dd($user_id,$institution_id);
+         $categories = Category::where('institution_id',$institution_id)->orderBy('name','asc')->get();
+
 
          $data7=Course::join('course_teachers', 'course_teachers.course_id', '=', 'courses.id')->leftJoin('categories', 'categories.id', '=', 'courses.category_id')->orderBy('courses.id','desc')
-             ->where(['course_teachers.user_id'=>$user_id,'course_teachers.status'=>'approve'])
+             ->where(['course_teachers.user_id'=>$user_id,'course_teachers.institution_id'=>$institution_id,'course_teachers.status'=>'approve'])
             ->when($request->has("title"),function($q)use($request){
 
 
