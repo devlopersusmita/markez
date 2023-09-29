@@ -42,7 +42,7 @@
                                                 <img src="images/course.svg" alt="">
                                             </div>
                                             <div class="stat-info">
-                                                <h5>Cources</h5>
+                                                <h5>Courses</h5>
                                                 <h2>{{$course_count}}</h2>
                                             </div>
 										</div>
