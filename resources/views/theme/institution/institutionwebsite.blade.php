@@ -157,7 +157,7 @@
                                                             <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
                                                             @endif
 					<div class="couse-content">
-						<h3>{{$popular_course->title}}</h3>
+						<h3>{{$popular_course->title}}({{ $course_data['type'] }})</h3>
 						<p>
                         {!! Str::words($popular_course->description, 10, ' ...') !!}
                         </p>
@@ -197,7 +197,7 @@
                                                             <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
                                                             @endif
 					<div class="couse-content">
-                    <h3>{{$popular_course->title}}</h3>
+                    <h3>{{$popular_course->title}}({{ $course_data['type'] }})</h3>
 						<p>{!! Str::words($popular_course->description, 10, ' ...') !!}</p>
 						<div class="rating">
 							<span>4.6</span>
