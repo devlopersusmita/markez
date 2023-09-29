@@ -30,7 +30,8 @@
             <td>{{$subscription['price']}} SAR </td>
             <td>{{$subscription['days']}}</td>
             <td>{{ date('Y-m-d', strtotime($subscription['start_date'])) }}</td>
-            <td>{{$subscription['end_date']}}</td>
+            <td>{{ date('Y-m-d', strtotime($subscription['end_date'])) }}</td>
+
 
 
             <td class="subscription_action">
