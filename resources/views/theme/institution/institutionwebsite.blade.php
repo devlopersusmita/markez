@@ -12,7 +12,7 @@
 <!-- Banner Start -->
 <section class="banner-section">
 	<div class="owl-carousel owl-theme hero-slider">
-    @if(!@$institution_sliders->isEmpty())
+    @if(!$institution_sliders->isEmpty())
          @foreach($institution_sliders as $institution_slider)
             <div class="slide slide1" style="background-image:url({{asset($institution_slider->slider)}});">
                 <div class="container">
