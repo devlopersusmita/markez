@@ -74,7 +74,7 @@
                                         <div class="teacher-profile text-center">
                                             <img src="images/profile-edit-bg.png" alt="" class="teacher-profile-img">
                                             <h4>{{$teachers_list->teacher_name}}</h4>
-                                            <p>Subject: <span>Math</span></p>
+                                            <!-- <p>Subject: <span>Math</span></p> -->
                                             <div class="three-dots">
                                                 <img src="images/ellipsis.png" alt="">
                                                 <div class="hover-box">
