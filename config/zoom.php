@@ -1,5 +1,5 @@
 <?php
- echo("V8wP_gitSaqfQe9vAYhMEA");
+
 return [
     'api_key' => "V8wP_gitSaqfQe9vAYhMEA",
     'api_secret' => 'MyZsDsc7hURuIGM0JpVIkBZ291bbE13LweML',
