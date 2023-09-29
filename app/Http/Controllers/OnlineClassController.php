@@ -269,7 +269,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
 
          //$meeting = $this->createMeeting($request);
 
-             $user = Zoom::user()->first();
+             $user = Zoom::$request->user_id->first();
 
             /*  $user = Zoom::user()->create([
                     'first_name' => 'First Name',
