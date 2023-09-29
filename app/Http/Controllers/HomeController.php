@@ -2941,7 +2941,8 @@ public function postteacherstudentlogin(Request $request)
     //dd($user->id);
 
 
-    if ($user->role == 2 || $user->role == 1) {
+    if ($user->role == 2 || $user->role == 1)
+     {
         // Check for valid user credentials
         if ($user && Hash::check($password, $user->password)) {
             // Authentication successful
@@ -2987,7 +2988,9 @@ public function postteacherstudentlogin(Request $request)
             // Invalid credentials
             return redirect()->back()->withInput()->withErrors(['email' => 'Invalid email or password']);
         }
-    } else {
+    }
+    else
+    {
         // Invalid credentials
         return redirect()->back()->withInput()->withErrors(['email' => 'Invalid email or password']);
     }
