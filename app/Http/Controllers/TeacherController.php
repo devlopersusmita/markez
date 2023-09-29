@@ -403,8 +403,9 @@ class TeacherController extends Controller
         // $user_id = Auth::id();
 
         $user_id = $request->user_id;
-        dd($user_id);
+        //dd($user_id);
          $institution_id =$request->institution_id;
+         dd($user_id,$institution_id);
          $categories = Category::orderBy('name','asc')->get();
 
          $data7=Course::join('course_teachers', 'course_teachers.course_id', '=', 'courses.id')->leftJoin('categories', 'categories.id', '=', 'courses.category_id')->orderBy('courses.id','desc')
