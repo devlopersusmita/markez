@@ -2945,10 +2945,12 @@ public function postteacherstudentlogin(Request $request)
     //dd($institution_teacher[0]->status);
     if($user->role == 2 && $user->role == 1)
     {
+        echo "rtyyu";
 
         if (($user && Hash::check($password, $user->password)))
         {
 
+            echo "type";
 
 
            if($user->role == 2)
