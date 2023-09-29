@@ -29,7 +29,7 @@
             <td>{{$subscription['title']}} </td>
             <td>{{$subscription['price']}} SAR </td>
             <td>{{$subscription['days']}}</td>
-            <td>{{$subscription['start_date']}}</td>
+            <td>{{ date('Y-m-d', strtotime($subscription['start_date'])) }}</td>
             <td>{{$subscription['end_date']}}</td>
 
 
