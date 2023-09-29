@@ -552,6 +552,7 @@ class StudentController extends Controller
             $user_id = $request->user_id;
             //dd($user_id);
             $institution_id =$request->institution_id;
+            dd($user_id,$institution_id);
             $check_student_subscription_exist = $this->check_student_subscription($user_id) ;
             $categories = Category::orderBy('name','asc')->get();
 
