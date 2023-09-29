@@ -42,8 +42,8 @@
                                 @if($course['type']=='zoom')
                                 <td style="padding: 0px 5px;">
                                 <!-- <input type="text" value="{{$user_id}}" name="institution_id"> -->
-                                <input type="text" value="{{$user_id}}" name="user_id">
-                <input type="text" value="{{$user_ids}}" name="user_ids">
+                                <input type="hidden" value="{{$user_id}}" name="user_id">
+                <input type="hidden" value="{{$user_ids}}" name="user_ids">
                                      <a href="{{Route('institutioncourseonline_classes',['id'=>$course['course_id'],'content_id'=>$course['id'],'institution_id'=>$user_id,'user_id'=>$user_ids])}}"  class="button is-solid green-button raised"   style="cursor: pointer;"  >Online Class</a>
                                  </td>
                                  @endif
