@@ -39,7 +39,7 @@ class OnlineClassController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    
+
     public function onlineattendance(Request $request,$id,$content_id,$online_class_id)
     {
         $user_id = Auth::id();
@@ -135,12 +135,12 @@ public function attendancestore(Request $request,$id,$online_class_id)
 
       $course_content_details = CourseContent::where('id',$course_content_id)->first();
 
-      
+
       $total_subscription = CourseSubscription::where('course_id',$course_id)->count();
-     
+
 
       $teacher_online_class_before_minute=SystemSetting::select('teacher_online_class_before_minute')->first()->teacher_online_class_before_minute;
-      
+
 
        $courses = Course::leftJoin('course_teachers','courses.id','=','course_teachers.course_id')->where(['course_teachers.user_id'=>$user_id,'courses.type'=>'zoom'])->orderBy('courses.title','asc')->get();
 

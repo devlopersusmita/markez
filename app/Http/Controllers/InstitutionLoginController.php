@@ -1603,7 +1603,11 @@ public function student(Request $request)
     public function coursequize(Request $request,$id,$content_id)
     {
         $course_id = $id;
-        $user_id = $request->user_id;
+
+           //this is institution id //
+           $user_id = $request->user_id;
+           //this is user id //
+           $user_ids = $request->user_ids;
         $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id, $user_id);
         if($check_course_accessibility_by_institution){
         $course_content_id = $content_id;
@@ -1651,7 +1655,7 @@ public function student(Request $request)
 
            }
         }
-           return view('theme.institution.coursequize',['quizes'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id]);
+           return view('theme.institution.coursequize',['quizes'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
         }
         else{
@@ -1682,7 +1686,11 @@ public function student(Request $request)
     {
 
         $course_id = $id;
-        $user_id = $request->user_id;
+
+           //this is institution id //
+           $user_id = $request->user_id;
+           //this is user id //
+           $user_ids = $request->user_ids;
         $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
         if($check_course_accessibility_by_institution){
         $course_content_id = $content_id;
@@ -1739,7 +1747,7 @@ public function student(Request $request)
 
 
 
-           return view('theme.institution.coursequestion',['questions'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details,'user_id'=>$user_id]);
+           return view('theme.institution.coursequestion',['questions'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
         }
 
@@ -1781,7 +1789,11 @@ else{
      public function onlineclassindex(Request $request,$id,$content_id)
     {
         //$user_id = Auth::id();
-        $user_id = $request->user_id;
+
+           //this is institution id //
+           $user_id = $request->user_id;
+           //this is user id //
+           $user_ids = $request->user_ids;
 
        $course_id = $id;
 
@@ -1842,7 +1854,7 @@ else{
 
 
 
-           return view('theme.institution.onlineclass',['online_classes'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id]);
+           return view('theme.institution.onlineclass',['online_classes'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
 
     }
