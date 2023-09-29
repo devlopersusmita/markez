@@ -246,11 +246,6 @@ public function attendancestore(Request $request,$id,$online_class_id)
         $user = Zoom::user()->get();
         print_r($user->toarray());
     }
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Validator;
-    use MacsiDigital\Zoom\Facades\Zoom;
-    use App\Models\OnlineClasse; // Assuming you have an OnlineClasse model
-
     public function store(Request $request)
     {
         // Validate the incoming request data
@@ -318,7 +313,6 @@ public function attendancestore(Request $request,$id,$online_class_id)
             ]);
         }
     }
-
 
     /**
      * Display the specified resource.
