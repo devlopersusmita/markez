@@ -55,14 +55,16 @@
 
                                         <div class="header-actions">
 
-                                        <input type="text" value="{{$user_id}}" name="user_id">
-            <input type="text" value="{{$institution_id}}">
+                                        <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$institution_id}}">
                                     <div class="field is-grouped">
                                         <div class="control" >
-                                            <a href="{{route('teachercourse')}}"><h1>{{$course_details->title}}</h1></a>
+                                            <a href="{{route('teachercourse',['user_id'=>$user_id,'institution_id'=>$institution_id])}}"><h1>{{$course_details->title}}</h1></a>
+
+
                                         </div>
                                         <div class="control" >
-                                            <a href='{{Route("teachercoursecontent",["id"=>$course_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
+                                            <a href='{{Route("teachercoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
                                         </div>
                                     </div>
 

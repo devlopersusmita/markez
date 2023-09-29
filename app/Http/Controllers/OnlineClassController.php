@@ -130,7 +130,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
       $user_id = $request->user_id;
       //dd($user_id);
        $institution_id =$request->institution_id;
-       dd($user_id,$institution_id);
+       //dd($user_id,$institution_id);
       $course_id = $id;
 
       $course_content_id = $content_id;
@@ -184,9 +184,9 @@ public function attendancestore(Request $request,$id,$online_class_id)
            $data = $this->paginate_class($thearray,$course_id,$course_content_id);
 
            if($request->ajax()){
-               return view('theme.online_classes.index-pagination',['online_classes'=>$data,'courses'=>$courses,'coursecontents'=>$coursecontents,'teacher_online_class_before_minute'=>$teacher_online_class_before_minute,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'total_subscription'=>$total_subscription]);
+               return view('theme.online_classes.index-pagination',['online_classes'=>$data,'courses'=>$courses,'coursecontents'=>$coursecontents,'teacher_online_class_before_minute'=>$teacher_online_class_before_minute,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'total_subscription'=>$total_subscription,'user_id'=>$user_id,'institution_id'=>$institution_id]);
            }
-           return view('theme.online_classes.index',['online_classes'=>$data,'courses'=>$courses,'coursecontents'=>$coursecontents,'teacher_online_class_before_minute'=>$teacher_online_class_before_minute,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'total_subscription'=>$total_subscription]);
+           return view('theme.online_classes.index',['online_classes'=>$data,'courses'=>$courses,'coursecontents'=>$coursecontents,'teacher_online_class_before_minute'=>$teacher_online_class_before_minute,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'total_subscription'=>$total_subscription,'user_id'=>$user_id,'institution_id'=>$institution_id]);
 
         //return view('theme.online_classes.index', ['online_classes'=>$online_classes,'id'=>$id]);
     }
