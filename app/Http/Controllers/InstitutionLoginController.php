@@ -1519,7 +1519,7 @@ public function student(Request $request)
         $user_id = $request->user_id;
             //this is user id //
             $user_ids = $request->user_ids;
-            //dd($user_id);
+            dd($user_id);
            $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
 
            if($check_course_accessibility_by_institution){
