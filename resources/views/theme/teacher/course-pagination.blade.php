@@ -64,8 +64,8 @@
                 <td><?php $course_id = $course["id"];
                 ?>
                 <table ><tr><td>
-                <input type="text" value="{{$user_id}}" name="user_id">
-                                                    <input type="text" value="{{$institution_id}}" name="institution_id">
+                <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
                     <a href='{{Route("teachercoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
                 </td>
                 {{-- @if($course['type']=='zoom')
