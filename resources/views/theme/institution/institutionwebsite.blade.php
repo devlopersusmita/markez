@@ -12,15 +12,15 @@
 <!-- Banner Start -->
 <section class="banner-section">
 	<div class="owl-carousel owl-theme hero-slider">
-    @if(!$institution_sliders->isEmpty())
+    @if(!@$institution_sliders->isEmpty())
          @foreach($institution_sliders as $institution_slider)
             <div class="slide slide1" style="background-image:url({{asset($institution_slider->slider)}});">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-9">
-                        <h1>{{$institution_slider->slider_header}}</h1>
-                            <h4>{{$institution_slider->slider_text}}</h4>
-                            <p>{{$institution_slider->description}}</p>
+                        <h1>{{@$institution_slider->slider_header}}</h1>
+                            <h4>{{@$institution_slider->slider_text}}</h4>
+                            <p>{{@$institution_slider->description}}</p>
                             <a href="{{$institution_slider->link}}" class="btn-banner">REGISTER WITH US</a>
                         </div>
                     </div>
