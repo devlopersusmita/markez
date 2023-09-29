@@ -309,7 +309,10 @@ public function attendancestore(Request $request,$id,$online_class_id)
 
         $meeting =  $user->meetings()->save($meeting);
 
-             $created_by = Auth::id();
+
+             $created_by = $request->user_id;
+             //dd($user_id);
+              $institution_id =$request->institution_id;
 
             $online_classes = new online_classe();
             $online_classes->course_id = $request->course_id;
