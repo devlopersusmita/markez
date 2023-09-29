@@ -403,7 +403,7 @@ class TeacherController extends Controller
         // $user_id = Auth::id();
 
         $user_id = $request->user_id;
-        //dd($user_id);
+        dd($user_id);
          $institution_id =$request->institution_id;
          $categories = Category::orderBy('name','asc')->get();
 
