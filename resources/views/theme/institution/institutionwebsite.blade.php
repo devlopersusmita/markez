@@ -110,7 +110,7 @@
                                                             @endif
 
                                         <div class="couse-content">
-                                            <h3>{{ $course_data['title'] }}({{ $course_data['type'] }}</h3>
+                                            <h3>{{ $course_data['title'] }}({{ $course_data['type'] }})</h3>
 
                                             <p>
                         {!! Str::words($course_data['description'], 10, ' ...') !!}
