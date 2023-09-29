@@ -1784,7 +1784,7 @@ else{
 
 
         $course_exist = Course::
-        where(['user_id'=>$user_id,'id'=>$course_id])->count();
+        where(['institution_id'=>$user_id,'id'=>$course_id])->count();
         if($course_exist ==0)
         {
             return false;
