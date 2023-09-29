@@ -55,7 +55,8 @@
 
                                         <div class="header-actions">
 
-
+                                        <input type="text" value="{{$user_id}}" name="user_id">
+            <input type="text" value="{{$institution_id}}">
                                     <div class="field is-grouped">
                                         <div class="control" >
                                             <a href="{{route('teachercourse')}}"><h1>{{$course_details->title}}</h1></a>

@@ -123,10 +123,14 @@ public function attendancestore(Request $request,$id,$online_class_id)
 }
    public function index(Request $request,$id,$content_id)
     {
-        $user_id = Auth::id();
+        // $user_id = Auth::id();
        // $course_id = $id;
     //    $course_id = $id;
       // dd($course_id);
+      $user_id = $request->user_id;
+      //dd($user_id);
+       $institution_id =$request->institution_id;
+       dd($user_id,$institution_id);
       $course_id = $id;
 
       $course_content_id = $content_id;
