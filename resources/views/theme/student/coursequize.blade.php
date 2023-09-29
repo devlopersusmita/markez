@@ -52,7 +52,7 @@
                                             <input type="text" name="title" class="input" placeholder="Title" />
                                         </div>
                                         <div class="control" >
-                                            <a class="button is-solid primary-button raised"  href='{{Route('studentcoursecontentquize',["id"=>$course_id,"content_id"=>$course_content_id])}}' id='search_btn'>Search</a>
+                                            <a class="button is-solid primary-button raised"  href='{{Route("studentcoursecontentquize",["id"=>$course_id,"content_id"=>$course_content_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}' id='search_btn'>Search</a>
                                         </div>
                                     </div>
                                    </form>
@@ -68,10 +68,10 @@
 
                                     <div class="field is-grouped">
                                         <div class="control" >
-                                            <a href="{{route('studentcourse')}}"><h1>{{$course_details->title}}</h1></a>
+                                            <a href="{{route('studentcourse',['user_id'=>$user_id,'institution_id'=>$institution_id])}}"><h1>{{$course_details->title}}</h1></a>
                                         </div>
                                         <div class="control" >
-                                            <a href='{{Route("studentcoursecontent",["id"=>$course_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
+                                            <a href='{{Route("studentcoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
                                         </div>
                                     </div>
 

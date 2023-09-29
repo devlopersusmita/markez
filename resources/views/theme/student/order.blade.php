@@ -57,7 +57,7 @@
 
                                 </div>
                                 <div class="control" >
-                                    <a class=""  href='{{Route("studentorder")}}' id='search_btn'></a>
+                                    <a class=""  href='{{Route("studentorder",["user_id"=>$user_id,"institution_id"=>$institution_id])}}' id='search_btn'></a>
                                 </div>
                             </div>
                            </form>

@@ -35,7 +35,7 @@
                                 <div class="grid-header">
                                     <div class="header-inner">
                                         <h2>Quiz Result</h2>
-                                        
+
                                     </div>
 
                                     <div class="header-inner padding_top_10">
@@ -46,13 +46,13 @@
 
                                     <div class="field is-grouped">
                                         <div class="control" >
-                                            <a href="{{route('studentcourse')}}"><h1>{{$course_details->title}}</h1></a>
+                                            <a href="{{route('studentcourse',['user_id'=>$user_id,'institution_id'=>$institution_id])}}"><h1>{{$course_details->title}}</h1></a>
                                         </div>
                                         <div class="control" >
-                                            <a href='{{Route("studentcoursecontent",["id"=>$course_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
+                                            <a href='{{Route("studentcoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
                                         </div>
                                         <div class="control" >
-                                            <a href= '{{Route('studentcoursecontentquize',["id"=>$course_id,"content_id"=>$course_content_details->id])}}'><h1>>> {{$course_content_quiz_details->title}}</h1></a>
+                                            <a href= '{{Route("studentcoursecontentquize",["id"=>$course_id,"content_id"=>$course_content_details->id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'><h1>>> {{$course_content_quiz_details->title}}</h1></a>
                                         </div>
                                     </div>
 
@@ -63,36 +63,36 @@
 
                                 </div>
                             </div>
-                            
+
                             @include('frontend.notification')
-                             
-                             <?php 
-                           
+
+                             <?php
+
 
                              if(null!==$questions)
                              {
                                 ?>
 
                                 <div class="quiz_outer_div">
-                                <?php 
+                                <?php
                                 $qno = 0;
                                 foreach($questions as $key=>$question)
                                 {
                                     $qno++;
-                                    
-                                   
+
+
                                     ?>
-                                 
-                                     
-                                        
-                                  
+
+
+
+
                                     <div class="quiz_question_inner_div">
 
-                                        
+
                                         <div class="quiz_question_question_text">
-                                            
+
                                             <?php
-                                            $correct_option =''; 
+                                            $correct_option ='';
                                             $user_response='';
 
                                             if(!empty($responses))
@@ -103,13 +103,13 @@
                                                     {
                                                         $correct_option = strtoupper($response['correct_option']);
                                                         $user_response = strtoupper($response['user_response']);
-                                                       
+
                                                     }
                                                 }
 
                                             }
                                             ?>
-                                           
+
 
                                           <label for=""><?php echo '<strong>'.$qno.'.</strong> '.strip_tags($question['question_text']);?> (Marks <?php echo $question['marks'];?>)</label>
 
@@ -135,12 +135,12 @@
 
                                         </div>
 
-                                      
 
-                                  
+
+
 
                                     <div class="columns is-multiline" style="clear:both;margin:5px 0px;">
-                    
+
                                         <div class="column is-one-third-fullhd is-one-third-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile " style="background:#3d70b2;color:#fff;">
                                             Correct Option : <?php echo $correct_option;?>
                                         </div>
@@ -148,8 +148,8 @@
                                              Your Response : <?php echo $user_response;?>
                                         </div>
                                         <div class="column is-one-third-fullhd is-one-third-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile">
-                                            
-                                            <?php 
+
+                                            <?php
                                              if($user_response=='' )
                                             {
                                                 echo "<span style='color:orange;font-weight:bold;'>It's Not Attempt</span>";
@@ -158,7 +158,7 @@
                                             {
                                                 echo "<span style='color:green;font-weight:bold;'>It's Correct</span>";
                                             }
-                                            else 
+                                            else
                                             {
                                                 echo "<span style='color:red;font-weight:bold;'>It's Wrong</span>";
                                             }
@@ -169,20 +169,20 @@
                                       </div>
 
 
-                                    <?php 
+                                    <?php
                                 }
                                 ?>
                                  </div>
 
-                                
-                                 <?php 
+
+                                 <?php
                                 // echo "<br>total_score=".$total_score;
                                 //echo "<br>full_marks=".$full_marks;
                                  //echo "<br>score_percentage=".$score_percentage;
 
                                  ?>
                                   <div class="columns is-multiline" style="clear:both;margin:5px 0px;">
-                    
+
                                         <div class="column is-one-third-fullhd is-one-third-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile " >
                                             <strong>Marks Obtained : <?php echo $total_score ;?></strong>
                                         </div>
@@ -193,8 +193,8 @@
                                             <strong>Percentage : <?php echo $score_percentage ;?>%</strong>
                                         </div>
                                     </div>
-                           
-                                 <?php 
+
+                                 <?php
                              }
 
                              ?>
@@ -273,7 +273,7 @@
 <script type="text/javascript">
     function nottoanswer(id)
     {
-       
+
         if(document.getElementById('a_'+id).checked)
         {
             document.getElementById('a_'+id).checked = false;

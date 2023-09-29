@@ -24,22 +24,22 @@
 
             <tr>
                 <td>{{$quize['title']}}  </td>
-                
+
                 <td>{{$quize['score_percentage']}} %  </td>
-                <td><?php 
+                <td><?php
 
                 if($quize['score_percentage'] >= env('QUIZ_PERCENTAGE_MIN_REQ'))
                 {
                 ?>
-                
+
                  <div class="badge" style="color: #1ce589;" >
-                    <i data-feather="check"></i>                              
-                  
+                    <i data-feather="check"></i>
+
                 </div>
-                 <?php 
+                 <?php
                 }
                 ?>
-                    
+
                 </td>
                 <td>
                     <div class="ui-elements">
@@ -51,27 +51,29 @@
                                     </td>
 
                                 <td style="padding: 0px 5px;">
-                                     
-                                <?php 
+
+                                <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
+                                <?php
 
                                 if($quize['score_percentage'] < env('QUIZ_PERCENTAGE_MIN_REQ'))
                                 {
                                 ?>
-                                 <a href="{{Route('studentcoursecontentquizequestion',['id'=>$quize['course_id'],'content_id'=>$quize['course_content_id'],'quiz_id'=>$quize['id']])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Start Quiz</a>
-                                 <?php 
+                                 <a href="{{Route('studentcoursecontentquizequestion',['id'=>$quize['course_id'],'content_id'=>$quize['course_content_id'],'quiz_id'=>$quize['id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Start Quiz</a>
+                                 <?php
                                 }
                                  if($quize['score_percentage'] >= env('QUIZ_PERCENTAGE_MIN_REQ'))
                                 {
-                                   
+
                                 ?>
-                                 <a href="{{Route('studentcoursecontentquizeresult',['id'=>$quize['course_id'],'content_id'=>$quize['course_content_id'],'quiz_id'=>$quize['id']])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Results</a>
-                                 <?php 
+                                 <a href="{{Route('studentcoursecontentquizeresult',['id'=>$quize['course_id'],'content_id'=>$quize['course_content_id'],'quiz_id'=>$quize['id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Results</a>
+                                 <?php
                                 }
                                 ?>
                                 </td>
-                                
 
-                                 
+
+
 
 
                              </tr>

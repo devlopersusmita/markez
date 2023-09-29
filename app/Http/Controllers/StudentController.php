@@ -552,9 +552,9 @@ class StudentController extends Controller
             $user_id = $request->user_id;
             //dd($user_id);
             $institution_id =$request->institution_id;
-            dd($user_id,$institution_id);
+            //($user_id,$institution_id);
             $check_student_subscription_exist = $this->check_student_subscription($user_id) ;
-            $categories = Category::orderBy('name','asc')->get();
+            $categories = Category::where('institution_id',$institution_id)->orderBy('name','asc')->get();
 
 
 
@@ -711,7 +711,10 @@ class StudentController extends Controller
             $course_details = Course::where('id',$course_id)->first();
 
         $type = $course_details["type"];
-        $user_id = Auth::id();
+        $user_id = $request->user_id;
+        //dd($user_id);
+        $institution_id =$request->institution_id;
+        //($user_id,$institution_id);
 
 
         $existforthisuser=Course::leftJoin('course_contents', 'course_contents.course_id', '=', 'courses.id')
@@ -823,9 +826,9 @@ class StudentController extends Controller
                 $data = $this->paginate_coursecontent($thearray,$course_id);
 
                 if($request->ajax()){
-                    return view('theme.student.coursecontent-pagination',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details]);
+                    return view('theme.student.coursecontent-pagination',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
                 }
-                return view('theme.student.coursecontent',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details]);
+                return view('theme.student.coursecontent',['coursecontents'=>$data,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
                 }
                 else{
                     return view('theme.student.no_access_course');
@@ -865,7 +868,9 @@ class StudentController extends Controller
           //  echo "<pre>";
           //  print_r($course_details);
 
-         $user_id = Auth::id();
+          $user_id = $request->user_id;
+          //dd($user_id);
+          $institution_id =$request->institution_id;
 
 
 
@@ -941,9 +946,9 @@ class StudentController extends Controller
 
 
              if($request->ajax()){
-                 return view('theme.student.coursequize-pagination',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details]);
+                 return view('theme.student.coursequize-pagination',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
              }
-             return view('theme.student.coursequize',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details]);
+             return view('theme.student.coursequize',['quizes'=>$data,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
 
             }
             else{
@@ -975,8 +980,9 @@ class StudentController extends Controller
 
         $check_student_subscription_exist = $this->check_student_subscription() ;
         $categories = Category::orderBy('name','asc')->get();
-        $user_id=Auth::id();
-
+        $user_id = $request->user_id;
+        //dd($user_id);
+        $institution_id =$request->institution_id;
         if($check_student_subscription_exist)
         {
 
@@ -1065,12 +1071,12 @@ class StudentController extends Controller
 
                         //return view('theme.student.course_certificate_pdf',['course_id'=>$course_id,'purpose'=>'pdf','course'=>$course,'student_details'=>$student_details]);
 
-                        $pdf = PDF::loadView('theme.student.course_certificate_pdf',['course_id'=>$course_id,'purpose'=>'pdf','course'=>$course,'student_details'=>$student_details]);
+                        $pdf = PDF::loadView('theme.student.course_certificate_pdf',['course_id'=>$course_id,'purpose'=>'pdf','course'=>$course,'student_details'=>$student_details,"user_id"=>$user_id,"institution_id"=>$institution_id]);
 
                        return $pdf->download('certificate.pdf');
                     }
                     //echo "444";
-                    return view('theme.student.course_certificate',['course_id'=>$course_id]);
+                    return view('theme.student.course_certificate',['course_id'=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id]);
               }
          }
         else
@@ -1095,7 +1101,10 @@ class StudentController extends Controller
           $course_content_quiz_details = Quiz::where('id',$course_content_quiz_id)->first();
           $all_q_id_array = explode(',', $course_content_quiz_details->all_questions);
 
-         $user_id = Auth::id();
+
+          $user_id = $request->user_id;
+          //dd($user_id);
+          $institution_id =$request->institution_id;
         $data7=Question::
          orderBy('id','desc')
           ->whereIn('id',$all_q_id_array)
@@ -1171,7 +1180,7 @@ class StudentController extends Controller
 
 
 
-             return view('theme.student.coursequizresult',['questions'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details,'responses'=>$responses,'score_percentage'=>$score_percentage,'total_score'=>$total_score,'full_marks'=>$full_marks]);
+             return view('theme.student.coursequizresult',['questions'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details,'responses'=>$responses,'score_percentage'=>$score_percentage,'total_score'=>$total_score,'full_marks'=>$full_marks,"user_id"=>$user_id,"institution_id"=>$institution_id]);
 
             }
             else{
@@ -1196,7 +1205,10 @@ class StudentController extends Controller
           $course_content_quiz_details = Quiz::where('id',$course_content_quiz_id)->first();
           $all_q_id_array = explode(',', $course_content_quiz_details->all_questions);
 
-         $user_id = Auth::id();
+
+          $user_id = $request->user_id;
+          //dd($user_id);
+          $institution_id =$request->institution_id;
         $data7=Question::
          orderBy('id','desc')
           ->whereIn('id',$all_q_id_array)
@@ -1239,7 +1251,7 @@ class StudentController extends Controller
 
 
 
-             return view('theme.student.coursequestion',['questions'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details]);
+             return view('theme.student.coursequestion',['questions'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_content_quiz_id'=>$course_content_quiz_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'course_content_quiz_details'=>$course_content_quiz_details,"user_id"=>$user_id,"institution_id"=>$institution_id]);
 
             }
             else{
@@ -1304,7 +1316,9 @@ class StudentController extends Controller
 
      public function onlineclassstudent(Request $request,$id,$content_id)
     {
-        $user_id = Auth::id();
+       $user_id = $request->user_id;
+        //dd($user_id);
+        $institution_id =$request->institution_id;
        $student_online_class_before_minute=SystemSetting::select('student_online_class_before_minute')->first()->student_online_class_before_minute;
       $course_subcription=CourseSubscription::where(['course_subscriptions.user_id'=>$user_id])->get();
       $t2_array =[];
@@ -1376,9 +1390,9 @@ class StudentController extends Controller
 
                 if($request->ajax()){
                         return view('theme.student.onlineclass-pagination',['online_classes'=>$data,'course_subcription'=>$course_subcription,'student_online_class_before_minute'=>$student_online_class_before_minute,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,
-                        'onlineclass_details'=>$onlineclass_details]);
+                        'onlineclass_details'=>$onlineclass_details,"user_id"=>$user_id,"institution_id"=>$institution_id]);
                     }
-                    return view('theme.student.onlineclass',['online_classes'=>$data,'course_subcription'=>$course_subcription,'student_online_class_before_minute'=>$student_online_class_before_minute,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details, 'onlineclass_details'=>$onlineclass_details]);
+                    return view('theme.student.onlineclass',['online_classes'=>$data,'course_subcription'=>$course_subcription,'student_online_class_before_minute'=>$student_online_class_before_minute,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details, 'onlineclass_details'=>$onlineclass_details,"user_id"=>$user_id,"institution_id"=>$institution_id]);
 
 
     }
@@ -1395,7 +1409,9 @@ class StudentController extends Controller
     public function order(Request $request)
     {
 
-       $user_id=Auth::id();
+        $user_id = $request->user_id;
+        //dd($user_id);
+        $institution_id =$request->institution_id;
 
 
 
@@ -1432,9 +1448,9 @@ class StudentController extends Controller
 
             if($request->ajax()){
 
-                return view('theme.student.order-pagination',['orders'=>$data]);
+                return view('theme.student.order-pagination',['orders'=>$data,"user_id"=>$user_id,"institution_id"=>$institution_id]);
             }
-            return view('theme.student.order',['orders'=>$data]);
+            return view('theme.student.order',['orders'=>$data,"user_id"=>$user_id,"institution_id"=>$institution_id]);
 
     }
     public function message(Request $request)

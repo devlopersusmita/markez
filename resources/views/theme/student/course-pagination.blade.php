@@ -39,8 +39,10 @@
 
 
                                  @endif
+                                 <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
                                 <?php $course_id = $course["id"]; ?>
-                                <a href='{{Route("studentcoursecontent",["id"=>$course_id])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
+                                <a href='{{Route("studentcoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
                             </td>
                             {{-- @if($course['type']=='zoom')
                             <td style="padding: 0px 5px;">

@@ -22,25 +22,27 @@
 
             @foreach($coursecontents as $course)
             <tr >
-                <td>{{$course['title']}}  
-                    
+                <td>{{$course['title']}}
+
                 </td>
                 <td>{{$course['type']}}  </td>
                 <td><?php if($course['completed']==1){?> <div class="badge" style="color: #1ce589;" >
-                    <i data-feather="check"></i>                              
-                  
+                    <i data-feather="check"></i>
+
                 </div><?php } ?> </td>
                 <td>
                     @if($course['type']=='zoom')
+                    <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
+                                     <a href="{{Route('studentcourseonline_classes',['id'=>$course['course_id'],'content_id'=>$course['id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid green-button raised"   style="cursor: pointer;"  >Online Class</a>
 
-                                     <a href="{{Route('studentcourseonline_classes',['id'=>$course['course_id'],'content_id'=>$course['id']])}}" class="button is-solid green-button raised"   style="cursor: pointer;"  >Online Class</a>
-                              
                                  @endif
                                  @if($course['type']=='quiz')
 
+                                 <input type="hidden" value="{{$user_id}}" name="user_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
 
-
-                                    <a href="{{Route('studentcoursecontentquize',['id'=>$course['course_id'],'content_id'=>$course['id']])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Quiz</a>
+                                    <a href="{{Route('studentcoursecontentquize',['id'=>$course['course_id'],'content_id'=>$course['id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Quiz</a>
 
 
 

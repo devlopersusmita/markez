@@ -35,7 +35,7 @@
                                 <div class="grid-header">
                                     <div class="header-inner">
                                         <h2>Quiz Player</h2>
-                                        
+
                                     </div>
 
                                     <div class="header-inner padding_top_10">
@@ -46,13 +46,13 @@
 
                                     <div class="field is-grouped">
                                         <div class="control" >
-                                            <a href="{{route('studentcourse')}}"><h1>{{$course_details->title}}</h1></a>
+                                            <a href="{{route('studentcourse',['user_id'=>$user_id,'institution_id'=>$institution_id])}}"><h1>{{$course_details->title}}</h1></a>
                                         </div>
                                         <div class="control" >
-                                            <a href='{{Route("studentcoursecontent",["id"=>$course_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
+                                            <a href='{{Route("studentcoursecontent",["id"=>$course_id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'><h1>>> {{$course_content_details->title}}</h1></a>
                                         </div>
                                         <div class="control" >
-                                            <a href= '{{Route('studentcoursecontentquize',["id"=>$course_id,"content_id"=>$course_content_details->id])}}'><h1>>> {{$course_content_quiz_details->title}}</h1></a>
+                                            <a href= '{{Route("studentcoursecontentquize",["id"=>$course_id,"content_id"=>$course_content_details->id,"user_id"=>$user_id,"institution_id"=>$institution_id])}}'><h1>>> {{$course_content_quiz_details->title}}</h1></a>
                                         </div>
                                     </div>
 
@@ -63,10 +63,10 @@
 
                                 </div>
                             </div>
-                            
+
                             @include('frontend.notification')
-                             
-                             <?php 
+
+                             <?php
                              //echo "<pre>";
                              //print_r($questions);
                              //echo "</pre>";
@@ -78,12 +78,12 @@
                                 ?>
 
                                 <div class="quiz_outer_div">
-                                <?php 
+                                <?php
                                 $qno = 0;
                                 foreach($questions as $key=>$question)
                                 {
                                     $qno++;
-                                  
+
                                    // echo $question['question_text'];
                                     ?>
                                     <form name="save_quiz_response" id="save_quiz_response" method="post" action="{{url('save_quiz_response')}}">
@@ -91,11 +91,11 @@
 
                                          <input type="hidden" name="course_id" value="{{$course_id}}" />
                                          <input type="hidden" name="course_content_id" value="{{$course_content_id}}" />
-                                        
+
                                     @csrf
                                     <div class="quiz_question_inner_div">
 
-                                        
+
                                         <div class="quiz_question_question_text">
 
                                           <label for=""><?php echo '<strong>'.$qno.'.</strong> '.strip_tags($question['question_text']);?> (Marks <?php echo $question['marks'];?>)</label>
@@ -122,7 +122,7 @@
 
                                         </div>
 
-                                        
+
                                          <div class="quiz_question_bottom_part">
 
                                           <div class="button is-solid red-button " onClick="nottoanswer(<?php echo $question['id'];?>);">Not to answer</div>
@@ -131,10 +131,10 @@
                                           {
                                             ?>
                                             <button type="submit" class="button is-solid green-button " >Submit</button>
-                                            <?php 
+                                            <?php
                                           }
                                           ?>
-                                          
+
 
 
 
@@ -142,12 +142,12 @@
 
                                     </div>
 
-                                    <?php 
+                                    <?php
                                 }
                                 ?>
                                  </div>
                              </form>
-                                 <?php 
+                                 <?php
                              }
 
                              ?>
@@ -226,7 +226,7 @@
 <script type="text/javascript">
     function nottoanswer(id)
     {
-       
+
         if(document.getElementById('a_'+id).checked)
         {
             document.getElementById('a_'+id).checked = false;
