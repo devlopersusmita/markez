@@ -2731,10 +2731,12 @@ public function institutionwebsite(Request $request,$id)
                     foreach ($category_lists as $category_list)
                     {
                        $categorys= $category_list->id;
-                       $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where('category_id',$categorys)->orderBy('courses.id','desc')
+                       $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where(['courses.category_id'=>$categorys,'courses.status'=>'active','courses.visibility'=>1])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->orderBy('courses.id','desc')
                        ->select('courses.*')
                        ->get();
                         // dd($categorywise_courselists);
+
+
 
                         if($categorywise_courselists->count()>0)
                         {
