@@ -124,7 +124,9 @@
                                     				{!!$subcription_package_list->descriptions!!}</p>
                                     			</div>
                                     			<div class="package-btn">
+
                                     				<a href="#" class="subscription-btn">Choose Plan</a>
+
                                     			</div>
 
                                     </div>
