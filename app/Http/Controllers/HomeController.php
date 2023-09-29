@@ -2940,88 +2940,56 @@ public function postteacherstudentlogin(Request $request)
     $user = User::where('email', $email)->first();
     //dd($user->id);
 
-    // $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
-    //dd(sizeof($institution_teacher));
-    //dd($institution_teacher[0]->status);
-    if($user->role == 2 && $user->role == 1)
-    {
-        echo "rtyyu";
 
-        if (($user && Hash::check($password, $user->password)))
-        {
+    if ($user->role == 2 || $user->role == 1) {
+        // Check for valid user credentials
+        if ($user && Hash::check($password, $user->password)) {
+            // Authentication successful
+            if ($user->role == 2) {
+                // Check if the user is a teacher
+                $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
+                $institution_teacher_relation = InstitutionTeacher::where(['user_id' => $user->id, 'institution_id' => $institution_id])->get();
 
-            echo "type";
-
-
-           if($user->role == 2)
-           {
-            $institution_teacher = InstitutionTeacher::where('user_id', $user->id)->get();
-            $institution_teacher_relation = InstitutionTeacher::where(['user_id' => $user->id, 'institution_id'=>$institution_id])->get();
-            //dd($institution_teacher_relation);
-            if($institution_teacher_relation->isEmpty()) {
-                //echo 'nei'; exit;
-                return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'You are not register in this Institution');
-
-            }
-
-
-                if($user->status == 'inactive' && $institution_teacher[0]->status == 'pending')
-                {
-
-                    return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'Your status is Inactive, Please contact with Administrator');
-
+                if ($institution_teacher_relation->isEmpty()) {
+                    return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'You are not registered in this Institution');
                 }
-                if($user->status == 'active'  && $institution_teacher[0]->status == 'approve')
-                {
+
+                if ($user->status == 'inactive' && $institution_teacher[0]->status == 'pending') {
+                    return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'Your status is Inactive. Please contact the Administrator');
+                }
+
+                if ($user->status == 'active' && $institution_teacher[0]->status == 'approve') {
+                    // Set session variables for the teacher
                     Session::put('teacher_name', $user->name);
-                    Session::put('institution_id',                $request->institution_id);
+                    Session::put('institution_id', $request->institution_id);
                     Session::put('user_role', $user->role);
                     Session::put('user_id', $user->id);
 
-
-                    return redirect()->route('teacherprofile',['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
-
+                    return redirect()->route('teacherprofile', ['institution_id' => $request->institution_id, 'user_id' => $user->id]);
                 }
-           }
+            } elseif ($user->role == 1) {
+                // Check if the user is a student
+                $institution_student_relation = InstitutionStudent::where(['user_id' => $user->id, 'institution_id' => $institution_id])->get();
 
-           if($user->role == 1 )
-           {
-            $institution_student_relation = InstitutionStudent::where(['user_id' => $user->id, 'institution_id'=>$institution_id])->get();
-            //dd($institution_teacher_relation);
-            if($institution_student_relation->isEmpty()) {
-                //echo 'nei'; exit;
-                return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'You are not register in this Institution');
+                if ($institution_student_relation->isEmpty()) {
+                    return redirect()->route('teacherstudentlogin', [$request->institution_id])->with('error', 'You are not registered in this Institution');
+                }
 
+                // Set session variables for the student
+                Session::put('student_name', $user->name);
+                Session::put('institution_id', $request->institution_id);
+                Session::put('user_role', $user->role);
+                Session::put('user_id', $user->id);
+
+                return redirect()->route('profile', ['institution_id' => $request->institution_id, 'user_id' => $user->id]);
             }
-           //dd( Session::put('student_name', $user->role));
-            // Session::put('institution_id', $user->id);
-            // Session::put('user_id', $userstable->id);
-            Session::put('student_name', $user->name);
-            Session::put('institution_id',                $request->institution_id);
-            Session::put('user_role', $user->role);
-            Session::put('user_id', $user->id);
-
-                return redirect()->route('profile', ['institution_id'=>$request->institution_id,'user_id'=>$user->id]);
-
-           }
-
-
-
-        }
-        else
-        {
+        } else {
             // Invalid credentials
             return redirect()->back()->withInput()->withErrors(['email' => 'Invalid email or password']);
         }
-
-
-    }
-
-    else
-    {
+    } else {
         // Invalid credentials
         return redirect()->back()->withInput()->withErrors(['email' => 'Invalid email or password']);
-
     }
 
 
