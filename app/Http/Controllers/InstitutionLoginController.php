@@ -1515,7 +1515,10 @@ public function student(Request $request)
     public function coursecontent(Request $request,$id)
     {
        $course_id = $id;
+       //this is institution id //
         $user_id = $request->user_id;
+            //this is user id //
+            $user_ids = $request->user_ids;
             //dd($user_id);
            $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id,$user_id);
 
@@ -1580,7 +1583,7 @@ public function student(Request $request)
 
 
 
-                        return view('theme.institution.coursecontent',['coursecontents'=>$thearray,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id]);
+                        return view('theme.institution.coursecontent',['coursecontents'=>$thearray,'course_id'=>$course_id,'type'=>$type,'course_details'=>$course_details,'user_id'=>$user_id,'user_ids'=>$user_ids]);
         }
         else{
             return view('theme.institution.no_access_course');

@@ -93,9 +93,9 @@
                 <td class="course-action">
 
                 <input type="hidden" value="{{$user_id}}" name="user_id">
-                <input type="hidden" value="{{$user_ids}}" name="user_ids">
+                <input type="text" value="{{$user_ids}}" name="user_ids">
                                 <?php $course_id = $course["id"]; ?>
-                                <a href='{{Route("institutioncoursecontent",["id"=>$course_id,"institution_id"=>$user_id])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
+                                <a href='{{Route("institutioncoursecontent",["id"=>$course_id,"institution_id"=>$user_id,"user_id"=>$user_ids])}}'  class="button is-solid blue-button raised"   style="cursor: pointer;"  >Contents</a>
 
                                 <span   class="view_modal_course"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $course['id']?>" ><i class="fa fa-eye" style="font-size:18px"></i></span>
                                 <span   class="edit_modal" data-toggle="modal" data-target="#modals-edit" style="cursor: pointer;" data-id="<?php echo $course['id']?>" ><i class="fa fa-pencil" style="font-size:18px"></i></span>
