@@ -32,8 +32,8 @@
           <tr>
             <td style="padding: 0px 5px;">
 
-            <input type="hidden" value="{{$user_id}}" name="user_id">
-                <input type="hidden" value="{{$user_ids}}" name="user_ids">
+            <input type="text" value="{{$user_id}}" name="user_id">
+                <input type="text" value="{{$user_ids}}" name="user_ids">
                     <a href="{{Route('institutioncoursecontentquizequestion',['id'=>$quize['course_id'],'content_id'=>$quize['course_content_id'],'quiz_id'=>$quize['id'],'institution_id'=>$user_id,'user_id'=>$user_ids])}}" class="button is-solid blue-button raised"   style="cursor: pointer;" >Question</a>
                     </td>
 
