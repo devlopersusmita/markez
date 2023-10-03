@@ -1620,6 +1620,7 @@ public function student(Request $request)
 
            //this is institution id //
            $user_id = $request->user_id;
+           dd($user_id);
            //this is user id //
            $user_ids = $request->user_ids;
         $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id, $user_id);
