@@ -11,7 +11,7 @@
                         <h3 class="form-subtitle has-text-centered">Lets create your account.</h3>
 
                         <!--Form-->
-                        <form method="POST" action="{{ route('registerstore') }}">
+                        <form method="POST" class="teacher_student_register" action="{{ route('registerstore') }}">
                             @csrf
                             <input type="hidden" value="{{$institution_id}}" name="institution_id">
                             <div class="login-form">
