@@ -25,7 +25,7 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
                     </div>
                 </div>
 
-                <div class="navbar-end">
+                <div class="navbar-end align-items-center">
 
 
 
