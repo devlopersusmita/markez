@@ -1657,28 +1657,28 @@ public function student(Request $request)
 
        })->select('*')->get();
 
-dd($data7);
+//dd($data7);
 
-        // $thearray = [];
-        // if(count($data7) > 0)
-        // {
-        //    foreach($data7 as $k2=>$v2)
-        //    {
+        $thearray = [];
+        if(count($data7) > 0)
+        {
+           foreach($data7 as $k2=>$v2)
+           {
 
 
-        //                $thearray[]=array(
-        //                    'title'=>$v2->title
-        //                    ,'slug'=>$v2->slug
-        //                    ,'status'=>$v2->status
-        //                    ,'start_date'=>date('Y-m-d',strtotime($v2->start_date))
-        //                     ,'end_date'=>date('Y-m-d',strtotime($v2->end_date))
-        //                     ,'course_id'=>$course_id
-        //                     ,'course_content_id'=>$course_content_id
-        //                    ,'id'=>$v2->id
-        //                );
+                       $thearray[]=array(
+                           'title'=>$v2->title
+                           ,'slug'=>$v2->slug
+                           ,'status'=>$v2->status
+                           ,'start_date'=>date('Y-m-d',strtotime($v2->start_date))
+                            ,'end_date'=>date('Y-m-d',strtotime($v2->end_date))
+                            ,'course_id'=>$course_id
+                            ,'course_content_id'=>$course_content_id
+                           ,'id'=>$v2->id
+                       );
 
-        //    }
-        // }
+           }
+        }
            return view('theme.institution.coursequize',['quizes'=>$thearray,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'user_id'=>$user_id,'user_ids'=>$user_ids]);
 
         }
