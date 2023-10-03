@@ -125,7 +125,39 @@
                                                 <span class="fa fa-star checked"></span>
                                                 <small>(380,527)</small>
                                             </div>
-                                            <p class="course-price"><strong>{{ $course_data['price'] }}</strong><span>$3,399</span></p>
+                                            <p class="course-price"><strong>{{ $course_data['price'] }}</strong>                  <div class="right">
+                     @if($course->zoom_endtime == 0)
+                     <?php
+                        if($course->totalcoursecontent > 0)
+                        {
+                            ?>
+                     <?php
+                        if($course->price > 0)
+                        {
+                        ?>
+                     <a class="button is-solid accent-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}" data-id="{{$course->id}}">
+                     <i data-feather="shopping-cart"></i>
+                     <span>{{$course->price}}{{env('CURRENCY')}}</span>
+                     </a>
+                     <?php
+                        }
+                        else
+                        {
+                            ?>
+                     <a class="button is-solid green-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}"  data-id="{{$course->id}}">
+                     <span>Free</span>
+                     </a>
+                     <?php
+                        }
+                        ?>
+                     <?php
+                        }
+                        ?>
+                     @endif
+                     <!-- zoom start end if -->
+                  </div>
+
+                                            <span>$3,399</span></p>
                                         </div>
                                     </div>
                                 </div>
