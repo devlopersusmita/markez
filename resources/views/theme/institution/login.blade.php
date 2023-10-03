@@ -18,7 +18,7 @@
 
 
                         <!--Form-->
-                        <form method="POST" action="{{ route('postteacherstudentlogin') }}">
+                        <form method="POST" class="teacherstudent_login" action="{{ route('postteacherstudentlogin') }}">
                             @csrf
                             @include('frontend.notification')
                             <input type="hidden" value="{{$institution_id}}" name="institution_id">
