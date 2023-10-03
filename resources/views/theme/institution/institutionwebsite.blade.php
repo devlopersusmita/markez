@@ -75,57 +75,55 @@
 	<div class="container">
 		<h2>Our Courses</h2>
 		<span>Choose from over 210,000 online video courses with new additions published every month</span>
-		<div class="tab-section">
+        <div class="columns is-multiline">
+         @if(!empty($courses))
+         @foreach($courses as $course)
+         <!-- {{($course->content_course_type)}} -->
+         @if($course->content_course_type == 1)
+         <div class="column is-one-fifth-fullhd is-one-quarter-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile">
+            <div class="product-card" >
+               @if(!empty($course_subscriptions))
+               @foreach($course_subscriptions as $course_subscription)
 
-			<!-- Nav tabs -->
+               <!-- <a href="{{Route('studentcoursecontent',['id'=>$course->id])}}" class="button is-solid accent-button raised" >Details</a>-->
+               <a href="{{Route('studentcoursecontent',['id'=>$course->id])}}" class="quickview-trigger button is-solid green-button"  style="width: 100px;right:10px;" >
+               Details
+               </a>
 
-			<ul class="nav nav-tabs">
-            @foreach($output_array as $output_arrays)
-                @if($loop->index==0)
-                    <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }} </a>
-                    </li>
-                @else
-                <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }} </a>
-                    </li>
-                @endif
-                @endforeach
-			</ul>
+               @endforeach
+               @endif
+               <div class="product-image">
+                  @if(($course->preview_image) && (file_exists($course->preview_image)))
+                  <img src="{{asset($course->preview_image)}}" alt="">
+                  @else
+                  <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
+                  @endif
+               </div>
+               <div class="product-info">
+                  <h3>{{$course->title}}</h3>
+                  <p>
+                  <div class="course_description_min_height"><?php echo substr(strip_tags($course->description),0,100); ?></div>
+                  </p>
+                  <p><strong>{{$course->category_name}}</strong></p>
+               </div>
+               <div class="product-actions">
+                  <div class="left">
+                     <i data-feather="heart"></i>
+                     <span>{{$course->total_subscription}}</span>
+                     <?php
+                        $current_datetime = date('Y-m-d H:i:s');
 
-			<!-- Tab panes -->
-			<div class="tab-content">
+                        $show_currentdatetime =strtotime($current_datetime);
 
-                @foreach($output_array as $output_arrays)
-                    <div class="tab-pane container fade active {{ $loop->index==0?'show':'' }}" id="menu{{ $output_arrays['id'] }}">
-                        <div class="row">
+                        $zoomclass_enddatetime =$course->zoom_endtime;
 
-                            @foreach($output_arrays['course_data'] as $course_data)
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="course-grid">
-                                    @if(($course_data['preview_image']) && (file_exists($course_data['preview_image'])))
-                                                            <img src="{{asset($course_data['preview_image'])}}" alt="">
-                                                            @else
-                                                            <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
-                                                            @endif
 
-                                        <div class="couse-content">
-                                            <h3>{{ $course_data['title'] }}({{ $course_data['type'] }})</h3>
 
-                                            <p>
-                        {!! Str::words($course_data['description'], 10, ' ...') !!}
-                        </p>
+                        $show_zoomclassdatetime =strtotime($zoomclass_enddatetime);
 
-                                            <div class="rating">
-                                                <span>4.6</span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <small>(380,527)</small>
-                                            </div>
-                                            <p class="course-price"><strong>{{ $course_data['price'] }}</strong>                  <div class="right">
+                        ?>
+                  </div>
+                  <div class="right">
                      @if($course->zoom_endtime == 0)
                      <?php
                         if($course->totalcoursecontent > 0)
@@ -156,19 +154,14 @@
                      @endif
                      <!-- zoom start end if -->
                   </div>
-
-                                            <span>$3,399</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                @endforeach
-			</div>
-
-		</div>
+               </div>
+            </div>
+         </div>
+         @endif
+         <!-- content type endif -->
+         @endforeach
+         @endif
+      </div>
 	</div>
 </section>
 <!-- Course End -->
