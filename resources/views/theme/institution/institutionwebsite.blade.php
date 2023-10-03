@@ -274,5 +274,27 @@
 
 <!--  Contact End -->
 
+<!-- Course Deatils start  -->
+<div id="course-details-help-modal" class="modal course-details-help-modal is-large has-light-bg">
+   <div class="modal-background"></div>
+   <div class="modal-content">
+      <div class="card">
+         <div class="card-heading">
+            <h3>Course Details</h3>
+            <!-- Close X button -->
+            <div class="close-wrap">
+               <span class="close-modal">
+               <i data-feather="x"></i>
+               </span>
+            </div>
+         </div>
+         <div class="card-body">
+            <div  id="details_modal_body_content">
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 
+<!-- Course Deatils End -->
 @endsection
