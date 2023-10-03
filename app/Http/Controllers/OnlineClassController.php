@@ -11,6 +11,7 @@ use App\Models\online_classe;
 use Illuminate\Http\Request;
 use MacsiDigital\Zoom\Facades\Zoom;
 
+
 use App\Models\SystemSetting;
 use App\Models\CourseSubscription;
 
@@ -269,7 +270,8 @@ public function attendancestore(Request $request,$id,$online_class_id)
 
          //$meeting = $this->createMeeting($request);
 
-         $user = Zoom::find($request->user_id);
+         //$user = Zoom::find($request->user_id);
+         $user = Zoom::user()->find($request->user_id);
 
             /*  $user = Zoom::user()->create([
                     'first_name' => 'First Name',
@@ -308,6 +310,8 @@ public function attendancestore(Request $request,$id,$online_class_id)
         ]);
 
         $meeting =  $user->meetings()->save($meeting);
+        $created_by =  $request->user_id;
+
 
 
             $online_classes = new online_classe();
