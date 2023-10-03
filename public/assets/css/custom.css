@@ -48,6 +48,10 @@
                             height: auto !important;
                         }
                         
+                        form.teacherstudent_login .login-form {
+                            width: 100%;
+                        }
+                        
                         @media (min-width: 576px) .align-items-sm-center {
                             -ms-flex-align: center !important;
                             align-items: center !important;
