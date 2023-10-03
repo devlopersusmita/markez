@@ -31,14 +31,7 @@
 				</div>
 				<div class="profile">
 					<ul>
-						<li class="profile-bg-dark"><a href="#">
-                            @if(Session::has('institute_logo') != 1)
-                        <img src="/images/profile.png" alt="profile" alt="">
-                                                            @else
-                                                            <img src="{{ Session::get('institute_logo'); }}" alt="">
-                                                        @endif</a>
-
-
+						<li class="profile-bg-dark"><a href="#"><img src="/images/profile.png" alt="profile"></a>
 						</li>
 						<li><span>{{ Session::get('institute_name'); }}</span></li>
 					</ul>
