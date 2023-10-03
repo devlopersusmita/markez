@@ -31,7 +31,7 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 
 
-                  <div class="navbar-item">
+                  <div class="navbar-item teacher_name">
 
                             {{ Session::get('teacher_name'); }}
 
