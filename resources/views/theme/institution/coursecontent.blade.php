@@ -63,7 +63,7 @@
 
 @endif
                                     <td style="padding: 0px 5px;">
-                                        <span   class="coursecontentview_modal"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $course['id']?>" ><i class="fa fa-eye" style="font-size:18px"></span>
+                                        <span   class="coursecontentview_modal"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $course['id']?>" ><i class="fa fa-eye" style="font-size:18px"></i></span>
                                     </td>
                              </tr>
                      </table>
