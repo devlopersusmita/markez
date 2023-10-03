@@ -28,7 +28,7 @@
 
                         <li class="{{ Request::routeIs('institutiondashboard') ? 'mm-active' : '' }}">
 							<a href="{{ route('institutiondashboard', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}">
-									<img class="metismenu-icon" src="images/dashboard.svg">
+									<img class="metismenu-icon" src="images/home-icon.svg">
 									<span>Dashboard</span>
 									<img class="metismenu-state-icon" src="images/home-icon.svg">
 								</a>
