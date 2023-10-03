@@ -41,7 +41,7 @@
 
 
                                     <td style="padding: 0px 5px;">
-                                        <span   class="view_modal_question"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $question['id']?>" ><i class="fa fa-eye" style="font-size:18px"></span>
+                                        <span   class="view_modal_question"  data-toggle="modal" data-target="#modals-view" style="cursor: pointer;" data-id="<?php echo $question['id']?>" ><i class="fa fa-eye" style="font-size:18px"></i></span>
                                     </td>
 
 
