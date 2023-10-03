@@ -27,11 +27,11 @@
 
 			<div class="app-header-right">
 				<div class="header-btn-lg">
-					<a href="#"><img src="/images/images/logo.png" alt="logo"></a>
+					<a href="#"><img src="/images/logo.png" alt="logo"></a>
 				</div>
 				<div class="profile">
 					<ul>
-						<li class="profile-bg-dark"><a href="#"><img src="images/profile.png" alt="profile"></a>
+						<li class="profile-bg-dark"><a href="#"><img src="/images/profile.png" alt="profile"></a>
 						</li>
 						<li><span>{{ Session::get('institute_name'); }}</span></li>
 					</ul>
