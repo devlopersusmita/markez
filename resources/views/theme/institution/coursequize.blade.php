@@ -70,7 +70,7 @@
 
              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <!-- <span aria-hidden="true">&times;</span> -->
-                    <img src="images/icon-modal-close.svg" alt="">
+                    <img src="/images/icon-modal-close.svg" alt="">
                 </button>
          </div>
 
