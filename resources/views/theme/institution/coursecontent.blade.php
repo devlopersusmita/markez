@@ -93,7 +93,7 @@
              <!-- Close X button -->
              <div class="close-wrap">
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
+           <img src="/images/icon-modal-close.svg" alt="">
              </button>
          </div>
 
@@ -111,7 +111,7 @@
        </div>
 
 
-       <button data-dismiss="modal" aria-label="Close" class="button is-solid dark-grey-button close-modal">Cancel</button>
+       <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary data-cancel">Cancel</button>
      </div>
 
 
