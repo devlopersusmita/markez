@@ -161,8 +161,10 @@
                    <!-- Close X button -->
                    <div class="close-wrap">
                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-   </button>
+                   <img src="/images/icon-modal-close.svg" alt="">
+                </button>
+
+
      </div>
                </div>
 
@@ -189,7 +191,7 @@
                    <div class="button-wrap">
                        <input type="hidden" id="coursecontentstatuschange_id" value="" />
                        <input type="hidden" id="coursecontentstatuschange_status" value="" />
-                       <button data-dismiss="modal" aria-label="Close" class="button is-solid dark-grey-button close-modal">Cancel</button>
+                       <button data-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary data-cancel">Cancel</button>
                        <button type="submit" id="coursecontent_statuschange" class="button is-solid primary-button data-delete">Save</button>
 
                    </div>
