@@ -33,7 +33,7 @@
 					<ul>
 						<li class="profile-bg-dark"><a href="#">
                         @if(Session::has('institute_logo') != 1)
-                            <img src="/images/profile.png" alt="profile">
+
                             <img src="{{ Session::get('institute_logo'); }}" alt="">
                         @else
                         <img src="/images/profile.png" alt="profile">
