@@ -61,6 +61,7 @@ class InstitutionLController extends Controller
                 if($user->domain_status == 'complete' && $user->payment_status == 'paid' && $user->inst_status == 'active') {
                     Session::put('institute_name', $user->name);
                     Session::put('institution_id', $user->id);
+                    Session::put('institute_logo', $user->logo);
                     Session::put('user_id', $userstable->id);
                     Session::put('user_role', $userstable->role);
                     Session::put('user_name', $userstable->name);
