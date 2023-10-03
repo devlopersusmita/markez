@@ -35,7 +35,7 @@
 
                 <td>{{$quize['start_date']}}  </td>
                 <td>{{$quize['end_date']}}  </td>
-                   <td>
+                   <td class="course-action">
 
                              <input type="hidden" value="{{$user_id}}" name="user_id">
                              <input type="hidden" value="{{$user_ids}}" name="user_ids">
