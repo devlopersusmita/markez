@@ -89,7 +89,7 @@
      <div class="modal-content">
      <div class="card">
          <div class="card-heading">
-             <h3>Course Content  Details</h3>
+             <h5 class="modal-title">Course Content  Details</h5>
              <!-- Close X button -->
              <div class="close-wrap">
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
