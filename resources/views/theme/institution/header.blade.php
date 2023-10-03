@@ -27,17 +27,20 @@
 
 			<div class="app-header-right">
 				<div class="header-btn-lg">
-					<a href="#"><img src="/images/logo.png" alt="logo"></a>
+					<a href="#"><img src="/images/logo.png" alt="logo">
+                    @if(Session::has('institute_logo') != 1)
+
+<img src="{{ Session::get('institute_logo'); }}" alt="">
+@else
+<img src="/images/logo.png" alt="logo">
+@endif</a>
 				</div>
 				<div class="profile">
 					<ul>
 						<li class="profile-bg-dark"><a href="#">
-                        @if(Session::has('institute_logo') != 1)
 
-                            <img src="{{ Session::get('institute_logo'); }}" alt="">
-                        @else
                         <img src="/images/profile.png" alt="profile">
-                        @endif
+
                     </a>
 						</li>
 						<li><span>{{ Session::get('institute_name'); }}</span></li>
