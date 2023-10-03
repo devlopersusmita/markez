@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'api_key' => 'LxUn4rXVSnOEfmu5bSw-Bg',
-    'api_secret' => 'uuphsIPk47knFnKLDx3ovwN1vUavfmZ6951r',
+    'api_key' => env('ZOOM_CLIENT_KEY'),
+    'api_secret' => env('ZOOM_CLIENT_SECRET'),
     'base_url' => 'https://api.zoom.us/v2/',
     'token_life' => 60 * 60 * 24 * 7, // In seconds, default 1 week
     'authentication_method' => 'jwt', // Only jwt compatible at present but will add OAuth2
