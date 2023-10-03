@@ -28,9 +28,6 @@
 			<div class="app-header-right">
 				<div class="header-btn-lg">
 					<a href="#"><img src="/images/logo.png" alt="logo">
-
-
-<img src="/images/logo.png" alt="logo">
 </a>
 				</div>
 				<div class="profile">
