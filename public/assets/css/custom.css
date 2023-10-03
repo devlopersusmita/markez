@@ -52,6 +52,10 @@
                             width: 100%;
                         }
                         
+                        form.teacher_student_register .login-form {
+                            max-width: 100%;
+                        }
+                        
                         @media (min-width: 576px) .align-items-sm-center {
                             -ms-flex-align: center !important;
                             align-items: center !important;
