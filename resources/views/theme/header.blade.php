@@ -43,24 +43,28 @@
                </ul>
 @else
 
-               <div class="navbar-item">
+               <div class="navbar-item header-btn">
 
-               <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" >
+               <a href="{{ Route('institutionprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn" >
                   {{ Session::get('institute_name'); }}
-
-
 
                   </a>
 
-               </div>
-               <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+
+
+                  <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                {{ __('Logout') }}
                </a>
+
                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
                </form>
+
+               </div>
+
+
 @endif
             </div>
          </div>
