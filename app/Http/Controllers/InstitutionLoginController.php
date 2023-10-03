@@ -1632,7 +1632,7 @@ public function student(Request $request)
                 $user_ids = $request->user_id;
             }
         $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id, $user_id);
-        dd($check_course_accessibility_by_institution);
+        //dd($check_course_accessibility_by_institution);
         if($check_course_accessibility_by_institution){
         $course_content_id = $content_id;
        //dd($course_content_id);
