@@ -1629,7 +1629,7 @@ public function student(Request $request)
        //dd($course_content_id);
         $course_details = Course::where('id',$course_id)->first();
         $course_content_details = CourseContent::where('id',$course_content_id)->first();
-        //dd($course_content_details);
+        dd($course_content_details);
         // $user_id = Auth::id();
         $data7=Quiz::
        orderBy('id','desc')
