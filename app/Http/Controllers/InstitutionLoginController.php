@@ -1624,12 +1624,13 @@ public function student(Request $request)
            //this is user id //
            $user_ids = $request->user_ids;
         $check_course_accessibility_by_institution = $this->check_course_accessibility_by_institution($course_id, $user_id);
+        dd($check_course_accessibility_by_institution);
         if($check_course_accessibility_by_institution){
         $course_content_id = $content_id;
        //dd($course_content_id);
         $course_details = Course::where('id',$course_id)->first();
         $course_content_details = CourseContent::where('id',$course_content_id)->first();
-        dd($course_content_details);
+        //($course_content_details);
         // $user_id = Auth::id();
         $data7=Quiz::
        orderBy('id','desc')
