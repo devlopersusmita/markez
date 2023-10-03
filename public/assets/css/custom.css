@@ -65,6 +65,10 @@
                             border-radius: 0.65rem;
                         }
                         
+                        .align-items-center {
+                            align-items: center !important;
+                        }
+                        
                         @media (min-width: 576px) .align-items-sm-center {
                             -ms-flex-align: center !important;
                             align-items: center !important;
