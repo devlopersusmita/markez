@@ -28,12 +28,10 @@
 			<div class="app-header-right">
 				<div class="header-btn-lg">
 					<a href="#"><img src="/images/logo.png" alt="logo">
-                    @if(Session::has('institute_logo') != 1)
 
-<img src="{{asset( Session::get('institute_logo') )}}" alt="">
-@else
+
 <img src="/images/logo.png" alt="logo">
-@endif</a>
+</a>
 				</div>
 				<div class="profile">
 					<ul>
