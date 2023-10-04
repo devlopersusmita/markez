@@ -93,7 +93,7 @@
                         <div class="product-card" >
                         @if(!empty($course_subscriptions))
                         @foreach($course_subscriptions as $course_subscription)
-                        @if((Auth::user()->id > 0) && ($course_subscription->user_id==Auth::user()->id) && ($course_subscription->course_id==$course->id))
+                        @if((Session::has('user_id') > 0) && ($course_subscription->user_id==Session::has('user_id')) && ($course_subscription->course_id==$course->id))
                         <!-- <a href="{{Route('studentcoursecontent',['id'=>$course->id])}}" class="button is-solid accent-button raised" >Details</a>-->
                         <a href="{{Route('studentcoursecontent',['id'=>$course->id])}}" class="quickview-trigger button is-solid green-button"  style="width: 100px;right:10px;" >
                         Details
