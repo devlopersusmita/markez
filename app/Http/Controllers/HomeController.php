@@ -856,83 +856,63 @@ public function coursesubscriptionpay(Request $request)
 
     }
 
-     public function coursesubscription($id)
-    {
-        $data_exist = 0;
-
-        //course subcription limit//
-        $course_id=Course::where('id',$id)->first();
-        //dd($course_id);
-
-        $students_limit=$course_id->students_limit;
-        $course_subcription_count=CourseSubscription::where('course_id',$id)->count();
-        dd($course_subcription_count);
-       if($course_subcription_count >=  $students_limit)
-            {
-                echo"jkmkjkj";
-                return redirect()->route('home')->with('message', 'You Reach Maximum Student for this limit!');
-
-            }
-
-
-            if (Session::has('user_role') && isset(Session::get('user_role')->id))
-            {
-            $user_id = Session::get('user_role')->id;
-
-
-
-                //$user_id = Session::get('user_role')->id;
-            $data_exist=CourseSubscription::where(['user_id'=>$user_id,'course_id'=>$id])->count();
-
-            }
-            else
-            {
-                $user_id = 0;
-            }
-
-
-        $course = Course::where('id',$id)->first();
-        $category_name = Category::where('id',$course->category_id)->first()->name;
-
-        /*
-        echo "<br>user_id=".$user_id;
-        echo "<br>data_exist=".$data_exist;
-        echo "<br>total_subscription=".$course->total_subscription;
-        echo "<br>students_limitt=".$course->students_limitt;
-        echo "<br>role=".Auth::user()->role;
-        */
-
-
-       if(($user_id > 0)  && ($course->total_subscription < $course->students_limit) && (Session::get('user_role')->role == '1'))
-        {
-            $data_exist_order=Order::where(['user_id'=>$user_id,'course_id'=>$id,'type'=>'course'])->count();
-            if($data_exist_order > 0)
-            {
-                $order_details = Order::where(['user_id'=>$user_id,'course_id'=>$id,'type'=>'course'])->first();
-            }
-            else
-            {
-                 $order_details = new Order();
-                    $order_details->user_id = $user_id;
-                    $order_details->course_id = $id;
-                    $order_details->status = 'Pending';
-                    $order_details->total = $course->price;
-                    $order_details->created_by = $user_id;
-                    $order_details->save();
-
-            }
-
-             return view('theme.course.coursesubscription',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'order_details'=>$order_details]);
-        }
-        else
-        {
-            return view('theme.course.coursesubscriptionnotaccessible',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist]);
-        }
-
-
-
-    }
-
+    public function coursesubscription($id)
+{
+$data_exist = 0;
+//course subcription limit//
+$course_id=Course::where('id',$id)->first();
+//dd($course_id);
+$students_limit=$course_id->students_limit;
+$course_subcription_count=CourseSubscription::where('course_id',$id)->count();
+//dd($course_subcription_count);
+if($course_subcription_count >=  $students_limit)
+{
+echo"jkmkjkj";
+return redirect()->route('home')->with('message', 'You Reach Maximum Student for this limit!');
+}
+if (Session::has('user_role') && isset(Session::get('user_role')->id))
+{
+$user_id = Session::get('user_role')->id;
+//$user_id = Session::get('user_role')->id;
+$data_exist=CourseSubscription::where(['user_id'=>$user_id,'course_id'=>$id])->count();
+}
+else
+{
+$user_id = 0;
+}
+$course = Course::where('id',$id)->first();
+$category_name = Category::where('id',$course->category_id)->first()->name;
+/*
+echo "<br>user_id=".$user_id;
+echo "<br>data_exist=".$data_exist;
+echo "<br>total_subscription=".$course->total_subscription;
+echo "<br>students_limitt=".$course->students_limitt;
+echo "<br>role=".Auth::user()->role;
+*/
+if(($user_id > 0)  && ($course->total_subscription < $course->students_limit) && (Session::get('user_role')->role == '1'))
+{
+$data_exist_order=Order::where(['user_id'=>$user_id,'course_id'=>$id,'type'=>'course'])->count();
+if($data_exist_order > 0)
+{
+$order_details = Order::where(['user_id'=>$user_id,'course_id'=>$id,'type'=>'course'])->first();
+}
+else
+{
+$order_details = new Order();
+$order_details->user_id = $user_id;
+$order_details->course_id = $id;
+$order_details->status = 'Pending';
+$order_details->total = $course->price;
+$order_details->created_by = $user_id;
+$order_details->save();
+}
+return view('theme.course.coursesubscription',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'order_details'=>$order_details]);
+}
+else
+{
+return view('theme.course.coursesubscriptionnotaccessible',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist]);
+}
+}
     public function teacherview($id)
     {
         $teacher = User::where('id',$id)->first();
