@@ -874,9 +874,10 @@ public function coursesubscriptionpay(Request $request)
             }
 
 
-        if(Session::get('user_role'))
+        if(Session::has('user_role'))
             {
-            $user_id =Session::get('user_role')->id;
+
+            $user_id = Session::get('user_role')['id'];
             $data_exist=CourseSubscription::where(['user_id'=>$user_id,'course_id'=>$id])->count();
 
             }
@@ -2745,7 +2746,9 @@ public function institutionwebsite(Request $request,$id)
      $data9= [];
      if (Session::has('user_role') && isset(Session::get('user_role')->id))
      {
-     $user_id = Session::get('user_role')->id;
+
+     $user_id = Session::get('user_role')['id'];
+
      $data9=CourseSubscription::where(['user_id'=>$user_id])->orderBy('id','desc')->get();
      }
      else
