@@ -651,7 +651,8 @@ public function coursesubscriptionpay(Request $request)
 
                 //dd($payment);
 
-                $user_id = Auth::user()->id;
+                $user_id = Session::get('user_id');
+                $institution_id = Session::get('institution_id');
 
                 $paymentdb = new Payment();
                 $paymentdb->payment_id = $payment['id'];
@@ -686,6 +687,7 @@ public function coursesubscriptionpay(Request $request)
 
 
                 $paymentdb->user_id = $user_id;
+                $paymentdb->institution_id = $institution_id;
 
 
                 $paymentdb->save();
@@ -705,7 +707,7 @@ public function coursesubscriptionpay(Request $request)
                     $course->total_subscription=$total_subscription;
                     $course->save();
 
-                    if(($user_id > 0) && ($data_exist ==0) && (Auth::user()->role == '1'))
+                    if(($user_id > 0) && ($data_exist ==0) && (Session::get('user_role') == '1'))
                         {
                             ///
 
