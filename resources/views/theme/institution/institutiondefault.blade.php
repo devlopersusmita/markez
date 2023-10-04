@@ -519,7 +519,8 @@
         var id = $(this).data("id");
         var userid = $(this).data("userid");
         var institutionid = $(this).data("institutionid");
-         loadcomments(id,userid,institutionid);
+       alert(userid);
+       loadcomments(id,userid,institutionid);
 
 
 
