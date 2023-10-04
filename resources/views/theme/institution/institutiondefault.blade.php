@@ -220,8 +220,10 @@
 
       function loadcomments(id,user_id,institution_id)
       {
-         var user_id =user_id;
-         alert(user_id);
+        // var institution_id =institution_id;
+        //  var user_id =user_id;
+
+         //alert(user_id);
 
              $('#coursesubscriptionpay_id').val(id);
 
@@ -431,7 +433,7 @@
                                      htmlcont=htmlcont+'';
                                      htmlcont=htmlcont+'</td>';
                                      htmlcont=htmlcont+'<td>';
-                                     htmlcont=htmlcont+' <a class="button is-solid accent-button " href="'+baseurl + '/coursesubscription/'+id+'">Pay</a>';
+                                     htmlcont=htmlcont+' <a class="button is-solid accent-button " href="'+baseurl + '/coursesubscription/'+id+ '?user_id=' + user_id + '&institution_id=' + institution_id'">Pay</a>';
                                      htmlcont=htmlcont+'</td>';
                                      htmlcont=htmlcont+'</tr>';
                                   }
@@ -522,7 +524,7 @@
         var id = $(this).data("id");
         var user_id = $(this).data("user_id");
         var institution_id = $(this).data("institution_id");
-       alert(institution_id);
+       //alert(institution_id);
        loadcomments(id,user_id,institution_id);
 
 
