@@ -541,7 +541,7 @@ class StudentController extends Controller
         where(['course_subscriptions.user_id'=>$user_id,'courses.id'=>$course_id])
         ->whereDate('courses.end_date', '>=', Carbon::now())
         ->whereDate('courses.start_date', '<=', Carbon::now())->count();
-        dd($course_subscription_exist);
+        //dd($course_subscription_exist);
         if($course_subscription_exist ==0)
         {
             return false;
