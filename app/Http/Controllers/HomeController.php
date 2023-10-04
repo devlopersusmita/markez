@@ -890,7 +890,7 @@ echo "<br>total_subscription=".$course->total_subscription;
 echo "<br>students_limitt=".$course->students_limitt;
 echo "<br>role=".Auth::user()->role;
 */
-dd($institution_id = Session::put('institution_id', $request->institution_id));
+dd($institution_id = Session::get('institution_id'));
 if(($user_id > 0)  && ($course->total_subscription < $course->students_limit) && Session::get('user_role') == '1')
 {
 $data_exist_order=Order::where(['user_id'=>$user_id,'course_id'=>$id,'type'=>'course'])->count();
