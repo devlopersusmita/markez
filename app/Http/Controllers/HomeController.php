@@ -869,6 +869,7 @@ public function coursesubscriptionpay(Request $request)
         //dd($course_subcription_count);
        if($course_subcription_count >=  $students_limit)
             {
+                echo"jkmkjkj";
                 return redirect()->route('home')->with('message', 'You Reach Maximum Student for this limit!');
 
             }
