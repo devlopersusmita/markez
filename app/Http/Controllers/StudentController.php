@@ -707,6 +707,7 @@ class StudentController extends Controller
     {
             $course_id = $id;
             $check_course_accessibility = $this->check_course_accessibility($course_id);
+            dd($check_course_accessibility);
             if($check_course_accessibility){
             $course_details = Course::where('id',$course_id)->first();
 
