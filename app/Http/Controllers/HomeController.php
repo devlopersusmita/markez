@@ -874,10 +874,13 @@ public function coursesubscriptionpay(Request $request)
             }
 
 
-        if(Session::has('user_role'))
+            if (Session::has('user_role'))
             {
+                $user = Session::get('user_role');
+                $user_id = $user->id;
 
-                $user_id = Session::get('user_role')->id;
+
+                //$user_id = Session::get('user_role')->id;
             $data_exist=CourseSubscription::where(['user_id'=>$user_id,'course_id'=>$id])->count();
 
             }
