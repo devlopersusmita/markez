@@ -220,7 +220,8 @@
 
       function loadcomments(id,user_id,institution_id)
       {
-
+         var user_id =user_id;
+         alert(user_id);
 
              $('#coursesubscriptionpay_id').val(id);
 
