@@ -428,7 +428,7 @@
                                      htmlcont=htmlcont+'';
                                      htmlcont=htmlcont+'</td>';
                                      htmlcont=htmlcont+'<td>';
-                                     htmlcont=htmlcont+' <a class="button is-solid accent-button " href="'+baseurl + '/coursesubscription/'+id+'">Pay</a>';
+                                     htmlcont=htmlcont+' <a class="button is-solid accent-button " href="'+baseurl + '/coursesubscription/'+id+ + '?institution_id=' + <?php echo $institutionid; ?> + '&user_id=' + <?php echo $userid; ?>'">Pay</a>';
                                      htmlcont=htmlcont+'</td>';
                                      htmlcont=htmlcont+'</tr>';
                                   }
@@ -519,7 +519,7 @@
         var id = $(this).data("id");
         var userid = $(this).data("userid");
         var institutionid = $(this).data("institutionid");
-       alert(userid);
+       //alert(userid);
        loadcomments(id,userid,institutionid);
 
 
