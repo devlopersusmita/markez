@@ -73,7 +73,7 @@
 
 
 <!-- Course Start -->
-
+<section class="course">
 <div class="store-sections">
     <div class="container">
          <h2>Our Courses</h2>
@@ -174,7 +174,7 @@
             </div>
     </div>
 </div>
-
+</section>
 <!-- Course Start -->
 <!--  Popular Course Start -->
 
