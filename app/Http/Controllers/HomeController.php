@@ -2719,51 +2719,171 @@ public function institutionwebsite(Request $request,$id)
     {
         $visitor = new UserVisitor(['ip_address' => $ip]);
         $visitor->save();
-     }
+    }
 
-    $id = $request->id;
+        $id = $request->id;
         $institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
             //dd($institution_sliders);
             $category_lists =Category::where('institution_id',$id)->orderBy('name','asc')->get();
-       // dd($category_lists);
-
-       $output_array =[];
-                    foreach ($category_lists as $category_list)
-                    {
-                       $categorys= $category_list->id;
-                       $categorywise_courselists=Course::leftJoin('categories', 'categories.id', '=', 'courses.category_id')->where(['courses.category_id'=>$categorys,'courses.status'=>'active','courses.visibility'=>1])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->orderBy('courses.id','desc')
-                       ->select('courses.*')
-                       ->get();
-                        // dd($categorywise_courselists);
-
-
-
-                        if($categorywise_courselists->count()>0)
-                        {
-                            $aaa=[
-                                'id'=>$category_list->id,
-                                'name'=>$category_list->name,
-                                'status'=>$category_list->status,
-                                'course_data'=>$categorywise_courselists
-                            ];
-
-                            // $category_list->course_data=$categorywise_courselists;
-
-                            array_push($output_array,$aaa);
-                        }
-
-                    }
-
-
-
-                    // echo "<pre>";
-                    // print_r($output_array);
-                    // exit();
-
+          // dd($category_lists);
                 $popular_courses =Course::where('institution_id',$id)->orderBy('courses.id','desc')
                 ->select('courses.*')
                 ->get();
                 //dd($popular_courses);
+
+     // new course added //
+    dd (Session::get('user_role'));
+     $togonotadmin = false;
+     if(Auth::check())
+     {
+     if(Auth::user()->role == '4'){
+     return redirect('/admin/dashboard');
+     }
+     else
+     {
+     $togonotadmin = true;
+     }
+     }
+     else
+     {
+     $togonotadmin = true;
+     }
+     if($togonotadmin==true)
+     {
+     $data9= [];
+     if(Auth::user())
+     {
+     $user_id = Auth::user()->id;
+     $data9=CourseSubscription::where(['user_id'=>$user_id])->orderBy('id','desc')->get();
+     }
+     else
+     {
+     $user_id = 0;
+     }
+     $current_date_time = date('Y-m-d');
+     $categories=Category::where(['status'=>'active'])->orderBy('id','desc')->limit(4)->get();
+     $data7=Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get();
+     // dd($data7);
+     $output_array =[];
+     if(!empty($data7))
+     {
+     foreach($data7 as $data7s)
+     {
+     $courseconid = $data7s->id;
+     //echo($courseconid);
+     $totalcoursecontentid = CourseContent::where('course_contents.course_id','=',$courseconid)->get()->count();
+     //  start  coursecontent_typewisebutton type //
+     $coursecontent_typewisebutton = CourseContent::where('course_contents.course_id','=',$courseconid)->get();
+     $array = array();
+     $course_type =[];
+     foreach($coursecontent_typewisebutton as $coursecontent_typewisebuttons)
+     {
+     $course_type_wise = $coursecontent_typewisebuttons->type;
+     if($course_type_wise == 'zoom')
+     {
+     $onlineclass_starttime = online_classe::where('online_classes.course_id','=',$courseconid)->select('online_classes.start_at')->get();
+     //dd($onlineclass_starttime);
+     $zoomclass_array =[];
+     if(!empty($onlineclass_starttime))
+     {
+     $pass = '';
+     foreach($onlineclass_starttime as $onlineclass_starttimes)
+     {
+     $zoom_class_start = $onlineclass_starttimes->start_at;
+     //echo($zoom_class_start);
+     $pass = $zoom_class_start;
+     }
+     }
+     $current_time = date('Y-m-d H:i:s');
+     // echo $current_datetime;
+     $show_currenttime =strtotime($current_time);
+     $show_zoomclasstime =strtotime($pass);
+     if($show_currenttime > $show_zoomclasstime)
+     {
+     array_push($array,"1");
+     }
+     else
+     {
+     array_push($array,"0");
+     }
+     }
+     else{
+     array_push($array,"0");
+     }
+     }
+     $variables =false;
+     if (in_array("1", $array))
+     {
+     $variables =true;
+     }
+     //  end  coursecontent_typewisebutton type //
+
+     //  start  content type //
+     $coursecontent_type = CourseContent::where('course_contents.course_id','=',$courseconid)->get();
+     $coursecontent_typear = [];
+     $array = array();
+     foreach($coursecontent_type as $coursecontent_types)
+     {
+     $content_type = $coursecontent_types->type;
+     if($content_type == 'zoom')
+     {
+     // echo  "EEEEE";
+     $onlineclass_end = online_classe::where('online_classes.course_id','=',$courseconid)->select('online_classes.start_at')->get();
+     $zoom_array =[];
+     if(!empty($onlineclass_end))
+     {
+     $zoom_end = '';
+     foreach($onlineclass_end as $onlineclass_ends)
+     {
+     $online_class_time = $onlineclass_ends->start_at;
+     //echo($zoom_class_start);
+     $zoom_end = $online_class_time;
+     }
+     }
+     // echo $onlineclass_end;
+     $current_datetime = date('Y-m-d H:i:s');
+     // echo $current_datetime;
+     $show_currentdatetime =strtotime($current_datetime);
+     $show_zoomclassdatetime =strtotime($zoom_end);
+     if($show_currentdatetime > $show_zoomclassdatetime)
+     {
+     //"tttttt";
+     //array_push($array,0);
+     array_push($array,"0");
+     // die();
+     }
+     else
+     {
+     // array_push($array,1);
+     array_push($array,"1");
+     }
+     }
+     else
+     {
+     //"dfggggg";
+     //array_push($array,1);
+     array_push($array,"1");
+     }
+     }
+     $variable =false;
+     if (in_array("1", $array))
+     {
+     $variable =true;
+     }
+     // end content type //
+     $data7s['totalcoursecontent']= $totalcoursecontentid;
+     $data7s['zoom_endtime']= $variables;
+     $data7s['content_course_type']= $variable;
+     //  echo($variable);
+     //  die();
+     $output_array[]=$data7s;
+     }
+     }
+     return view('theme.home',['user_id'=>$user_id,'courses'=>$output_array,'course_subscriptions'=>$data9,'categories'=>$categories]);
+     }
+
+
+     // end course //
 
     return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists,'output_array'=>$output_array,'popular_courses'=>$popular_courses]);
 }
