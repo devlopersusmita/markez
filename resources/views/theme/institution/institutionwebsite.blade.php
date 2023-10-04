@@ -143,7 +143,7 @@
                                     {
                                     ?>
                                 <a class="button is-solid accent-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}" data-id="{{$course->id}}"
-                                data-userid="{{Session::get('user_id')}}" data-institutionid="{{Session::get('institution_id')}}">
+                                data-user_id="{{Session::get('user_id')}}" data-institution_id="{{Session::get('institution_id')}}">
                                 <i data-feather="shopping-cart"></i>
                                 <span>{{$course->price}}SAR</span>
                                 </a>
