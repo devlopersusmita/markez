@@ -862,6 +862,7 @@ public function coursesubscriptionpay(Request $request)
 
         //course subcription limit//
         $course_id=Course::where('id',$id)->first();
+        dd($course_id);
 
         $students_limit=$course_id->students_limit;
         $course_subcription_count=CourseSubscription::where('course_id',$id)->count();
