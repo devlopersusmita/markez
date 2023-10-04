@@ -866,7 +866,7 @@ public function coursesubscriptionpay(Request $request)
 
         $students_limit=$course_id->students_limit;
         $course_subcription_count=CourseSubscription::where('course_id',$id)->count();
-        dd($course_subcription_count);
+        //dd($course_subcription_count);
        if($course_subcription_count >=  $students_limit)
             {
                 return redirect()->route('home')->with('message', 'You Reach Maximum Student for this limit!');
@@ -874,9 +874,9 @@ public function coursesubscriptionpay(Request $request)
             }
 
 
-        if(Auth::user())
+        if(Session::get('user_role'))
             {
-            $user_id = Auth::user()->id;
+            $user_id =Session::get('user_role')->id;
             $data_exist=CourseSubscription::where(['user_id'=>$user_id,'course_id'=>$id])->count();
 
             }
@@ -898,7 +898,7 @@ public function coursesubscriptionpay(Request $request)
         */
 
 
-       if(($user_id > 0)  && ($course->total_subscription < $course->students_limit) && (Auth::user()->role == '1'))
+       if(($user_id > 0)  && ($course->total_subscription < $course->students_limit) && (Session::get('user_role')->role == '1'))
         {
             $data_exist_order=Order::where(['user_id'=>$user_id,'course_id'=>$id,'type'=>'course'])->count();
             if($data_exist_order > 0)
