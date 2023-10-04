@@ -423,7 +423,7 @@
                                      htmlcont=htmlcont+'';
                                      htmlcont=htmlcont+'</td>';
                                      htmlcont=htmlcont+'<td>';
-                                     htmlcont=htmlcont+' <a class="button is-solid accent-button subscribe_free" href="'+baseurl + '/coursesubscription/'+id+'">Subscribe</a>';
+                                     htmlcont=htmlcont+' <a class="button is-solid accent-button subscribe_free" href="'+baseurl + '/coursesubscription/'+id+'?institution_id=' + institution_id + '&user_id=' + user_id +'">Subscribe</a>';
                                      htmlcont=htmlcont+'</td>';
                                      htmlcont=htmlcont+'</tr>';
                                   }
