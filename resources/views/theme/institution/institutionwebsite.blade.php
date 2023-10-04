@@ -74,11 +74,8 @@
 
 <!-- Popular Course Start -->
 
-<section class="course popular-course">
-	<div class="container">
-		<h2>Popular Courses</h2>
-
-        <div class="container is-desktop">
+<div class="store-sections">
+   <div class="container is-desktop">
       @if(session()->has('message'))
       <div class="box-heading margin_top_10 margin_bottom_10">
          <h4>{{ session()->get('message') }}</h4>
@@ -172,9 +169,7 @@
          @endif
       </div>
    </div>
-
-	</div>
-</section>
+</div>
 
 <!-- Popular Course End -->
 
