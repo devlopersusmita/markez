@@ -890,7 +890,7 @@ echo "<br>total_subscription=".$course->total_subscription;
 echo "<br>students_limitt=".$course->students_limitt;
 echo "<br>role=".Auth::user()->role;
 */
-dd($institution_id = Session::get('institution_id'));
+$institution_id = Session::get('institution_id');
 if(($user_id > 0)  && ($course->total_subscription < $course->students_limit) && Session::get('user_role') == '1')
 {
 $data_exist_order=Order::where(['user_id'=>$user_id,'course_id'=>$id,'type'=>'course'])->count();
@@ -909,11 +909,11 @@ $order_details->created_by = $user_id;
 $order_details->save();
 //dd($order_details);
 }
-return view('theme.course.coursesubscription',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'order_details'=>$order_details]);
+return view('theme.course.coursesubscription',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'order_details'=>$order_details,'institution_id'=>$institution_id]);
 }
 else
 {
-return view('theme.course.coursesubscriptionnotaccessible',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist]);
+return view('theme.course.coursesubscriptionnotaccessible',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'institution_id'=>$institution_id]);
 }
 }
     public function teacherview($id)
