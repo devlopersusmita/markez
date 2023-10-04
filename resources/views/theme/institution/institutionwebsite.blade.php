@@ -329,4 +329,20 @@
 </div>
 
 <!-- Course Deatils End -->
+
+<form id="coursesubscriptionpay-form" action="{{Route('coursesubscriptionpay')}}" method="POST"   enctype="multipart/form-data" class="d-none">
+   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+   <input type="hidden" id="coursesubscriptionpay_id" name="id" value="" />
+</form>
+<?php
+   $user_type_student = 'No';
+   if(Session::get('user_role'))
+   {
+      if(Session::get('user_role') == '1')
+      {
+          $user_type_student = 'Yes';
+      }
+   }
+   ?>
+<input type="hidden" id="user_type_student" name="user_type_student" value="<?php echo $user_type_student;?>" />
 @endsection
