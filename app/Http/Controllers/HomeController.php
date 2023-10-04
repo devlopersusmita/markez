@@ -859,7 +859,6 @@ public function coursesubscriptionpay(Request $request)
     public function coursesubscription($id)
 {
 $data_exist = 0;
-$institution_id = $request->id;
 //course subcription limit//
 $course_id=Course::where('id',$id)->first();
 //dd($course_id);
@@ -908,11 +907,11 @@ $order_details->created_by = $user_id;
 $order_details->save();
 //dd($order_details);
 }
-return view('theme.course.coursesubscription',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'order_details'=>$order_details,'institution_id'=>$id]);
+return view('theme.course.coursesubscription',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'order_details'=>$order_details]);
 }
 else
 {
-return view('theme.course.coursesubscriptionnotaccessible',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'institution_id'=>$id]);
+return view('theme.course.coursesubscriptionnotaccessible',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist]);
 }
 }
     public function teacherview($id)
@@ -2868,9 +2867,8 @@ public function institutionwebsite(Request $request,$id)
      //  die();
      $output_array[]=$data7s;
      }
-
      }
-     return view('theme.institution.institutionwebsite',['user_id'=>$user_id,'courses'=>$output_array,'course_subscriptions'=>$data9,'categories'=>$categories,'institution_sliders' =>$institution_sliders,'institution_id'=>$id,'popular_courses'=>$popular_courses]);
+     return view('theme.institution.institutionwebsite',['user_id'=>$user_id,'courses'=>$output_array,'course_subscriptions'=>$data9,'categories'=>$categories,'institution_sliders' =>$institution_sliders,'id'=>$id,'popular_courses'=>$popular_courses]);
      }
 
 
