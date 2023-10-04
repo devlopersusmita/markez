@@ -74,9 +74,8 @@
 
 <!-- Popular Course Start -->
 
-<section class="course">
-	<div class="container">
-		<h2>Our Courses</h2>
+<div class="store-sections">
+<h2>Our Courses</h2>
 		<span>Choose from over 210,000 online video courses with new additions published every month</span>
    <div class="container is-desktop">
       @if(session()->has('message'))
@@ -172,7 +171,43 @@
          @endif
       </div>
    </div>
-   </div>
+</div>
+
+<!-- Popular Course End -->
+<!--  Popular Course Start -->
+
+<section class="course">
+	<div class="container">
+    <h2>Popular Courses</h2>
+		<div class="row">
+        @foreach($popular_courses as $popular_course)
+			<div class="col-lg-3 col-md-6">
+				<div class="course-grid">
+                @if(($popular_course->preview_image) && (file_exists($popular_course->preview_image)))
+                                                            <img src="{{asset($popular_course->preview_image)}}" alt="">
+                                                            @else
+                                                            <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
+                                                            @endif
+					<div class="couse-content">
+                    <h3>{{$popular_course->title}}</h3>
+						<p>{!! Str::words($popular_course->description, 10, ' ...') !!}</p>
+						<div class="rating">
+							<span>4.6</span>
+							<span class="fa fa-star checked"></span>
+							<span class="fa fa-star checked"></span>
+							<span class="fa fa-star checked"></span>
+							<span class="fa fa-star checked"></span>
+							<span class="fa fa-star checked"></span>
+							<small>(380,527)</small>
+						</div>
+						<p class="course-price"><strong>${{$popular_course->price}}</strong><span>$3,399</span></p>
+					</div>
+				</div>
+			</div>
+            @endforeach
+
+		</div>
+	</div>
 </section>
 
 <!-- Popular Course End -->
