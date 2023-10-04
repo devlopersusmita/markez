@@ -70,77 +70,7 @@
 </section>
 <!-- Banner End -->
 
-<!-- Course Start -->
-<section class="course">
-	<div class="container">
-		<h2>Our Courses</h2>
-		<span>Choose from over 210,000 online video courses with new additions published every month</span>
-		<div class="tab-section">
 
-			<!-- Nav tabs -->
-
-			<ul class="nav nav-tabs">
-            @foreach($output_array as $output_arrays)
-                @if($loop->index==0)
-                    <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }} </a>
-                    </li>
-                @else
-                <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#menu{{ $output_arrays['id'] }}">{{ $output_arrays['name'] }} </a>
-                    </li>
-                @endif
-                @endforeach
-			</ul>
-
-			<!-- Tab panes -->
-			<div class="tab-content">
-
-                @foreach($output_array as $output_arrays)
-                    <div class="tab-pane container fade active {{ $loop->index==0?'show':'' }}" id="menu{{ $output_arrays['id'] }}">
-                        <div class="row">
-
-                            @foreach($output_arrays['course_data'] as $course_data)
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="course-grid">
-                                    @if(($course_data['preview_image']) && (file_exists($course_data['preview_image'])))
-                                                            <img src="{{asset($course_data['preview_image'])}}" alt="">
-                                                            @else
-                                                            <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
-                                                            @endif
-
-                                        <div class="couse-content">
-                                            <h3>{{ $course_data['title'] }}({{ $course_data['type'] }})</h3>
-
-                                            <p>
-                        {!! Str::words($course_data['description'], 10, ' ...') !!}
-                        </p>
-
-                                            <div class="rating">
-                                                <span>4.6</span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <small>(380,527)</small>
-                                            </div>
-                                            <p class="course-price"><strong>{{ $course_data['price'] }}</strong>
-                                            <span>$3,399</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                @endforeach
-			</div>
-
-		</div>
-	</div>
-</section>
-<!-- Course End -->
 
 <!-- Popular Course Start -->
 
