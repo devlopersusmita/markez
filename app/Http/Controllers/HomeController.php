@@ -721,17 +721,17 @@ public function coursesubscriptionpay(Request $request)
                     //  print_r($course);
 
                             if($course_subscription->save()){
-                                return redirect()->route('coursesubscription',['id'=>$course_id])->with('success','Successfully subscribed!');
+                                return redirect()->route('coursesubscription',['id'=>$course_id,'user_id'=>$user_id,'institution_id'=>$institution_id])->with('success','Successfully subscribed!');
                             }
                             else{
-                                return redirect()->route('coursesubscription',['id'=>$course_id])->with('error','Something errors');
+                                return redirect()->route('coursesubscription',['id'=>$course_id,'user_id'=>$user_id,'institution_id'=>$institution_id])->with('error','Something errors');
                             }
                         }
 
                 }
                 else
                 {
-                    return redirect()->route('coursesubscription',['id'=>$order_details->course_id])->with('error',$payment['source']['message']);
+                    return redirect()->route('coursesubscription',['id'=>$order_details->course_id,'user_id'=>$user_id,'institution_id'=>$institution_id])->with('error',$payment['source']['message']);
                 }
 
        }
@@ -846,7 +846,7 @@ public function coursesubscriptionpay(Request $request)
             }
             else
             {
-                return redirect()->route('institutionsubscription',['id'=>$order_details->institution_subcription_package_id])->with('error',$payment['source']['message']);
+                return redirect()->route('institutionsubscription',['id'=>$order_details->institution_subcription_package_id,'user_id'=>$user_id,'institution_id'=>$institution_id])->with('error',$payment['source']['message']);
             }
 
        }
