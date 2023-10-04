@@ -72,108 +72,110 @@
 
 
 
-<!-- Popular Course Start -->
+<!-- Course Start -->
 
 <div class="store-sections">
-<h2>Our Courses</h2>
+    <div class="container">
+         <h2>Our Courses</h2>
 		<span>Choose from over 210,000 online video courses with new additions published every month</span>
-   <div class="container is-desktop">
-      @if(session()->has('message'))
-      <div class="box-heading margin_top_10 margin_bottom_10">
-         <h4>{{ session()->get('message') }}</h4>
-      </div>
-      @endif
-      <div class="columns is-multiline">
-         @if(!empty($courses))
-         @foreach($courses as $course)
-         <!-- {{($course->content_course_type)}} -->
-         @if($course->content_course_type == 1)
-         <div class="column is-one-fifth-fullhd is-one-quarter-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile">
-            <div class="product-card" >
-               @if(!empty($course_subscriptions))
-               @foreach($course_subscriptions as $course_subscription)
-               @if((Auth::user()->id > 0) && ($course_subscription->user_id==Auth::user()->id) && ($course_subscription->course_id==$course->id))
-               <!-- <a href="{{Route('studentcoursecontent',['id'=>$course->id])}}" class="button is-solid accent-button raised" >Details</a>-->
-               <a href="{{Route('studentcoursecontent',['id'=>$course->id])}}" class="quickview-trigger button is-solid green-button"  style="width: 100px;right:10px;" >
-               Details
-               </a>
-               @endif
-               @endforeach
-               @endif
-               <div class="product-image">
-                  @if(($course->preview_image) && (file_exists($course->preview_image)))
-                  <img src="{{asset($course->preview_image)}}" alt="">
-                  @else
-                  <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
-                  @endif
-               </div>
-               <div class="product-info">
-                  <h3>{{$course->title}}</h3>
-                  <p>
-                  <div class="course_description_min_height"><?php echo substr(strip_tags($course->description),0,100); ?></div>
-                  </p>
-                  <p><strong>{{$course->category_name}}</strong></p>
-               </div>
-               <div class="product-actions">
-                  <div class="left">
-                     <i data-feather="heart"></i>
-                     <span>{{$course->total_subscription}}</span>
-                     <?php
-                        $current_datetime = date('Y-m-d H:i:s');
+            <div class="container is-desktop">
+                @if(session()->has('message'))
+                <div class="box-heading margin_top_10 margin_bottom_10">
+                    <h4>{{ session()->get('message') }}</h4>
+                </div>
+                @endif
+                <div class="columns is-multiline">
+                    @if(!empty($courses))
+                    @foreach($courses as $course)
+                    <!-- {{($course->content_course_type)}} -->
+                    @if($course->content_course_type == 1)
+                    <div class="column is-one-fifth-fullhd is-one-quarter-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile">
+                        <div class="product-card" >
+                        @if(!empty($course_subscriptions))
+                        @foreach($course_subscriptions as $course_subscription)
+                        @if((Auth::user()->id > 0) && ($course_subscription->user_id==Auth::user()->id) && ($course_subscription->course_id==$course->id))
+                        <!-- <a href="{{Route('studentcoursecontent',['id'=>$course->id])}}" class="button is-solid accent-button raised" >Details</a>-->
+                        <a href="{{Route('studentcoursecontent',['id'=>$course->id])}}" class="quickview-trigger button is-solid green-button"  style="width: 100px;right:10px;" >
+                        Details
+                        </a>
+                        @endif
+                        @endforeach
+                        @endif
+                        <div class="product-image">
+                            @if(($course->preview_image) && (file_exists($course->preview_image)))
+                            <img src="{{asset($course->preview_image)}}" alt="">
+                            @else
+                            <img src="{{asset('frontend/course/defaultcourse.jpg')}}" alt="">
+                            @endif
+                        </div>
+                        <div class="product-info">
+                            <h3>{{$course->title}}</h3>
+                            <p>
+                            <div class="course_description_min_height"><?php echo substr(strip_tags($course->description),0,100); ?></div>
+                            </p>
+                            <p><strong>{{$course->category_name}}</strong></p>
+                        </div>
+                        <div class="product-actions">
+                            <div class="left">
+                                <i data-feather="heart"></i>
+                                <span>{{$course->total_subscription}}</span>
+                                <?php
+                                    $current_datetime = date('Y-m-d H:i:s');
 
-                        $show_currentdatetime =strtotime($current_datetime);
+                                    $show_currentdatetime =strtotime($current_datetime);
 
-                        $zoomclass_enddatetime =$course->zoom_endtime;
+                                    $zoomclass_enddatetime =$course->zoom_endtime;
 
 
 
-                        $show_zoomclassdatetime =strtotime($zoomclass_enddatetime);
+                                    $show_zoomclassdatetime =strtotime($zoomclass_enddatetime);
 
-                        ?>
-                  </div>
-                  <div class="right">
-                     @if($course->zoom_endtime == 0)
-                     <?php
-                        if($course->totalcoursecontent > 0)
-                        {
-                            ?>
-                     <?php
-                        if($course->price > 0)
-                        {
-                        ?>
-                     <a class="button is-solid accent-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}" data-id="{{$course->id}}">
-                     <i data-feather="shopping-cart"></i>
-                     <span>{{$course->price}}{{env('CURRENCY')}}</span>
-                     </a>
-                     <?php
-                        }
-                        else
-                        {
-                            ?>
-                     <a class="button is-solid green-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}"  data-id="{{$course->id}}">
-                     <span>Free</span>
-                     </a>
-                     <?php
-                        }
-                        ?>
-                     <?php
-                        }
-                        ?>
-                     @endif
-                     <!-- zoom start end if -->
-                  </div>
-               </div>
+                                    ?>
+                            </div>
+                            <div class="right">
+                                @if($course->zoom_endtime == 0)
+                                <?php
+                                    if($course->totalcoursecontent > 0)
+                                    {
+                                        ?>
+                                <?php
+                                    if($course->price > 0)
+                                    {
+                                    ?>
+                                <a class="button is-solid accent-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}" data-id="{{$course->id}}">
+                                <i data-feather="shopping-cart"></i>
+                                <span>{{$course->price}}{{env('CURRENCY')}}</span>
+                                </a>
+                                <?php
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                <a class="button is-solid green-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}"  data-id="{{$course->id}}">
+                                <span>Free</span>
+                                </a>
+                                <?php
+                                    }
+                                    ?>
+                                <?php
+                                    }
+                                    ?>
+                                @endif
+                                <!-- zoom start end if -->
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    @endif
+                    <!-- content type endif -->
+                    @endforeach
+                    @endif
+                </div>
             </div>
-         </div>
-         @endif
-         <!-- content type endif -->
-         @endforeach
-         @endif
-      </div>
-   </div>
+    </div>
 </div>
 
-<!-- Popular Course End -->
+<!-- Course Start -->
 <!--  Popular Course Start -->
 
 <section class="course">
