@@ -859,7 +859,7 @@ public function coursesubscriptionpay(Request $request)
     public function coursesubscription($id)
 {
 $data_exist = 0;
-
+dd($user_id = Session::get('user_role')->id);
 //course subcription limit//
 $course_id=Course::where('id',$id)->first();
 //dd($course_id);
