@@ -904,6 +904,7 @@ else
 {
 $order_details = new Order();
 $order_details->user_id = $user_id;
+$order_details->institution_id = $institution_id;
 $order_details->course_id = $id;
 $order_details->status = 'Pending';
 $order_details->total = $course->price;
