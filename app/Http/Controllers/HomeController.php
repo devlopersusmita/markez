@@ -2721,22 +2721,12 @@ public function institutionwebsite(Request $request,$id)
         $visitor->save();
     }
 
-        $id = $request->id;
-        $institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
-            //dd($institution_sliders);
-            $category_lists =Category::where('institution_id',$id)->orderBy('name','asc')->get();
-          // dd($category_lists);
-                $popular_courses =Course::where('institution_id',$id)->orderBy('courses.id','desc')
-                ->select('courses.*')
-                ->get();
-                //dd($popular_courses);
+      // new course added //
 
-     // new course added //
-    dd (Session::get('user_role'));
      $togonotadmin = false;
-     if(Auth::check())
+     if(Session::get('user_role'))
      {
-     if(Auth::user()->role == '4'){
+     if(Session::get('user_role') == '4'){
      return redirect('/admin/dashboard');
      }
      else
@@ -2751,19 +2741,28 @@ public function institutionwebsite(Request $request,$id)
      if($togonotadmin==true)
      {
      $data9= [];
-     if(Auth::user())
+     if(Session::get('user_role'))
      {
-     $user_id = Auth::user()->id;
+     $user_id = Session::get('user_role')->id;
      $data9=CourseSubscription::where(['user_id'=>$user_id])->orderBy('id','desc')->get();
      }
      else
      {
      $user_id = 0;
      }
+     $id = $request->id;
+     $institution_sliders=InstitutionBannerSetting::where('institution_id',$id)->select('institution_banner_settings.*')->limit(3)->get();
+         //dd($institution_sliders);
+         $category_lists =Category::where('institution_id',$id)->orderBy('name','asc')->get();
+       // dd($category_lists);
+             $popular_courses =Course::where('institution_id',$id)->orderBy('courses.id','desc')
+             ->select('courses.*')
+             ->get();
      $current_date_time = date('Y-m-d');
-     $categories=Category::where(['status'=>'active'])->orderBy('id','desc')->limit(4)->get();
-     $data7=Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get();
+     $categories=Category::where(['status'=>'active','institution_id'=>$id])->orderBy('id','desc')->limit(4)->get();
+     $data7=Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1,'courses.institution_id'=>$id])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get();
      // dd($data7);
+
      $output_array =[];
      if(!empty($data7))
      {
@@ -2879,13 +2878,13 @@ public function institutionwebsite(Request $request,$id)
      $output_array[]=$data7s;
      }
      }
-     return view('theme.home',['user_id'=>$user_id,'courses'=>$output_array,'course_subscriptions'=>$data9,'categories'=>$categories]);
+     return view('theme.institution.institutionwebsite',['user_id'=>$user_id,'courses'=>$output_array,'course_subscriptions'=>$data9,'categories'=>$categories,'institution_sliders' =>$institution_sliders,'id'=>$id,'popular_courses'=>$popular_courses]);
      }
 
 
      // end course //
 
-    return view('theme.institution.institutionwebsite',['institution_sliders' =>$institution_sliders,'id'=>$id,'category_lists'=>$category_lists,'output_array'=>$output_array,'popular_courses'=>$popular_courses]);
+
 }
 
 public function teacherstudentregister(Request $request,$id)
