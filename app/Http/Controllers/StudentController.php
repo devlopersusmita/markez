@@ -712,7 +712,7 @@ class StudentController extends Controller
 
         $type = $course_details["type"];
         $user_id = $request->user_id;
-        //dd($user_id);
+        dd($user_id);
         $institution_id =$request->institution_id;
         //($user_id,$institution_id);
 
