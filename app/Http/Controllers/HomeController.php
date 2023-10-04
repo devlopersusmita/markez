@@ -905,7 +905,7 @@ $order_details->status = 'Pending';
 $order_details->total = $course->price;
 $order_details->created_by = $user_id;
 $order_details->save();
-dd($order_details);
+//dd($order_details);
 }
 return view('theme.course.coursesubscription',['user_id'=>$user_id,'course'=>$course,'category_name'=>$category_name,'id'=>$id,'data_exist'=>$data_exist,'order_details'=>$order_details]);
 }
