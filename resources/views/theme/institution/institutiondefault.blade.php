@@ -218,7 +218,7 @@
 
       });
 
-      function loadcomments(id,userid,institutionid)
+      function loadcomments(id,user_id,institution_id)
       {
              $('#coursesubscriptionpay_id').val(id);
 
@@ -428,7 +428,7 @@
                                      htmlcont=htmlcont+'';
                                      htmlcont=htmlcont+'</td>';
                                      htmlcont=htmlcont+'<td>';
-                                     htmlcont=htmlcont+' <a class="button is-solid accent-button " href="'+baseurl + '/coursesubscription/'+id+ + '?institution_id=' + <?php echo $institutionid; ?> + '&user_id=' + <?php echo $userid; ?>'">Pay</a>';
+                                     htmlcont=htmlcont+' <a class="button is-solid accent-button " href="'+baseurl + '/coursesubscription/'+id+ + '?institution_id=' + <?php echo $institution_id; ?> + '&user_id=' + <?php echo $user_id; ?>'">Pay</a>';
                                      htmlcont=htmlcont+'</td>';
                                      htmlcont=htmlcont+'</tr>';
                                   }
@@ -517,10 +517,10 @@
      $(document).on('click', '.view_modal_course_details', function () {
 
         var id = $(this).data("id");
-        var userid = $(this).data("userid");
-        var institutionid = $(this).data("institutionid");
+        var user_id = $(this).data("user_id");
+        var institution_id = $(this).data("institution_id");
        //alert(userid);
-       loadcomments(id,userid,institutionid);
+       loadcomments(id,user_id,institution_id);
 
 
 

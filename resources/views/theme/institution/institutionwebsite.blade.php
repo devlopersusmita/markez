@@ -152,7 +152,7 @@
                                     else
                                     {
                                         ?>
-                                <a class="button is-solid green-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}"  data-id="{{$course->id}}" data-userid="{{Session::get('user_id')}}" data-institutionid="{{Session::get('institution_id')}}">
+                                <a class="button is-solid green-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}"  data-id="{{$course->id}}" data-user_id="{{Session::get('user_id')}}" data-institution_id="{{Session::get('institution_id')}}">
                                 <span>Free</span>
                                 </a>
                                 <?php
