@@ -859,7 +859,7 @@ public function coursesubscriptionpay(Request $request)
     public function coursesubscription($id)
 {
 $data_exist = 0;
-dd($user_id = Session::get('user_id'));
+
 //course subcription limit//
 $course_id=Course::where('id',$id)->first();
 //dd($course_id);
@@ -868,12 +868,12 @@ $course_subcription_count=CourseSubscription::where('course_id',$id)->count();
 //dd($course_subcription_count);
 if($course_subcription_count >=  $students_limit)
 {
-echo"jkmkjkj";
+
 return redirect()->route('home')->with('message', 'You Reach Maximum Student for this limit!');
 }
-if (Session::has('user_role') && isset(Session::get('user_role')->id))
+if (Session::has('user_role'))
 {
-$user_id = Session::get('user_role')->id;
+ $user_id = Session::get('user_id');
 //$user_id = Session::get('user_role')->id;
 $data_exist=CourseSubscription::where(['user_id'=>$user_id,'course_id'=>$id])->count();
 }
@@ -2730,9 +2730,9 @@ public function institutionwebsite(Request $request,$id)
      if($togonotadmin==true)
      {
      $data9= [];
-     if (Session::has('user_role') && isset(Session::get('user_role')->id))
+     if (Session::has('user_role'))
      {
-     $user_id = Session::get('user_role')->id;
+        $user_id = Session::get('user_id');
 
 
      $data9=CourseSubscription::where(['user_id'=>$user_id])->orderBy('id','desc')->get();
