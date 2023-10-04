@@ -142,7 +142,8 @@
                                     if($course->price > 0)
                                     {
                                     ?>
-                                <a class="button is-solid accent-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}" data-id="{{$course->id}}">
+                                <a class="button is-solid accent-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}" data-id="{{$course->id}}"
+                                data-userid="{{Session::get('institution_id')}}" data-institutionid="{{Session::get('user_id')}}">
                                 <i data-feather="shopping-cart"></i>
                                 <span>{{$course->price}}SAR</span>
                                 </a>
@@ -151,7 +152,7 @@
                                     else
                                     {
                                         ?>
-                                <a class="button is-solid green-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}"  data-id="{{$course->id}}">
+                                <a class="button is-solid green-button view_modal_course_details raised modal-trigger"  data-modal="course-details-help-modal" id="view_modal_course_details_{{$course->id}}"  data-id="{{$course->id}}" data-userid="{{Session::get('institution_id')}}" data-institutionid="{{Session::get('user_id')}}">
                                 <span>Free</span>
                                 </a>
                                 <?php

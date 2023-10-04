@@ -218,7 +218,7 @@
 
       });
 
-      function loadcomments(id)
+      function loadcomments(id,userid,institutionid)
       {
              $('#coursesubscriptionpay_id').val(id);
 
@@ -517,7 +517,9 @@
      $(document).on('click', '.view_modal_course_details', function () {
 
         var id = $(this).data("id");
-         loadcomments(id);
+        var userid = $(this).data("userid");
+        var institutionid = $(this).data("institutionid");
+         loadcomments(id,userid,institutionid);
 
 
 
