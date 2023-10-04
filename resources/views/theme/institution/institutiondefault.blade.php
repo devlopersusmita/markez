@@ -220,7 +220,7 @@
 
       function loadcomments(id,user_id,institution_id)
       {
-        alert(user_id);
+
              $('#coursesubscriptionpay_id').val(id);
 
               var url = baseurl + '/courseview/'+id;
@@ -521,7 +521,7 @@
         var id = $(this).data("id");
         var user_id = $(this).data("user_id");
         var institution_id = $(this).data("institution_id");
-       //alert(userid);
+       alert(institution_id);
        loadcomments(id,user_id,institution_id);
 
 
