@@ -862,10 +862,11 @@ public function coursesubscriptionpay(Request $request)
 
         //course subcription limit//
         $course_id=Course::where('id',$id)->first();
-        dd($course_id);
+        //dd($course_id);
 
         $students_limit=$course_id->students_limit;
         $course_subcription_count=CourseSubscription::where('course_id',$id)->count();
+        dd($course_subcription_count);
        if($course_subcription_count >=  $students_limit)
             {
                 return redirect()->route('home')->with('message', 'You Reach Maximum Student for this limit!');
