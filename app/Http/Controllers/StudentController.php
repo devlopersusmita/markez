@@ -712,13 +712,14 @@ class StudentController extends Controller
 
         $type = $course_details["type"];
         $user_id = $request->user_id;
-        dd($user_id);
+
         $institution_id =$request->institution_id;
         //($user_id,$institution_id);
 
 
         $existforthisuser=Course::leftJoin('course_contents', 'course_contents.course_id', '=', 'courses.id')
         ->get()->count();
+        dd($existforthisuser);
 
 
 
