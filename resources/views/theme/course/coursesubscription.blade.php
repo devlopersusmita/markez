@@ -2,7 +2,7 @@
 
 @section('content')
 
- <?php 
+ <?php
  if($order_details->status !='Paid')
  {
     ?>
@@ -11,7 +11,7 @@
     <!-- Moyasar Scripts -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>
     <script src="https://cdn.moyasar.com/mpf/1.7.3/moyasar.js"></script>
-     <?php 
+     <?php
 
      }
      ?>
@@ -78,14 +78,14 @@
                                     </div>
                                 @endif
 
-                              
+
 
                                 <div class="store-sections">
-                                    <div class="container">    
+                                    <div class="container">
 
-                                   <!-- {{$order_details}} 
-                                    {{$course}}  -->                                
-                                       
+                                   <!-- {{$order_details}}
+                                    {{$course}}  -->
+
                                         <p>{{$course->title}}</p>
                                         <p>{{$category_name}}</p>
                                         <p>{!!$course->description!!}</p>
@@ -94,40 +94,40 @@
                                          <form action="{{Route('coursesubscriptionpay')}}" method="POST"   enctype="multipart/form-data" >
                                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                             <input type="hidden" name="id" value="{{$id}}" />
-                                            
-                                           
-                                             <?php  
+
+
+                                             <?php
                                              if($data_exist >0)
                                              {
                                                 ?>
                                                  <div class="button is-solid green-button"  >
                                                     Subscribed
                                                 </div>
-                                                <?php 
+                                                <?php
 
                                              }
-                                             else 
+                                             else
                                              {
                                                 ?>
                                                 <button type="submit" class="button is-solid accent-button" name="Pay Confirm" >Pay Confirm</button>
-                                                <?php 
+                                                <?php
                                              }
                                              ?>
 
                                          </form>
                                          <?php */ ?>
 
-                                         <?php 
+                                         <?php
                                          if($order_details->status !='Paid')
                                          {
                                             ?>
                                             <div class="mysr-form"></div>
-                                            <?php 
+                                            <?php
 
                                          }
                                          ?>
 
-                                         
+
                                     </div>
                                 </div>
                             </div>
@@ -147,12 +147,12 @@
 
 
 
-      
+
 
 
 
 </div>
-<?php 
+<?php
  if($order_details->status !='Paid')
  {
     ?>
@@ -170,8 +170,8 @@
     total = parseFloat(total);
 
     total = total * 100 ;
-   
-    
+
+
     Moyasar.init({
         // Required
         // Specify where to render the form
@@ -196,9 +196,9 @@
 
         // Required
         //publishable_api_key: 'pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP',
-        publishable_api_key: "{{ env('MOYASAR_PUBLISHABLE_KEY') }}",
+        publishable_api_key: "pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP",
 
-        
+
 
         // Required
         // This URL is used to redirect the user when payment process has completed
@@ -206,7 +206,7 @@
         //callback_url: baseurl+'/orders',
         callback_url: "{{route('payment.callback',['order'=>$order_details->id])}}",
 
-       
+
 
         // Optional
         // Required payments methods
@@ -216,7 +216,7 @@
         ],
     });
 </script>
- <?php 
+ <?php
 
  }
  ?>
