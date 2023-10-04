@@ -874,10 +874,10 @@ public function coursesubscriptionpay(Request $request)
             }
 
 
-            if (Session::has('user_role'))
+            if (Session::has('user_role') && isset(Session::get('user_role')->id))
             {
-                $user = Session::get('user_role');
-                $user_id = $user['id'];
+            $user_id = Session::get('user_role')->id;
+
 
 
                 //$user_id = Session::get('user_role')->id;
