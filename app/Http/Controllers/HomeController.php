@@ -2741,7 +2741,7 @@ public function institutionwebsite(Request $request,$id)
      if($togonotadmin==true)
      {
      $data9= [];
-     if(Session::get('user_role'))
+     if (Session::has('user_role') && isset(Session::get('user_role')->id))
      {
      $user_id = Session::get('user_role')->id;
      $data9=CourseSubscription::where(['user_id'=>$user_id])->orderBy('id','desc')->get();
