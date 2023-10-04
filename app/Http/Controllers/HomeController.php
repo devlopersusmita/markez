@@ -866,7 +866,7 @@ public function coursesubscriptionpay(Request $request)
 
         $students_limit=$course_id->students_limit;
         $course_subcription_count=CourseSubscription::where('course_id',$id)->count();
-        //dd($course_subcription_count);
+        dd($course_subcription_count);
        if($course_subcription_count >=  $students_limit)
             {
                 echo"jkmkjkj";
