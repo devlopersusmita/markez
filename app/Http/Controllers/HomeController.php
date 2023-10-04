@@ -2714,7 +2714,7 @@ public function institutionwebsite(Request $request,$id)
       // new course added //
 
      $togonotadmin = false;
-     if(Session::get('user_role'))
+     if(Session::has('user_role'))
      {
      if(Session::get('user_role') == '4'){
      return redirect('/admin/dashboard');
