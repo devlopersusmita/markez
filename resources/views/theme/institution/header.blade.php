@@ -27,7 +27,7 @@
 
 			<div class="app-header-right">
 				<div class="header-btn-lg">
-					<a href="{{ route('/') }}"><img src="/images/logo.png" alt="logo">
+					<a href="{{ Route('home') }}"><img src="/images/logo.png" alt="logo">
 </a>
 				</div>
 				<div class="profile">
