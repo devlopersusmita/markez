@@ -37,20 +37,18 @@ $institution_company_settings = \App\Models\InstitutionCompanySetting::first();
 
 
 
+                  <a class="button is-cta is-solid primary-button raised" href="{{ route('custom.logout') }}" onclick="event.preventDefault(); document.getElementById('custom-logout-form').submit();">
+    Logout
+</a>
+
+<form id="custom-logout-form" action="{{ route('custom.logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
 
 
 
 
 
-                    <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
 
 
 
