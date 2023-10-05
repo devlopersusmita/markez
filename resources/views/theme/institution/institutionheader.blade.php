@@ -39,26 +39,30 @@
         <div class="header-btn">
             <a href="{{ Route('profile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn"> {{ Session::get('student_name') }}</a>
             <input type="hidden" value="{{$id}}" name="id">
-            <a href="{{ route('signout') }}" onclick="event.preventDefault(); document.getElementById('signout-form').submit();">
-    Logout
-</a>
+            <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
 
-<form id="signout-form" action="{{ route('signout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
 
         </div>
     @elseif(Session::get('user_role') == '2')
         <div class="header-btn">
             <a href="{{ Route('teacherprofile',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="login-btn"> {{ Session::get('teacher_name') }}</a>
             <input type="hidden" value="{{$id}}" name="id">
-            <a href="{{ route('signout') }}" onclick="event.preventDefault(); document.getElementById('signout-form').submit();">
-    Logout
-</a>
+            <a class="button is-cta is-solid primary-button raised" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
 
-<form id="signout-form" action="{{ route('signout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
 
         </div>
     @endif
