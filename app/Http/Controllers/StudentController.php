@@ -708,7 +708,7 @@ class StudentController extends Controller
     public function coursecontent(Request $request,$id)
     {
             $course_id = $id;
-            $check_course_accessibility = $this->check_course_accessibility($course_id);
+            $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
             //dd($check_course_accessibility);
             if($check_course_accessibility){
             $course_details = Course::where('id',$course_id)->first();
@@ -863,7 +863,7 @@ class StudentController extends Controller
       public function coursequize(Request $request,$id,$content_id)
       {
           $course_id = $id;
-          $check_course_accessibility = $this->check_course_accessibility($course_id);
+          $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
           if($check_course_accessibility){
           $course_content_id = $content_id;
           $course_details = Course::where('id',$course_id)->first();
@@ -1095,7 +1095,7 @@ class StudentController extends Controller
 
 
           $course_id = $id;
-          $check_course_accessibility = $this->check_course_accessibility($course_id);
+          $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
           if($check_course_accessibility){
           $course_content_id = $content_id;
           $course_content_quiz_id = $quiz_id;
@@ -1199,7 +1199,7 @@ class StudentController extends Controller
 
 
           $course_id = $id;
-          $check_course_accessibility = $this->check_course_accessibility($course_id);
+          $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
           if($check_course_accessibility){
           $course_content_id = $content_id;
           $course_content_quiz_id = $quiz_id;
