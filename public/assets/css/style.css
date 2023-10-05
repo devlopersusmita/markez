@@ -2891,6 +2891,7 @@ td.form_edit_btn {
     color: #1D1D1D;
     margin-bottom: 0;
     font-weight: 700;
+    word-break: break-all;
 }
 
 .statistics-grid {
@@ -3004,7 +3005,7 @@ td.form_edit_btn {
         padding-left: 10px;
     }
     .stat-info h2 {
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
@@ -3113,7 +3114,7 @@ td.form_edit_btn {
         padding-left: 6px;
     }
     .stat-info h2 {
-        font-size: 16px;
+        font-size: 14px;
     }
     .teacher-profile {
         padding: 15px 9px;
