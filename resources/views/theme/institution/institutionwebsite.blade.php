@@ -77,7 +77,7 @@
 <div class="store-sections">
     <div class="container">
          <h2>Our Courses</h2>
-		<span>Choose from over 210,000 online video courses with new additions published every month</span>
+		<span class="course-desc">Choose from over 210,000 online video courses with new additions published every month</span>
             <div class="container is-desktop">
                 @if(session()->has('message'))
                 <div class="box-heading margin_top_10 margin_bottom_10">
