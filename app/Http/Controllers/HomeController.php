@@ -3121,22 +3121,19 @@ public function logout(Request $request)
 {
     // Retrieve user role and institution ID from the session
     $userRole = Session::get('user_role');
-    //dd($userRole);
     $institutionId = Session::get('institution_id');
 
     // Perform role-specific redirection
     if ($userRole == '1' || $userRole == '2') {
-        $request->session()->flush();
-
+        // No need to flush the session here
         return redirect('/institutionwebsite/' . $institutionId);
     } elseif ($userRole == '3') {
-        $request->session()->flush();
-
+        // No need to flush the session here
         return redirect('/');
     } else {
-        $request->session()->flush();
-
+        // No need to flush the session here
         return redirect('/');
     }
 }
+
 }
