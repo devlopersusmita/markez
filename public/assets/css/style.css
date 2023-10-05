@@ -603,6 +603,8 @@ body {
     font-size: 16px;
     color: #4B4646;
     line-height: 25px;
+    margin-bottom: 20px;
+    display: block;
 }
 
 .tab-section {
