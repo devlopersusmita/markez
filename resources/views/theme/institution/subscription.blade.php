@@ -47,8 +47,11 @@
 
 
                     if($current_date_time > $seven_days_before ){?>
-                           <a href="" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;" >Renew</a>
+                           <a href="{{ route('subcription', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;" >Renew</a>
                     <?php } ?>
+
+
+
           </tr>
           @endforeach
 
