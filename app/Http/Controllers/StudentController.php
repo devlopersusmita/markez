@@ -527,7 +527,7 @@ class StudentController extends Controller
     public function check_course_accessibility($course_id,$user_id =0)
     {
         //$user_id = Auth::id();
-
+         //$user_id = Session::get('user_id');
         $users_subscription_exist = UserDetail::where(['user_id'=>$user_id,'user_type'=>'Student'])
         ->whereDate('subscription_end_date', '>=', Carbon::now())
         ->whereDate('subscription_start_date', '<=', Carbon::now())->count();
@@ -708,7 +708,7 @@ class StudentController extends Controller
     public function coursecontent(Request $request,$id)
     {
             $course_id = $id;
-           dd( $user_id = Session::get('user_id'));
+           $user_id = Session::get('user_id');
             $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
             //dd($check_course_accessibility);
             if($check_course_accessibility){
@@ -864,6 +864,7 @@ class StudentController extends Controller
       public function coursequize(Request $request,$id,$content_id)
       {
           $course_id = $id;
+          $user_id = Session::get('user_id');
           $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
           if($check_course_accessibility){
           $course_content_id = $content_id;
@@ -1096,6 +1097,7 @@ class StudentController extends Controller
 
 
           $course_id = $id;
+          $user_id = Session::get('user_id');
           $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
           if($check_course_accessibility){
           $course_content_id = $content_id;
@@ -1200,6 +1202,7 @@ class StudentController extends Controller
 
 
           $course_id = $id;
+          $user_id = Session::get('user_id');
           $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
           if($check_course_accessibility){
           $course_content_id = $content_id;
