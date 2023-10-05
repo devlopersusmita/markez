@@ -610,6 +610,10 @@ body {
     margin-bottom: 20px;
 }
 
+.view_modal_course_details span {
+    color: #fff;
+}
+
 .tab-section {
     padding-top: 28px;
 }
