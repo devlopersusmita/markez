@@ -41,13 +41,13 @@
 						<li><span>{{ Session::get('institute_name'); }}</span></li>
 					</ul>
 				</div>
-				<a class="button is-cta is-solid primary-button raised" href="{{ route('signout') }}">
-                                    {{ __('Logout') }}
-                                </a>
+                <a class="button is-cta is-solid primary-button raised" href="{{ route('custom.logout') }}" onclick="event.preventDefault(); document.getElementById('custom-logout-form').submit();">
+    Logout
+</a>
 
-                                <form  action="{{ route('signout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+<form id="custom-logout-form" action="{{ route('custom.logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
 			</div>
 		</div>
 	</div>
