@@ -124,6 +124,8 @@ body {
 
 .signup-btn {
     background: #326696;
+    line-height: 28px;
+    display: inline-block;
 }
 
 .header-btn a:last-child {
