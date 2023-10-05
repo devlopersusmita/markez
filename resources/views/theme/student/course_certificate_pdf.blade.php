@@ -1,28 +1,28 @@
      <?php if($purpose=='pdf'){?>
-                            
+
        <?php
     $company_settings = \App\Models\CompanySetting::first();
 
 
-    ?>                     
+    ?>
 
 
-                                 
-                                          
+
+
   <!DOCTYPE html>
                             <html lang="en">
                                <head>
                                   <meta charset="UTF-8">
                                   <meta http-equiv="X-UA-Compatible" content="IE=edge">
                                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                 <title>{{$company_settings->name}}</title>
-    <link rel="icon" type="image/png" href="{{$company_settings->fav_icon!= ''?asset($company_settings->fav_icon):asset('assets/img/favicon.png')}}" />
+                                 <title>{{@$company_settings->name}}</title>
+    <link rel="icon" type="image/png" href="{{@$company_settings->fav_icon!= ''?asset(@$company_settings->fav_icon):asset('assets/img/favicon.png')}}" />
      <meta name="csrf-token" content="{{ csrf_token() }}">
-                                  
+
                                   <style type="text/css">
                                      body {
                               margin: 0;
-                              box-sizing: border-box; 
+                              box-sizing: border-box;
                             }
 
                               .certificate2-bg{
@@ -43,7 +43,7 @@
                             .certificate2-bg h1 {
                             font-size: 18px;
                             line-height: normal;
-                               
+
                                 font-weight: 200;
                                 margin: 0;
                                 text-transform: uppercase;
@@ -63,7 +63,7 @@
                                 margin: 0;
                             }
                             .certificate2-bg h5 {
-                                
+
                                 margin: 0;
                             }
                             .sign2-sec {
@@ -73,7 +73,7 @@
                                 padding: 20px 0;
                             }
                             .sign2-sec-l, .sign2-sec-r {
-                                
+
                                 padding-top: 5px;
                                 float:left;
                             }
@@ -93,7 +93,7 @@
                             .sign-sec-l .sign-img img {
                                 width: 63px;
                                 padding-bottom: 4px;
-                               
+
                             }
 
                                                         .row {
@@ -125,14 +125,14 @@
                                   <div class="container-fluid">
                                      <div class="row">
                                         <div class="col-sm-12 text-center">
-                                           <img src="{{$company_settings->logo!= ''?asset($company_settings->logo):asset('assets/img/logo/friendkit-bold.svg')}}" height="60">
-                                           <h1>{{$company_settings->name}}</h1>
+                                           <img src="{{@$company_settings->logo!= ''?asset($company_settings->logo):asset('assets/img/logo/friendkit-bold.svg')}}" height="60">
+                                           <h1>{{@$company_settings->name}}</h1>
                                            <h2>Certificate of Completion</h2>
                                            <h5>This is to certify that</h5>
-                                         
+
                                             <h3>
-                                                        <?php if($student_details->avatar!=''){echo "<img src='".asset($student_details->avatar)."' width='80' />";}?></h3><h3> {{$student_details->name}}</h3>
-                                                   
+                                                        <?php if(@$student_details->avatar!=''){echo "<img src='".asset(@$student_details->avatar)."' width='80' />";}?></h3><h3> {{$student_details->name}}</h3>
+
 
                                            <h5>has completed the course</h5>
 
@@ -141,7 +141,7 @@
                                            <div class="sign2-sec">
                                               <div class="sign-sec-l">
                                                  <div class="sign-img">
-                                                    <img src="{{$company_settings->director_signature!= ''?asset($company_settings->director_signature):asset('assets/img/certificate/signature.png')}}" alt="signature">
+                                                    <img src="{{@$company_settings->director_signature!= ''?asset(@$company_settings->director_signature):asset('assets/img/certificate/signature.png')}}" alt="signature">
                                                  </div>
                                                 <div class="sign-text">
                                                  Director
@@ -176,7 +176,7 @@
 
         }
         ?>
-                           
 
 
-                       
+
+

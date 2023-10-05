@@ -1071,7 +1071,7 @@ class StudentController extends Controller
                     if($download=='pdf')
                     {
                         set_time_limit(300);
-                         $user_id = Auth::id();
+                        $user_id = Session::get('user_id');
                         $course = Course::where('id',$course_id)->first();
                         $student_details = User::where('id',$user_id)->first();
 
