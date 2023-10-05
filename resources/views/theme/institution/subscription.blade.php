@@ -41,7 +41,7 @@
             <?php
                     $current_date_time = Carbon\Carbon::now();
                     $current_date_time->toDateString();
-                    dd($end_date =  strtotime($subscription['end_date']));
+                    $end_date =  strtotime($subscription['end_date']);
                     $end_date =  date('Y-m-d',$end_date);
                    $seven_days_before = date('Y-m-d', strtotime('-7 day', strtotime($end_date)));
 
