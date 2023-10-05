@@ -19,7 +19,7 @@
                                             </div>
                                             <div class="stat-info">
                                                 <h5>Payment</h5>
-                                                <h2>${{$total_payment}} </h2>
+                                                <h2>{{$total_payment}}SAR</h2>
                                             </div>
 										</div>
 									</div>
