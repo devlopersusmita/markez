@@ -2980,6 +2980,15 @@ td.form_edit_btn {
     width: 100%;
 }
 
+.course-details-help-modal .card-heading {
+    width: 100%;
+}
+
+.course-details-help-modal .card-heading h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
 
 /* Responsive CSS  */
 
