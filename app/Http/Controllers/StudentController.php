@@ -715,9 +715,9 @@ class StudentController extends Controller
             $course_details = Course::where('id',$course_id)->first();
 
         $type = $course_details["type"];
-dd($user_id = $request->user_id);
+         $user_id = $request->user_id;
 
-        $institution_id =$request->institution_id;
+dd($institution_id =$request->institution_id);
         //($user_id,$institution_id);
 
 
