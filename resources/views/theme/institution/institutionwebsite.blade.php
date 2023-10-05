@@ -203,7 +203,7 @@
 							<span class="fa fa-star checked"></span>
 							<small>(380,527)</small>
 						</div>
-						<p class="course-price"><strong>${{$popular_course->price}}</strong><span>$3,399</span></p>
+						<p class="course-price"><strong>{{$popular_course->price}}SAR</strong><span>3,399SAR</span></p>
 					</div>
 				</div>
 			</div>
@@ -241,7 +241,7 @@
 							<span class="fa fa-star checked"></span>
 							<small>(380,527)</small>
 						</div>
-						<p class="course-price"><strong>${{$popular_course->price}}</strong><span>$3,399</span></p>
+						<p class="course-price"><strong>{{$popular_course->price}}SAR</strong><span>3,399SAR</span></p>
 					</div>
 				</div>
 			</div>
