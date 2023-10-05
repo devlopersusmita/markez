@@ -50,7 +50,7 @@
                            <a href="{{ route('subcription', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;" >Renew</a>
                     <?php } ?>
 
-
+                    </td>
 
           </tr>
           @endforeach
