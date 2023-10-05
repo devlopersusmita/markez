@@ -3117,5 +3117,12 @@ public function postteacherstudentlogin(Request $request)
 
 
 }
+public function signout(Request $request)
+    {
+        // Clear the user's session data
+        $request->session()->flush();
 
+        // Redirect to a desired page after logout
+        return redirect('/');
+    }
 }
