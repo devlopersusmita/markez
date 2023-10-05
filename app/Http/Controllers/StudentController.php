@@ -708,6 +708,7 @@ class StudentController extends Controller
     public function coursecontent(Request $request,$id)
     {
             $course_id = $id;
+           dd( $user_id = Session::get('user_id'));
             $check_course_accessibility = $this->check_course_accessibility($course_id,$user_id);
             //dd($check_course_accessibility);
             if($check_course_accessibility){
