@@ -715,7 +715,7 @@ class StudentController extends Controller
             $course_details = Course::where('id',$course_id)->first();
 
         $type = $course_details["type"];
-        $user_id = $request->user_id;
+dd($user_id = $request->user_id);
 
         $institution_id =$request->institution_id;
         //($user_id,$institution_id);
@@ -723,7 +723,7 @@ class StudentController extends Controller
 
         $existforthisuser=Course::leftJoin('course_contents', 'course_contents.course_id', '=', 'courses.id')
         ->get()->count();
-        dd($existforthisuser);
+        //dd($existforthisuser);
 
 
 
