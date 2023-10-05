@@ -143,7 +143,7 @@ Route::post('studentinstitutionstudentdelete/{id}/{type}',  [HomeController::cla
 Route::post('studentteacherstudentsend/{id}/{type}',  [HomeController::class,'studentteacherstudentsend'])->name('studentteacherstudentsend');
 
 Route::post('studentinstitutionstudentsend/{id}/{type}',  [HomeController::class,'studentinstitutionstudentsend'])->name('studentinstitutionstudentsend');
-Route::get('/custom-logout', [HomeController::class,'logout'])->name('custom.logout');
+Route::match(['get', 'post'], '/custom-logout', [HomeController::class,'logout'])->name('custom.logout');
 
 
 //start INstitution register//
