@@ -2985,8 +2985,8 @@ td.form_edit_btn {
 }
 
 .course-details-help-modal .card-heading h3 {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 24px !important;
+    font-weight: 600 !important;
 }
 
 
