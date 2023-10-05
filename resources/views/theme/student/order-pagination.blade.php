@@ -39,7 +39,7 @@
                 <td>
                     <table ><tr><td>
                     <?php if($order['status']=='Paid'){?>
-                         <a href= '{{Route("studentcoursecontent",["id"=>$order['course_id']])}}' class="button is-solid blue-button raised"   style="cursor: pointer;">Proceed</a>
+                         <a href= "{{Route('studentcoursecontent',['id'=>$order['course_id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid blue-button raised"   style="cursor: pointer;">Proceed</a>
 
 
 
@@ -50,7 +50,7 @@
 
 
                     <?php if($order['status']=='Pending'){?>
-                       <a href='{{Route("coursesubscription",["id"=>$order['course_id']])}}' class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;">Pay</a>
+                       <a href="{{Route('coursesubscription',['id'=>$order['course_id'],'user_id'=>$user_id,'institution_id'=>$institution_id])}}" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;">Pay</a>
 
 
 
