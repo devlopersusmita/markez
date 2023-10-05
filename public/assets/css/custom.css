@@ -137,6 +137,16 @@
                             height: 100% !important;
                         }
                         
+                        .store-sections .product-card .product-actions {
+                            position: absolute !important;
+                            width: 90% !important;
+                            bottom: 15px !important;
+                        }
+                        
+                        .course_cat {
+                            margin-bottom: 40px;
+                        }
+                        
                         .animate-charcter {
                             text-transform: uppercase;
                             background-image: linear-gradient( -225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
