@@ -145,6 +145,7 @@ Route::post('studentteacherstudentsend/{id}/{type}',  [HomeController::class,'st
 Route::post('studentinstitutionstudentsend/{id}/{type}',  [HomeController::class,'studentinstitutionstudentsend'])->name('studentinstitutionstudentsend');
 Route::get('/custom-logout', [HomeController::class,'logout'])->name('custom.logout');
 
+
 //start INstitution register//
 Route::get('/register/step1', [RegisterController::class, 'showStep1'])->name('register.step1');
 Route::post('/Step1submit', [RegisterController::class, 'Step1submit'])->name('Step1submit');

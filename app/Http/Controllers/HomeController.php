@@ -3117,19 +3117,24 @@ public function postteacherstudentlogin(Request $request)
 
 
 }
-public function logout()
+public function logout(Request $request)
 {
-    //$role = Session::get('user_role'); // Assuming you have a 'role' field in your User model
+    // Retrieve user role and institution ID from the session
+    $userRole = Session::get('user_role');
+    $institutionId = Session::get('institution_id');
 
     // Perform role-specific redirection
-    if (Session::get('user_role') == '1' || Session::get('user_role') == '2') {
-        Auth::logout();
+    if ($userRole == '1' || $userRole == '2') {
+        $request->session()->flush();
+
         return redirect('/');
-    } elseif (Session::get('user_role') == '3') {
-        Auth::logout();
-        return redirect('/institution-home');
+    } elseif ($userRole == '3') {
+        $request->session()->flush();
+
+        return redirect('/institutionwebsite/' . $institutionId);
     } else {
-        Auth::logout();
+        $request->session()->flush();
+
         return redirect('/');
     }
 }
