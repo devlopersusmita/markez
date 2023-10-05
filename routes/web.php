@@ -143,7 +143,7 @@ Route::post('studentinstitutionstudentdelete/{id}/{type}',  [HomeController::cla
 Route::post('studentteacherstudentsend/{id}/{type}',  [HomeController::class,'studentteacherstudentsend'])->name('studentteacherstudentsend');
 
 Route::post('studentinstitutionstudentsend/{id}/{type}',  [HomeController::class,'studentinstitutionstudentsend'])->name('studentinstitutionstudentsend');
-Route::get('/signout', [HomeController::class,'signout'])->name('signout');
+Route::match(['get', 'post'], [HomeController::class,'signout'])->name('signout');
 //start INstitution register//
 Route::get('/register/step1', [RegisterController::class, 'showStep1'])->name('register.step1');
 Route::post('/Step1submit', [RegisterController::class, 'Step1submit'])->name('Step1submit');
