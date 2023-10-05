@@ -3123,6 +3123,8 @@ public function logout(Request $request)
     $userRole = Session::get('user_role');
     $institutionId = Session::get('institution_id');
 
+    $request->session()->flush();
+
     // Perform role-specific redirection
     if ($userRole == '1' || $userRole == '2') {
         // No need to flush the session here
