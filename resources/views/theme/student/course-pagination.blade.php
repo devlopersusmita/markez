@@ -25,7 +25,7 @@
                   <td>{{$course['category_name']}} </td>
                   <td><?php if($course['completed']==1){?> <div class="badge" style="color: #1ce589;" >
                     <i data-feather="check"></i>
-                    <a class="button is-solid blue-button raised" href="{{route('studentcoursecertificate',['id'=>$course['id'],'download'=>'pdf'])}}" target="_blank">Download Certificate</a>
+                    <a class="button is-solid blue-button raised" href="{{route('studentcoursecertificate',['id'=>$course['id'],'download'=>'pdf','user_id'=>$user_id,'institution_id'=>$institution_id])}}" target="_blank">Download Certificate</a>
 
                 </div><?php } ?> </td>
                   <td>{{$course['type']}} </td>
