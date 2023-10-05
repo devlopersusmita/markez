@@ -89,7 +89,7 @@
                     @foreach($courses as $course)
                     <!-- {{($course->content_course_type)}} -->
                     @if($course->content_course_type == 1)
-                    <div class="column is-one-fifth-fullhd is-one-quarter-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile">
+                    <div class="column is-one-fifth-fullhd is-one-quarter-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile courser_grid">
                         <div class="product-card" >
                         @if(!empty($course_subscriptions))
                         @foreach($course_subscriptions as $course_subscription)

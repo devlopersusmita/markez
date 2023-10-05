@@ -133,6 +133,10 @@
                             width: auto;
                         }
                         
+                        .store-sections .product-card {
+                            height: 100% !important;
+                        }
+                        
                         .animate-charcter {
                             text-transform: uppercase;
                             background-image: linear-gradient( -225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
