@@ -128,10 +128,6 @@
                             overflow-x: hidden;
                         }
                         
-                        .course_description_min_height {
-                            min-height: 120px;
-                        }
-                        
                         .store-sections .product-card .product-image img {
                             height: 120px;
                             width: auto;

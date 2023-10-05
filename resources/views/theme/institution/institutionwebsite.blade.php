@@ -111,7 +111,7 @@
                         <div class="product-info">
                             <h3>{{$course->title}}</h3>
                             <p>
-                            <div class="course_description_min_height"><?php echo substr(strip_tags($course->description),0,100); ?></div>
+                            <div class="course_description_min_height "><?php echo substr(strip_tags($course->description),0,100); ?></div>
                             </p>
                             <p><strong>{{$course->category_name}}</strong></p>
                         </div>
