@@ -2972,6 +2972,14 @@ td.form_edit_btn {
     font-size: 16px;
 }
 
+.course-details-help-modal .modal-content {
+    max-width: 500px;
+}
+
+.course-details-help-modal .card-body {
+    width: 100%;
+}
+
 
 /* Responsive CSS  */
 
