@@ -1269,56 +1269,93 @@ $(document).on('click', '.coursecontentdelete_modal', function () {
             });
   }
 
-  //metting start //
   if (newMeetingForm.length) {
-    newMeetingForm.on('submit', function (e) {
-        e.preventDefault();
-        $('#course_meeting_add').html('Sending..');
-        var formData = new FormData(this);
 
-        $.ajax({
-            beforeSend: function () {
-                $('.ajax-loader').css("visibility", "visible");
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: baseurl + '/online_classes_store',
-            method: "POST",
-            data: formData,
-            dataType: 'JSON',
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: function (data) {
-                console.log(data, "response");
-                $('#loading_course_meeting_add').hide();
-                $('#course_meeting_add').html('Save');
-                $('#search_btn').trigger('click');
+
+    newMeetingForm.on('submit', function (e) {
+
+      e.preventDefault();
+
+// console.log(baseurl)
+
+$('#course_meeting_add').html('Sending..');
+
+
+var formData = new FormData(this);
+//   newurl = baseurl.replaceAll(" ",'') + '/institutioncoursestore'
+
+ $('#loading_course_meeting_add').show();
+
+var form_data = new FormData(this);
+
+
+
+$.ajax({
+    beforeSend: function(){
+      $('.ajax-loader').css("visibility", "visible");
+    },
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    //data: $('#postForm').serialize(),
+    url:baseurl + '/online_classes_store',
+    //alert(url);
+     method:"POST",
+     //data:new FormData(this),
+     data:form_data,
+               dataType:'JSON',
+               contentType: false,
+               cache: false,
+               processData: false,
+              success: function (data) {
+               //var responce = data.data[0];
+               console.log(data, "response");
+
+
+                 $('#loading_course_meeting_add').hide();
+
+               $('#course_meeting_add').html('Save');
+               //RefreshTable()
+                   //alert(JSON.stringify(data));
+                  // $('#modals-add-meeting').reset();
+                 // $("#modals-add-meeting").load(location.href + " #modals-add-meeting");
+
+
+                    $('#search_btn').trigger('click');
+                //  $('body').removeClass('modal-open');
+                // $('body').css('padding-right', '0px');
+                // $('.modal-backdrop').remove();
                 $('#topic').val('');
-                $('#start_time').val('');
+                 $('#start_time').val('');
                 $('#duration').val('');
+
+              // $('#modals-add-meeting').hide();
                 $('#modals-add-meeting').modal('hide');
-            },
-            error: function (data) {
+
+
+              },
+              error: function (data) {
                 console.log(data, "error response");
-                alert(JSON.stringify(data));
-                $('#course_meeting_add').html('Save Changes');
+                  alert(JSON.stringify(data));
+                  $('#course_meeting_add').html('Save Changes');
+
+                   //newGameSidebar.modal('hide');
                 $('#search_btn').trigger('click');
-                $('body').removeClass('modal-open');
+                 $('body').removeClass('modal-open');
                 $('body').css('padding-right', '0px');
                 $('.modal-backdrop').remove();
-                $('#loading_course_meeting_add').hide();
-            },
-            complete: function () {
+                 $('#loading_course_meeting_add').hide();
+
+              } ,
+              complete: function(){
                 $('.ajax-loader').css("visibility", "hidden");
-            }
-        });
+                 //$('#loading_course_meeting_add').hide();
+              }
+          });
+
+
     });
-}
-
-
-  //metting end //
+  }
 
 //   function RefreshTable() {
 //        $( ".tableid1" ).load( `${baseurl + '/online_classes_store'} .tableid1` );

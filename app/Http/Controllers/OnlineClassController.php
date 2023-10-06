@@ -257,14 +257,14 @@ public function attendancestore(Request $request,$id,$online_class_id)
         ]);
 
         if ($v->fails()) {
-            return response()->json(['message' => 'Validation failed', 'errors' => $v->errors()], 400);
+            return redirect()->back()->withErrors($v)->withInput();
         }
 
         // Retrieve the Zoom user
         $user = Zoom::user()->find($request->user_id);
 
         if (!$user) {
-            return response()->json(['message' => 'Zoom user not found'], 404);
+            return redirect()->back()->with('error', 'Zoom user not found')->withInput();
         }
 
         // Create Zoom meeting
@@ -292,29 +292,32 @@ public function attendancestore(Request $request,$id,$online_class_id)
             $meeting = $user->meetings()->save($meeting);
 
             // Create an entry in your database for the online class
-            $onlineClass = new OnlineClasse();
-            $onlineClass->course_id = $request->course_id;
-            $onlineClass->course_content_id = $request->course_content_id;
-            $onlineClass->user_id = $request->user_id;
-            $onlineClass->meeting_id = $meeting->id;
-            $onlineClass->topic = $request->topic;
-            $onlineClass->start_at = $request->start_time;
-            $onlineClass->duration = $meeting->duration;
-            $onlineClass->password = $meeting->password;
-            $onlineClass->start_url = $meeting->start_url;
-            $onlineClass->join_url = $meeting->join_url;
+            $online_classes = new online_classe();
+            $online_classes->course_id = $request->course_id;
+
+
+            $online_classes->course_content_id = $request->course_content_id;
+            $online_classes->user_id = $created_by;
+            $online_classes->meeting_id = $meeting->id;
+            $online_classes->topic = $request->topic;
+            $online_classes->start_at = $request->start_time;
+            $online_classes->duration = $meeting->duration;
+            $online_classes->password = $meeting->password;
+            $online_classes->start_url = $meeting->start_url;
+            $online_classes->join_url = $meeting->join_url;
 
             if ($onlineClass->save()) {
-                return response()->json(['message' => 'Successfully created Zoom meeting']);
+                Session::flash('success', 'Successfully created Zoom meeting!');
+                return response()->json(['message' => 'Successfully created Zoom meeting!']);
             } else {
-                return response()->json(['message' => 'Failed to save online class details'], 500);
+                Session::flash('error', 'Something went wrong while saving the online class.');
+                return response()->json(['message' => 'Something went wrong while saving the online class.']);
             }
         } catch (Exception $e) {
             // Handle exceptions, such as API errors
-            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+            return redirect()->back()->with('error', 'Error: ' . $e->getMessage())->withInput();
         }
     }
-
 
     /**
      * Display the specified resource.
