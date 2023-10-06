@@ -288,13 +288,6 @@ public function attendancestore(Request $request,$id,$online_class_id)
             ]);
             */
 
-            Session::flash('user', $user);
-
-            return response()->json([
-             'message' => 'mmm'
-           ]);
-           exit();
-           die();
 
         $meetingData = [
             'topic' => $request->topic,
