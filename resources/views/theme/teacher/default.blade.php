@@ -1309,8 +1309,7 @@ $.ajax({
                processData: false,
               success: function (data) {
                //var responce = data.data[0];
-                console.log(responce,"ertwer")
-
+               console.log(data, "response");
 
 
                  $('#loading_course_meeting_add').hide();
@@ -1336,6 +1335,7 @@ $.ajax({
 
               },
               error: function (data) {
+                console.log(data, "error response");
                   alert(JSON.stringify(data));
                   $('#course_meeting_add').html('Save Changes');
 

@@ -45,7 +45,7 @@
                                         <h2>&nbsp;</h2>
 
                                         <div class="header-actions">
-                                            <a class=""  href="{{Route('online_classes',['id'=>$course_id,'content_id'=>$course_content_details->id,'user_id'=>$user_id,'institution_id'=>$institution_id])}}"  id='search_btn'></a>
+                                            <a   href="{{Route('online_classes',['id'=>$course_id,'content_id'=>$course_content_details->id,'user_id'=>$user_id,'institution_id'=>$institution_id])}}"  id='search_btn'></a>
 
                                         </div>
 
