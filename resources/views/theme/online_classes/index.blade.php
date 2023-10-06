@@ -79,7 +79,7 @@
                              <div id="overview-content" class="content-section is-active">
 
                                 <div id="pagination_data">
-                                    @include("theme.online_classes.index-pagination",['online_classes'=>$online_classes,'courses'=>$courses,'coursecontents'=>$coursecontents,'total_subscription'=>$total_subscription])
+                                    @include("theme.online_classes.index-pagination",['online_classes'=>$online_classes,'courses'=>$courses,'coursecontents'=>$coursecontents,'total_subscription'=>$total_subscription,'user_id'=>$user_id,'institution_id'=>$institution_id])
                                 </div>
                             </div>
 
