@@ -285,12 +285,12 @@ public function attendancestore(Request $request,$id,$online_class_id)
               'message' => 'mmm'
             ]);
             */
-            Session::flash('user',$user);
-            return response()->json([
-                 'message' => 'Something wrong!',
+            // Session::flash('user',$user);
+            // return response()->json([
+            //      'message' => 'Something wrong!',
 
-               ]);
-               exit();
+            //    ]);
+            //    exit();
 
         $meetingData = [
             'topic' => $request->topic,

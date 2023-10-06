@@ -1308,7 +1308,7 @@ $.ajax({
                processData: false,
               success: function (data) {
                // var responce = data.data[0];
-                //console.log(responce,"ertwer")
+                console.log(responce,"ertwer")
 
 
 
