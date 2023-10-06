@@ -249,7 +249,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
     }
     public function store(Request $request)
     {
-        dd($user_id = $request->user_id);
+        $user_id = $request->user_id;
          $v = Validator::make($request->all(),[
         'topic' => 'required',
         'start_time' =>'required',
