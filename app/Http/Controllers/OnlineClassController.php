@@ -268,77 +268,77 @@ public function attendancestore(Request $request,$id,$online_class_id)
 
 
 
-         //$meeting = $this->createMeeting($request);
+                    //$meeting = $this->createMeeting($request);
 
-         //$user = Zoom::find($request->user_id);
-        // $user_id = Session::get('user_id');
-   // Replace this line
-// $user = Zoom::$user_id->first();
+                    //$user = Zoom::find($request->user_id);
+                    // $user_id = Session::get('user_id');
+            // Replace this line
+            // $user = Zoom::$user_id->first();
 
-// With this code
-$user_id = Session::get('user_id');
-$user = Zoom::find($user_id);
-
-
-            /*  $user = Zoom::user()->create([
-                    'first_name' => 'First Name',
-                    'last_name' => 'Last Name',
-                    'email' => 'test@test.com',
-                    'password' => 'Aa@12345'
-                ]);
-
-             Session::flash('success', 'mmm');
-
-             return response()->json([
-              'message' => 'mmm'
-            ]);
-            */
+            // With this code
+            $user_id = Session::get('user_id');
+            $user = Zoom::find($user_id);
 
 
-        $meetingData = [
-            'topic' => $request->topic,
-            'duration' => $request->duration,
-            'password' => $request->password,
-            'start_time' => $request->start_time,
-            'timezone' => config('zoom.timezone')
-          // 'timezone' => 'Africa/Cairo'
-        ];
-        $meeting = Zoom::meeting()->make($meetingData);
+                    /*  $user = Zoom::user()->create([
+                            'first_name' => 'First Name',
+                            'last_name' => 'Last Name',
+                            'email' => 'test@test.com',
+                            'password' => 'Aa@12345'
+                        ]);
+
+                    Session::flash('success', 'mmm');
+
+                    return response()->json([
+                    'message' => 'mmm'
+                    ]);
+                    */
 
 
-        $meeting->settings()->make([
-            'join_before_host' => false,
-            'host_video' => false,
-            'participant_video' => false,
-            'mute_upon_entry' => true,
-            'waiting_room' => true,
-            'approval_type' => config('zoom.approval_type'),
-            'audio' => config('zoom.audio'),
-            'auto_recording' => config('zoom.auto_recording')
-        ]);
-
-        $meeting =  $user->meetings()->save($meeting);
-        $created_by =  $request->user_id;
+                    $meetingData = [
+                        'topic' => $request->topic,
+                        'duration' => $request->duration,
+                        'password' => $request->password,
+                        'start_time' => $request->start_time,
+                        'timezone' => config('zoom.timezone')
+                    // 'timezone' => 'Africa/Cairo'
+                    ];
+                    $meeting = Zoom::meeting()->make($meetingData);
 
 
+                    $meeting->settings()->make([
+                        'join_before_host' => false,
+                        'host_video' => false,
+                        'participant_video' => false,
+                        'mute_upon_entry' => true,
+                        'waiting_room' => true,
+                        'approval_type' => config('zoom.approval_type'),
+                        'audio' => config('zoom.audio'),
+                        'auto_recording' => config('zoom.auto_recording')
+                    ]);
 
-            $online_classes = new online_classe();
-            $online_classes->course_id = $request->course_id;
+                    $meeting =  $user->meetings()->save($meeting);
+                    $created_by =  $request->user_id;
 
 
-            $online_classes->course_content_id = $request->course_content_id;
-            $online_classes->user_id = $created_by;
-            $online_classes->meeting_id = $meeting->id;
-            $online_classes->topic = $request->topic;
-            $online_classes->start_at = $request->start_time;
-            $online_classes->duration = $meeting->duration;
-            $online_classes->password = $meeting->password;
-            $online_classes->start_url = $meeting->start_url;
-            $online_classes->join_url = $meeting->join_url;
 
-             if($online_classes->save()){
+                        $online_classes = new online_classe();
+                        $online_classes->course_id = $request->course_id;
 
-                // $data7=online_classe::leftJoin('courses', 'courses.id', '=', 'online_classes.course_id')->leftJoin('course_contents', 'course_contents.id', '=', 'online_classes.course_content_id')->orderBy('online_classes.id','desc')->where(['online_classes.user_id'=>$user_id])->select('online_classes.*','courses.title as course_title','course_contents.title as coursecontent_title')->get();
+
+                        $online_classes->course_content_id = $request->course_content_id;
+                        $online_classes->user_id = $created_by;
+                        $online_classes->meeting_id = $meeting->id;
+                        $online_classes->topic = $request->topic;
+                        $online_classes->start_at = $request->start_time;
+                        $online_classes->duration = $meeting->duration;
+                        $online_classes->password = $meeting->password;
+                        $online_classes->start_url = $meeting->start_url;
+                        $online_classes->join_url = $meeting->join_url;
+
+                        if($online_classes->save()){
+
+                            // $data7=online_classe::leftJoin('courses', 'courses.id', '=', 'online_classes.course_id')->leftJoin('course_contents', 'course_contents.id', '=', 'online_classes.course_content_id')->orderBy('online_classes.id','desc')->where(['online_classes.user_id'=>$user_id])->select('online_classes.*','courses.title as course_title','course_contents.title as coursecontent_title')->get();
 
              Session::flash('success', 'successfully zoom meeting created!');
 
