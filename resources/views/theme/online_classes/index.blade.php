@@ -129,8 +129,8 @@
 
                     <input type="hidden" name="course_content_id" value="{{$course_content_details->id}}"/>
 
-                    <input type="hidden" value="{{$user_id}}" name="user_id">
-            <input type="hidden" value="{{$institution_id}}" name="institution_id">
+                    <input type="text" value="{{$user_id}}" name="user_id">
+            <input type="text" value="{{$institution_id}}" name="institution_id">
 
 
                     <div class="login-form">
