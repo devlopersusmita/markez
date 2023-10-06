@@ -8,9 +8,8 @@ trait MeetingZoomTrait
 {
     public function createMeeting($request){
 
-        //$user = Zoom::user()->first();
-        $user_id = Session::get('user_id');
-        $user = Zoom::user()->find($user_id);
+        $user = Zoom::user()->first();
+
 
         $meetingData = [
             'topic' => $request->topic,
