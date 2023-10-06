@@ -277,7 +277,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
 
 // With this code
 $user_id = Session::get('user_id');
-$user = User::find($user_id);
+$user = Zoom::find($user_id);
 
 
             /*  $user = Zoom::user()->create([
