@@ -124,7 +124,7 @@
             </div>
             <div class="card-body">
 
-                <form class="add-new-meeting" action="{{ route('online_classes.store') }}"  enctype="multipart/form-data" >
+                <form class="add-new-meeting"   enctype="multipart/form-data" >
                     <input type="hidden" name="course_id" value="{{$coursecontents[0]->course_id}}"/>
 
                     <input type="hidden" name="course_content_id" value="{{$course_content_details->id}}"/>

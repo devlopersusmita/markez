@@ -260,6 +260,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
 
     if ($v->fails())
     {
+        echo "error";
        //return redirect()->route('create.category')->withInput()->with('error',$v->messages());
        return redirect()->back()->withErrors($v)->withInput();
     }
