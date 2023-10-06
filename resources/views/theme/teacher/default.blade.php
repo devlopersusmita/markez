@@ -1310,7 +1310,7 @@ $.ajax({
               success: function (data) {
                //var responce = data.data[0];
                 //console.log(responce,"ertwer")
-                window.location.href=`/online_classes?user_id={{$_GET['user_id']}}&institution_id={{$_GET['institution_id']}}`;
+
 
 
                  $('#loading_course_meeting_add').hide();
