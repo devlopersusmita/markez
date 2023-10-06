@@ -1299,7 +1299,7 @@ $.ajax({
     },
     //data: $('#postForm').serialize(),
     url:baseurl + '/online_classes_store',
-    alert(url);
+    //alert(url);
      method:"POST",
      //data:new FormData(this),
      data:form_data,
@@ -1309,7 +1309,7 @@ $.ajax({
                processData: false,
               success: function (data) {
                //var responce = data.data[0];
-                //console.log(responce,"ertwer")
+                console.log(responce,"ertwer")
 
 
 
