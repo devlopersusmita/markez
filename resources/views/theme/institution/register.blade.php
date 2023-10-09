@@ -24,7 +24,9 @@
                                                 <div class="control">
                                                      <input id="name" type="text" class="input" name="name" value="" required placeholder="Enter your name">
 
-
+                                                                        @error('name')
+                        <p class="help is-danger">{{ $message }}</p>
+                    @enderror
                                                 </div>
                                             </div>
                                         </div>

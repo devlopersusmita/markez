@@ -2903,10 +2903,20 @@ public function teacherstudentlogin(Request $request,$id)
 public function registerstore(Request $request)
 {
 
+
     $request->validate([
         'email' => 'required|email|unique:users',
         'password' => 'required',
+    ], [
+        'email.required' => 'Please enter your email address.',
+        'email.email' => 'Invalid email format.',
+        'email.unique' => 'This email is already taken.',
+        'password.required' => 'Please enter your password.',
     ]);
+
+
+    // Validate the request data
+    $validatedData = $request->validate($rules);
 
     $institution_id = $request->institution_id;
     //dd(institution_id)
