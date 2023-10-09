@@ -2904,154 +2904,166 @@ public function registerstore(Request $request)
 {
 
 
-    $request->validate([
-        'email' => 'required|email|unique:users',
-        'password' => 'required',
-    ], [
-        'email.required' => 'Please enter your email address.',
-        'email.email' => 'Invalid email format.',
-        'email.unique' => 'This email is already taken.',
-        'password.required' => 'Please enter your password.',
+    $v = Validator::make($request->all(),[
+        'name' => 'required|string|max:255',
+        'username' => 'required|string|max:255',
+        'phone' => 'required|string|max:255',
+        'email' => 'required|string|email|unique:users|max:255',
+        'password' => 'required|string|min:8|confirmed',
+
+
     ]);
 
-
-    // Validate the request data
-   // $validatedData = $request->validate($rules);
-
-    $institution_id = $request->institution_id;
-    //dd(institution_id)
-
-
-    if(isset($request->check_tutar) && $request->check_tutar == 1)
+    if ($v->fails())
     {
-
-      //teacher add //
-      $institution_id = $request->institution_id;
-        $role=2;
-
-
-
-                    $user= new User();
-                    $user->name = $request->name;
-
-                    $user->username = $request->username;
-                    $user->email = $request->email;
-                     $user->role = $role;
-                     $user->phone =  $request->phone; // Add 'phone' field
-                      $user->password = Hash::make( $request->password);
-                      $user->status = 'inactive';
-
-                       $user->save();
-
-                // dd($user);
-                // exit();
-
-                $user_id = $user->id;
-
-
-                //SystemSetting details
-
-                $system_settings = SystemSetting::first();
-
-                $student_default_subscription_day = $system_settings->student_default_subscription_day;
-                $teacher_default_subscription_day = $system_settings->teacher_default_subscription_day;
-                $institution_default_subscription_day = $system_settings->institution_default_subscription_day;
-                $default_country_id = $system_settings->default_country_id;
-                $default_city_id = $system_settings->default_city_id;
-
-
-                $start_date = Carbon::now();
-                $end_date = Carbon::now();
-                $user_type='Teacher';
-                $end_date = Carbon::now()->addDays($teacher_default_subscription_day);
-
-                            //insert user_details
-
-                $user_details = UserDetail::create([
-                    'user_type' => $user_type,
-                    'country_id' => $default_country_id,
-                    'city_id' => $default_city_id,
-                    'user_id' => $user_id,
-                    'created_by'=> $user_id,
-                    'user_type'=> $user_type,
-                    'subscription_start_date'=> $start_date,
-                    'subscription_end_date'=> $end_date
-                ]);
-
-                $institution_teacher = new InstitutionTeacher();
-                $institution_teacher->institution_id = $institution_id;
-                $institution_teacher->user_id = $user_id;
-                $institution_teacher->status = 'Pending';
-                $institution_teacher->created_by = $institution_id;
-
-                $institution_teacher->save();
-
-
+       return redirect()->back()
+            ->withErrors($v)
+            ->withInput();
 
 
     }
-    else
-    {
-              //student add //
-              $institution_id = $request->institution_id;
+else{
 
-                $role=1;
+     // Validate the request data
+   // $validatedData = $request->validate($rules);
 
-
-            $user= new User();
-            $user->name = $request->name;
-
-            $user->username = $request->username;
-            $user->email = $request->email;
-             $user->role = $role;
-             $user->phone =  $request->phone; // Add 'phone' field
-              $user->password = Hash::make( $request->password);
-            $user->save();
+   $institution_id = $request->institution_id;
+   //dd(institution_id)
 
 
-            $user_id = $user->id;
+   if(isset($request->check_tutar) && $request->check_tutar == 1)
+   {
+
+     //teacher add //
+     $institution_id = $request->institution_id;
+       $role=2;
 
 
-            //SystemSetting details
 
-            $system_settings = SystemSetting::first();
+                   $user= new User();
+                   $user->name = $request->name;
 
-            $student_default_subscription_day = $system_settings->student_default_subscription_day;
-            $teacher_default_subscription_day = $system_settings->teacher_default_subscription_day;
-            $institution_default_subscription_day = $system_settings->institution_default_subscription_day;
-            $default_country_id = $system_settings->default_country_id;
-            $default_city_id = $system_settings->default_city_id;
+                   $user->username = $request->username;
+                   $user->email = $request->email;
+                    $user->role = $role;
+                    $user->phone =  $request->phone; // Add 'phone' field
+                     $user->password = Hash::make( $request->password);
+                     $user->status = 'inactive';
 
+                      $user->save();
 
-            $start_date = Carbon::now();
-            $end_date = Carbon::now();
+               // dd($user);
+               // exit();
 
-
-            $user_type='Student';
-            $end_date = Carbon::now()->addDays($student_default_subscription_day);
-              //insert user_details
-
-            $user_details = UserDetail::create([
-                'user_type' => $user_type,
-                'country_id' => $default_country_id,
-                'city_id' => $default_city_id,
-                'user_id' => $user_id,
-                'created_by'=> $user_id,
-                'user_type'=> $user_type,
-                'subscription_start_date'=> $start_date,
-                'subscription_end_date'=> $end_date
-            ]);
-
-            $institution_student = new InstitutionStudent();
-            $institution_student->institution_id = $institution_id;
-            $institution_student->user_id = $user_id;
-            $institution_student->created_by = $institution_id;
-
-            $institution_student->save();
+               $user_id = $user->id;
 
 
- }
-    return view('theme.institution.login',['institution_id'=>$institution_id])->with('sucess', 'Your Registration Successfully');
+               //SystemSetting details
+
+               $system_settings = SystemSetting::first();
+
+               $student_default_subscription_day = $system_settings->student_default_subscription_day;
+               $teacher_default_subscription_day = $system_settings->teacher_default_subscription_day;
+               $institution_default_subscription_day = $system_settings->institution_default_subscription_day;
+               $default_country_id = $system_settings->default_country_id;
+               $default_city_id = $system_settings->default_city_id;
+
+
+               $start_date = Carbon::now();
+               $end_date = Carbon::now();
+               $user_type='Teacher';
+               $end_date = Carbon::now()->addDays($teacher_default_subscription_day);
+
+                           //insert user_details
+
+               $user_details = UserDetail::create([
+                   'user_type' => $user_type,
+                   'country_id' => $default_country_id,
+                   'city_id' => $default_city_id,
+                   'user_id' => $user_id,
+                   'created_by'=> $user_id,
+                   'user_type'=> $user_type,
+                   'subscription_start_date'=> $start_date,
+                   'subscription_end_date'=> $end_date
+               ]);
+
+               $institution_teacher = new InstitutionTeacher();
+               $institution_teacher->institution_id = $institution_id;
+               $institution_teacher->user_id = $user_id;
+               $institution_teacher->status = 'Pending';
+               $institution_teacher->created_by = $institution_id;
+
+               $institution_teacher->save();
+
+
+
+
+   }
+   else
+   {
+             //student add //
+             $institution_id = $request->institution_id;
+
+               $role=1;
+
+
+           $user= new User();
+           $user->name = $request->name;
+
+           $user->username = $request->username;
+           $user->email = $request->email;
+            $user->role = $role;
+            $user->phone =  $request->phone; // Add 'phone' field
+             $user->password = Hash::make( $request->password);
+           $user->save();
+
+
+           $user_id = $user->id;
+
+
+           //SystemSetting details
+
+           $system_settings = SystemSetting::first();
+
+           $student_default_subscription_day = $system_settings->student_default_subscription_day;
+           $teacher_default_subscription_day = $system_settings->teacher_default_subscription_day;
+           $institution_default_subscription_day = $system_settings->institution_default_subscription_day;
+           $default_country_id = $system_settings->default_country_id;
+           $default_city_id = $system_settings->default_city_id;
+
+
+           $start_date = Carbon::now();
+           $end_date = Carbon::now();
+
+
+           $user_type='Student';
+           $end_date = Carbon::now()->addDays($student_default_subscription_day);
+             //insert user_details
+
+           $user_details = UserDetail::create([
+               'user_type' => $user_type,
+               'country_id' => $default_country_id,
+               'city_id' => $default_city_id,
+               'user_id' => $user_id,
+               'created_by'=> $user_id,
+               'user_type'=> $user_type,
+               'subscription_start_date'=> $start_date,
+               'subscription_end_date'=> $end_date
+           ]);
+
+           $institution_student = new InstitutionStudent();
+           $institution_student->institution_id = $institution_id;
+           $institution_student->user_id = $user_id;
+           $institution_student->created_by = $institution_id;
+
+           $institution_student->save();
+
+
+}
+   return view('theme.institution.login',['institution_id'=>$institution_id])->with('sucess', 'Your Registration Successfully');
+
+}
+
 
 }
 

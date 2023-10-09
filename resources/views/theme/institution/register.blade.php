@@ -13,13 +13,14 @@
                         <!--Form-->
                         <form method="POST" class="teacher_student_register" action="{{ route('registerstore') }}">
                             @csrf
+                            @include('frontend.notification')
                             <input type="hidden" value="{{$institution_id}}" name="institution_id">
                             <div class="login-form">
                                 <div class="form-panel">
                                     <div class="columns is-multiline">
                                         <div class="column is-12">
                                             <div class="field">
-                                            @include('frontend.notification')
+
                                                 <label>Name</label>
                                                 <div class="control">
                                                      <input id="name" type="text" class="input" name="name" value="" required placeholder="Enter your name">
