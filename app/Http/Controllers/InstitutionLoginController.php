@@ -2466,7 +2466,7 @@ public function assigncoursetoteacher(Request $request)
 
 
 
- dd($data7);
+ //dd($data7);
 
 
 
