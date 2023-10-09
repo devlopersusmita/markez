@@ -124,9 +124,11 @@
                                     				{!!$subcription_package_list->descriptions!!}</p>
                                     			</div>
                                     			<div class="package-btn">
-
-                                    				<a href="{{ Route('subcription',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="subscription-btn">Choose Plan</a>
-
+                                                @if(Session::has('institute_name') != 1)
+                                    				<a href="{{ Route('instlogin') }}" class="subscription-btn">Choose Plan</a>
+                                                 @else
+                                                 <a href="{{ Route('institutionsubscription',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="subscription-btn">Choose Plan</a>
+                                                 @endif
                                     			</div>
 
                                     </div>
