@@ -2916,7 +2916,7 @@ public function registerstore(Request $request)
 
 
     // Validate the request data
-    $validatedData = $request->validate($rules);
+   // $validatedData = $request->validate($rules);
 
     $institution_id = $request->institution_id;
     //dd(institution_id)
