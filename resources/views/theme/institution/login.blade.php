@@ -21,6 +21,11 @@
                         <form method="POST" class="teacherstudent_login" action="{{ route('postteacherstudentlogin') }}">
                             @csrf
                             @include('frontend.notification')
+                                                                            @if (session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
                             <input type="hidden" value="{{$institution_id}}" name="institution_id">
                             <div class="login-form">
                                 <div class="form-panel">
