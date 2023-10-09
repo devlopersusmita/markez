@@ -2754,8 +2754,8 @@ public function institutionwebsite(Request $request,$id)
              ->select('courses.*')
              ->get();
 
-             $highratingcourse =Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1,'courses.institution_id'=>$id])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get()->count();
-             dd($highratingcourse);
+            //  $highratingcourse =Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1,'courses.institution_id'=>$id])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get()->count();
+            //  dd($highratingcourse);
      $current_date_time = date('Y-m-d');
      $categories=Category::where(['status'=>'active','institution_id'=>$id])->orderBy('id','desc')->limit(4)->get();
      $data7=Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1,'courses.institution_id'=>$id])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get();
