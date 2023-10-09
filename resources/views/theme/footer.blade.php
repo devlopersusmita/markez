@@ -13,7 +13,7 @@
 				<img  src="{{$company_settings->logo!= ''?asset($company_settings->logo):asset('assets/img/logo/friendkit-bold.svg')}}" alt="">
 					<p>{!!@$company_settings->footer_text!!}</p>
 					<ul>
-						<li><a href="#">Home</a></li>
+						<li><a href="{{ Route('home') }}">Home</a></li>
 						<li><a href="{{ route('allinstitutions') }}">Institutions List</a></li>
 						<li><a href="#subscribe">Pricing</a></li>
 						<li><a href="{{route('directaboutus')}}">About Us</a></li>
