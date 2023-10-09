@@ -2757,13 +2757,13 @@ public function institutionwebsite(Request $request,$id)
             //  $highratingcourse =Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1,'courses.institution_id'=>$id])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get()->count();
 
              $highSubscribedCourses = Course::leftJoin('course_subscriptions', 'courses.id', '=', 'course_subscriptions.course_id')
-    ->selectRaw('courses.*, COUNT(course_subscriptions.id) as subscription_count')
+
     ->where('courses.status', 'active')
     ->where('courses.visibility', 1)
     ->where('courses.institution_id', $id)
     ->whereDate('courses.start_date', '<=', now())
     ->groupBy('courses.id')
-    ->orderByDesc('subscription_count')
+
     ->get();
              dd($highSubscribedCourses);
             //  $coursecontent_typewisebutton = CourseContent::where('course_contents.course_id','=',$courseconid)->get();
