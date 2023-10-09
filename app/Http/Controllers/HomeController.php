@@ -2755,7 +2755,10 @@ public function institutionwebsite(Request $request,$id)
              ->get();
 
              $highratingcourse =Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1,'courses.institution_id'=>$id])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get()->count();
-             dd($highratingcourse);
+             //dd($highratingcourse);
+             $coursecontent_typewisebutton = CourseContent::where('course_contents.course_id','=',$courseconid)->get();
+             $data9=CourseSubscription::where(['user_id'=>$user_id])->orderBy('id','desc')->get();
+             dd($data9);
      $current_date_time = date('Y-m-d');
      $categories=Category::where(['status'=>'active','institution_id'=>$id])->orderBy('id','desc')->limit(4)->get();
      $data7=Course::leftjoin('categories','categories.id','=','courses.category_id')->where(['courses.status'=>'active','courses.visibility'=>1,'courses.institution_id'=>$id])->whereDate('courses.start_date', '<=', Carbon::now())->orderBy('courses.id','desc')->select('courses.*','categories.name as category_name')->get();
