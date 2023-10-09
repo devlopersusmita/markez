@@ -311,7 +311,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
             'auto_recording' => config('zoom.auto_recording')
         ]);
 
-        $meeting =  $user->meetings()->save($meeting);
+        $meeting =  User::meetings()->save($meeting);
 
              $created_by = $request->user_id;
 
