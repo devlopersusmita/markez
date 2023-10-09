@@ -24,10 +24,9 @@
                                                 <label>Name</label>
                                                 <div class="control">
                                                      <input id="name" type="text" class="input" name="name" value="" required placeholder="Enter your name">
-
-                                                                        @error('name')
-                        <p class="help is-danger">{{ $message }}</p>
-                    @enderror
+                                                     @if($errors->has('name'))
+                                <p class="help is-danger">{{ $errors->first('name') }}</p>
+                            @endif
                                                 </div>
                                             </div>
                                         </div>
