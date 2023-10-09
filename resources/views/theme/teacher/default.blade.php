@@ -1312,6 +1312,7 @@ $.ajax({
                console.log(data, "response");
 
 
+
                  $('#loading_course_meeting_add').hide();
 
                $('#course_meeting_add').html('Save');
