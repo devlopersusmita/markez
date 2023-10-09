@@ -125,7 +125,7 @@
                                     			</div>
                                     			<div class="package-btn">
 
-                                    				<a href="#" class="subscription-btn">Choose Plan</a>
+                                    				<a href="{{ Route('subcription',['institution_id'=> Session::get('institution_id'),'user_id'=> Session::get('user_id')]) }}" class="subscription-btn">Choose Plan</a>
 
                                     			</div>
 
