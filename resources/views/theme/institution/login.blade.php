@@ -24,17 +24,7 @@
                             <input type="hidden" value="{{$institution_id}}" name="institution_id">
                             <div class="login-form">
                                 <div class="form-panel">
-                                    <div class="field">
-                                                            @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
-                                                            </div>
+
                                     <div class="field">
                                         <label>Email</label>
                                         <div class="control">
