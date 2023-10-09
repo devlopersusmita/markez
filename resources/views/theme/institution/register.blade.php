@@ -17,6 +17,15 @@
                             <input type="hidden" value="{{$institution_id}}" name="institution_id">
                             <div class="login-form">
                                 <div class="form-panel">
+                                                        @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                     <div class="columns is-multiline">
                                         <div class="column is-12">
                                             <div class="field">
@@ -24,10 +33,7 @@
                                                 <label>Name</label>
                                                 <div class="control">
                                                      <input id="name" type="text" class="input" name="name" value="" required placeholder="Enter your name">
-                                                     @if($errors->has('name'))
-                                <p class="help is-danger">{{ $errors->first('name') }}</p>
-                            @endif
-                                                </div>
+                                            </div>
                                             </div>
                                         </div>
 
