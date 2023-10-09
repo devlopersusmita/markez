@@ -2907,7 +2907,7 @@ public function registerstore(Request $request)
     $v = Validator::make($request->all(),[
         'name' => 'required|string|max:255',
         'username' => 'required|string|max:255',
-        'phone' => 'required|string|max:255',
+        'phone' => 'required|string|max:15',
         'email' => 'required|string|email|unique:users|max:255',
         'password' => 'required|string|min:8|confirmed',
 
