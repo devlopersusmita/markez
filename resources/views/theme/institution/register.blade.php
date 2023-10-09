@@ -32,7 +32,7 @@
 
                                                 <label>Name</label>
                                                 <div class="control">
-                                                     <input id="name" type="text" class="input" name="name" value="" required placeholder="Enter your name">
+                                                     <input id="name" type="text" class="input" name="name" value="{{ old('name') }}" required placeholder="Enter your name">
                                             </div>
                                             </div>
                                         </div>
@@ -41,7 +41,7 @@
                                             <div class="field">
                                                 <label>User Name</label>
                                                 <div class="control">
-                                                     <input id="username" type="text" class="input" name="username" value="" required placeholder="Enter your username">
+                                                     <input id="username" type="text" class="input" name="username" value="{{ old('username') }}" required placeholder="Enter your username">
 
 
                                                 </div>
@@ -52,7 +52,7 @@
                                             <div class="field">
                                                 <label>Phone</label>
                                                 <div class="control">
-                                                    <input id="phone" type="number" class="input" name="phone" required autocomplete="phone" placeholder="Enter your phone number">
+                                                    <input id="phone" type="number" class="input" name="phone" value="{{ old('phone') }}"  required autocomplete="phone" placeholder="Enter your phone number">
 
                                                 </div>
                                             </div>
@@ -64,7 +64,7 @@
                                             <div class="field">
                                                 <label>Email</label>
                                                 <div class="control">
-                                                     <input id="email" type="email" class="input" name="email" value="" required autocomplete="email" placeholder="Enter your email address">
+                                                     <input id="email" type="email" class="input" name="email" value="{{ old('email') }}"  required autocomplete="email" placeholder="Enter your email address">
 
                                                 </div>
                                             </div>
