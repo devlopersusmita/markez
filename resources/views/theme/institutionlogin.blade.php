@@ -35,7 +35,7 @@
 							@enderror
 						</div>
 						<div class="form-group">
-							<p class="text-end"><a href="#">Forgot Password?</a></p>
+							<p class="text-end"><a href="{{ route('password.request') }}">Forgot Password?</a></p>
 						</div>
 						<button type="submit" class="btn-banner">Login</button>
 					</form>
