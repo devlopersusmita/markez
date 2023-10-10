@@ -338,9 +338,6 @@ public function attendancestore(Request $request,$id,$online_class_id)
             $online_classes->start_url = $meeting->start_url;
             $online_classes->join_url = $meeting->join_url;
 
-            return response()->json([
-                "online_classes"=>$online_classes
-            ]);
 
              if($online_classes->save()){
 
