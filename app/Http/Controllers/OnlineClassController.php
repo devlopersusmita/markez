@@ -274,11 +274,13 @@ public function attendancestore(Request $request,$id,$online_class_id)
         // Prepare the meeting data
         $meetingData = [
             'topic' => $request->topic,
-            'type' => 2, // Scheduled Meeting
+            'password' => $request->password,
             'start_time' => $request->start_time,
             'duration' => $request->duration,
             // Add other meeting settings as needed
         ];
+
+
 
         // Send a POST request to create a Zoom meeting
         $response = Http::withHeaders([
