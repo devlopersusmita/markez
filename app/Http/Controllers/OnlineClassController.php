@@ -251,7 +251,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
     }
     public function store(Request $request)
     {
-        $user_id = $request->user_id;
+        $user_id = 4;
          $v = Validator::make($request->all(),[
         'topic' => 'required',
         'start_time' =>'required',
