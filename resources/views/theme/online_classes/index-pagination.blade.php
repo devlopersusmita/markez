@@ -52,8 +52,9 @@
                                                 <?php
 
                                                     $P = 60*$teacher_online_class_before_minute;
-                                                    dd($P);
+                                                    //($P);
                                                     $X = 60*$online_classe['duration'];
+                                                    dd($X);
 
                                                  if((($B-$P) < $A) && ($A < ($B+$X))){
                                                      ?>
