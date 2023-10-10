@@ -30,6 +30,7 @@ use Session;
 
 use App\Models\Attendance;
 use App\Models\User;
+use Firebase\JWT\JWT; // Import JWT class
 
 
 class OnlineClassController extends Controller
