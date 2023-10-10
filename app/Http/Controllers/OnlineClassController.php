@@ -128,7 +128,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
        // $course_id = $id;
     //    $course_id = $id;
       // dd($course_id);
-      dd (env('ZOOM_CLIENT_KEY'));
+      //dd (env('ZOOM_CLIENT_KEY'));
 
       $user_id = $request->user_id;
       //dd($user_id);
