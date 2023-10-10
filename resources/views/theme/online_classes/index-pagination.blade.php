@@ -34,14 +34,17 @@
                                             {{$online_classe['topic']}}</td>
                                                 <td>{{$online_classe['start_at']}}</td>
                                                 <td>{{$online_classe['duration']}}</td>
-                                                <td>{{$online_classe['total_attendance']}} / {{$total_subscription}}
+                                                <td>
+                                                <input type="hidden" value="{{$user_id}}" name="user_id">
+            <input type="hidden" value="{{$institution_id}}" name="institution_id">
+                                                    {{$online_classe['total_attendance']}} / {{$total_subscription}}
 
                                                     <?php
                                                     if($A >= $B)
                                                     {
                                                         ?>
 
-                                                         <a  class="button is-solid primary-button raised"  href='{{Route("teacheronlineattendance",["id"=>$course_id,"content_id"=>$course_content_id,"online_class_id"=>$online_classe["id"]])}}' >Go</a>
+                                                         <a  class="button is-solid primary-button raised"  href='{{Route("teacheronlineattendance",["id"=>$course_id,"content_id"=>$course_content_id,"online_class_id"=>$online_classe["id"],"user_id"=>$user_id,"institution_id"=>$institution_id])}}' >Go</a>
                                                         <?php
 
                                                     }
