@@ -645,7 +645,7 @@ class UserDetailController extends Controller
 
 
 
-   $institutions=Institution::where('payment_type','=','paid')->orderBy('institutions.id','desc')->get();
+   $institutions=Institution::where('payment_status','=','paid')->orderBy('institutions.id','desc')->get();
    //dd($institutions);
 
      $thearray = [];
