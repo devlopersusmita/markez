@@ -1299,7 +1299,7 @@ $.ajax({
     },
     //data: $('#postForm').serialize(),
     url:baseurl + '/online_classes_store',
-    //alert(url);
+    alert(url);
      method:"POST",
      //data:new FormData(this),
      data:form_data,
