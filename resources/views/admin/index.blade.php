@@ -225,7 +225,7 @@
 
                         <div class="inner">
 
-                            <h3>{{\App\Models\UserVisitor::::get()->count()}}</h3>
+                            <h3>{{\App\Models\UserVisitor::get()->count()}}</h3>
 
                             <p>Payments</p>
 
