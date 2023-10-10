@@ -65,8 +65,8 @@
 
 
 
-                                <input type="text" value="{{$user_id}}" name="teacher_id">
-                                                    <input type="text" value="{{$institution_id}}" name="institution_id">
+                                <input type="hidden" value="{{$user_id}}" name="teacher_id">
+                                                    <input type="hidden" value="{{$institution_id}}" name="institution_id">
 
 
 <div id="message_id"></div>
