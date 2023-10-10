@@ -222,7 +222,7 @@
 		<h2>Highest Ratings Courses</h2>
 		<div class="row">
         @foreach($popular_courses as $popular_course)
-			<div class="col-lg-3 col-md-6">
+			<div class="col-lg-3 col-md-6 course-grid-row">
 				<div class="course-grid">
                 @if(($popular_course->preview_image) && (file_exists($popular_course->preview_image)))
                                                             <img src="{{asset($popular_course->preview_image)}}" alt="">

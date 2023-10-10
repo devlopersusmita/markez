@@ -644,6 +644,10 @@ body {
     padding-top: 13px;
 }
 
+.course-grid-row {
+    margin-bottom: 20px;
+}
+
 .course-grid {
     margin-top: 12px;
     border: 1px solid #d9d1d1;
