@@ -1167,7 +1167,8 @@ $(document).on('click', '.coursecontentdelete_modal', function () {
     var newCourseForm = $('.add-new-course');
      var editCourseForm = $('.edit-new-course');
 
-      var newMeetingForm = $('.add-new-meeting');
+
+
 
 
   if (newCourseForm.length) {
@@ -1269,94 +1270,60 @@ $(document).on('click', '.coursecontentdelete_modal', function () {
             });
   }
 
+  // start zoom class create 10.10.23 //
+  var newMeetingForm = $('.add-new-meeting');
   if (newMeetingForm.length) {
-
-
     newMeetingForm.on('submit', function (e) {
+        e.preventDefault();
 
-      e.preventDefault();
+        $('#course_meeting_add').html('Sending..');
 
-// console.log(baseurl)
+        var formData = new FormData(this);
+        $('#loading_course_meeting_add').show();
 
-$('#course_meeting_add').html('Sending..');
+        var form_data = new FormData(this);
 
-
-var formData = new FormData(this);
-//   newurl = baseurl.replaceAll(" ",'') + '/institutioncoursestore'
-
- $('#loading_course_meeting_add').show();
-
-var form_data = new FormData(this);
-
-
-
-$.ajax({
-    beforeSend: function(){
-      $('.ajax-loader').css("visibility", "visible");
-    },
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-    //data: $('#postForm').serialize(),
-    url:baseurl + '/online_classes_store',
-    alert(url);
-     method:"POST",
-     //data:new FormData(this),
-     data:form_data,
-               dataType:'JSON',
-               contentType: false,
-               cache: false,
-               processData: false,
-              success: function (data) {
-               //var responce = data.data[0];
-               console.log(data, "response");
-
-
-
-                 $('#loading_course_meeting_add').hide();
-
-               $('#course_meeting_add').html('Save');
-               //RefreshTable()
-                   //alert(JSON.stringify(data));
-                  // $('#modals-add-meeting').reset();
-                 // $("#modals-add-meeting").load(location.href + " #modals-add-meeting");
-
-
-                    $('#search_btn').trigger('click');
-                //  $('body').removeClass('modal-open');
-                // $('body').css('padding-right', '0px');
-                // $('.modal-backdrop').remove();
-                $('#topic').val('');
-                 $('#start_time').val('');
-                $('#duration').val('');
-
-              // $('#modals-add-meeting').hide();
-                $('#modals-add-meeting').modal('hide');
-
-
-              },
-              error: function (data) {
-                console.log(data, "error response");
-                  alert(JSON.stringify(data));
-                  $('#course_meeting_add').html('Save Changes');
-
-                   //newGameSidebar.modal('hide');
+        $.ajax({
+            beforeSend: function () {
+                $('.ajax-loader').css("visibility", "visible");
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: baseurl + '/online_classes_store',
+            method: "POST", // Use POST method here
+            data: form_data,
+            dataType: 'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function (data) {
+                console.log(data, "response");
+                $('#loading_course_meeting_add').hide();
+                $('#course_meeting_add').html('Save');
                 $('#search_btn').trigger('click');
-                 $('body').removeClass('modal-open');
+                $('#topic').val('');
+                $('#start_time').val('');
+                $('#duration').val('');
+                $('#modals-add-meeting').modal('hide');
+            },
+            error: function (data) {
+                console.log(data, "error response");
+                alert(JSON.stringify(data));
+                $('#course_meeting_add').html('Save Changes');
+                $('#search_btn').trigger('click');
+                $('body').removeClass('modal-open');
                 $('body').css('padding-right', '0px');
                 $('.modal-backdrop').remove();
-                 $('#loading_course_meeting_add').hide();
-
-              } ,
-              complete: function(){
+                $('#loading_course_meeting_add').hide();
+            },
+            complete: function () {
                 $('.ajax-loader').css("visibility", "hidden");
-                 //$('#loading_course_meeting_add').hide();
-              }
-          });
-
-
+            }
+        });
     });
-  }
+}
+  // End  zoom class create 10.10.23 //
 
 //   function RefreshTable() {
 //        $( ".tableid1" ).load( `${baseurl + '/online_classes_store'} .tableid1` );
