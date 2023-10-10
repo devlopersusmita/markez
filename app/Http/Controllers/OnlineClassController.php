@@ -320,11 +320,9 @@ public function attendancestore(Request $request,$id,$online_class_id)
         ]);
 
         $meeting =  $user->meetings()->save($meeting);
-        return response()->json([
-            "meeting"=>$meeting
-        ]);
 
-             $created_by = $request->user_id;
+
+             $created_by = $user_id;
 
             $online_classes = new online_classe();
             $online_classes->course_id = $request->course_id;
@@ -339,6 +337,10 @@ public function attendancestore(Request $request,$id,$online_class_id)
             $online_classes->password = $meeting->password;
             $online_classes->start_url = $meeting->start_url;
             $online_classes->join_url = $meeting->join_url;
+
+            return response()->json([
+                "online_classes"=>$online_classes
+            ]);
 
              if($online_classes->save()){
 
