@@ -279,7 +279,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
     // return response()->json([
     //     "user_id"=>$user_id
     // ]);
-    $user = Zoom::user()->find(4);
+    $user = Zoom::user()->first($user_id);
 
     return response()->json([
         "user"=>$user
