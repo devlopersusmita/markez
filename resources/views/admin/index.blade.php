@@ -227,7 +227,7 @@
 
                             <h3>{{\App\Models\UserVisitor::get()->count()}}</h3>
 
-                            <p>Payments</p>
+                            <p>Visitors</p>
 
                         </div>
 
