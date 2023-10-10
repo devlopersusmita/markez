@@ -80,26 +80,45 @@
 
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 
+
                     </div>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-3 col-6">
+
+                    <!-- small box -->
+
                     <div class="small-box bg-info">
 
-<div class="inner">
+                        <div class="inner">
 
-    <h3>{{\App\Models\User::where('role',2)->count()}}</h3>
+                            <h3>{{\App\Models\User::where('role',2)->count()}}</h3>
 
-    <p>Teachers</p>
+                            <p>Teachers</p>
 
-</div>
+                        </div>
 
-<div class="icon">
+                        <div class="icon">
 
-    <i class="ion ion-bag"></i>
+                            <i class="ion ion-bag"></i>
 
-</div>
+                        </div>
 
-<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 
-</div>
+
+                    </div>
+
                 </div>
 
 
