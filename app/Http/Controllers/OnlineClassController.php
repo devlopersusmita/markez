@@ -83,7 +83,7 @@ class OnlineClassController extends Controller
 
 
          $user_deatils = CourseSubscription::leftJoin('users','users.id','=','course_subscriptions.user_id')->where('course_subscriptions.course_id',$course_id)->orderBy('users.id')->get();
-         //dd($user_deatils);
+         dd($user_deatils);
 
        return view('theme.teacher.attendance',['coursecontents'=>$coursecontents,'user_deatils'=>$user_deatils,'online_class_id'=>$online_class_id,'all_attendance_user'=>$all_attendance_user,'course_id'=>$course_id,'course_content_id'=>$course_content_id,'course_details'=>$course_details,'course_content_details'=>$course_content_details,'online_class_details'=>$online_class_details,'user_id'=>$user_id,'institution_id'=>$institution_id]);
 
