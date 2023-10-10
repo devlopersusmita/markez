@@ -55,10 +55,7 @@
                                                     //dd($P);
                                                     $X = 60*$online_classe['duration'];
                                                     //dd($X);
-                                                    var_dump($current_date_time);
-                                                    var_dump($B);
-                                                    var_dump($P);
-                                                    var_dump($X);
+
                                                  if((($B-$P) < $A) && ($A < ($B+$X))){
                                                      ?>
                                                     <a  class="button is-solid blue-button raised" href="{{$online_classe['start_url']}}" target="_blank">Start</a>
