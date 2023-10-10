@@ -43,7 +43,11 @@ class OnlineClassController extends Controller
 
     public function onlineattendance(Request $request,$id,$content_id,$online_class_id)
     {
-        $user_id = Auth::id();
+        //$user_id = Auth::id();
+        $user_id = $request->user_id;
+        //dd($user_id);
+         dd($institution_id =$request->institution_id);
+
 
       $course_id = $id;
 
