@@ -252,105 +252,95 @@ public function attendancestore(Request $request,$id,$online_class_id)
     public function store(Request $request)
     {
         $user_id = $request->user_id;
-         $v = Validator::make($request->all(),[
-        'topic' => 'required',
-        'start_time' =>'required',
-        'duration' =>'required',
 
-
-    ]);
-
-    if ($v->fails())
-    {
-       //return redirect()->route('create.category')->withInput()->with('error',$v->messages());
-       return redirect()->back()->withErrors($v)->withInput();
-    }
-    else
-    {
-    }
-
-
-
-         //$meeting = $this->createMeeting($request);
-
-            //  $user = Zoom::user()->first();
-                // Retrieve the Zoom user
-        // Find the Zoom user by user_id
-    $user =Zoom::user()->get($user_id);
-
-            /*  $user = Zoom::user()->create([
-                    'first_name' => 'First Name',
-                    'last_name' => 'Last Name',
-                    'email' => 'test@test.com',
-                    'password' => 'Aa@12345'
-                ]);
-
-             Session::flash('success', 'mmm');
-
-             return response()->json([
-              'message' => 'mmm'
-            ]);
-            */
-
-
-        $meetingData = [
-            'topic' => $request->topic,
-            'duration' => $request->duration,
-            'password' => $request->password,
-            'start_time' => $request->start_time,
-            'timezone' => config('zoom.timezone')
-          // 'timezone' => 'Africa/Cairo'
-        ];
-        $meeting = Zoom::meeting()->make($meetingData);
-
-        $meeting->settings()->make([
-            'join_before_host' => false,
-            'host_video' => false,
-            'participant_video' => false,
-            'mute_upon_entry' => true,
-            'waiting_room' => true,
-            'approval_type' => config('zoom.approval_type'),
-            'audio' => config('zoom.audio'),
-            'auto_recording' => config('zoom.auto_recording')
+        // Validate the request
+        $v = Validator::make($request->all(), [
+            'topic' => 'required',
+            'start_time' => 'required',
+            'duration' => 'required',
         ]);
 
-        $meeting =  $user->meetings()->save($meeting);
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v)->withInput();
+        }
 
-             $created_by = $request->user_id;
+        // Your Zoom API credentials
+        $api_key = 'your_zoom_api_key';
+        $api_secret = 'your_zoom_api_secret';
 
-            $online_classes = new online_classe();
-            $online_classes->course_id = $request->course_id;
+        // Generate a JWT token for Zoom API authentication
+        $token = generateZoomJWTToken($api_key, $api_secret);
 
+        // Find the Zoom user by user_id
+        $user = getUserFromZoom($user_id, $token);
 
-            $online_classes->course_content_id = $request->course_content_id;
-            $online_classes->user_id = $created_by;
-            $online_classes->meeting_id = $meeting->id;
-            $online_classes->topic = $request->topic;
-            $online_classes->start_at = $request->start_time;
-            $online_classes->duration = $meeting->duration;
-            $online_classes->password = $meeting->password;
-            $online_classes->start_url = $meeting->start_url;
-            $online_classes->join_url = $meeting->join_url;
-
-             if($online_classes->save()){
-
-                // $data7=online_classe::leftJoin('courses', 'courses.id', '=', 'online_classes.course_id')->leftJoin('course_contents', 'course_contents.id', '=', 'online_classes.course_content_id')->orderBy('online_classes.id','desc')->where(['online_classes.user_id'=>$user_id])->select('online_classes.*','courses.title as course_title','course_contents.title as coursecontent_title')->get();
-
-             Session::flash('success', 'successfully zoom meeting created!');
-
-             return response()->json([
-              'message' => 'successfully zoom meeting created!'
-            //   'data'=> $data7
+        if (!$user) {
+            Session::flash('error', 'User not found on Zoom.');
+            return response()->json([
+                'message' => 'User not found on Zoom.',
             ]);
-            }else{
-                 Session::flash('error', 'Something wrong!');
-                 return response()->json([
-                      'message' => 'Something wrong!',
+        }
 
-                    ]);
-            }
+        // Rest of your code to create a Zoom meeting and save it to the database
+        // ...
+
+
+        $created_by = $request->user_id;
+
+        $online_classes = new online_classe();
+        $online_classes->course_id = $request->course_id;
+
+
+        $online_classes->course_content_id = $request->course_content_id;
+        $online_classes->user_id = $created_by;
+        $online_classes->meeting_id = $meeting->id;
+        $online_classes->topic = $request->topic;
+        $online_classes->start_at = $request->start_time;
+        $online_classes->duration = $meeting->duration;
+        $online_classes->password = $meeting->password;
+        $online_classes->start_url = $meeting->start_url;
+        $online_classes->join_url = $meeting->join_url;
+
+         if($online_classes->save()){
+
+            // $data7=online_classe::leftJoin('courses', 'courses.id', '=', 'online_classes.course_id')->leftJoin('course_contents', 'course_contents.id', '=', 'online_classes.course_content_id')->orderBy('online_classes.id','desc')->where(['online_classes.user_id'=>$user_id])->select('online_classes.*','courses.title as course_title','course_contents.title as coursecontent_title')->get();
+
+         Session::flash('success', 'successfully zoom meeting created!');
+
+         return response()->json([
+          'message' => 'successfully zoom meeting created!'
+        //   'data'=> $data7
+        ]);
+        }else{
+             Session::flash('error', 'Something wrong!');
+             return response()->json([
+                  'message' => 'Something wrong!',
+
+                ]);
+        }
+
     }
 
+    // Function to retrieve a user from Zoom by user_id
+    function getUserFromZoom($user_id, $token)
+    {
+        try {
+            return Zoom::user()->get($user_id);
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+
+    // Function to generate a JWT token for Zoom API authentication
+    function generateZoomJWTToken($apiKey, $apiSecret)
+    {
+        $payload = [
+            'iss' => $apiKey,
+            'exp' => strtotime('+1 hour'),
+        ];
+
+        return \Firebase\JWT\JWT::encode($payload, $apiSecret, 'HS256');
+    }
     /**
      * Display the specified resource.
      *
