@@ -85,17 +85,7 @@
 
                 </div>
 
-
-
-
-
-
-
-            </div>
-
-            <!-- end student -->
-               <!-- tatal teacher -->
-            <div class="row">
+                <!-- tatal teacher -->
 
                 <div class="col-lg-3 col-6">
 
@@ -122,18 +112,18 @@
 
                     </div>
 
+
+
+
+
+
+
+
                 </div>
+                <!-- end student -->
 
 
-
-
-
-
-
-            </div>
-               <!-- end student -->
-               <!--total institution -->
-            <div class="row">
+                  <!--total institution -->
 
                 <div class="col-lg-3 col-6">
 
@@ -162,60 +152,40 @@
 
                 </div>
 
+            <!-- end institution -->
 
+             <!--total payment -->
 
+            <div class="col-lg-3 col-6">
 
+                <!-- small box -->
 
+                <div class="small-box bg-info">
 
+                    <div class="inner">
 
-            </div>
-               <!-- end institution -->
+                        <h3>{{\App\Models\Payment::orderBy('id','asc')->get()->sum('amount')}}</h3>
 
-               <!--total payment -->
+                        <p>Payments</p>
 
+                    </div>
 
-                <div class="row">
+                    <div class="icon">
 
-                        <div class="col-lg-3 col-6">
+                        <i class="ion ion-bag"></i>
 
-                            <!-- small box -->
+                    </div>
 
-                            <div class="small-box bg-info">
-
-                                <div class="inner">
-
-                                    <h3>{{\App\Models\Payment::orderBy('id','asc')->get()->sum('amount')}}</h3>
-
-                                    <p>Payments</p>
-
-                                </div>
-
-                                <div class="icon">
-
-                                    <i class="ion ion-bag"></i>
-
-                                </div>
-
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-
-
-                            </div>
-
-                        </div>
-
-
-
-
-
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 
 
                 </div>
 
-                <!-- end payment -->
+            </div>
 
+            <!-- end payment -->
 
-                <!-- total visitors -->
-            <div class="row">
+            <!-- total visitors -->
 
                 <div class="col-lg-3 col-6">
 
@@ -244,17 +214,13 @@
 
                 </div>
 
+            <!-- end visitors -->
 
+            </div>
 
+            <!-- end student -->
 
-
-
-
-           </div>
-                <!-- end visitors -->
             <!-- /.row -->
-
-
 
         </div><!-- /.container-fluid -->
 
