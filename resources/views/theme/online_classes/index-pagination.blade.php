@@ -52,7 +52,7 @@
                                                 <?php
 
                                                     $P = 60*$teacher_online_class_before_minute;
-                                                    ($P);
+                                                    dd($P);
                                                     $X = 60*$online_classe['duration'];
                                                     //dd($X);
 
