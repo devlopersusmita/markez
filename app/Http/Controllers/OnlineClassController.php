@@ -265,8 +265,8 @@ public function attendancestore(Request $request,$id,$online_class_id)
         }
 
         // Your Zoom API credentials
-        $api_key = 'your_zoom_api_key';
-        $api_secret = 'your_zoom_api_secret';
+        $api_key =  env('ZOOM_CLIENT_KEY');
+        $api_secret =  env('ZOOM_CLIENT_SECRET');
 
         // Generate a JWT token for Zoom API authentication
         $token = generateZoomJWTToken($api_key, $api_secret);
