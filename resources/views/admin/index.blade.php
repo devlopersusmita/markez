@@ -250,7 +250,7 @@
 
 
 
-                </div>
+           </div>
                 <!-- end visitors -->
             <!-- /.row -->
 
