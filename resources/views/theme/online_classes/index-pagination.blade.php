@@ -26,7 +26,7 @@
 
 
                                                 <td>
-                                                <?php 
+                                                <?php
                                                   $current_date_time = date('Y-m-d H:i:s');
                                                    $A = strtotime($current_date_time);
                                                     $B = strtotime($online_classe['start_at']);
@@ -36,13 +36,13 @@
                                                 <td>{{$online_classe['duration']}}</td>
                                                 <td>{{$online_classe['total_attendance']}} / {{$total_subscription}}
 
-                                                    <?php 
+                                                    <?php
                                                     if($A >= $B)
                                                     {
                                                         ?>
-                                                        
+
                                                          <a  class="button is-solid primary-button raised"  href='{{Route("teacheronlineattendance",["id"=>$course_id,"content_id"=>$course_content_id,"online_class_id"=>$online_classe["id"]])}}' >Go</a>
-                                                        <?php 
+                                                        <?php
 
                                                     }
                                                     ?>
@@ -50,8 +50,9 @@
                                                 </td>
                                                 <td class="text-danger">
                                                 <?php
-                                               
+
                                                     $P = 60*$teacher_online_class_before_minute;
+                                                    dd($P);
                                                     $X = 60*$online_classe['duration'];
 
                                                  if((($B-$P) < $A) && ($A < ($B+$X))){
