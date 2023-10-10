@@ -145,7 +145,7 @@
 									</a>
 
 									<a href="{{ route('institutionsystem', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="{{ Request::routeIs('institutionsystem') ? 'submenu-active-link' : '' }}">
-										<img class="metismenu-icon" src="//icon-arrow-right2.svg">
+										<img class="metismenu-icon" src="/images/icon-arrow-right2.svg">
 										System Settings
 										<img class="metismenu-state-icon" src="/images/setting-icon.svg">
 									</a>
