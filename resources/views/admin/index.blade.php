@@ -55,7 +55,7 @@
              </div>
 
             <!-- Small boxes (Stat box) -->
-
+<!--total student  -->
             <div class="row">
 
                 <div class="col-lg-3 col-6">
@@ -92,6 +92,9 @@
 
 
             </div>
+
+            <!-- end student -->
+               <!-- tatal teacher -->
             <div class="row">
 
                 <div class="col-lg-3 col-6">
@@ -128,42 +131,127 @@
 
 
             </div>
+               <!-- end student -->
+               <!--total institution -->
             <div class="row">
 
-<div class="col-lg-3 col-6">
+                <div class="col-lg-3 col-6">
 
-    <!-- small box -->
+                    <!-- small box -->
 
-    <div class="small-box bg-info">
+                    <div class="small-box bg-info">
 
-        <div class="inner">
+                        <div class="inner">
 
-            <h3>{{\App\Models\User::where('role',3)->count()}}</h3>
+                            <h3>{{\App\Models\User::where('role',3)->count()}}</h3>
 
-            <p>Institutions</p>
+                            <p>Institutions</p>
 
-        </div>
+                        </div>
 
-        <div class="icon">
+                        <div class="icon">
 
-            <i class="ion ion-bag"></i>
+                            <i class="ion ion-bag"></i>
 
-        </div>
+                        </div>
 
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-
-
-    </div>
-
-</div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 
 
+                    </div>
+
+                </div>
 
 
 
 
 
-</div>
+
+
+            </div>
+               <!-- end institution -->
+
+               <!--total payment -->
+
+
+                <div class="row">
+
+                        <div class="col-lg-3 col-6">
+
+                            <!-- small box -->
+
+                            <div class="small-box bg-info">
+
+                                <div class="inner">
+
+                                    <h3>{{\App\Models\Payment::orderBy('id','asc')->get()->sum('amount')}}</h3>
+
+                                    <p>Payments</p>
+
+                                </div>
+
+                                <div class="icon">
+
+                                    <i class="ion ion-bag"></i>
+
+                                </div>
+
+                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+                </div>
+
+                <!-- end payment -->
+
+
+                <!-- total visitors -->
+            <div class="row">
+
+                <div class="col-lg-3 col-6">
+
+                    <!-- small box -->
+
+                    <div class="small-box bg-info">
+
+                        <div class="inner">
+
+                            <h3>{{\App\Models\UserVisitor::::get()->count()}}</h3>
+
+                            <p>Payments</p>
+
+                        </div>
+
+                        <div class="icon">
+
+                            <i class="ion ion-bag"></i>
+
+                        </div>
+
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                </div>
+                <!-- end visitors -->
             <!-- /.row -->
 
 
