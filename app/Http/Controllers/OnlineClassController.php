@@ -281,9 +281,7 @@ public function attendancestore(Request $request,$id,$online_class_id)
     // ]);
     $user = Zoom::user()->first($user_id);
 
-    return response()->json([
-        "user"=>$user
-    ]);
+
             /*  $user = Zoom::user()->create([
                     'first_name' => 'First Name',
                     'last_name' => 'Last Name',
@@ -308,6 +306,9 @@ public function attendancestore(Request $request,$id,$online_class_id)
           // 'timezone' => 'Africa/Cairo'
         ];
         $meeting = Zoom::meeting()->make($meetingData);
+        return response()->json([
+            "meeting"=>$meeting
+        ]);
 
         $meeting->settings()->make([
             'join_before_host' => false,
