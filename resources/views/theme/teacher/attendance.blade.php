@@ -104,7 +104,7 @@
                                 <input type="hidden" id="user_id" value="{{$user_deatil->id}}"/>
                                 <input type="hidden" id="oline_id" value="{{$online_class_id}}" />
                                 <label class="f-switch is-primary ">
-                                <input type="text" value="{{$user_id}}" name="user_id">
+                                <input type="text" value="{{$user_id}}" name="teacher_id">
                                                     <input type="text" value="{{$institution_id}}" name="institution_id">
                                     <input type="checkbox" class="is-switch attendance_check_box"  data-onlineid="{{$online_class_id}}" <?php if(in_array($user_deatil->id,$all_attendance_user)){echo "checked";} ?>  data-id="{{$user_deatil->id}}" >
                                     <i></i>
