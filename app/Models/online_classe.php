@@ -17,5 +17,9 @@ class online_classe extends Model
         return $this->belongsTo('App\Models\Course', 'course_id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
 }
