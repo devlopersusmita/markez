@@ -633,7 +633,7 @@ class UserDetailController extends Controller
 
     {
       $coursesubcriptions = CourseSubscription::find($id);
-        
+
         return json_encode(array('status'=>'ok','data'=>$coursesubcriptions));
 
 
@@ -645,7 +645,7 @@ class UserDetailController extends Controller
 
 
 
-   $institutions=Institution::orderBy('institutions.id','desc')->get();
+   $institutions=Institution::where('payment_type','=','paid')->orderBy('institutions.id','desc')->get();
    //dd($institutions);
 
      $thearray = [];
