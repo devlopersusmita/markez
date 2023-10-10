@@ -50,7 +50,10 @@
                                                 </td>
                                                 <td class="text-danger">
                                                 <?php
-
+                                                var_dump($current_date_time);
+                                                var_dump($B);
+                                                var_dump($P);
+                                                var_dump($X);
                                                     $P = 60*$teacher_online_class_before_minute;
                                                     //dd($P);
                                                     $X = 60*$online_classe['duration'];
