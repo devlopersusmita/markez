@@ -51140,6 +51140,7 @@ td.course_status_row span {
 
 form.reject_form {
     display: inline-block;
+    margin-left: 10px;
 }
 
 
