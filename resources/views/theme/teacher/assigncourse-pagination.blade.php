@@ -38,7 +38,7 @@
 @if ($course_teacher['status'] === 'approve')
                                 <button class="button is-solid green-button raised"  style="cursor: pointer;" disabled>Approved</button>
 
-                        <form action="{{route('courseassigndecline', $course_teacher['id'])}}" method="POST">
+                        <form class="reject_form" action="{{route('courseassigndecline', $course_teacher['id'])}}" method="POST">
                                 @csrf
                                 <button class="button is-solid red-button raised" style="cursor: pointer;">Reject</button>
                         </form>
@@ -56,7 +56,7 @@
                         <button class="button is-solid green-button raised"  style="cursor: pointer;">Approve</button>
             </form>
 
-            <form action="{{route('courseassigndecline', $course_teacher['id'])}}" method="POST">
+            <form class="reject_form" action="{{route('courseassigndecline', $course_teacher['id'])}}" method="POST">
                     @csrf
                     <button class="button is-solid red-button raised" style="cursor: pointer;" >Reject</button>
             </form>
