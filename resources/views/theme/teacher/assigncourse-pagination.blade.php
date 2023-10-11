@@ -11,10 +11,10 @@
 
         <thead>
             <tr>
-            <th>Teacher Name</th>
+                <th>Teacher Name</th>
                 <th>Course Name</th>
-
                 <th>Status</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>

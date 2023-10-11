@@ -51130,9 +51130,16 @@ td.course_status_row form {
     display: inline-block;
 }
 
-td.course_status_row span{
+td.course_status_row span {
     display: inline-block;
     margin-right: 15px;
+}
+
+
+/* 11/10/2023 */
+
+form.reject_form {
+    display: inline-block;
 }
 
 
