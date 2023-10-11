@@ -34,7 +34,7 @@
 
 
                         </td>
-                        <td>
+                        <td style="text-align: right;">
 @if ($course_teacher['status'] === 'approve')
                                 <button class="button is-solid green-button raised"  style="cursor: pointer;" disabled>Approved</button>
 
