@@ -36,29 +36,29 @@
                         </td>
                         <td>
 @if ($course_teacher['status'] === 'approve')
-                                <button class="btn btn-success" disabled>Approved</button>
+                                <button class="button is-solid green-button raised"  style="cursor: pointer;" disabled>Approved</button>
 
                         <form action="{{route('courseassigndecline', $course_teacher['id'])}}" method="POST">
                                 @csrf
-                                <button class="btn btn-danger">Reject</button>
+                                <button class="button is-solid red-button raised" style="cursor: pointer;">Reject</button>
                         </form>
  @elseif ($course_teacher['status'] === 'reject')
                     <form action="{{route('courseassignapprove', $course_teacher['id'])}}" method="POST">
                                         @csrf
                             <!-- Form fields and submit button -->
-                            <button class="btn btn-success" >Approve</button>
+                            <button class="button is-solid green-button raised"  style="cursor: pointer;" >Approve</button>
                 </form>
-                        <button class="btn btn-danger" disabled>Rejected</button>
+                        <button class="button is-solid red-button raised" style="cursor: pointer;" disabled>Rejected</button>
 @else
             <form action="{{route('courseassignapprove', $course_teacher['id'])}}" method="POST">
                                     @csrf
                         <!-- Form fields and submit button -->
-                        <button class="btn btn-success" >Approve</button>
+                        <button class="button is-solid green-button raised"  style="cursor: pointer;">Approve</button>
             </form>
 
             <form action="{{route('courseassigndecline', $course_teacher['id'])}}" method="POST">
                     @csrf
-                    <button class="btn btn-danger" >Reject</button>
+                    <button class="button is-solid red-button raised" style="cursor: pointer;" >Reject</button>
             </form>
 @endif
                 </td>
