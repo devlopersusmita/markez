@@ -47,13 +47,7 @@
 							</div>
 						</div>
 
-                                <div class="form-group row">
-                    <label for="input" class="col-2 col-form-label">Input</label>
-                    <div class="col-10">
-                        <input type="text" name="input" class="form-control" placeholder="          ">
-                        <small class="form-text text-muted">Separate keywords with a comma, space bar, or enter key</small>
-                    </div>
-                </div>
+
 
 						<div class="select-theme">
 							<h3>Choose Theme</h3>
