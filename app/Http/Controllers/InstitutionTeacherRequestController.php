@@ -94,6 +94,10 @@ class InstitutionTeacherRequestController extends Controller
     $user_details = UserDetail::where('user_id', $data->student_id)->first();
     $user_details->user_type = 'Teacher';
     $user_details->save();
+
+
+
+
     return redirect()->back(); //Redirect user somewhere
  }
 
