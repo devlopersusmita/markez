@@ -82,7 +82,7 @@ class InstitutionTeacherRequestController extends Controller
    {
        //dd($id);
     $data = InstitutionTeacherRequest::findorfail($id);
-    dd($data);
+    //dd($data);
 
     $data->status = 'approve'; //Approved
     $data->save();
