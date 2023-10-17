@@ -286,7 +286,8 @@ class StudentController extends Controller
 
         $course_content_quiz_details = Quiz::where('id',$course_content_quiz_id)->first();
         $all_q_id_array = explode(',', $course_content_quiz_details->all_questions);
-        $user_id = Auth::id();
+        //$user_id = Auth::id();
+        $user_id = Session::get('user_id');
         $data7=Question::
          orderBy('id','desc')
           ->whereIn('id',$all_q_id_array)
@@ -2210,7 +2211,13 @@ class StudentController extends Controller
 
         $institution_teacher_request->save();
 
+        $institution_teacher = new InstitutionTeacher();
+        $institution_teacher->institution_id = $institution_id;
+        $institution_teacher->user_id = $user_id;
+        $institution_teacher->status = 'Pending';
+        $institution_teacher->created_by = $institution_id;
 
+        $institution_teacher->save();
 
 
 
