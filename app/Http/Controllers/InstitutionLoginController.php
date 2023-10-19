@@ -1991,11 +1991,11 @@ else{
                     $user_ids = $request->user_id;
                 }
            // dd($user_id,$user_ids);
-           dd((Session::has('user_role')));
+           //dd((Session::has('user_role')));
 
-             if(Auth::user())
+             if(Session::has('user_role'))
             {
-            $user_id = Auth::user()->id;
+            $user_id = $user_id;
 
 
             }
@@ -2017,11 +2017,11 @@ else{
         */
 
 
-       if(($user_id > 0)  &&  (Auth::user()->role == '3'))
+       if(($user_id > 0)  &&  (Session::get('user_role') == '3'))
         {
 
                 $current_date = date('Y-m-d H:i:s');
-                $user_details = UserDetail::where('user_id',$user_id)->first();
+                $user_details = UserDetail::where('institution_id',$user_id)->first();
                 $subscription_end_date = $user_details->subscription_end_date;
                 $days = $institution_subscription_package->days;
                 if(strtotime($current_date) >= strtotime($subscription_end_date)){
@@ -2034,7 +2034,7 @@ else{
 
 
                  $order_details = new Order();
-                    $order_details->user_id = $user_id;
+                    $order_details->institution_id = $user_id;
                     $order_details->institution_subcription_package_id = $id;
                     $order_details->status = 'Pending';
                     $order_details->total = $institution_subscription_package->price;
@@ -2043,7 +2043,9 @@ else{
                     $order_details->end_date =$end_date;
                     $order_details->type = 'subcription';
 
-                    $order_details->created_by = $user_id;
+                    $order_details->created_by = $user_ids;
+                    $order_details->user_id = $user_ids;
+
                     $order_details->save();
 
 
