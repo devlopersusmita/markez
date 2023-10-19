@@ -58,7 +58,7 @@
         <p>{{$institution_subscription_package->title}}</p>
 
         <p>Days : {{$institution_subscription_package->days}}</p>
-        <p>Price : {{$institution_subscription_package->price}}{{env('CURRENCY')}}</p>
+        <p>Price : {{$institution_subscription_package->price}}SAR</p>
         <?php /* ?>
          <form action="{{Route('coursesubscriptionpay')}}" method="POST"   enctype="multipart/form-data" >
            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -147,7 +147,7 @@
 
         // Required
         //publishable_api_key: 'pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP',
-        publishable_api_key: "{{ env('MOYASAR_PUBLISHABLE_KEY') }}",
+        publishable_api_key: 'pk_test_jW7KSk9zJtgn4Nu7TuQHjn4tCX9riNhRw85KWNfP',
 
 
 
