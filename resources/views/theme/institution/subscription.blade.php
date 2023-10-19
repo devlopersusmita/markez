@@ -38,16 +38,16 @@
 
             <a href="{{ URL::to('/#subscribe') }}" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;" >View Plan</a>
 
-                        <?php
-            use Carbon\Carbon;
+            <?php
 
-            $currentDate = Carbon::now();
-            $endDate = Carbon::parse($subscription['end_date']);
-            $sevenDaysBefore = $endDate->copy()->subDays(7);
 
-            if ($currentDate < $sevenDaysBefore) { ?>
-                <a href="#" class="button is-solid green-button raised" data-toggle="modal" style="cursor: pointer;">Renew</a>
-            <?php } ?>
+$currentDate = Carbon\Carbon::now();
+$endDate = Carbon\Carbon::parse($subscription['end_date']);
+$sevenDaysBefore = $endDate->copy()->subDays(7);
+
+if ($currentDate < $sevenDaysBefore) { ?>
+    <a href="" class="button is-solid green-button raised" data-toggle="modal" style="cursor: pointer;">Renew</a>
+<?php } ?>
 
 
                     </td>
