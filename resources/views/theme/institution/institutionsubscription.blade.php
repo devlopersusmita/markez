@@ -90,6 +90,9 @@
          if($order_details->status !='Paid')
          {
             ?>
+
+    <input type="text" value="{{$institution_id}}" name="institution_id">
+    <input type="text" value="{{$user_id}}" name="user_id">
             <div class="mysr-form"></div>
             <?php
 
@@ -106,10 +109,12 @@
     <?php
  if($order_details->status !='Paid')
  {
+
     ?>
  <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>
     <script src="https://cdn.moyasar.com/mpf/1.7.3/moyasar.js"></script>
 <script>
+
     var baseurl ="{{url('/')}}";
 
     var total = "{{$order_details->total}}";
