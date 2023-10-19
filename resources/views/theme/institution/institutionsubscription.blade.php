@@ -91,8 +91,8 @@
          {
             ?>
 
-    <input type="text" value="{{$institution_id}}" name="institution_id">
-    <input type="text" value="{{$user_id}}" name="user_id">
+    <input type="text" value="{{$user_id}}" name="institution_id">
+    <input type="text" value="{{$user_ids}}" name="user_id">
             <div class="mysr-form"></div>
             <?php
 
