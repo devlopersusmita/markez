@@ -30,7 +30,7 @@
                                         <td>{{$institutionsubscriptionpackage->title}}</td>
                                         <td>    {{$institutionsubscriptionpackage->days}}</td>
                                         <td>{{$institutionsubscriptionpackage->price}}SAR</td>
-                                        <td><a href="{{Route('institutionsubscription',['id'=>$institutionsubscriptionpackage['id']])}}" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;">Pay</a></td>
+                                        <td><a href="{{Route('institutionsubscription',['id'=>$institutionsubscriptionpackage['id'],'institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']])}}" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;">Pay</a></td>
                                     </tr>
                                     @endforeach
         </tbody>
