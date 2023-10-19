@@ -1990,7 +1990,8 @@ else{
                 } else {
                     $user_ids = $request->user_id;
                 }
-            dd($user_id,$user_ids);
+           // dd($user_id,$user_ids);
+           dd((Session::has('user_role')));
 
              if(Auth::user())
             {
@@ -2047,11 +2048,11 @@ else{
 
 
 
-             return view('theme.institution.institutionsubscription',['user_id'=>$user_id,'institution_subscription_package'=>$institution_subscription_package,'id'=>$id,'order_details'=>$order_details]);
+             return view('theme.institution.institutionsubscription',['user_id'=>$user_id,'user_ids'=>$user_ids,'institution_subscription_package'=>$institution_subscription_package,'id'=>$id,'order_details'=>$order_details]);
         }
         else
         {
-            return view('theme.institution.institutionsubscriptionnotaccessible',['user_id'=>$user_id,'institution_subscription_package'=>$institution_subscription_package,'id'=>$id]);
+            return view('theme.institution.institutionsubscriptionnotaccessible',['user_id'=>$user_id,'user_ids'=>$user_ids,'institution_subscription_package'=>$institution_subscription_package,'id'=>$id]);
         }
 
 
