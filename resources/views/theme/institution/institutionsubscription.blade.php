@@ -91,8 +91,8 @@
          {
             ?>
 
-    <input type="text" value="{{$user_id}}" name="institution_id">
-    <input type="text" value="{{$user_ids}}" name="user_id">
+    <input type="hidden" value="{{$user_id}}" name="institution_id">
+    <input type="hidden" value="{{$user_ids}}" name="user_id">
             <div class="mysr-form"></div>
             <?php
 
@@ -160,7 +160,7 @@
         // This URL is used to redirect the user when payment process has completed
         // Payment can be either a success or a failure, which you need to verify on you system (We will show this in a couple of lines)
         //callback_url: baseurl+'/orders',
-        callback_url: "{{route('payment.callback',['order'=>$order_details->id])}}",
+        callback_url: "{{route('payment.callback',['order'=>$order_details->id,'institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']])}}",
 
 
 
