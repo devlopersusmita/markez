@@ -1946,8 +1946,20 @@ else{
     public function institutionsubcription(Request $request)
     {
 
-       $user_id=Auth::id();
-       $user_details = UserDetail::where('user_id',$user_id)->first();
+       //$user_id=Auth::id();
+       if($request->institution_id == null) {
+        $user_id = $_GET['institution_id'];
+    } else {
+        $user_id = $request->institution_id;
+    }
+//userstable id//
+    if($request->user_id == null) {
+        $user_ids = $_GET['user_id'];
+    } else {
+        $user_ids = $request->user_id;
+    }
+
+       $user_details = UserDetail::where('institution_id',$user_id)->first();
         $subcription_enddate = $user_details->subscription_end_date;
 
             $end_date = date('d-m-Y',strtotime($subcription_enddate));
@@ -1957,7 +1969,7 @@ else{
 
 
 
-        return view('theme.institution.subcription',['user_details'=>$user_details,'subcription_enddate'=>$subcription_enddate,'end_date'=>$end_date,'institutionsubscriptionpackages'=>$institutionsubscriptionpackages]);
+        return view('theme.institution.subcription',['user_details'=>$user_details,'user_id'=>$user_id,'user_ids'=>$user_ids,'subcription_enddate'=>$subcription_enddate,'end_date'=>$end_date,'institutionsubscriptionpackages'=>$institutionsubscriptionpackages]);
 
     }
 
