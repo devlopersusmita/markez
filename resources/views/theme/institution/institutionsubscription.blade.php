@@ -1,8 +1,7 @@
 @extends('theme.institution.default')
-
 @section('content')
-
- <?php
+<div class="app-main">
+<?php
  if($order_details->status !='Paid')
  {
     ?>
@@ -15,144 +14,96 @@
 
      }
      ?>
+@include('theme.institution.sidebar')
 
- <div class="view-wrapper">
+<div class="app-main__outer">
+   <div class="app-main__inner">
 
-        <!-- Container -->
-        <div class="container is-custom">
+    <div class="category-top-row">
+      <h2>Institution Subscription</h2>
 
-            <!- <div class="view-wrapper">
+    </div>
 
-                <!-- Container -->
-         <div class="container is-custom">
+    <div class="table-responsive category-table">
+     <!-- tab start --->
+     <div id="shop-page" class="shop-wrapper">
 
-             <!-- Profile page main wrapper -->
-             <div id="profile-about" class="view-wrap is-headless">
-                 <div class="columns is-multiline no-margin">
-                     <!-- Left side column -->
-                     <div class="column is-paddingless">
-                         <!-- Timeline Header -->
+@if(session()->has('message'))
+    <div class="box-heading margin_top_10 margin_bottom_10">
+        <h4>{{ session()->get('message') }}</h4>
 
-                     </div>
+    </div>
+@endif
+@if(session()->has('success'))
+    <div class="box-heading margin_top_10 margin_bottom_10">
+        <h4>{{ session()->get('success') }}</h4>
 
-                 </div>
+    </div>
+@endif
+@if(session()->has('error'))
+    <div class="box-heading margin_top_10 margin_bottom_10">
+        <h4>{{ session()->get('error') }}</h4>
 
-                 <div class="column">
-
-                     <!-- About sections -->
-                     <div class="profile-about side-menu">
-                         @include('theme.institution.sidebar')
-                         <div class="right-content">
-                            <div class="groups-grid padding_0">
-
-                                <div class="grid-header">
-                                    <div class="header-inner">
-                                        <h2>Institution Subscription</h2>
-                                        <div class="header-actions">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <!-- tab start --->
-                            <div id="shop-page" class="shop-wrapper">
-
-                                @if(session()->has('message'))
-                                    <div class="box-heading margin_top_10 margin_bottom_10">
-                                        <h4>{{ session()->get('message') }}</h4>
-
-                                    </div>
-                                @endif
-                                @if(session()->has('success'))
-                                    <div class="box-heading margin_top_10 margin_bottom_10">
-                                        <h4>{{ session()->get('success') }}</h4>
-
-                                    </div>
-                                @endif
-                                @if(session()->has('error'))
-                                    <div class="box-heading margin_top_10 margin_bottom_10">
-                                        <h4>{{ session()->get('error') }}</h4>
-
-                                    </div>
-                                @endif
+    </div>
+@endif
 
 
 
-                                <div class="store-sections">
-                                    <div class="container">
+<div class="store-sections">
+    <div class="container">
 
-                                   <!-- {{$order_details}}
-                                    {{$institution_subscription_package}}  -->
+   <!-- {{$order_details}}
+    {{$institution_subscription_package}}  -->
 
-                                        <p>{{$institution_subscription_package->title}}</p>
+        <p>{{$institution_subscription_package->title}}</p>
 
-                                        <p>Days : {{$institution_subscription_package->days}}</p>
-                                        <p>Price : {{$institution_subscription_package->price}}{{env('CURRENCY')}}</p>
-                                        <?php /* ?>
-                                         <form action="{{Route('coursesubscriptionpay')}}" method="POST"   enctype="multipart/form-data" >
-                                           <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                            <input type="hidden" name="id" value="{{$id}}" />
-
-
-                                             <?php
-                                             if($data_exist >0)
-                                             {
-                                                ?>
-                                                 <div class="button is-solid green-button"  >
-                                                    Subscribed
-                                                </div>
-                                                <?php
-
-                                             }
-                                             else
-                                             {
-                                                ?>
-                                                <button type="submit" class="button is-solid accent-button" name="Pay Confirm" >Pay Confirm</button>
-                                                <?php
-                                             }
-                                             ?>
-
-                                         </form>
-                                         <?php */ ?>
-
-                                         <?php
-                                         if($order_details->status !='Paid')
-                                         {
-                                            ?>
-                                            <div class="mysr-form"></div>
-                                            <?php
-
-                                         }
-                                         ?>
+        <p>Days : {{$institution_subscription_package->days}}</p>
+        <p>Price : {{$institution_subscription_package->price}}{{env('CURRENCY')}}</p>
+        <?php /* ?>
+         <form action="{{Route('coursesubscriptionpay')}}" method="POST"   enctype="multipart/form-data" >
+           <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <input type="hidden" name="id" value="{{$id}}" />
 
 
-                                    </div>
-                                </div>
-                            </div>
+             <?php
+             if($data_exist >0)
+             {
+                ?>
+                 <div class="button is-solid green-button"  >
+                    Subscribed
+                </div>
+                <?php
 
-                            <!--tab end --->
+             }
+             else
+             {
+                ?>
+                <button type="submit" class="button is-solid accent-button" name="Pay Confirm" >Pay Confirm</button>
+                <?php
+             }
+             ?>
+
+         </form>
+         <?php */ ?>
+
+         <?php
+         if($order_details->status !='Paid')
+         {
+            ?>
+            <div class="mysr-form"></div>
+            <?php
+
+         }
+         ?>
 
 
-
-                         </div>
-
-                     </div>
-                 </div>
-             </div>
-
-            </div>
-                 </div>
-
-
-
-
-
-
-
+    </div>
 </div>
-<?php
+</div>
+
+<!--tab end --->
+    </div>
+    <?php
  if($order_details->status !='Paid')
  {
     ?>
@@ -220,5 +171,10 @@
 
  }
  ?>
+    @endsection
 
-@endsection
+
+
+
+
+
