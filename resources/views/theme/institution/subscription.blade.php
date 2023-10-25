@@ -39,14 +39,14 @@
             <a href="{{ URL::to('/#subscribe') }}" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;" >View Plan</a>
 
             <?php
-                    $current_date_time = Carbon\Carbon::now();
+dd($current_date_time = Carbon\Carbon::now());
                     $current_date_time->toDateString();
                     $end_date =  strtotime($subscription['end_date']);
                     $end_date =  date('Y-m-d',$end_date);
                     $seven_days_before = date('Y-m-d', strtotime('-7 day', strtotime($end_date)));
 
 
-                    if($current_date_time >= $seven_days_before ){?>
+                    if($current_date_time > $seven_days_before ){?>
                            <a href="{{ route('subcription', ['institution_id' => $_GET['institution_id'],'user_id'=>$_GET['user_id']]) }}" class="button is-solid green-button raised" data-toggle="modal"   style="cursor: pointer;" >Renew</a>
                     <?php } ?>
 
