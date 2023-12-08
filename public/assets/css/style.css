@@ -2995,7 +2995,11 @@ td.form_edit_btn {
     font-weight: 600 !important;
 }
 
-
+/* footer-logo */
+.footer-top img{
+height:100px;
+}
+/* footer logo */
 /* Responsive CSS  */
 
 @media only screen and (max-width: 1440px) {
